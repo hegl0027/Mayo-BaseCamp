@@ -1,10 +1,7 @@
 - build
---- watches
 --- jsdoc
 --- gulp protractor
 --- gulp karma
---- todo
----
 - ng-annotate
 - date picker
 - datetime picker
@@ -20,11 +17,12 @@
 --- buttons
 --- element states
 --- inline buttons
---- icononography
---- typopgraphy
+--- iconography
+--- typography
 - responsive flex based grid
 - table
 - responsive table
-- autocomplete
+- type ahead
 - list
 - tree
+- accessibility
