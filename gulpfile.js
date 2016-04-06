@@ -13,15 +13,25 @@ function getTask(task, subdir) {
 
 
 /* main build tasks */
-gulp.task('images', [], getTask('app-images', 'images'));
+gulp.task('images', [], getTask('app-images', 'assets'));
+gulp.task('fonts', getTask('app-fonts', 'assets'));
+
+
 gulp.task('html', [], getTask('app-html', 'html'));
-//gulp.task('inject', ['html'], getTask('inject'));
-gulp.task('js', ['js-quality'], getTask('app-js', 'js'));
+//gulp.task('inject', ['html'], getTask('inject', 'html'));
+gulp.task('app-js', ['js-quality'], getTask('app-js', 'js'));
 gulp.task('js-fix', ['fixmyjs', 'jsbeautify']);
 gulp.task('js-quality', ['jscpd', 'jshint', 'jscs', 'complexity']);
-gulp.task('styles', ['scsslint'], getTask('app-styles', 'styles'));
+gulp.task('app-styles', ['scsslint'], getTask('app-styles', 'styles'));
 gulp.task('bower-js', getTask('bower-js', 'js'));
 gulp.task('bower-styles', getTask('bower-styles', 'styles'));
+
+
+/* wrappers */
+gulp.task('assets', ['images', 'fonts']);
+gulp.task('js', ['app-js', 'js-quality', 'bower-js']);
+gulp.task('styles', ['app-styles', 'bower-styles']);
+gulp.task('docs', ['jsdoc', 'angular-jsdoc', 'todo']);
 
 
 /* static analysis */
@@ -52,11 +62,11 @@ gulp.task('clean', getTask('clean'));
 
 
 /* build it all!!! */
-gulp.task('build', ['html', 'images', 'js', 'styles', 'bower-js', 'bower-styles', 'jsdoc', 'angular-jsdoc', 'todo']);
+gulp.task('build', ['html', 'js', 'styles', 'assets', 'docs']);
 
 
 /* default task executed when using cli 'gulp' */
-gulp.task('default', ['clean', 'build']);
+gulp.task('default', ['build']);
 
 
 /* fire up the watch */
