@@ -4,11 +4,11 @@
  * Application entry module
  * todo: stip out angular routing
  */
-angular.module('myApp', [
+angular.module('app', [
     'ngRoute',
-    'myApp.view1',
-    'myApp.view2',
-    'myApp.version'
+    'app.view1',
+    'app.view2',
+    'app.version'
 ]).
 config(['$routeProvider', function($routeProvider) {
     $routeProvider.otherwise({redirectTo: '/view1'});

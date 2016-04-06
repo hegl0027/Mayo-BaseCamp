@@ -3,7 +3,7 @@
  * @ngdoc module
  * @name myapp.view1
  */
-angular.module('myApp.view1', ['ngRoute'])
+angular.module('app.view1', ['ngRoute'])
 
 .config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/view1', {
