@@ -5,5 +5,5 @@ module.exports = function (gulp, plugins) {
         gulp.src(['app/**/*.js'])
             .pipe(plato.inspect(['app/**/*.js']))
             .pipe(gulp.dest('.'));
-    }
-}
+    };
+};

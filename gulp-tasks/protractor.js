@@ -12,5 +12,5 @@ module.exports = function (gulp, plugins) {
             .on('error', function(e) {
                 console.error(e);
             });
-    }
-}
+    };
+};

@@ -7,5 +7,5 @@ module.exports = function (gulp, plugins) {
             ), {relative: true})
             .pipe(gulp.dest('dist'));
 
-    }
-}
+    };
+};

@@ -4,7 +4,6 @@ module.exports = function (gulp, plugins) {
             .pipe(plugins.beautify({
                 'space_after_anon_function': true
             }))
-            .pipe(gulp.dest('app/'));
-    }
-
-}
+            .pipe(gulp.dest('app'));
+    };
+};

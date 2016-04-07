@@ -14,5 +14,5 @@ module.exports = function (gulp, plugins) {
             .pipe(plugins.uglify())
             .pipe(plugins.sourcemaps.write('.'))
             .pipe(gulp.dest('dist/js'));
-    }
-}
+    };
+};

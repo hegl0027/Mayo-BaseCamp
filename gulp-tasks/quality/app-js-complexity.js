@@ -4,5 +4,5 @@ module.exports = function (gulp, plugins) {
             .pipe(plugins.complexity({
                 breakOnErrors: false
             }));
-    }
+    };
 };

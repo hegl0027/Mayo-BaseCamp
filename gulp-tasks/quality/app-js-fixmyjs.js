@@ -3,5 +3,5 @@ module.exports = function (gulp, plugins) {
         gulp.src(['app/**/*.js'])
             .pipe(plugins.fixmyjs())
             .pipe(gulp.dest('app'));
-    }
-}
+    };
+};

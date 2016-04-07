@@ -11,5 +11,5 @@ module.exports = function (gulp, plugins) {
             }))
             .pipe(plugins.plumber.stop())
             .pipe(gulp.dest('dist/images'));
-    }
-}
+    };
+};

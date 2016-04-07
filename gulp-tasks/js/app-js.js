@@ -12,5 +12,5 @@ module.exports = function (gulp, plugins) {
             .pipe(plugins.rename('app.min.js'))
             .pipe(plugins.sourcemaps.write('.'))
             .pipe(gulp.dest('dist/js'));
-    }
-}
+    };
+};

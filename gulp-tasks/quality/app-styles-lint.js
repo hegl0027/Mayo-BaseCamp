@@ -4,5 +4,5 @@ module.exports = function (gulp, plugins) {
             .pipe(plugins.scssLint({
                 config: '.scsslint.yml'
             }));
-    }
-}
+    };
+};

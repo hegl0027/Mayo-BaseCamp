@@ -1,7 +1,7 @@
 'use strict';
 /**
  * @ngdoc module
- * @name myapp.view1
+ * @name app.view1
  */
 angular.module('app.view1', ['ngRoute'])
 

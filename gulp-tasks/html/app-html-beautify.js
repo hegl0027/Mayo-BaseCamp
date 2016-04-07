@@ -5,6 +5,5 @@ module.exports = function (gulp, plugins) {
         gulp.src(['app/**/*.html'])
             .pipe(beautify())
             .pipe(gulp.dest('./app/'));
-    }
-
-}
+    };
+};

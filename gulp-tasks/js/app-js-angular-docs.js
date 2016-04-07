@@ -7,5 +7,5 @@ module.exports = function (gulp, plugins) {
             '-t node_modules/angular-jsdoc/angular-template ' +
             '-d dist/docs/angular ' +
             '-r --verbose');
-    }
-}
+    };
+};
