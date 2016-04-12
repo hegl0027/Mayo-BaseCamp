@@ -19,8 +19,6 @@
         ","
     ],
     "disallowMixedSpacesAndTabs": true,
-    "disallowTrailingWhitespace": true,
-    "requireTrailingComma": { "ignoreSingleLine": true },
     "requireSpaceAfterComma": true,
     "disallowYodaConditions": true,
     "disallowKeywords": [ "with" ],
@@ -45,7 +43,6 @@
     "requireSpaceAfterBinaryOperators": true,
     "requireCamelCaseOrUpperCaseIdentifiers": { "ignoreProperties": true },
     "requireDollarBeforejQueryAssignment": true,
-    "requireLineFeedAtFileEnd": true,
     "requireCapitalizedConstructors": true,
     "requireDotNotation": true,
     "requireSpacesInForStatement": true,
@@ -73,10 +70,9 @@
     "requirePaddingNewLinesAfterBlocks": true,
     "requireSemicolons": true,
     "requireShorthandArrowFunctions": true,
-    "requireSpacesInsideImportedObjectBraces": true,
     "safeContextKeyword": "_this",
     "validateLineBreaks": "LF",
     "validateQuoteMarks": { "mark": "'", "escape": true, "ignoreJSX": true },
-    "validateIndentation": 2,
+    "validateIndentation": 4,
     "maximumLineLength": 100
 }

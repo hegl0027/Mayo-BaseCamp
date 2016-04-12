@@ -22,7 +22,7 @@ gulp.task('images', [], function () {
             progressive: true,
             svgoPlugins: [{ removeViewBox: false }],
             use: [pngquant()],
-            optimizationLevel: 5
+            optimizationLevel: 3
         }))
         .pipe(plugins.plumber.stop())
         .pipe(gulp.dest('dist/images'));
@@ -180,7 +180,7 @@ gulp.task('bower-styles', [], function () {
 
 gulp.task('jsdoc', plugins.shell.task([
     'node_modules/jsdoc/jsdoc.js app -r -d docs/jsdoc'
-]))
+]));
 
 
 gulp.task('angular-jsdoc', plugins.shell.task([
@@ -198,6 +198,16 @@ gulp.task('todo', [], function () {
 });
 
 
+/**
+ * LINES OF CODE
+ */
+
+gulp.task('js-sloc', function () {
+    return gulp.src(['app/**/*.js', '!app/**/*_test.js'])
+        .pipe(plugins.sloc());
+});
+
+
 
 /**
  * CLEANUP
@@ -205,7 +215,7 @@ gulp.task('todo', [], function () {
 
 gulp.task('clean', function () {
     var del = require('del');
-    
+
     return del('dist');
 });
 
@@ -258,8 +268,11 @@ gulp.task('protractor', [], function () {
  * WRAPPERS
  */
 
-gulp.task('assets', ['images', 'fonts']);
-gulp.task('quality', ['jscpd', 'js-complexity', 'jscs', 'scsslint', 'jshint']);
+gulp.task('assets', function (cb) {
+    runSequence(['images', 'fonts'], cb);
+});
+
+gulp.task('quality', ['jscpd', 'js-sloc', 'js-complexity', 'jscs', 'scsslint', 'jshint']);
 gulp.task('docs', ['todo', 'angular-jsdoc', 'jsdoc']);
 
 
@@ -267,8 +280,8 @@ gulp.task('docs', ['todo', 'angular-jsdoc', 'jsdoc']);
 /**
  *  BUILD IT ALL!!!
  */
-gulp.task('build', [], function () {
-    runSequence('clean', 'quality', 'assets', 'html', 'js', 'styles');
+gulp.task('build', [], function (cb) {
+    runSequence('clean', ['assets', 'html', 'js', 'styles'], 'quality', cb);
 });
 
 
