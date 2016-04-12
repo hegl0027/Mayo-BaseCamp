@@ -1,77 +1,279 @@
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
+var runSequence = require('run-sequence');
 
 
-/* helper to require tasks from ./gulp-tasks/** */
-function getTask(task, subdir) {
-    if (!subdir) {
-        return require('./gulp-tasks/' + task)(gulp, plugins);
-    } else {
-        return require('./gulp-tasks/' + subdir + '/' + task)(gulp, plugins);
-    }
-}
+
+/**
+ * ASSETS
+ */
+
+gulp.task('fonts', [], function () {
+    return gulp.src(['app/fonts/**/*', '!app/fonts/**/*.txt'])
+        .pipe(gulp.dest('dist/fonts'));
+});
+
+gulp.task('images', [], function () {
+    var pngquant = require('imagemin-pngquant');
+
+    return gulp.src(['app/images/**/*'])
+        .pipe(plugins.plumber())
+        .pipe(plugins.imagemin({
+            progressive: true,
+            svgoPlugins: [{ removeViewBox: false }],
+            use: [pngquant()],
+            optimizationLevel: 5
+        }))
+        .pipe(plugins.plumber.stop())
+        .pipe(gulp.dest('dist/images'));
+});
 
 
-/* main build tasks */
-gulp.task('images', [], getTask('app-images', 'assets'));
-gulp.task('fonts', getTask('app-fonts', 'assets'));
+
+/**
+ * HTML
+ */
+
+gulp.task('html', [], function () {
+    return gulp.src(['app/**/*.html'])
+        .pipe(gulp.dest('dist'));
+});
+
+gulp.task('html-beautify', [], function () {
+    var beautify = require('js-beautify').html;
+
+    return gulp.src(['app/**/*.html'])
+        .pipe(beautify())
+        .pipe(gulp.dest('./app/'));
+});
 
 
-gulp.task('html', [], getTask('app-html', 'html'));
-//gulp.task('inject', ['html'], getTask('inject', 'html'));
-gulp.task('app-js', ['js-quality'], getTask('app-js', 'js'));
-gulp.task('js-fix', ['fixmyjs', 'jsbeautify']);
-gulp.task('js-quality', ['jscpd', 'jshint', 'jscs', 'complexity']);
-gulp.task('app-styles', ['scsslint'], getTask('app-styles', 'styles'));
-gulp.task('bower-js', getTask('bower-js', 'js'));
-gulp.task('bower-styles', getTask('bower-styles', 'styles'));
+
+/**
+ * JS
+ */
+
+gulp.task('js', [], function () {
+    return gulp.src(['app/**/*.js', '!app/**/*_test.js'])
+        .pipe(plugins.sourcemaps.init())
+        .pipe(plugins.angularFilesort())
+        .pipe(plugins.ngAnnotate())
+        .pipe(plugins.concat('app.js'))
+        .pipe(gulp.dest('dist/js'))
+        .pipe(plugins.uglify())
+        .pipe(plugins.rename('app.min.js'))
+        .pipe(plugins.sourcemaps.write('.'))
+        .pipe(gulp.dest('dist/js'));
+});
+
+gulp.task('bower-js', [], function () {
+    var gulpFilter = require('gulp-filter');
+    var filterJS = gulpFilter('**/*.js', { restore: true });
+
+    return gulp.src('bower.json')
+        .pipe(plugins.mainBowerFiles())
+        .pipe(filterJS)
+        .pipe(plugins.sourcemaps.init())
+        .pipe(plugins.concat('vendor.js'))
+        .pipe(gulp.dest('dist/js'))
+        .pipe(plugins.rename('vendor.min.js'))
+        .pipe(plugins.uglify())
+        .pipe(plugins.sourcemaps.write('.'))
+        .pipe(gulp.dest('dist/js'));
+});
+
+gulp.task('js-fix', [], function () {
+    return gulp.src(['app/**/*.js'])
+        .pipe(plugins.fixmyjs())
+        .pipe(gulp.dest('app'));
+});
+
+gulp.task('js-jsbeautify', [], function () {
+    return gulp.src(['app/**/*.js'])
+        .pipe(plugins.beautify({
+            'space_after_anon_function': true
+        }))
+        .pipe(gulp.dest('app'));
+});
+
+gulp.task('jscpd', [], function () {
+    return gulp.src(['app/**/*.js'])
+        .pipe(plugins.plumber())
+        .pipe(plugins.jscpd({
+            'min-lines': 10,
+            verbose: true,
+            silent: false
+        }))
+        .pipe(plugins.plumber.stop());
+});
+
+gulp.task('jshint', [], function () {
+    return gulp.src(['app/**/*.js'])
+        .pipe(plugins.jshint())
+        .pipe(plugins.jshint.reporter('jshint-stylish'));
+});
+
+gulp.task('jscs', [], function () {
+    return gulp.src(['app/**/*.js'])
+        .pipe(plugins.jscs())
+        .pipe(plugins.jscs.reporter());
+});
+
+gulp.task('js-complexity', [], function () {
+    return gulp.src(['app/**/*.js'])
+        .pipe(plugins.complexity({
+            breakOnErrors: false
+        }));
+});
 
 
-/* wrappers */
+
+/**
+ * STYLES
+ */
+
+gulp.task('styles', [], function () {
+    return plugins.rubySass(['app/**/*.scss'])
+        .pipe(plugins.sourcemaps.init())
+        .on('error', plugins.rubySass.logError)
+        .pipe(plugins.concat('app.css'))
+        .pipe(plugins.autoprefixer())
+        .pipe(gulp.dest('dist/css'))
+        .pipe(plugins.rename('app.min.css'))
+        .pipe(plugins.cssnano())
+        .pipe(plugins.sourcemaps.write('.'))
+        .pipe(gulp.dest('dist/css'));
+});
+
+gulp.task('scsslint', [], function () {
+    return gulp.src(['app/**/*.scss', '!app/**/*_reset.scss'])
+        .pipe(plugins.scssLint({
+            config: '.scsslint.yml'
+        }));
+});
+
+gulp.task('bower-styles', [], function () {
+    var gulpFilter = require('gulp-filter');
+    var filterStyles = gulpFilter('**/*.css', { restore: true });
+
+    return gulp.src('bower.json')
+        .pipe(plugins.mainBowerFiles())
+        .pipe(filterStyles)
+        .pipe(plugins.sourcemaps.init())
+        .pipe(plugins.concat('vendor.css'))
+        .pipe(gulp.dest('dist/css'))
+        .pipe(plugins.rename('vendor.min.css'))
+        .pipe(plugins.csso({
+            restructure: false,
+            sourceMap: true,
+            debug: true
+        }))
+        .pipe(plugins.sourcemaps.write('.'))
+        .pipe(gulp.dest('dist/css'));
+});
+
+
+
+/**
+ * DOCS
+ */
+
+gulp.task('jsdoc', plugins.shell.task([
+    'node_modules/jsdoc/jsdoc.js app -r -d docs/jsdoc'
+]))
+
+
+gulp.task('angular-jsdoc', plugins.shell.task([
+    'node_modules/jsdoc/jsdoc.js app ' +
+    '-c node_modules/angular-jsdoc/common/conf.json ' +
+    '-t node_modules/angular-jsdoc/angular-template ' +
+    '-d docs/angular ' +
+    '-r --verbose'
+]));
+
+gulp.task('todo', [], function () {
+    return gulp.src(['app/**/*.js', 'e2e-tests/**/*.js'])
+        .pipe(plugins.todo())
+        .pipe(gulp.dest('.'));
+});
+
+
+
+/**
+ * CLEANUP
+ */
+
+gulp.task('clean', function () {
+    var del = require('del');
+    
+    return del('dist');
+});
+
+
+
+/**
+ *  WATCHES
+ */
+
+gulp.task('watch', function () {
+    var jsWatch = gulp.watch('app/**/*.js', ['app-js']);
+    var htmlWatch = gulp.watch('app/**/*.html'['html']);
+    var scssWatch = gulp.watch('app/**/*.scss', ['app-styles']);
+
+    jsWatch.on('change', function (event) {
+        console.log('File ' + event.path + ' was ' + event.type + ', running js tasks...');
+    });
+
+    htmlWatch.on('change', function (event) {
+        console.log('File ' + event.path + ' was ' + event.type + ', running html tasks...');
+    });
+
+    scssWatch.on('change', function (event) {
+        console.log('File ' + event.path + ' was ' + event.type + ', running sass tasks...');
+    });
+});
+
+
+
+/**
+ * TESTS
+ */
+
+gulp.task('protractor', [], function () {
+    return gulp.src(['e2e-tests/**/*.js'])
+        .pipe(plugins.angularProtractor({
+            configFile: 'e2e-tests/protractor.conf.js',
+            debug: true,
+            autoStartStopServer: true,
+            args: []
+        }))
+        .on('error', function (e) {
+            console.error(e);
+        });
+});
+
+
+
+/**
+ * WRAPPERS
+ */
+
 gulp.task('assets', ['images', 'fonts']);
-gulp.task('js', ['app-js', 'js-quality', 'bower-js']);
-gulp.task('styles', ['app-styles', 'bower-styles']);
-gulp.task('docs', ['jsdoc', 'angular-jsdoc', 'todo']);
+gulp.task('quality', ['jscpd', 'js-complexity', 'jscs', 'scsslint', 'jshint']);
+gulp.task('docs', ['todo', 'angular-jsdoc', 'jsdoc']);
 
 
-/* static analysis */
-gulp.task('jscpd', getTask('app-js-jscpd', 'quality')); // look for copy/paste design pattern
-gulp.task('jshint', getTask('app-js-jshint', 'quality')); // js syntax
-gulp.task('jscs', getTask('app-js-jscs', 'quality')); // js code style
-gulp.task('fixmyjs', getTask('app-js-fixmyjs', 'quality')); // fix my jshint errors
-gulp.task('complexity', getTask('app-js-complexity', 'quality')); // check out js code complexity
-gulp.task('scsslint', getTask('app-styles-lint', 'quality')); // lint scss
+
+/**
+ *  BUILD IT ALL!!!
+ */
+gulp.task('build', [], function () {
+    runSequence('clean', 'quality', 'assets', 'html', 'js', 'styles');
+});
 
 
-/* beautify */
-gulp.task('jsbeautify', getTask('app-js-beautify', 'js'));
-gulp.task('htmlbeautify', getTask('app-html-beautify', 'html'));
 
-
-/* code todos */
-gulp.task('todo', getTask('app-js-todo', 'js'));
-
-
-/* js doc */
-gulp.task('jsdoc', getTask('app-js-docs', 'js'));
-gulp.task('angular-jsdoc', getTask('app-js-angular-docs', 'js'));
-
-
-/* cleanup */
-gulp.task('clean', getTask('clean'));
-
-
-/* build it all!!! */
-gulp.task('build', ['html', 'js', 'styles', 'assets', 'docs']);
-
-
-/* default task executed when using cli 'gulp' */
+/**
+ *  default task executed when using cli 'gulp'
+ */
 gulp.task('default', ['build']);
-
-
-/* fire up the watch */
-gulp.task('watch', getTask('watch'));
-
-
-/* lets test some stuff */
-gulp.task('protractor', getTask('protractor'));
