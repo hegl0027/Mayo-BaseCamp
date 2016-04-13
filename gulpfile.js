@@ -3,6 +3,17 @@ var plugins = require('gulp-load-plugins')();
 var runSequence = require('run-sequence');
 
 
+/**
+ * Get the current [hrs:min:sec] timestamp used in the console
+ *
+ * @returns {string}
+ */
+function getTimestamp () {
+    var date = new Date();
+    return '[' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + ']  ';
+}
+
+
 
 /**
  * ASSETS
@@ -10,6 +21,7 @@ var runSequence = require('run-sequence');
 
 gulp.task('fonts', [], function () {
     return gulp.src(['app/fonts/**/*', '!app/fonts/**/*.txt'])
+        .pipe(plugins.plumber())
         .pipe(gulp.dest('dist/fonts'));
 });
 
@@ -21,10 +33,8 @@ gulp.task('images', [], function () {
         .pipe(plugins.imagemin({
             progressive: true,
             svgoPlugins: [{ removeViewBox: false }],
-            use: [pngquant()],
-            optimizationLevel: 3
+            use: [pngquant()]
         }))
-        .pipe(plugins.plumber.stop())
         .pipe(gulp.dest('dist/images'));
 });
 
@@ -37,6 +47,7 @@ gulp.task('images', [], function () {
 gulp.task('html', [], function () {
     // todo: add angular htmlify
     return gulp.src(['app/**/*.html'])
+        .pipe(plugins.plumber())
         .pipe(gulp.dest('dist'));
 });
 
@@ -44,6 +55,7 @@ gulp.task('html-beautify', [], function () {
     var beautify = require('js-beautify').html;
 
     return gulp.src(['app/**/*.html'])
+        .pipe(plugins.plumber())
         .pipe(beautify())
         .pipe(gulp.dest('./app/'));
 });
@@ -56,6 +68,7 @@ gulp.task('html-beautify', [], function () {
 
 gulp.task('js', [], function () {
     return gulp.src(['app/**/*.js', '!app/**/*_test.js'])
+        .pipe(plugins.plumber())
         .pipe(plugins.sourcemaps.init())
         .pipe(plugins.angularFilesort())
         .pipe(plugins.ngAnnotate())
@@ -72,6 +85,7 @@ gulp.task('bower-js', [], function () {
     var filterJS = gulpFilter('**/*.js', { restore: true });
 
     return gulp.src('bower.json')
+        .pipe(plugins.plumber())
         .pipe(plugins.mainBowerFiles())
         .pipe(filterJS)
         .pipe(plugins.sourcemaps.init())
@@ -91,6 +105,7 @@ gulp.task('js-fix', [], function () {
 
 gulp.task('js-jsbeautify', [], function () {
     return gulp.src(['app/**/*.js'])
+        .pipe(plugins.plumber())
         .pipe(plugins.beautify({
             'space_after_anon_function': true
         }))
@@ -104,24 +119,26 @@ gulp.task('jscpd', [], function () {
             'min-lines': 10,
             verbose: true,
             silent: false
-        }))
-        .pipe(plugins.plumber.stop());
+        }));
 });
 
 gulp.task('jshint', [], function () {
     return gulp.src(['app/**/*.js'])
+        .pipe(plugins.plumber())
         .pipe(plugins.jshint())
         .pipe(plugins.jshint.reporter('jshint-stylish'));
 });
 
 gulp.task('jscs', [], function () {
     return gulp.src(['app/**/*.js'])
+        .pipe(plugins.plumber())
         .pipe(plugins.jscs())
         .pipe(plugins.jscs.reporter());
 });
 
 gulp.task('js-complexity', [], function () {
     return gulp.src(['app/**/*.js'])
+        .pipe(plugins.plumber())
         .pipe(plugins.complexity({
             breakOnErrors: false
         }));
@@ -178,7 +195,7 @@ gulp.task('bower-styles', [], function () {
 /**
  * DOCS
  *
- * //todo: fix
+ * //todo: fix on windows
  */
 
 gulp.task('jsdoc', plugins.shell.task([
@@ -223,6 +240,11 @@ gulp.task('clean', function () {
     return del('dist');
 });
 
+gulp.task('clean-docs', function () {
+    var del = require('del');
+
+    return del('docs');
+});
 
 
 /**
@@ -231,21 +253,30 @@ gulp.task('clean', function () {
 
 gulp.task('watch', function () {
     // todo: add quality tasks
-    var jsWatch = gulp.watch('app/**/*.js', ['js']);
-    var htmlWatch = gulp.watch('app/**/*.html'['html']);
-    var scssWatch = gulp.watch('app/**/*.scss', ['styles']);
+    var jsWatch = gulp.watch('app/**/*.js');
+    var htmlWatch = gulp.watch('app/**/*.html');
+    var scssWatch = gulp.watch('app/**/*.scss');
 
     jsWatch.on('change', function (event) {
         console.log('File ' + event.path + ' was ' + event.type + ', running js tasks...');
+        runSequence('js', function () {
+            console.log(getTimestamp() + ' #################  JS WATCH FINISHED #################');
+        });
+
     });
 
-    // todo: fix
     htmlWatch.on('change', function (event) {
         console.log('File ' + event.path + ' was ' + event.type + ', running html tasks...');
+        runSequence('html', function () {
+            console.log(getTimestamp() + ' #################  HTML WATCH FINISHED #################');
+        });
     });
 
     scssWatch.on('change', function (event) {
         console.log('File ' + event.path + ' was ' + event.type + ', running sass tasks...');
+        runSequence('styles', function () {
+            console.log(getTimestamp() + ' #################  STYLES WATCH FINISHED #################');
+        });
     });
 });
 
@@ -253,6 +284,8 @@ gulp.task('watch', function () {
 
 /**
  * TESTS
+ *
+ * todo: implement
  */
 
 gulp.task('protractor', [], function () {
@@ -277,9 +310,10 @@ gulp.task('protractor', [], function () {
 gulp.task('assets', function (cb) {
     runSequence(['images', 'fonts'], cb);
 });
-
 gulp.task('quality', ['jscpd', 'js-sloc', 'js-complexity', 'jscs', 'scsslint', 'jshint']);
-gulp.task('docs', ['todo', 'angular-jsdoc', 'jsdoc']);
+gulp.task('docs', function () {
+    runSequence('clean-docs', ['todo', 'angular-jsdoc', 'jsdoc']);
+});
 
 
 
