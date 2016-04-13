@@ -35,6 +35,7 @@ gulp.task('images', [], function () {
  */
 
 gulp.task('html', [], function () {
+    // todo: add angular htmlify
     return gulp.src(['app/**/*.html'])
         .pipe(gulp.dest('dist'));
 });
@@ -176,6 +177,8 @@ gulp.task('bower-styles', [], function () {
 
 /**
  * DOCS
+ *
+ * //todo: fix
  */
 
 gulp.task('jsdoc', plugins.shell.task([
@@ -227,14 +230,16 @@ gulp.task('clean', function () {
  */
 
 gulp.task('watch', function () {
-    var jsWatch = gulp.watch('app/**/*.js', ['app-js']);
+    // todo: add quality tasks
+    var jsWatch = gulp.watch('app/**/*.js', ['js']);
     var htmlWatch = gulp.watch('app/**/*.html'['html']);
-    var scssWatch = gulp.watch('app/**/*.scss', ['app-styles']);
+    var scssWatch = gulp.watch('app/**/*.scss', ['styles']);
 
     jsWatch.on('change', function (event) {
         console.log('File ' + event.path + ' was ' + event.type + ', running js tasks...');
     });
 
+    // todo: fix
     htmlWatch.on('change', function (event) {
         console.log('File ' + event.path + ' was ' + event.type + ', running html tasks...');
     });
