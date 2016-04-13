@@ -198,6 +198,7 @@ gulp.task('todo', [], function () {
 });
 
 
+
 /**
  * LINES OF CODE
  */
@@ -281,7 +282,7 @@ gulp.task('docs', ['todo', 'angular-jsdoc', 'jsdoc']);
  *  BUILD IT ALL!!!
  */
 gulp.task('build', [], function (cb) {
-    runSequence('clean', ['assets', 'html', 'js', 'styles'], 'quality', cb);
+    runSequence('clean', ['assets', 'html', 'js', 'bower-js', 'styles', 'bower-styles'], 'quality', cb);
 });
 
 

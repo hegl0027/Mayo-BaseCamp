@@ -63,10 +63,6 @@ linters:
   ExtendDirective:
     enabled: false
 
-  FinalNewline:
-    enabled: true
-    present: true
-
   HexLength:
     enabled: true
     style: short # or 'long'
@@ -106,7 +102,7 @@ linters:
   NameFormat:
     enabled: true
     allow_leading_underscore: true
-    convention: hyphenated_lowercase # or 'camel_case', or 'snake_case', or a regex pattern
+    convention: '^[a-z]([-]?[a-z0-9]+)*(__[a-z0-9]([-]?[a-z0-9]+)*)?(_[a-z0-9]([-]?[a-z0-9]+)*){0,2}$' # or 'camel_case', or 'snake_case', or a regex pattern
 
   NestingDepth:
     enabled: true
@@ -164,7 +160,7 @@ linters:
 
   SelectorFormat:
     enabled: true
-    convention: strict_BEM # or 'strict_BEM', or 'hyphenated_BEM', or 'snake_case', or 'camel_case', or a regex pattern
+    convention: hyphenated_BEM # or 'strict_BEM', or 'hyphenated_BEM', or 'snake_case', or 'camel_case', or a regex pattern
 
   Shorthand:
     enabled: true

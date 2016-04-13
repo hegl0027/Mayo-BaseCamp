@@ -1,5 +1,9 @@
 @import 'reset';
-@import 'primary-nav';
-@import 'header';
-@import 'footer';
-@import 'main-content';
+@import 'base';
+@import 'nav/nav-primary';
+@import 'nav/nav-secondary';
+@import 'header/header';
+@import 'footer/footer';
+@import 'themes/theme-generator';
+@import 'themes/light/light';
+@import 'themes/lights-out/lights-out';
