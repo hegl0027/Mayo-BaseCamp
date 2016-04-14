@@ -22,5 +22,8 @@
     "angular-aria": "^1.5.3",
     "angular-toastr": "^1.7.0",
     "jquery": "^2.2.2"
+  },
+  "resolutions": {
+    "angular": "1.5.3"
   }
 }
