@@ -21,5 +21,5 @@ before_script:
 
 script:
   - gulp
-  - node_modules/.bin/karma start karma.conf.js --no-auto-watch --single-run --reporters=dots --browsers=Chrome
-  - node_modules/.bin/protractor e2e-tests/protractor.conf.js --browser=chrome
+  - karma start karma.conf.js --no-auto-watch --single-run --reporters=dots --browsers=Firefox
+  - protractor e2e-tests/protractor.conf.js --browser=firefox
