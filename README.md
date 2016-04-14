@@ -1,1 +1,13 @@
 [![Build Status](https://travis-ci.org/bradyhullopeter/Root.svg?branch=master)](https://travis-ci.org/bradyhullopeter/Root)
+
+#Get Started
+###Prerequesites
+1. Git
+2. Ruby
+
+###Run
+1. gem install sass
+2. gem install scss_lint
+3. npm install -g gulp
+3. npm install
+4. gulp
