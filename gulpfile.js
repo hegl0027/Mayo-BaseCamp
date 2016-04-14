@@ -45,9 +45,9 @@ gulp.task('images', [], function () {
  */
 
 gulp.task('html', [], function () {
-    // todo: add angular htmlify
     return gulp.src(['app/**/*.html'])
         .pipe(plugins.plumber())
+        .pipe(plugins.angularHtmlify())
         .pipe(gulp.dest('dist'));
 });
 
