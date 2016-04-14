@@ -4,6 +4,7 @@
 ###Prerequisites
 1. Git
 2. Ruby
+  - [Windows](http://rubyinstaller.org/)
 
 ###Run
 1. gem install sass
