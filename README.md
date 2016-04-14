@@ -5,6 +5,7 @@
 1. Git
 2. Ruby
   - [Windows](http://rubyinstaller.org/)
+  - [Everyone else](https://www.ruby-lang.org/en/)
 
 ###Run
 1. gem install sass
