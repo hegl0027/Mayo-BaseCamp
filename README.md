@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/bradyhullopeter/Root.svg?branch=master)](https://travis-ci.org/bradyhullopeter/Root) [![devDependency Status](https://david-dm.org/bradyhullopeter/Root/dev-status.svg)](https://david-dm.org/bradyhullopeter/Root#info=devDependencies) [![Coverage Status](https://coveralls.io/repos/github/bradyhullopeter/Root/badge.svg?branch=master)](https://coveralls.io/github/bradyhullopeter/Root?branch=master)
+[![Build Status](https://travis-ci.org/bradyhullopeter/Root.svg?branch=master)](https://travis-ci.org/bradyhullopeter/Root) [![devDependency Status](https://david-dm.org/bradyhullopeter/Root/dev-status.svg)](https://david-dm.org/bradyhullopeter/Root#info=devDependencies) [![Coverage Status](https://coveralls.io/repos/github/bradyhullopeter/Root/badge.svg?branch=master)](https://coveralls.io/github/bradyhullopeter/Root?branch=master) [![Code Climate](https://codeclimate.com/github/bradyhullopeter/Root/badges/gpa.svg)](https://codeclimate.com/github/bradyhullopeter/Root)
 #Get Started
 ###Prerequisites
 1. Git
