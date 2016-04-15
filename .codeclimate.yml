@@ -25,6 +25,5 @@ ratings:
   - "**.py"
   - "**.rb"
 exclude_paths:
-exclude_paths:
-- "docs"
-- "gulpfile.js"
+  - "docs"
+  - "gulpfile.js"
