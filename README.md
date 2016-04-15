@@ -9,6 +9,6 @@
 ###Run
 1. gem install sass
 2. gem install scss_lint
-3. npm install -g gulp karma karma-cli
+3. npm install -g gulp karma karma-cli protractor
 4. npm install
 5. gulp
