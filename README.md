@@ -1,5 +1,4 @@
-[![Build Status](https://travis-ci.org/bradyhullopeter/Root.svg?branch=master)](https://travis-ci.org/bradyhullopeter/Root)
-
+[![Build Status](https://travis-ci.org/bradyhullopeter/Root.svg?branch=master)](https://travis-ci.org/bradyhullopeter/Root) [![devDependency Status](https://david-dm.org/bradyhullopeter/Root/dev-status.svg)](https://david-dm.org/bradyhullopeter/Root#info=devDependencies)
 #Get Started
 ###Prerequisites
 1. Git
