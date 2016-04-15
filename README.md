@@ -3,7 +3,7 @@
 ###Prerequisites
 1. Git
 2. Ruby
-  - [Windows](http://rubyinstaller.org/)  <-- use the installer option to add Ruby commands to the PATH
+  - [Windows](http://rubyinstaller.org/)   << use the installer option to add Ruby commands to the PATH
   - [Everyone else](https://www.ruby-lang.org/en/)
 
 ###Run
