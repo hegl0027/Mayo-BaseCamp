@@ -7,8 +7,7 @@
   - [Everyone else](https://www.ruby-lang.org/en/)
 
 ###Run
-1. gem install sass
-2. gem install scss_lint
-3. npm install -g gulp karma karma-cli protractor
-4. npm install
-5. gulp
+1. gem install sass scss_lint
+2. npm install -g gulp karma karma-cli protractor
+3. npm install
+4. gulp
