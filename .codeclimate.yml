@@ -24,4 +24,4 @@ ratings:
   - "**.php"
   - "**.py"
   - "**.rb"
-exclude_paths: ['docs', 'app', 'e2e-tests']
+exclude_paths: ['docs']
