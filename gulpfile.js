@@ -181,11 +181,7 @@ gulp.task('bower-styles', [], function () {
         .pipe(plugins.concat('vendor.css'))
         .pipe(gulp.dest('dist/css'))
         .pipe(plugins.rename('vendor.min.css'))
-        .pipe(plugins.csso({
-            restructure: false,
-            sourceMap: true,
-            debug: true
-        }))
+        .pipe(plugins.cssnano())
         .pipe(plugins.sourcemaps.write('.'))
         .pipe(gulp.dest('dist/css'));
 });
