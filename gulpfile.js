@@ -191,6 +191,15 @@ gulp.task('bower-styles', [], function () {
 });
 
 
+/**
+ * WEB STANDARDS
+ */
+
+gulp.task('webstandards', function () {
+   gulp.src(['dist/**/*', '!dist/**/vendor*', '!dist/**/*min*'])
+       .pipe(plugins.webstandards());
+});
+
 
 /**
  * DOCS
