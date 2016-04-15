@@ -5,9 +5,21 @@ exports.config = {
         '*.js'
     ],
 
-    capabilities: {
+    multiCapabilities: [{
+        'browserName': 'firefox'
+    }, {
         'browserName': 'chrome'
-    },
+    }],
+
+    /*multiCapabilities: [{
+        'browserName': 'firefox'
+    }, {
+        'browserName': 'chrome'
+    }, {
+        'browserName': 'ie'
+    }, {
+        'browserName': 'safari'
+    }],*/
 
     baseUrl: 'http://localhost:8000/dist/',
 
@@ -16,7 +28,7 @@ exports.config = {
     jasmineNodeOpts: {
         showColors: true,
         defaultTimeoutInterval: 30000,
-        isVerbose : true,
-        includeStackTrace : true
+        isVerbose: true,
+        includeStackTrace: true
     }
 };
