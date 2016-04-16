@@ -19,13 +19,13 @@ function getTimestamp () {
  * ASSETS
  */
 
-gulp.task('fonts', [], function () {
+gulp.task('fonts', function () {
     return gulp.src(['app/fonts/**/*', '!app/fonts/**/*.txt'])
         .pipe(plugins.plumber())
         .pipe(gulp.dest('dist/fonts'));
 });
 
-gulp.task('images', [], function () {
+gulp.task('images', function () {
     var pngquant = require('imagemin-pngquant');
 
     return gulp.src(['app/images/**/*'])
@@ -44,14 +44,14 @@ gulp.task('images', [], function () {
  * HTML
  */
 
-gulp.task('html', [], function () {
+gulp.task('html', function () {
     return gulp.src(['app/**/*.html'])
         .pipe(plugins.plumber())
         .pipe(plugins.angularHtmlify())
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('html-beautify', [], function () {
+gulp.task('html-beautify', function () {
     var beautify = require('js-beautify').html;
 
     return gulp.src(['app/**/*.html'])
@@ -66,9 +66,12 @@ gulp.task('html-beautify', [], function () {
  * JS
  */
 
-gulp.task('js', [], function () {
-    return gulp.src(['app/**/*.js', '!app/**/*_test.js'])
+gulp.task('js', function () {
+    return gulp.src(['app/**/*.js', 'app/**/*.ts', '!app/**/*_test.js'])
         .pipe(plugins.plumber())
+        .pipe(plugins.typescript({
+            allowJs: true
+        }))
         .pipe(plugins.sourcemaps.init())
         .pipe(plugins.angularFilesort())
         .pipe(plugins.ngAnnotate())
@@ -80,7 +83,7 @@ gulp.task('js', [], function () {
         .pipe(gulp.dest('dist/js'));
 });
 
-gulp.task('bower-js', [], function () {
+gulp.task('bower-js', function () {
     var gulpFilter = require('gulp-filter');
     var filterJS = gulpFilter('**/*.js', { restore: true });
 
@@ -97,13 +100,13 @@ gulp.task('bower-js', [], function () {
         .pipe(gulp.dest('dist/js'));
 });
 
-gulp.task('js-fix', [], function () {
+gulp.task('js-fix', function () {
     return gulp.src(['app/**/*.js'])
         .pipe(plugins.fixmyjs())
         .pipe(gulp.dest('app'));
 });
 
-gulp.task('js-jsbeautify', [], function () {
+gulp.task('js-jsbeautify', function () {
     return gulp.src(['app/**/*.js'])
         .pipe(plugins.plumber())
         .pipe(plugins.beautify({
@@ -112,7 +115,7 @@ gulp.task('js-jsbeautify', [], function () {
         .pipe(gulp.dest('app'));
 });
 
-gulp.task('jscpd', [], function () {
+gulp.task('jscpd', function () {
     return gulp.src(['app/**/*.js'])
         .pipe(plugins.plumber())
         .pipe(plugins.jscpd({
@@ -122,21 +125,21 @@ gulp.task('jscpd', [], function () {
         }));
 });
 
-gulp.task('jshint', [], function () {
+gulp.task('jshint', function () {
     return gulp.src(['app/**/*.js'])
         .pipe(plugins.plumber())
         .pipe(plugins.jshint())
         .pipe(plugins.jshint.reporter('jshint-stylish'));
 });
 
-gulp.task('jscs', [], function () {
+gulp.task('jscs', function () {
     return gulp.src(['app/**/*.js'])
         .pipe(plugins.plumber())
         .pipe(plugins.jscs())
         .pipe(plugins.jscs.reporter());
 });
 
-gulp.task('js-complexity', [], function () {
+gulp.task('js-complexity', function () {
     return gulp.src(['app/**/*.js'])
         .pipe(plugins.plumber())
         .pipe(plugins.complexity({
@@ -150,7 +153,7 @@ gulp.task('js-complexity', [], function () {
  * STYLES
  */
 
-gulp.task('styles', [], function () {
+gulp.task('styles', function () {
     return plugins.rubySass(['app/**/*.scss'])
         .pipe(plugins.sourcemaps.init())
         .on('error', plugins.rubySass.logError)
@@ -163,14 +166,14 @@ gulp.task('styles', [], function () {
         .pipe(gulp.dest('dist/css'));
 });
 
-gulp.task('scsslint', [], function () {
+gulp.task('scsslint', function () {
     return gulp.src(['app/**/*.scss', '!app/**/*_reset.scss'])
         .pipe(plugins.scssLint({
             config: '.scsslint.yml'
         }));
 });
 
-gulp.task('bower-styles', [], function () {
+gulp.task('bower-styles', function () {
     var gulpFilter = require('gulp-filter');
     var filterStyles = gulpFilter('**/*.css', { restore: true });
 
@@ -216,11 +219,15 @@ gulp.task('angular-jsdoc', plugins.shell.task([
     '-r --verbose'
 ]));
 
-gulp.task('todo', [], function () {
+gulp.task('todo', function () {
     return gulp.src(['app/**/*.js', 'e2e-tests/**/*.js'])
         .pipe(plugins.todo())
         .pipe(gulp.dest('.'));
 });
+
+gulp.task('plato', plugins.shell.task([
+    'plato -r -d docs/plato app'
+]));
 
 
 
@@ -257,17 +264,24 @@ gulp.task('clean-docs', function () {
  */
 
 gulp.task('watch', function () {
-    // todo: add quality tasks
     var jsWatch = gulp.watch('app/**/*.js');
+    var tsWatch = gulp.watch('app/**/*.ts');
     var htmlWatch = gulp.watch('app/**/*.html');
     var scssWatch = gulp.watch('app/**/*.scss');
 
     jsWatch.on('change', function (event) {
         console.log('File ' + event.path + ' was ' + event.type + ', running js tasks...');
         runSequence('js', function () {
-            console.log(getTimestamp() + ' #################  JS WATCH FINISHED #################');
+            console.log(getTimestamp() + ' #################  JS/TS WATCH FINISHED #################');
         });
 
+    });
+
+    tsWatch.on('change', function (event) {
+        console.log('File ' + event.path + ' was ' + event.type + ', running js tasks...');
+        runSequence('js', function () {
+            console.log(getTimestamp() + ' #################  TS WATCH FINISHED #################');
+        });
     });
 
     htmlWatch.on('change', function (event) {
@@ -315,9 +329,9 @@ gulp.task('protractor', [], function () {
 gulp.task('assets', function (cb) {
     runSequence(['images', 'fonts'], cb);
 });
-gulp.task('quality', ['jscpd', 'js-sloc', 'js-complexity', 'jscs', 'scsslint', 'jshint']);
-gulp.task('docs', function () {
-    runSequence('clean-docs', ['todo', 'angular-jsdoc', 'jsdoc']);
+gulp.task('qa', ['jscpd', 'js-sloc', 'js-complexity', 'jscs', 'scsslint', 'jshint', 'plato']);
+gulp.task('docs', function (cb) {
+    runSequence('clean-docs', ['todo', 'angular-jsdoc', 'jsdoc', 'plato'], cb);
 });
 
 
@@ -326,7 +340,7 @@ gulp.task('docs', function () {
  *  BUILD IT ALL!!!
  */
 gulp.task('build', [], function (cb) {
-    runSequence('clean', ['assets', 'html', 'js', 'bower-js', 'styles', 'bower-styles'], 'quality', cb);
+    runSequence('clean', ['assets', 'html', 'js', 'bower-js', 'styles', 'bower-styles'], 'qa', cb);
 });
 
 

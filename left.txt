@@ -2,7 +2,6 @@
 --- jsdoc
 --- gulp protractor
 --- gulp karma
-- ng-annotate
 - date picker
 - datetime picker
 - application stub
