@@ -16,6 +16,7 @@ npm install
 ###Gulp
 ```
 gulp
+gulp watch
 ```
 ###Karma
 ```
