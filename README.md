@@ -2,7 +2,8 @@
 #Get Started
 ###Prerequisites
 1. Git
-2. Ruby
+2. NodeJS
+3. Ruby
   - [Windows](http://rubyinstaller.org/)   << use the installer option to add Ruby commands to the PATH
   - [Everyone else](https://www.ruby-lang.org/en/)
 
