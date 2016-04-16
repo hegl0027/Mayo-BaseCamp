@@ -15,10 +15,26 @@ npm install
 ```
 
 ###Gulp
+######Main Tasks
 ```
 gulp
 gulp watch
 ```
+
+######Sub Tasks
+```
+gulp clean
+gulp assets
+gulp html
+gulp js
+gulp styles
+gulp bower-js
+gulp bower-styles'
+gulp qa
+gulp docs
+gulp webstandards
+```
+
 ###Karma
 ```
 karma start karma.conf.js --no-auto-watch --single-run --reporters=dots
