@@ -21,7 +21,7 @@ gulp
 gulp watch
 ```
 
-######Sub-tasks (that aren't inherently executed by the main tasks)
+######Tasks that aren't inherently executed by the main tasks
 ```
 gulp clean
 gulp qa
