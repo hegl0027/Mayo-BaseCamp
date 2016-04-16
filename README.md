@@ -11,3 +11,13 @@
 2. npm install -g gulp karma karma-cli protractor
 3. npm install
 4. gulp
+
+###Karma
+```
+karma start karma.conf.js --no-auto-watch --single-run --reporters=dots
+```
+
+###Protractor
+```
+protractor e2e-tests/protractor.conf.js
+```
