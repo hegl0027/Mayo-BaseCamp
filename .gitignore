@@ -6,3 +6,5 @@ tmp
 .DS_Store
 .idea
 .sass-cache/
+docs/**/report.history.js
+docs/**/report.history.json
