@@ -21,18 +21,20 @@ gulp
 gulp watch
 ```
 
-######Sub Tasks
+######Sub-tasks (that aren't inherently executed by the main tasks)
 ```
 gulp clean
-gulp assets
-gulp html
-gulp js
-gulp styles
-gulp bower-js
-gulp bower-styles'
 gulp qa
 gulp docs
 gulp webstandards
+```
+
+######Tasks that generate stuff outside of ./dist
+```
+gulp plato
+gulp jsdoc
+gulp todo
+gulp clean-docs
 ```
 
 ###Karma
