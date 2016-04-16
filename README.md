@@ -4,7 +4,7 @@
 1. Git
 2. NodeJS
 3. Ruby
-  - [Windows](http://rubyinstaller.org/)   << use the installer option to add Ruby commands to the PATH
+  - [Windows](http://rubyinstaller.org/) -- use the installer option to add Ruby commands to the PATH
   - [Everyone else](https://www.ruby-lang.org/en/)
 
 ###Setup
@@ -15,10 +15,28 @@ npm install
 ```
 
 ###Gulp
+######Main Tasks
 ```
 gulp
 gulp watch
 ```
+
+######Tasks that aren't inherently executed by the main tasks
+```
+gulp clean
+gulp qa
+gulp docs
+gulp webstandards
+```
+
+######Tasks that generate stuff outside of ./dist
+```
+gulp plato
+gulp jsdoc
+gulp todo
+gulp clean-docs
+```
+
 ###Karma
 ```
 karma start karma.conf.js --no-auto-watch --single-run --reporters=dots
