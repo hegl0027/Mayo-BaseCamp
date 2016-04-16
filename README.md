@@ -6,12 +6,17 @@
   - [Windows](http://rubyinstaller.org/)   << use the installer option to add Ruby commands to the PATH
   - [Everyone else](https://www.ruby-lang.org/en/)
 
-###Run
-1. gem install sass scss_lint
-2. npm install -g gulp karma karma-cli protractor
-3. npm install
-4. gulp
+###Setup
+```
+gem install sass scss_lint
+npm install -g gulp karma karma-cli protractor
+npm install
+```
 
+###Gulp
+```
+gulp
+```
 ###Karma
 ```
 karma start karma.conf.js --no-auto-watch --single-run --reporters=dots
