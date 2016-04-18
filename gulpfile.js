@@ -77,7 +77,7 @@ gulp.task('tslint', function () {
  */
 
 gulp.task('js', function () {
-    return gulp.src(['app/**/*.js', 'app/**/*.ts', '!app/**/*_test.js'])
+    return gulp.src(['app/**/*.js', 'app/**/*.ts'])
         .pipe(plugins.plumber())
         .pipe(plugins.typescript({
             allowJs: true
@@ -279,7 +279,7 @@ gulp.task('watch', function () {
     jsWatch.on('change', function (event) {
         console.log('File ' + event.path + ' was ' + event.type + ', running js tasks...');
         runSequence('js', function () {
-            console.log(getTimestamp() + ' #################  JS/TS WATCH FINISHED #################');
+            console.log(getTimestamp() + ' #################  JS WATCH FINISHED #################');
         });
 
     });
