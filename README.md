@@ -39,10 +39,10 @@ gulp clean-docs
 
 ###Karma
 ```
-karma start karma.conf.js --no-auto-watch --single-run --reporters=dots
+npm run test-single-run
 ```
 
 ###Protractor
 ```
-protractor e2e-tests/protractor.conf.js
+npm run protractor
 ```
