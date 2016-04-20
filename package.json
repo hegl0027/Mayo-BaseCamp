@@ -68,6 +68,7 @@
     "protractor": "^2.1.0",
     "run-sequence": "^1.1.5",
     "shelljs": "^0.2.6",
+    "tslint": "^3.7.4",
     "typescript": "^1.8.10",
     "vinyl": "^1.1.1",
     "vinyl-source-stream": "^1.1.0",
