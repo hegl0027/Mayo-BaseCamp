@@ -93,6 +93,13 @@ gulp.task('js', function () {
         .pipe(gulp.dest('dist/js'));
 });
 
+gulp.task('size', function () {
+    return gulp.src(['dist/**/*', '!dist/images/favicon/**/*'])
+        .pipe(plugins.sizereport({
+            gzip: true
+        }));
+});
+
 gulp.task('bower-js', function () {
     var gulpFilter = require('gulp-filter');
     var filterJS = gulpFilter('**/*.js', {restore: true});
