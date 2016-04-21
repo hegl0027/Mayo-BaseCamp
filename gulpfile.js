@@ -336,7 +336,7 @@ gulp.task('assets', function (cb) {
 });
 gulp.task('qa', ['jscpd', 'js-sloc', 'js-complexity', 'jscs', 'scsslint', 'jshint', 'plato']);
 gulp.task('docs', function (cb) {
-    runSequence('clean-docs', ['todo', 'angular-jsdoc', 'jsdoc', 'plato'], cb);
+    runSequence('clean-docs', ['todo', 'angular-jsdoc', 'jsdoc'], cb);
 });
 
 
@@ -344,7 +344,7 @@ gulp.task('docs', function (cb) {
  *  BUILD IT ALL!!!
  */
 gulp.task('build', [], function (cb) {
-    runSequence('clean', ['assets', 'html', 'js', 'bower-js', 'styles', 'bower-styles'], 'qa', cb);
+    runSequence('clean', ['assets', 'html', 'js', 'bower-js', 'styles', 'bower-styles'], ['qa', 'docs'], cb);
 });
 
 

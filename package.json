@@ -85,6 +85,7 @@
     "update-webdriver": "webdriver-manager update",
     "preprotractor": "npm run update-webdriver",
     "protractor": "protractor e2e-tests/protractor.conf.js",
-    "protractor--specs": "protractor e2e-tests/protractor.conf.js --specs"
+    "preprotractor-specs": "npm run update-webdriver",
+    "protractor-specs": "protractor e2e-tests/protractor.conf.js --specs"
   }
 }
