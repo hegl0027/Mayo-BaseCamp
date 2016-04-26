@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon-precomposed" href="images/favicon/apple-touch-icon-57x57.png" sizes="57x57" />
+    <link rel="apple-touch-icon-precomposed" href="images/favicon/apple-touch-icon-57x57.png" sizes="57x57"/>
     <link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-touch-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-touch-icon-76x76.png">
@@ -32,39 +32,17 @@
     <link rel="stylesheet" href="css/app.min.css">
 
 </head>
-<body>
+<body ng-app="app">
 <ul class="menu">
     <li><a href="#/view1">view1</a></li>
     <li><a href="#/view2">view2</a></li>
 </ul>
 <div ng-view></div>
-<div>Root app: v<span app-version></span></div>  :)
-
-<form name="myform">
-    <section>
-        <label for="last_name">Last name</label>
-        <input type="text" id="last_name">
-    </section>
-    <section>
-        <label for="first_name">First name</label>
-        <input type="text" id="first_name">
-    </section>
-    <section>
-        <label for="dob">Date of birth</label>
-        <input type="date" id="dob">
-    </section>
-    <section>
-        <label for="favorite_color">What is your favorite color?</label>
-        <input type="color" id="favorite_color">
-    </section>
-    <section>
-        <label for="number">What number am I thinking of?</label>
-        <input type="number" id="number">
-    </section>
-</form>
-
+<div>Root app: v<span app-version></span></div>
+:)
 <script src="js/vendor.min.js"></script>
 <script src="js/app.min.js"></script>
+
 
 </body>
 </html>
