@@ -39,7 +39,12 @@ gulp clean-docs
 
 ###Karma
 ```
-npm run test-single-run
+npm run testq
+```
+
+###HTTP Server
+```
+npm start
 ```
 
 ###Protractor
