@@ -59,29 +59,13 @@ gulp.task('html-beautify', function () {
 });
 
 
-
-/**
- * TYPESCRIPT
- */
-
-gulp.task('tslint', function () {
-    gulp.src("app/**/*.ts")
-        .pipe(plugins.tslint())
-        .pipe(plugins.tslint.report("verbose"));
-});
-
-
-
 /**
  * JS
  */
 
 gulp.task('js', function () {
-    return gulp.src(['app/**/*.js', 'app/**/*.ts'])
+    return gulp.src(['app/**/*.js'])
         .pipe(plugins.plumber())
-        .pipe(plugins.typescript({
-            allowJs: true
-        }))
         .pipe(plugins.sourcemaps.init())
         .pipe(plugins.angularFilesort())
         .pipe(plugins.ngAnnotate())
@@ -279,7 +263,6 @@ gulp.task('clean-docs', function () {
 
 gulp.task('watch', function () {
     var jsWatch = gulp.watch('app/**/*.js');
-    var tsWatch = gulp.watch('app/**/*.ts');
     var htmlWatch = gulp.watch('app/**/*.html');
     var scssWatch = gulp.watch('app/**/*.scss');
 
@@ -289,13 +272,6 @@ gulp.task('watch', function () {
             console.log(getTimestamp() + ' #################  JS WATCH FINISHED #################');
         });
 
-    });
-
-    tsWatch.on('change', function (event) {
-        console.log('File ' + event.path + ' was ' + event.type + ', running js tasks...');
-        runSequence('js', function () {
-            console.log(getTimestamp() + ' #################  TS WATCH FINISHED #################');
-        });
     });
 
     htmlWatch.on('change', function (event) {
