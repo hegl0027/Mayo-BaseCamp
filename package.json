@@ -74,17 +74,11 @@
   },
   "scripts": {
     "postinstall": "bower install",
-
-    // local http server on port 8000
     "prestart": "npm install",
     "start": "http-server -a localhost -p 8000 -c-1",
-
-    // client unit testing
     "pretest": "npm install",
     "test": "karma start karma.conf.js",
     "testq": "karma start karma.conf.js  --no-auto-watch --single-run --reporters=dots",
-
-    // e2e client testing
     "preupdate-webdriver": "npm install",
     "update-webdriver": "webdriver-manager update",
     "preprotractor": "npm run update-webdriver",
@@ -92,8 +86,6 @@
     "protractorq": "protractor e2e-tests/protractor.conf.js",
     "preprotractor-specs": "npm run update-webdriver",
     "protractor-specs": "protractor e2e-tests/protractor.conf.js --specs",
-
-    // REST api testing
     "mocha": "mocha"
   }
 }
