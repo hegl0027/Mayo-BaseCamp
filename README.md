@@ -10,7 +10,7 @@
 ###Setup
 ```
 gem install sass scss_lint
-npm install -g gulp karma karma-cli protractor
+npm install -g gulp karma karma-cli protractor mocha
 npm install
 ```
 

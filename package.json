@@ -60,11 +60,14 @@
     "karma-junit-reporter": "^0.4.2",
     "karma-phantomjs-launcher": "^1.0.0",
     "karma-safari-launcher": "^0.1.1",
+    "mocha": "^2.4.5",
     "phantomjs-prebuilt": "^2.1.7",
     "plato": "^1.5.0",
     "protractor": "^3.3.0",
     "run-sequence": "^1.1.5",
     "shelljs": "^0.7.0",
+    "should": "^8.3.1",
+    "supertest": "^1.2.0",
     "vinyl": "^1.1.1",
     "vinyl-source-stream": "^1.1.0",
     "yargs": "^4.3.2"
@@ -82,6 +85,7 @@
     "protractor": "protractor e2e-tests/protractor.conf.js",
     "protractorq": "protractor e2e-tests/protractor.conf.js",
     "preprotractor-specs": "npm run update-webdriver",
-    "protractor-specs": "protractor e2e-tests/protractor.conf.js --specs"
+    "protractor-specs": "protractor e2e-tests/protractor.conf.js --specs",
+    "api-test": "mocha"
   }
 }
