@@ -51,3 +51,8 @@ npm start
 ```
 npm run protractor
 ```
+
+###REST API Tests
+```
+mocha
+```

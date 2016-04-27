@@ -22,7 +22,7 @@ cache:
     - node_modules
 
 before_script:
-  - npm install -g gulp codeclimate-test-reporter
+  - npm install -g gulp codeclimate-test-reporter mocha
   - gem install sass
   - gem install scss-lint
   - export DISPLAY=:99.0
