@@ -1,18 +1,18 @@
 'use strict';
 
 var server = require('supertest').agent("http://localhost:8000");
-var should = require('should');
+var should = require('chai').should();
 
 describe("api test", function () {
 
     it("returns json data", function (done) {
         server
-            .get("/dist/api/sample.json")
-            //.expect("Content-type", /json/)
-            //.expect(200)
+            .get("/app/api/sample.json")
+            .expect("Content-type", /json/)
+            .expect(200)
             .end(function (err, res) {
                 if (err) throw err;
-                //res.body.name.should.equal('Brady');
+                res.body.name.should.equal('Brady');
                 done();
             });
     });
