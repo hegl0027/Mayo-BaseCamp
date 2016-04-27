@@ -32,6 +32,7 @@ describe("api test", function () {
     it("returns html", function (done) {
         server
             .get("/dist/index.html")
+            .expect("Content-type", /html/)
             .expect(200)
             .end(function (err, res) {
                 if (err) throw err;
