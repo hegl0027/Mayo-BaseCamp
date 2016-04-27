@@ -23,6 +23,7 @@ gulp watch
 
 ######Tasks that aren't inherently executed by the main tasks
 ```
+gulp size
 gulp qa
 gulp docs
 gulp webstandards
