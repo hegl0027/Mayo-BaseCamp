@@ -48,12 +48,14 @@ npm run testq  <-- quick version without npm/bower install
 ```
 
 ###Protractor
+> Dependent on HTTP Server
 ```
 npm run protractor
 npm run protractorq  <-- quick version without webdriver update
 ```
 
 ###REST API Tests
+> Dependent on HTTP Server
 ```
 mocha
 ```
