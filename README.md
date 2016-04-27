@@ -23,7 +23,6 @@ gulp watch
 
 ######Tasks that aren't inherently executed by the main tasks
 ```
-gulp clean
 gulp qa
 gulp docs
 gulp webstandards
@@ -37,19 +36,21 @@ gulp todo
 gulp clean-docs
 ```
 
-###Karma
-```
-npm run testq
-```
-
 ###HTTP Server
 ```
 npm start
 ```
 
+###Karma
+```
+npm test
+npm run testq  <-- quick version without npm/bower install
+```
+
 ###Protractor
 ```
 npm run protractor
+npm run protractorq  <-- quick version without webdriver update
 ```
 
 ###REST API Tests
