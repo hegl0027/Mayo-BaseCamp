@@ -44,7 +44,7 @@ npm start
 ###Karma
 ```
 npm test
-npm run testq  <-- quick version without npm/bower install
+npm run testq  <-- quick version without npm/bower install, single run
 ```
 
 ###Protractor
