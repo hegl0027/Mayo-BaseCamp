@@ -42,12 +42,14 @@ npm start
 ```
 
 ###Karma
+The unit test files (app/\*\*/\*_tests.js) should hang out with the the rest of the application code
 ```
 npm test
 npm run testq  <-- quick version without npm/bower install, single run
 ```
 
 ###Protractor
+The Protractor tests live under the ./e2e-tests directory
 > Dependent on HTTP Server
 ```
 npm run protractor
@@ -55,6 +57,7 @@ npm run protractorq  <-- quick version without webdriver update
 ```
 
 ###REST API Tests
+The REST API tests live under the ./test directory
 > Dependent on HTTP Server
 ```
 mocha
