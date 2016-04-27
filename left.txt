@@ -1,7 +1,3 @@
-- build
---- jsdoc
---- gulp protractor
---- gulp karma
 - date picker
 - datetime picker
 - application stub
