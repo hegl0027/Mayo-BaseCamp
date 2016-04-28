@@ -86,6 +86,6 @@
     "protractorq": "protractor e2e-tests/protractor.conf.js",
     "preprotractor-specs": "npm run update-webdriver",
     "protractor-specs": "protractor e2e-tests/protractor.conf.js --specs",
-    "mocha": "mocha"
+    "api-tests": "mocha api-tests/**/*.js"
   }
 }
