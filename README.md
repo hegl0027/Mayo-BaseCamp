@@ -4,6 +4,10 @@
 ###Prerequisites
 1. [Git](https://git-scm.com/downloads)
 2. [NodeJS](https://nodejs.org/en/)
+  - Update to the latest NPM version
+  ```
+  npm install -g npm
+  ```
 3. Ruby
   - [Windows](http://rubyinstaller.org/) -- use the installer option to add Ruby commands to the PATH
   - [Everyone else](https://www.ruby-lang.org/en/)
@@ -63,5 +67,5 @@ npm run protractorq  <-- quick version without webdriver update
 The REST API tests live under the ./test directory
 > Dependent on HTTP Server
 ```
-mocha
+npm run api-tests
 ```
