@@ -9,7 +9,7 @@
   - [Everyone else](https://www.ruby-lang.org/en/)
 
 ###Setup
-> Clone the repo and run the following from the web project root
+> Clone the repo and run the following from the web project root directory
 ```
 gem install sass scss_lint
 npm install -g gulp karma karma-cli protractor mocha
