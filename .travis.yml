@@ -35,5 +35,5 @@ script:
   - gulp
   - karma start karma.conf.js --no-auto-watch --single-run --reporters=dots
   - protractor e2e-tests/protractor.conf.js
-  - mocha
+  - mocha api-tests/**/*.js
 
