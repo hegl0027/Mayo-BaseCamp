@@ -1,4 +1,12 @@
 [![Build Status](https://travis-ci.org/bradyhullopeter/root.svg?branch=master)](https://travis-ci.org/bradyhullopeter/root) [![devDependency Status](https://david-dm.org/bradyhullopeter/Root/dev-status.svg)](https://david-dm.org/bradyhullopeter/Root#info=devDependencies) [![Code Climate](https://codeclimate.com/github/bradyhullopeter/Root/badges/gpa.svg)](https://codeclimate.com/github/bradyhullopeter/Root) [![Issue Count](https://codeclimate.com/github/bradyhullopeter/Root/badges/issue_count.svg)](https://codeclimate.com/github/bradyhullopeter/Root) [![Test Coverage](https://codeclimate.com/github/bradyhullopeter/Root/badges/coverage.svg)](https://codeclimate.com/github/bradyhullopeter/Root/coverage)
+
+#Tech Stack
+- Angular 1.x
+- UI Router
+- Gulp
+- Karma
+- Protractor
+
 #Get Started
 ###Prerequisites
 1. [Git](https://git-scm.com/downloads)
