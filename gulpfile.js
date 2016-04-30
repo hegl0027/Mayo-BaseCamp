@@ -226,7 +226,7 @@ gulp.task('todo', function () {
 });
 
 gulp.task('plato', plugins.shell.task([
-    'plato -r -d docs/plato app'
+    'plato -l .jshintrc -t "Root Static Analysis" -r -d reports/plato app'
 ]));
 
 
