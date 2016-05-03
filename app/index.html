@@ -56,7 +56,7 @@
                 </svg>
                 <span>System Administration</span>
             </li>
-            <li>
+            <li class="nav" ui-sref="app.support" ng-click="updatePrimaryView('SUPPORT')">
                 <svg class="icon icon--nav">
                     <use xlink:href="#icon-question"></use>
                 </svg>
@@ -130,8 +130,7 @@
                 </div>
             </div>
         </nav>
-        <div ui-view class="content">
-        </div>
+        <div ui-view class="content"></div>
         <div class="footer">
             <span>
                 <a href="http://codepen.io/bradyhullopeter/pen/yebXNZ" target="_blank">see dark theme</a>

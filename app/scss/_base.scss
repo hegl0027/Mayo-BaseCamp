@@ -221,9 +221,14 @@ header {
   }
 }
 
+.partial {
+  &__wrapper {
+    padding: 1em;
+  }
+}
+
 .content {
   flex-grow: 1;
-  padding: 1em;
 
   &__wrapper {
     flex-grow: 1;
@@ -422,3 +427,11 @@ header {
   100% {opacity: 0; transform: scale(2.5);}
 }
 
+
+.abstract-context {
+  &__wrapper {
+    background-color: #eee;
+    padding: .5em 1em;
+    border-bottom: 1px solid #ccc;
+  }
+}

@@ -18,11 +18,17 @@
                 controller: 'patternsController'
             })
 
-            /* VIEWS ROUTING */
+            .state('app.support', {
+                url: '/support',
+                templateUrl: 'views/support/support.html',
+                controller: 'supportController'
+            })
+
             .state('app.home', {
                 abstract: true,
                 url: '/home',
-                template: '<div ui-view></div>'
+                templateUrl: 'views/home/home.context.html',
+                controller: 'homeContextController'
             })
             .state('app.home.one', {
                 url: '/one',
@@ -50,7 +56,7 @@
             .state('app.reporting', {
                 abstract: true,
                 url: '/reporting',
-                template: '<div ui-view></div>'
+                template: '<div ui-view class="partial__wrapper"></div>'
             })
             .state('app.reporting.one', {
                 url: '/one',
@@ -69,7 +75,7 @@
             .state('app.admin', {
                 abstract: true,
                 url: '/admin',
-                template: '<div ui-view></div>'
+                template: '<div ui-view class="partial__wrapper"></div>'
             })
             .state('app.admin.one', {
                 url: '/one',
