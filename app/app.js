@@ -12,6 +12,12 @@
                 controller: 'indexController'
             })
 
+            .state('app.patterns', {
+                url: '/patterns',
+                templateUrl: 'views/patterns/patterns.html',
+                controller: 'patternsController'
+            })
+
             /* VIEWS ROUTING */
             .state('app.home', {
                 abstract: true,

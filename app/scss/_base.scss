@@ -333,7 +333,7 @@ header {
 
 /* checked */
 .check:checked ~ .drawer-menu {
-  transition-delay: .3s;
+  transition-delay: .5s;
   transform: none;
   opacity: 1;
   z-index: 2;
@@ -350,6 +350,7 @@ header {
   .bar.top {
     width: 57px;
     transform: rotate(45deg);
+    transition-delay: .2s;
     background-color: #fefefe;
   }
 
@@ -361,6 +362,7 @@ header {
     width: 57px;
     top: 40px;
     transform: rotate(-45deg);
+    transition-delay: .2s;
     background-color: #fefefe;
   }
 
