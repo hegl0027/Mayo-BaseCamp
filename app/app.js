@@ -24,6 +24,18 @@
                 controller: 'supportController'
             })
 
+            .state('app.voiceandtone', {
+                url: '/voiceandtone',
+                templateUrl: 'views/voiceandtone/voiceandtone.html',
+                controller: 'voiceAndToneController'
+            })
+
+            .state('app.styleguide', {
+                url: '/styleguide',
+                templateUrl: 'views/styleguide/styleguide.html',
+                controller: 'styleGuideController'
+            })
+
             .state('app.home', {
                 abstract: true,
                 url: '/home',
