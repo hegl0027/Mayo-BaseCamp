@@ -36,6 +36,12 @@
                 controller: 'styleGuideController'
             })
 
+            .state('app.architecture', {
+                url: '/architecture',
+                templateUrl: 'views/architecture/architecture.html',
+                controller: 'architectureController'
+            })
+
             .state('app.home', {
                 abstract: true,
                 url: '/home',
