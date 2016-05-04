@@ -28,6 +28,6 @@ exclude_paths:
   - "docs"
   - "gulpfile.js"
   - "e2e-tests"
-  - "app/**/*_test.js"
+  - "app/**/*_tests.js"
   - "reports"
   - "api-tests"
