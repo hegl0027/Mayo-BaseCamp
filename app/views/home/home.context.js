@@ -5,6 +5,6 @@
 
     };
 
-    angular.module('app').controller('homeContextController', homeContextController);
+    angular.module('app').controller('homeContextController', [homeContextController]);
     
 })(angular);

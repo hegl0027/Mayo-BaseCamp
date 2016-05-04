@@ -4,10 +4,12 @@ module.exports = function (config) {
         basePath: '',
 
         files: [
-            'dist/js/vendor.js',
-            'dist/js/app.js',
+            'dist/js/vendor.min.js',
+            'dist/js/app.min.js',
             'app/**/*_tests.js'
         ],
+
+        logLevel: 'INFO',
 
         autoWatch: true,
 
@@ -23,17 +25,26 @@ module.exports = function (config) {
             'karma-phantomjs-launcher',
             'karma-safari-launcher',
             'karma-jasmine',
-            'karma-junit-reporter'
+            'karma-junit-reporter',
+            'karma-spec-reporter'
         ],
 
-        reporters: ['progress', 'junit'],
+        reporters: ['specs', 'junit'],
+
+        specReporter: {
+            maxLogLines: 5,
+            suppressErrorSummary: true,
+            suppressFailed: false,
+            suppressPassed: false,
+            suppressSkipped: true,
+            showSpecTiming: false
+        },
 
         junitReporter: {
-            outputDir: 'dist/docs/karma',
+            outputDir: 'reports/karma',
             outputFile: 'test_out/unit.xml',
             suite: 'unit',
             useBrowserName: true
         }
-
     });
 };

@@ -21,6 +21,7 @@
       position: relative;
       transition: transform .3s ease, border-radius 1s ease;
       white-space: nowrap;
+      z-index: 2;
 
       &:hover {
         background-color: #2990cf;

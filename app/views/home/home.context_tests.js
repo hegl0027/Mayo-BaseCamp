@@ -4,7 +4,7 @@ describe('app module', function () {
 
     beforeEach(module('app'));
 
-    describe('home.context controller', function () {
+    describe('home context controller', function () {
 
         it('should be defined', inject(function ($controller) {
             
