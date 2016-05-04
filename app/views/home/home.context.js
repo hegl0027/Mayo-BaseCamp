@@ -6,4 +6,5 @@
     };
 
     angular.module('app').controller('homeContextController', homeContextController);
+    
 })(angular);

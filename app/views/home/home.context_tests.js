@@ -4,12 +4,12 @@ describe('app module', function () {
 
     beforeEach(module('app'));
 
-    describe('home.one controller', function () {
+    describe('home.context controller', function () {
 
         it('should be defined', inject(function ($controller) {
             
-            var homeOneController = $controller('homeOneController');
-            expect(homeOneController).toBeDefined();
+            var homeContextController = $controller('homeContextController');
+            expect(homeContextController).toBeDefined();
         }));
 
     });

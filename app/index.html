@@ -39,34 +39,32 @@
     <nav class="nav__primary">
         <ul>
             <li class="nav" ui-sref="app.home.one" ng-click="updatePrimaryView('HOME')">
-                <svg class="icon icon--nav">
-                    <use xlink:href="#icon-home2"></use>
-                </svg>
+                <svg class="icon icon--nav"><use xlink:href="#icon-home2"></use></svg>
                 <span>Home</span>
             </li>
             <li class="nav" ui-sref="app.reporting.one" ng-click="updatePrimaryView('REPORTING')">
-                <svg class="icon icon--nav">
-                    <use xlink:href="#icon-file-text"></use>
-                </svg>
+                <svg class="icon icon--nav"><use xlink:href="#icon-file-text"></use></svg>
                 <span>Reporting</span>
             </li>
             <li class="nav" ui-sref="app.admin.one" ng-click="updatePrimaryView('ADMIN')">
-                <svg class="icon icon--nav">
-                    <use xlink:href="#icon-cog"></use>
-                </svg>
+                <svg class="icon icon--nav"><use xlink:href="#icon-cog"></use></svg>
                 <span>System Administration</span>
             </li>
             <li class="nav" ui-sref="app.support" ng-click="updatePrimaryView('SUPPORT')">
-                <svg class="icon icon--nav">
-                    <use xlink:href="#icon-question"></use>
-                </svg>
+                <svg class="icon icon--nav"><use xlink:href="#icon-question"></use></svg>
                 <span>Support</span>
             </li>
             <li class="nav" ui-sref="app.patterns" ng-click="updatePrimaryView('PATTERNS')">
-                <svg class="icon icon--nav">
-                    <use xlink:href="#icon-rocket"></use>
-                </svg>
+                <svg class="icon icon--nav"><use xlink:href="#icon-rocket"></use></svg>
                 <span>Patterns</span>
+            </li>
+            <li>
+                <svg class="icon icon--nav"><use xlink:href="#icon-mic"></use></svg>
+                <span>Voice and Tone</span>
+            </li>
+            <li>
+                <svg class="icon icon--nav"><use xlink:href="#icon-droplet"></use></svg>
+                <span>Style Guide</span>
             </li>
         </ul>
     </nav>
@@ -144,6 +142,14 @@
 <svg style="position: absolute; width: 0; height: 0;" width="0" height="0" version="1.1"
      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
+        <symbol id="icon-mic" viewBox="0 0 32 32">
+            <title>mic</title>
+            <path class="path1" d="M15 22c2.761 0 5-2.239 5-5v-12c0-2.761-2.239-5-5-5s-5 2.239-5 5v12c0 2.761 2.239 5 5 5zM22 14v3c0 3.866-3.134 7-7 7s-7-3.134-7-7v-3h-2v3c0 4.632 3.5 8.447 8 8.944v4.056h-4v2h10v-2h-4v-4.056c4.5-0.497 8-4.312 8-8.944v-3h-2z"></path>
+        </symbol>
+        <symbol id="icon-droplet" viewBox="0 0 32 32">
+            <title>droplet</title>
+            <path class="path1" d="M27.020 14.786c-2.055-5.732-6.41-10.88-11.020-14.786-4.61 3.907-8.965 9.054-11.020 14.786-1.271 3.545-1.396 7.393 0.393 10.794 2.058 3.911 6.207 6.42 10.626 6.42s8.569-2.509 10.626-6.42c1.79-3.401 1.664-7.249 0.393-10.794zM23.086 23.717c-1.369 2.602-4.15 4.283-7.086 4.283-1.723 0-3.391-0.579-4.753-1.583 0.414 0.054 0.832 0.083 1.254 0.083 3.67 0 7.146-2.1 8.856-5.351 1.402-2.665 1.281-5.433 0.746-7.636 0.455 0.88 0.841 1.756 1.151 2.623 0.706 1.971 1.251 4.886-0.168 7.581z"></path>
+        </symbol>
         <symbol id="icon-rocket" viewBox="0 0 32 32">
             <title>rocket</title>
             <path class="path1"

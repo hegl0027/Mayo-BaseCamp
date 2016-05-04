@@ -1,0 +1,13 @@
+.footer {
+  background-color: #333;
+  box-shadow: 0 -1px 3px rgba(0, 0, 0, .12), 0 -1px 2px rgba(0, 0, 0, .24);
+  color: #eee;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  padding: .3em 1em;
+
+  .saved-msg {
+    padding-left: 2rem;
+  }
+}
