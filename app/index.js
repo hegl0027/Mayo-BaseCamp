@@ -3,16 +3,15 @@
 
     var indexController = function ($scope, $interval, $state, $log) {
         var now = moment();
+        $scope.myState = $state;
 
         $(document).on('click', '.nav', function () {
             $(this).siblings('.selected').removeClass('selected');
             $(this).addClass('selected');
         });
         
-        $scope.doesStateInclude = function (shortState) {
-            if ($state.includes(shortState))
-                $log.log(shortState + ' :: ' + $state.$current.name);
-            return $state.includes(shortState);
+        $scope.doesStateInclude = function (stateName) {
+            return $state.includes(stateName);
         };
 
         var updateLastSaved = (function fn() {

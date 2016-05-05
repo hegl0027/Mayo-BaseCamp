@@ -118,3 +118,93 @@ textarea {
     }
   }
 }
+
+.a-lbl {
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.informational {
+  padding: .125em .25em;
+  background-color: $cloud;
+  border: 1px solid $cloud--hover;
+  color: #333;
+  display: flex;
+  align-items: center;
+  border-bottom-left-radius: $border__radius;
+  border-bottom-right-radius: $border__radius;
+  border-top: 0;
+
+  .icon {
+    margin-right: .5em;
+    flex-shrink: 0;
+  }
+}
+
+.whateverfix {
+  font-size: 1rem;
+  padding: 0 .75em;
+  background-color: $cloud;
+  border: 1px solid $cloud--hover;
+  color: #555;
+  display: flex;
+  align-items: center;
+  margin-left: 0 !important;
+}
+
+.a-group {
+  display: flex;
+
+  .affixed {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  > :not(:first-child) {
+    margin-left: .5em;
+  }
+
+  > input {
+    flex-grow: 1;
+  }
+
+  > .a-btn {
+    padding: 0 1em;
+    font-size: 1rem;
+  }
+
+  > .prefix {
+    @extend .whateverfix;
+    border-right: 0;
+    border-top-left-radius: $border__radius;
+    border-bottom-left-radius: $border__radius;
+
+
+    + input {
+      margin-left: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  > .suffix {
+    @extend .whateverfix;
+    border-left: 0;
+    border-top-right-radius: $border__radius;
+    border-bottom-right-radius: $border__radius;
+  }
+
+  > .infix {
+    @extend .whateverfix;
+    border-right: 0;
+    border-left: 0;
+
+    + input {
+      margin-left: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+}

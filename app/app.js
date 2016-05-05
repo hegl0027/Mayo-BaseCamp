@@ -15,38 +15,56 @@
             .state('app.patterns', {
                 url: '/patterns',
                 templateUrl: 'views/patterns/patterns.html',
-                controller: 'patternsController'
+                controller: 'patternsController',
+                data: {
+                    title: 'Patterns'
+                }
             })
 
             .state('app.support', {
                 url: '/support',
                 templateUrl: 'views/support/support.html',
-                controller: 'supportController'
+                controller: 'supportController',
+                data: {
+                    title: 'Support'
+                }
             })
 
             .state('app.voiceandtone', {
                 url: '/voiceandtone',
                 templateUrl: 'views/voiceandtone/voiceandtone.html',
-                controller: 'voiceAndToneController'
+                controller: 'voiceAndToneController',
+                data: {
+                    title: 'Voice and Tone'
+                }
             })
 
             .state('app.styleguide', {
                 url: '/styleguide',
                 templateUrl: 'views/styleguide/styleguide.html',
-                controller: 'styleGuideController'
+                controller: 'styleGuideController',
+                data: {
+                    title: 'Style Guide'
+                }
             })
 
             .state('app.architecture', {
                 url: '/architecture',
                 templateUrl: 'views/architecture/architecture.html',
-                controller: 'architectureController'
+                controller: 'architectureController',
+                data: {
+                    title: 'Architecture'
+                }
             })
 
             .state('app.home', {
                 abstract: true,
                 url: '/home',
                 templateUrl: 'views/home/home.context.html',
-                controller: 'homeContextController'
+                controller: 'homeContextController',
+                data: {
+                    title: 'Home'
+                }
             })
             .state('app.home.one', {
                 url: '/one',
@@ -74,7 +92,10 @@
             .state('app.reporting', {
                 abstract: true,
                 url: '/reporting',
-                template: '<div ui-view class="partial__wrapper"></div>'
+                template: '<div ui-view class="partial__wrapper"></div>',
+                data: {
+                    title: 'Reporting'
+                }
             })
             .state('app.reporting.one', {
                 url: '/one',
@@ -93,7 +114,10 @@
             .state('app.admin', {
                 abstract: true,
                 url: '/admin',
-                template: '<div ui-view class="partial__wrapper"></div>'
+                template: '<div ui-view class="partial__wrapper"></div>',
+                data: {
+                    title: 'Admin'
+                }
             })
             .state('app.admin.one', {
                 url: '/one',
@@ -109,18 +133,6 @@
             });
     };
 
-    var runConfig = function ($rootScope) {
-        //$('.nav').first().addClass('selected');
-
-        // var stateChangeSuccess = function (event, toState, toParams, fromState, fromParams) {
-        //     $('.content__wrapper').find('[ui-sref="' + toState.name + '"]').addClass('selected');
-        //     $('.content__wrapper').find('[ui-sref="' + fromState.name + '"]').removeClass('selected');
-        // };
-
-        // todo: write this as a directive
-        // $rootScope.$on('$stateChangeSuccess', stateChangeSuccess);
-    };
-
     /**
      * Application entry module
      */
@@ -128,7 +140,6 @@
             'ui.router',
             'ngAnimate'
         ])
-        .config(stateConfig)
-        .run(runConfig);
+        .config(stateConfig);
 
 })(angular, jQuery);
