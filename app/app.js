@@ -110,15 +110,15 @@
     };
 
     var runConfig = function ($rootScope) {
-        $('.nav').first().addClass('selected');
+        //$('.nav').first().addClass('selected');
 
-        var stateChangeSuccess = function (event, toState, toParams, fromState, fromParams) {
-            $('.content__wrapper').find('[ui-sref="' + toState.name + '"]').addClass('selected');
-            $('.content__wrapper').find('[ui-sref="' + fromState.name + '"]').removeClass('selected');
-        };
+        // var stateChangeSuccess = function (event, toState, toParams, fromState, fromParams) {
+        //     $('.content__wrapper').find('[ui-sref="' + toState.name + '"]').addClass('selected');
+        //     $('.content__wrapper').find('[ui-sref="' + fromState.name + '"]').removeClass('selected');
+        // };
 
         // todo: write this as a directive
-        $rootScope.$on('$stateChangeSuccess', stateChangeSuccess);
+        // $rootScope.$on('$stateChangeSuccess', stateChangeSuccess);
     };
 
     /**

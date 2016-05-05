@@ -1,0 +1,11 @@
+input:not([type="checkbox"]),
+input:not([type="radio"]),
+select,
+textarea {
+  border: $border;
+  border-radius: $border__radius;
+  box-shadow: $inset;
+  box-sizing: border-box;
+  padding: $padding;
+  width: 100%;
+}

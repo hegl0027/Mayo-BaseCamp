@@ -1,18 +1,18 @@
 (function (angular, $) {
     'use strict';
 
-    var indexController = function ($scope, $interval) {
-        $scope.smiley = ':)';
-        $scope.primaryNav = 'HOME';
+    var indexController = function ($scope, $interval, $state, $log) {
         var now = moment();
 
         $(document).on('click', '.nav', function () {
             $(this).siblings('.selected').removeClass('selected');
             $(this).addClass('selected');
         });
-
-        $scope.updatePrimaryView = function (newView) {
-            $scope.primaryNav = newView;
+        
+        $scope.doesStateInclude = function (shortState) {
+            if ($state.includes(shortState))
+                $log.log(shortState + ' :: ' + $state.$current.name);
+            return $state.includes(shortState);
         };
 
         var updateLastSaved = (function fn() {
