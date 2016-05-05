@@ -1,5 +1,22 @@
 // forms
-$border: 1px solid #aaa;
+$border: 1px solid #bdc3c7;
 $border__radius: 3px;
 $inset: inset 0 7px 12px -7px rgba(100, 100, 100, .15);
 $padding: .25em .25em;
+$transition: all 146ms ease;
+$shadow: 0 0 3px 0 rgba(0, 0, 0, .3);
+
+// color
+$blue: #3498db;
+$blue--hover: #2980b9;
+$green: #1abc9c;
+$green--hover: #16a085;
+$yellow: #f1c40f;
+$yellow--hover: #f39c12;
+$cloud: #ecf0f1;
+$cloud--hover: #bdc3c7;
+$red: #e74c3c;
+$red--hover: #c0392b;
+
+$hovers: #2980b9, #16a085, #f39c12, #bdc3c7, #c0392b;
+$colors: #3498db, #1abc9c, #f1c40f, #ecf0f1, #e74c3c;
