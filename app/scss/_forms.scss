@@ -10,24 +10,28 @@ textarea {
   width: 100%;
 }
 
-.a-btn {
-  padding: .25em 1em;
-  box-shadow: $shadow;
-  cursor: pointer;
-  border: 1px solid $blue;
+%btn {
   background-color: #fff;
-  transition: $transition;
-  font-size: 1.2rem;
+  border: 1px solid $blue;
   border-radius: $border__radius;
+  box-shadow: $shadow;
   color: #333;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: .25em 1em;
+  transition: $transition;
 
   &:enabled:hover {
     background-color: $blue;
     color: #fff;
   }
+}
+
+.a-btn {
+  @extend %btn;
 
   &--filled {
-    @extend .a-btn;
+    @extend %btn;
     background-color: $blue;
     border-color: $blue;
     color: #fff;
@@ -45,7 +49,7 @@ textarea {
   }
 
   &--green {
-    @extend .a-btn;
+    @extend %btn;
     border-color: $green;
 
     &:enabled:hover {
@@ -53,7 +57,7 @@ textarea {
     }
 
     &--filled {
-      @extend .a-btn;
+      @extend %btn;
       background-color: $green;
       border-color: $green;
       color: #fff;
@@ -66,7 +70,7 @@ textarea {
   }
 
   &--yellow {
-    @extend .a-btn;
+    @extend %btn;
     border-color: $yellow;
 
     &:enabled:hover {
@@ -75,7 +79,7 @@ textarea {
     }
 
     &--filled {
-      @extend .a-btn;
+      @extend %btn;
       background-color: $yellow;
       border-color: $yellow;
       color: #fff;
@@ -88,7 +92,7 @@ textarea {
   }
 
   &--white {
-    @extend .a-btn;
+    @extend %btn;
     border-color: $cloud--hover;
 
     &:enabled:hover {
@@ -98,7 +102,7 @@ textarea {
   }
 
   &--red {
-    @extend .a-btn;
+    @extend %btn;
     border-color: $red;
 
     &:enabled:hover {
@@ -106,7 +110,7 @@ textarea {
     }
 
     &--filled {
-      @extend .a-btn;
+      @extend %btn;
       background-color: $red;
       border-color: $red;
       color: #fff;
@@ -120,38 +124,39 @@ textarea {
 }
 
 .a-lbl {
-  font-size: 1.1em;
-  display: flex;
   align-items: center;
+  display: flex;
+  font-size: 1.1em;
   justify-content: space-between;
 }
 
 .informational {
-  padding: .125em .25em;
+  align-items: center;
   background-color: $cloud;
   border: 1px solid $cloud--hover;
-  color: #333;
-  display: flex;
-  align-items: center;
   border-bottom-left-radius: $border__radius;
   border-bottom-right-radius: $border__radius;
   border-top: 0;
+  color: #333;
+  display: flex;
+  padding: .125em .25em;
+
 
   .icon {
-    margin-right: .5em;
     flex-shrink: 0;
+    margin-right: .5em;
   }
 }
 
-.whateverfix {
-  font-size: 1rem;
-  padding: 0 .75em;
+%whateverfix {
+  align-items: center;
   background-color: $cloud;
   border: 1px solid $cloud--hover;
   color: #555;
   display: flex;
-  align-items: center;
+  font-size: 1rem;
   margin-left: 0 !important;
+  padding: 0 .75em;
 }
 
 .a-group {
@@ -171,40 +176,40 @@ textarea {
   }
 
   > .a-btn {
-    padding: 0 1em;
     font-size: 1rem;
+    padding: 0 1em;
   }
 
   > .prefix {
-    @extend .whateverfix;
+    @extend %whateverfix;
+    border-bottom-left-radius: $border__radius;
     border-right: 0;
     border-top-left-radius: $border__radius;
-    border-bottom-left-radius: $border__radius;
 
 
     + input {
-      margin-left: 0;
-      border-top-left-radius: 0;
       border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+      margin-left: 0;
     }
   }
 
   > .suffix {
-    @extend .whateverfix;
+    @extend %whateverfix;
+    border-bottom-right-radius: $border__radius;
     border-left: 0;
     border-top-right-radius: $border__radius;
-    border-bottom-right-radius: $border__radius;
   }
 
   > .infix {
-    @extend .whateverfix;
-    border-right: 0;
+    @extend %whateverfix;
     border-left: 0;
+    border-right: 0;
 
     + input {
-      margin-left: 0;
-      border-top-left-radius: 0;
       border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+      margin-left: 0;
     }
   }
 }

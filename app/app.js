@@ -1,4 +1,4 @@
-(function (angular, $) {
+(function (angular) {
     'use strict';
 
     var stateConfig = function ($stateProvider, $urlRouterProvider) {
@@ -142,4 +142,4 @@
         ])
         .config(stateConfig);
 
-})(angular, jQuery);
+})(angular);
