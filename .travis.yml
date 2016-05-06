@@ -33,7 +33,7 @@ before_script:
 
 script:
   - gulp
-  - karma start karma.conf.js --no-auto-watch --single-run --reporters=dots
-  - protractor e2e-tests/protractor.conf.js
-  - mocha api-tests/**/*.js
+  - npm run karmaq
+  - npm run protractor
+  - npm run api-tests
 
