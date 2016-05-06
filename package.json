@@ -79,19 +79,19 @@
     "prestart": "npm install",
     "start": "http-server -a localhost -p 8000 -c-1",
     "pretest": "npm install",
-    "test": "karma start karma.conf.js",
-    "testq": "karma start karma.conf.js  --no-auto-watch --single-run --reporters=dots",
+    "test": "karma start test-configs/karma.conf.js",
+    "testq": "karma start test-configs/karma.conf.js  --no-auto-watch --single-run --reporters=dots",
     "preupdate-webdriver": "npm install",
     "update-webdriver": "webdriver-manager update",
     "preprotractor": "npm run update-webdriver",
-    "protractor": "protractor e2e-tests/protractor.conf.js",
-    "protractorq": "protractor e2e-tests/protractor.conf.js",
+    "protractor": "protractor test-configs/protractor.conf.js",
+    "protractorq": "protractor test-configs/protractor.conf.js",
     "preprotractor-specs": "npm run update-webdriver",
-    "protractor-specs": "protractor e2e-tests/protractor.conf.js --specs",
-    "protractor-specsq": "protractor e2e-tests/protractor.conf.js --specs",
+    "protractor-specs": "protractor test-configs/protractor.conf.js --specs",
+    "protractor-specsq": "protractor test-configs/protractor.conf.js --specs",
     "api-tests": "mocha api-tests/**/*.js",
     "prekarma": "npm install",
-    "karma": "karma start karma.conf.js",
-    "karmaq": "karma start karma.conf.js  --no-auto-watch --single-run --reporters=dots"
+    "karma": "karma start test-configs/karma.conf.js",
+    "karmaq": "karma start test-configs/karma.conf.js  --no-auto-watch --single-run --reporters=dots"
   }
 }

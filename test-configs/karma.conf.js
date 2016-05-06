@@ -4,9 +4,9 @@ module.exports = function (config) {
         basePath: '',
 
         files: [
-            'dist/js/vendor.min.js',
-            'dist/js/app.min.js',
-            'app/**/*_tests.js'
+            '../dist/js/vendor.min.js',
+            '../dist/js/app.min.js',
+            '../app/**/*_tests.js'
         ],
 
         logLevel: 'INFO',
