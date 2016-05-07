@@ -9,7 +9,7 @@ module.exports = function (config) {
             '../app/**/*_tests.js'
         ],
 
-        logLevel: 'DEBUG',
+        logLevel: 'INFO',
 
         autoWatch: true,
 
