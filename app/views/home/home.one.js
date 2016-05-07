@@ -5,5 +5,5 @@
 
     };
 
-    angular.module('app').controller('homeOneController', [homeOneController]);
+    angular.module('app').controller('homeOneController', homeOneController);
 })(angular);

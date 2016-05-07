@@ -5,6 +5,6 @@
 
     };
 
-    angular.module('app').controller('patternsController', [patternsController]);
+    angular.module('app').controller('patternsController', patternsController);
 
 })(angular);

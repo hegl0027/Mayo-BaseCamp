@@ -7,8 +7,8 @@ describe('app module', function () {
     describe('voice and tone controller', function () {
 
         it('should be defined', inject(function ($controller) {
-            //spec body
-            var voiceAndToneController = $controller('voiceAndToneController');
+            var $scope = {};
+            var voiceAndToneController = $controller('voiceAndToneController', {$scope: $scope});
             expect(voiceAndToneController).toBeDefined();
         }));
 

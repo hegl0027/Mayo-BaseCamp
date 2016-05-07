@@ -1,9 +1,15 @@
 (function (angular, $) {
     'use strict';
 
-    var indexController = function ($scope, $interval, $state, $log) {
+    var indexController = function ($scope, $interval, $state, $log, apiService) {
         var now = moment();
         $scope.myState = $state;
+
+        apiService.User.get({userId: 1}).$promise.then(function (user) {
+            $log.log('MOCKED:');
+            $log.log(user);
+            $scope.user = user;
+        });
 
         $(document).on('click', '.nav', function () {
             $(this).siblings('.selected').removeClass('selected');

@@ -5,6 +5,6 @@
 
     };
 
-    angular.module('app').controller('architectureController', [architectureController]);
+    angular.module('app').controller('architectureController', architectureController);
 
 })(angular);

@@ -5,6 +5,6 @@
 
     };
 
-    angular.module('app').controller('supportController', [supportController]);
+    angular.module('app').controller('supportController', supportController);
 
 })(angular);

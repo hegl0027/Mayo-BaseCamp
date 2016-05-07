@@ -5,6 +5,6 @@
 
     };
 
-    angular.module('app').controller('styleGuideController', [styleGuideController]);
+    angular.module('app').controller('styleGuideController', styleGuideController);
 
 })(angular);

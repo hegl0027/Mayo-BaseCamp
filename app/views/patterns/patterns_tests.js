@@ -4,11 +4,13 @@ describe('app module', function () {
 
     beforeEach(module('app'));
 
+    var $controller;
+
     describe('patterns controller', function () {
 
         it('should be defined', inject(function ($controller) {
-            //spec body
-            var patternsController = $controller('patternsController');
+            var $scope = {};
+            var patternsController = $controller('patternsController', {$scope: $scope});
             expect(patternsController).toBeDefined();
         }));
 

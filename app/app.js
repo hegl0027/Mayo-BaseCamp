@@ -8,8 +8,7 @@
             .state('app', {
                 abstract: true,
                 url: '/app',
-                template: '<div ui-view></div>',
-                controller: 'indexController'
+                template: '<div ui-view></div>'
             })
 
             .state('app.patterns', {
@@ -133,13 +132,21 @@
             });
     };
 
+    var loadingBarConfig = function (cfpLoadingBarProvider) {
+        cfpLoadingBarProvider.includeBar = false;
+        cfpLoadingBarProvider.latencyThreshold = 20;
+    };
+
     /**
      * Application entry module
      */
     angular.module('app', [
             'ui.router',
-            'ngAnimate'
+            'ngAnimate',
+            'angular-loading-bar',
+            'ngResource'
         ])
-        .config(stateConfig);
+        .config(stateConfig)
+        .config(loadingBarConfig);
 
 })(angular);

@@ -5,6 +5,6 @@
 
     };
 
-    angular.module('app').controller('voiceAndToneController', [voiceAndToneController]);
+    angular.module('app').controller('voiceAndToneController', voiceAndToneController);
 
 })(angular);

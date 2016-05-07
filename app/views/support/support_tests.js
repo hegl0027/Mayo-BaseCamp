@@ -7,8 +7,8 @@ describe('app module', function () {
     describe('support controller', function () {
 
         it('should be defined', inject(function ($controller) {
-            //spec body
-            var supportController = $controller('supportController');
+            var $scope = {};
+            var supportController = $controller('supportController', {$scope: $scope});
             expect(supportController).toBeDefined();
         }));
 
