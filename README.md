@@ -19,6 +19,7 @@
 
 ###Setup
 > Clone the repo and run the following from the web project root directory
+> You will likely need root or admin privileges to use '-g'
 ```
 gem install sass scss_lint
 npm install -g gulp karma karma-cli protractor mocha
