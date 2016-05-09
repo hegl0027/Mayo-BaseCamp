@@ -41,7 +41,7 @@ gulp docs
 gulp webstandards
 ```
 
-######Tasks that generate stuff outside of ./dist
+######Tasks that generate stuff outside of the 'dist' folder
 ```
 gulp plato
 gulp jsdoc
@@ -62,7 +62,7 @@ npm run testq  <-- quick version without npm/bower install, single run
 ```
 
 ###Protractor
-The Protractor tests live under the e2e-tests directory
+The Protractor tests live under the 'e2e-tests' folder
 > Dependent on HTTP Server
 ```
 npm run protractor
@@ -70,7 +70,7 @@ npm run protractorq  <-- quick version without webdriver update
 ```
 
 ###REST API Tests
-The REST API tests live under the api-tests directory
+The REST API tests live under the 'api-tests' folder
 > Dependent on HTTP Server
 ```
 npm run api-tests
