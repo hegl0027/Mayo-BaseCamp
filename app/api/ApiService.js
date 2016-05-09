@@ -1,11 +1,13 @@
 (function (angular) {
-    "use strict";
+    'use strict';
 
     var apiService = function ($http, $q, $timeout, $log, $resource) {
 
         return {
-            User: $resource('/resources/users/:userId', {userId: '@id'})
-        }
+            User: $resource('/resources/users/:userId', {
+                userId: '@id'
+            })
+        };
 
     };
 

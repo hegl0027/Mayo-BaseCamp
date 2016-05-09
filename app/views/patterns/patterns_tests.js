@@ -10,7 +10,7 @@ describe('app module', function () {
 
         it('should be defined', inject(function ($controller) {
             var $scope = {};
-            var patternsController = $controller('patternsController', {$scope: $scope});
+            var patternsController = $controller('patternsController', { $scope: $scope });
             expect(patternsController).toBeDefined();
         }));
 

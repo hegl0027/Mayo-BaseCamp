@@ -6,7 +6,7 @@ describe('app module', function () {
 
     var $controller;
 
-    beforeEach(inject(function(_$controller_){
+    beforeEach(inject(function (_$controller_) {
         // The injector unwraps the underscores (_) from around the parameter names when matching
         $controller = _$controller_;
     }));
@@ -15,7 +15,9 @@ describe('app module', function () {
 
         it('should be defined', inject(function ($controller) {
             var $scope = {};
-            var styleGuideController = $controller('styleGuideController', {$scope: $scope});
+            var styleGuideController = $controller('styleGuideController', {
+                $scope: $scope
+            });
             expect(styleGuideController).toBeDefined();
         }));
 

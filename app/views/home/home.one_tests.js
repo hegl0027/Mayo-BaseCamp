@@ -8,7 +8,9 @@ describe('app module', function () {
 
         it('should be defined', inject(function ($controller) {
             var $scope = {};
-            var homeOneController = $controller('homeOneController', {$scope: $scope});
+            var homeOneController = $controller('homeOneController', {
+                $scope: $scope
+            });
             expect(homeOneController).toBeDefined();
         }));
 

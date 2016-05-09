@@ -8,7 +8,7 @@ describe('app module', function () {
 
         it('should be defined', inject(function ($controller) {
             var $scope = {};
-            var architectureController = $controller('architectureController', {$scope: $scope});
+            var architectureController = $controller('architectureController', { $scope: $scope });
             expect(architectureController).toBeDefined();
         }));
 

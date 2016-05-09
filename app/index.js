@@ -5,7 +5,7 @@
         var now = moment();
         $scope.myState = $state;
 
-        apiService.User.get({userId: 1}).$promise.then(function (user) {
+        apiService.User.get({ userId: 1 }).$promise.then(function (user) {
             $log.log('MOCKED:');
             $log.log(user);
             $scope.user = user;

@@ -1,0 +1,112 @@
+%btn {
+  background-color: #fff;
+  border: 1px solid $blue;
+  border-radius: $border__radius;
+  box-shadow: $shadow;
+  color: #333;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: .25em 1em;
+  transition: $transition;
+
+  &:enabled:hover {
+    background-color: $blue;
+    color: #fff;
+  }
+}
+
+.a-btn {
+  @extend %btn;
+
+  &--filled {
+    @extend %btn;
+    background-color: $blue;
+    border-color: $blue;
+    color: #fff;
+
+    &:enabled:hover {
+      background-color: $blue--hover;
+      border-color: $blue--hover;
+    }
+  }
+
+  &:disabled {
+    background-color: $cloud;
+    border-color: $cloud--hover;
+    color: #6a6a6a;
+  }
+
+  &--green {
+    @extend %btn;
+    border-color: $green;
+
+    &:enabled:hover {
+      background-color: $green;
+    }
+
+    &--filled {
+      @extend %btn;
+      background-color: $green;
+      border-color: $green;
+      color: #fff;
+
+      &:enabled:hover {
+        background-color: $green--hover;
+        border-color: $green--hover;
+      }
+    }
+  }
+
+  &--yellow {
+    @extend %btn;
+    border-color: $yellow;
+
+    &:enabled:hover {
+      background-color: $yellow;
+      color: #333;
+    }
+
+    &--filled {
+      @extend %btn;
+      background-color: $yellow;
+      border-color: $yellow;
+      color: #fff;
+
+      &:enabled:hover {
+        background-color: $yellow--hover;
+        border-color: $yellow--hover;
+      }
+    }
+  }
+
+  &--white {
+    @extend %btn;
+    border-color: $cloud--hover;
+
+    &:enabled:hover {
+      background-color: $cloud--hover;
+      color: #333;
+    }
+  }
+
+  &--red {
+    @extend %btn;
+    border-color: $red;
+
+    &:enabled:hover {
+      background-color: $red;
+    }
+
+    &--filled {
+      @extend %btn;
+      background-color: $red;
+      border-color: $red;
+      color: #fff;
+
+      &:enabled:hover {
+        background-color: $red--hover;
+        border-color: $red--hover;
+      }
+    }
+  }
+}

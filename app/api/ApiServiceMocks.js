@@ -1,5 +1,5 @@
 (function (angular) {
-    "use strict";
+    'use strict';
 
     angular.module('appResourceMocks', ['app', 'ngMockE2E'])
         .run(function ($httpBackend) {
