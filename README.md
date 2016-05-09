@@ -62,7 +62,7 @@ npm run testq  <-- quick version without npm/bower install, single run
 ```
 
 ###Protractor
-The Protractor tests live under the ./e2e-tests directory
+The Protractor tests live under the e2e-tests directory
 > Dependent on HTTP Server
 ```
 npm run protractor
@@ -70,7 +70,7 @@ npm run protractorq  <-- quick version without webdriver update
 ```
 
 ###REST API Tests
-The REST API tests live under the ./test directory
+The REST API tests live under the api-tests directory
 > Dependent on HTTP Server
 ```
 npm run api-tests
