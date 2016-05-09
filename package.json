@@ -89,6 +89,6 @@
     "protractor-specs-q": "protractor test-configs/protractor.firefox.conf.js --specs",
     "api-tests": "mocha api-tests/**/*.js",
     "karma": "karma start test-configs/karma.conf.js",
-    "karma-q": "karma start test-configs/karma.conf.js  --no-auto-watch --single-run --reporters=dots",
+    "karma-q": "karma start test-configs/karma.conf.js  --no-auto-watch --single-run --reporters=dots"
   }
 }
