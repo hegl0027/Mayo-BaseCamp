@@ -207,26 +207,25 @@ gulp.task('webstandards', function () {
  */
 
 gulp.task('jsdoc', function () {
-    var cmd = (process.platform.indexOf('win') < 0) ? 'node_modules/jsdoc/jsdoc.js app -r -d docs/jsdoc' : 'start node_modules/jsdoc/jsdoc.js app -r -d docs/jsdoc';
+    var cmd = 'node_modules/jsdoc/jsdoc.js app -r -d docs/jsdoc';
+
+    if (process.platform.indexOf('win') >= 0) {
+        cmd = 'start "" /d ' + cmd;
+    }
+    console.log(cmd);
     plugins.shell.task([cmd]);
 });
 
 
 gulp.task('angular-jsdoc', function () {
-    var cmd;
+    var cmd = 'node_modules/jsdoc/jsdoc.js app ' +
+        '-c node_modules/angular-jsdoc/common/conf.json ' +
+        '-t node_modules/angular-jsdoc/angular-template ' +
+        '-d docs/angular ' +
+        '-r --verbose';
 
-    if (process.platform.indexOf('win') < 0) {
-        cmd = 'node_modules/jsdoc/jsdoc.js app ' +
-            '-c node_modules/angular-jsdoc/common/conf.json ' +
-            '-t node_modules/angular-jsdoc/angular-template ' +
-            '-d docs/angular ' +
-            '-r --verbose';
-    } else {
-        cmd = 'start node_modules/jsdoc/jsdoc.js app ' +
-            '-c node_modules/angular-jsdoc/common/conf.json ' +
-            '-t node_modules/angular-jsdoc/angular-template ' +
-            '-d docs/angular ' +
-            '-r --verbose'
+    if (process.platform.indexOf('win') >= 0) {
+        cmd = 'start "" /d ' + cmd;
     }
 
     plugins.shell.task([cmd]);
