@@ -206,18 +206,25 @@ gulp.task('webstandards', function () {
  * //todo: fix on windows
  */
 
-gulp.task('jsdoc', plugins.shell.task([
-    'node_modules/jsdoc/jsdoc.js app -r -d docs/jsdoc'
-]));
+gulp.task('jsdoc', function () {
+    console.log(process.platform);
+    plugins.shell.task([
+        'node_modules/jsdoc/jsdoc.js app -r -d docs/jsdoc'
+    ]);
+});
 
 
-gulp.task('angular-jsdoc', plugins.shell.task([
-    'node_modules/jsdoc/jsdoc.js app ' +
-    '-c node_modules/angular-jsdoc/common/conf.json ' +
-    '-t node_modules/angular-jsdoc/angular-template ' +
-    '-d docs/angular ' +
-    '-r --verbose'
-]));
+gulp.task('angular-jsdoc', function () {
+
+    plugins.shell.task([
+        'node_modules/jsdoc/jsdoc.js app ' +
+        '-c node_modules/angular-jsdoc/common/conf.json ' +
+        '-t node_modules/angular-jsdoc/angular-template ' +
+        '-d docs/angular ' +
+        '-r --verbose'
+    ]);
+
+});
 
 gulp.task('todo', function () {
     return gulp.src(['app/**/*.js', 'e2e-tests/**/*.js'])
