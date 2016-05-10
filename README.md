@@ -64,7 +64,7 @@ npm run test-q  <-- quick version without npm/bower install, single run
 ###Protractor
 The Protractor tests live under the 'e2e-tests' folder
 > - Dependent on HTTP Server
-  - Available browser configs: firefox, chrome, ie, safari
+- Available browser configs: firefox, chrome, ie, safari
 ```
 npm run protractor-[browser]
 npm run protractor-[browser]-q  <-- quick version without webdriver update
