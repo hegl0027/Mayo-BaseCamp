@@ -209,10 +209,10 @@ gulp.task('webstandards', function () {
 gulp.task('jsdoc', function () {
     var cmd = 'node_modules/jsdoc/jsdoc.js app -r -d docs/jsdoc';
 
-    if (process.platform.indexOf('win') >= 0) {
+    if (process.platform.indexOf('win32') >= 0) {
         cmd = 'start "" /d ' + cmd;
     }
-    console.log(cmd);
+    
     plugins.shell.task([cmd]);
 });
 
@@ -224,7 +224,7 @@ gulp.task('angular-jsdoc', function () {
         '-d docs/angular ' +
         '-r --verbose';
 
-    if (process.platform.indexOf('win') >= 0) {
+    if (process.platform.indexOf('win32') >= 0) {
         cmd = 'start "" /d ' + cmd;
     }
 
