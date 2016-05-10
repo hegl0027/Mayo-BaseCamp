@@ -90,7 +90,6 @@
     "prestart-ie-webdriver": "webdriver-manager update --ie",
     "start-ie-webdriver": "webdriver-manager start",
     "protractor-ie": "protractor test-configs/protractor.ie.conf.js",
-    "protractor-ie-q": "protractor test-configs/protractor.ie.conf.js",
     "preeprotractor-ie-specs": "npm run restart-ie-webdriver",
     "protractor-ie-specs": "protractor test-configs/protractor.ie.conf.js --specs",
     "preprotractor-firefox": "npm run update-webdriver",
