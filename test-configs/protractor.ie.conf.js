@@ -5,19 +5,12 @@ exports.config = {
         '../**/*_specs.js'
     ],
 
-    multiCapabilities: [{
-        'browserName': 'ie'
-    }],
+    capabilities: {
+        'browserName': 'internet explorer',
+        'version': '11'
+    },
 
-    /*multiCapabilities: [{
-        'browserName': 'firefox'
-    }, {
-        'browserName': 'chrome'
-    }, {
-        'browserName': 'ie'
-    }, {
-        'browserName': 'safari'
-    }],*/
+    seleniumArgs: ['-Dwebdriver.ie.driver=node_modules/protractor/selenium/IEDriverServer_x64_2.52.0.exe'],
 
     baseUrl: 'http://localhost:8000/dist/',
 
