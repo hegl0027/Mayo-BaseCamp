@@ -56,3 +56,12 @@
     }
   }
 }
+
+.app-version {
+  color: $cloud;
+  display: flex;
+  font-size: .7em;
+  justify-content: center;
+  padding: 1em 0;
+  width: 100%;
+}

@@ -38,39 +38,42 @@
 <div class="view">
     <nav class="nav__primary">
         <ul>
-            <li class="nav ng-class:{'selected': doesStateInclude('app.home')};" ui-sref="app.home.one">
+            <li ui-sref-active="selected" ui-sref="app.home.one">
                 <svg class="icon icon--nav"><use xlink:href="#icon-home2"></use></svg>
                 <span>Home</span>
             </li>
-            <li class="nav ng-class:{'selected': doesStateInclude('app.reporting')};" ui-sref="app.reporting.one">
+            <li ui-sref-active="selected" ui-sref="app.reporting.one">
                 <svg class="icon icon--nav"><use xlink:href="#icon-file-text"></use></svg>
                 <span>Reporting</span>
             </li>
-            <li class="nav ng-class:{'selected': doesStateInclude('app.admin')};" ui-sref="app.admin.one">
+            <li ui-sref-active="selected" ui-sref="app.admin.one">
                 <svg class="icon icon--nav"><use xlink:href="#icon-cog"></use></svg>
                 <span>System Administration</span>
             </li>
-            <li class="nav ng-class:{'selected': doesStateInclude('app.support')};" ui-sref="app.support">
+            <li ui-sref-active="selected" ui-sref="app.support">
                 <svg class="icon icon--nav"><use xlink:href="#icon-question"></use></svg>
                 <span>Support</span>
             </li>
-            <li class="nav ng-class:{'selected': doesStateInclude('app.patterns')};" ui-sref="app.patterns">
+            <li ui-sref-active="selected" ui-sref="app.patterns">
                 <svg class="icon icon--nav"><use xlink:href="#icon-rocket"></use></svg>
                 <span>Patterns</span>
             </li>
-            <li class="nav ng-class:{'selected': doesStateInclude('app.voiceandtone')};" ui-sref="app.voiceandtone">
+            <li ui-sref-active="selected" ui-sref="app.voiceandtone">
                 <svg class="icon icon--nav"><use xlink:href="#icon-mic"></use></svg>
                 <span>Voice and Tone</span>
             </li>
-            <li class="nav ng-class:{'selected': doesStateInclude('app.styleguide')};" ui-sref="app.styleguide">
+            <li ui-sref-active="selected" ui-sref="app.styleguide">
                 <svg class="icon icon--nav"><use xlink:href="#icon-droplet"></use></svg>
                 <span>Style Guide</span>
             </li>
-            <li class="nav ng-class:{'selected': doesStateInclude('app.architecture')};" ui-sref="app.architecture">
+            <li ui-sref-active="selected" ui-sref="app.architecture">
                 <svg class="icon icon--nav"><use xlink:href="#icon-leaf"></use></svg>
                 <span>Architecture</span>
             </li>
         </ul>
+        <section class="app-version">
+            {{appVersion}}
+        </section>
     </nav>
     <div class="content__wrapper">
         <header>
@@ -85,23 +88,23 @@
         <nav class="nav__secondary">
             <ul class="nav__secondary--horizontal" ng-if="doesStateInclude('app.home')">
                 <li class="crumb">HOME</li>
-                <li class="ng-class:{'selected': doesStateInclude('app.home.one')};" ui-sref="app.home.one">One</li>
-                <li class="ng-class:{'selected': doesStateInclude('app.home.two')};" ui-sref="app.home.two">Two</li>
-                <li class="ng-class:{'selected': doesStateInclude('app.home.three')};" ui-sref="app.home.three">Three</li>
-                <li class="ng-class:{'selected': doesStateInclude('app.home.four')};" ui-sref="app.home.four">Four</li>
-                <li class="ng-class:{'selected': doesStateInclude('app.home.five')};" ui-sref="app.home.five">Five</li>
+                <li ui-sref-active="selected" ui-sref="app.home.one">One</li>
+                <li ui-sref-active="selected" ui-sref="app.home.two">Two</li>
+                <li ui-sref-active="selected" ui-sref="app.home.three">Three</li>
+                <li ui-sref-active="selected" ui-sref="app.home.four">Four</li>
+                <li ui-sref-active="selected" ui-sref="app.home.five">Five</li>
             </ul>
             <ul class="nav__secondary--horizontal" ng-if="doesStateInclude('app.reporting')">
                 <li class="crumb">REPORTING</li>
-                <li class="ng-class:{'selected': doesStateInclude('app.reporting.one')};" ui-sref="app.reporting.one">One</li>
-                <li class="ng-class:{'selected': doesStateInclude('app.reporting.two')};" ui-sref="app.reporting.two">Two</li>
-                <li class="ng-class:{'selected': doesStateInclude('app.reporting.three')};" ui-sref="app.reporting.three">Three</li>
+                <li ui-sref-active="selected" ui-sref="app.reporting.one">One</li>
+                <li ui-sref-active="selected" ui-sref="app.reporting.two">Two</li>
+                <li ui-sref-active="selected" ui-sref="app.reporting.three">Three</li>
             </ul>
             <ul class="nav__secondary--horizontal" ng-if="doesStateInclude('app.admin')">
                 <li class="crumb">SYS. ADMIN.</li>
-                <li class="ng-class:{'selected': doesStateInclude('app.admin.one')};" ui-sref="app.admin.one">One</li>
-                <li class="ng-class:{'selected': doesStateInclude('app.admin.two')};" ui-sref="app.admin.two">Two</li>
-                <li class="ng-class:{'selected': doesStateInclude('app.admin.three')};" ui-sref="app.admin.three">Three</li>
+                <li ui-sref-active="selected" ui-sref="app.admin.one">One</li>
+                <li ui-sref-active="selected" ui-sref="app.admin.two">Two</li>
+                <li ui-sref-active="selected" ui-sref="app.admin.three">Three</li>
             </ul>
             <div class="nav__secondary--drawer">
                 <input type="checkbox" class="check" id="checked">
@@ -113,21 +116,21 @@
                 </label>
                 <div class="list">
                     <ul ng-if="doesStateInclude('app.home')">
-                        <li class="nav ng-class:{'selected': doesStateInclude('app.home.one')};" ui-sref="app.home.one">One</li>
-                        <li class="nav ng-class:{'selected': doesStateInclude('app.home.two')};" ui-sref="app.home.two">Two</li>
-                        <li class="nav ng-class:{'selected': doesStateInclude('app.home.three')};" ui-sref="app.home.three">Three</li>
-                        <li class="nav ng-class:{'selected': doesStateInclude('app.home.four')};" ui-sref="app.home.four">Four</li>
-                        <li class="nav ng-class:{'selected': doesStateInclude('app.home.five')};" ui-sref="app.home.five">Five</li>
+                        <li ui-sref-active="selected" ui-sref="app.home.one">One</li>
+                        <li ui-sref-active="selected" ui-sref="app.home.two">Two</li>
+                        <li ui-sref-active="selected" ui-sref="app.home.three">Three</li>
+                        <li ui-sref-active="selected" ui-sref="app.home.four">Four</li>
+                        <li ui-sref-active="selected" ui-sref="app.home.five">Five</li>
                     </ul>
                     <ul ng-if="doesStateInclude('app.reporting')">
-                        <li class="nav ng-class:{'selected': doesStateInclude('app.reporting.one')};" ui-sref="app.reporting.one">One</li>
-                        <li class="nav ng-class:{'selected': doesStateInclude('app.reporting.two')};" ui-sref="app.reporting.two">Two</li>
-                        <li class="nav ng-class:{'selected': doesStateInclude('app.reporting.three')};" ui-sref="app.reporting.three">Three</li>
+                        <li ui-sref-active="selected" ui-sref="app.reporting.one">One</li>
+                        <li ui-sref-active="selected" ui-sref="app.reporting.two">Two</li>
+                        <li ui-sref-active="selected" ui-sref="app.reporting.three">Three</li>
                     </ul>
                     <ul ng-if="doesStateInclude('app.admin')">
-                        <li class="nav ng-class:{'selected': doesStateInclude('app.admin.one')};" ui-sref="app.admin.one">One</li>
-                        <li class="nav ng-class:{'selected': doesStateInclude('app.admin.two')};" ui-sref="app.admin.two">Two</li>
-                        <li class="nav ng-class:{'selected': doesStateInclude('app.admin.three')};" ui-sref="app.admin.three">Three</li>
+                        <li ui-sref-active="selected" ui-sref="app.admin.one">One</li>
+                        <li ui-sref-active="selected" ui-sref="app.admin.two">Two</li>
+                        <li ui-sref-active="selected" ui-sref="app.admin.three">Three</li>
                     </ul>
                 </div>
             </div>

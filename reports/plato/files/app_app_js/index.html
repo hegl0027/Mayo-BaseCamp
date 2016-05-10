@@ -44,11 +44,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
-      <p class="stat">53.06</p>
+      <p class="stat">51.45</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
-      <p class="stat">152</p>
+      <p class="stat">164</p>
     </div>
   </div>
   <div class="row historical">
@@ -62,11 +62,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
-      <p class="stat">9.36</p>
+      <p class="stat">9.21</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
-      <p class="stat">0.86</p>
+      <p class="stat">0.96</p>
     </div>
   </div>
 </div>
@@ -150,8 +150,8 @@
             .state(&#039;app.home&#039;, {
                 abstract: true,
                 url: &#039;/home&#039;,
-                templateUrl: &#039;views/home/home.context.html&#039;,
-                controller: &#039;homeContextController&#039;,
+                templateUrl: &#039;views/home/home.abstract.html&#039;,
+                controller: &#039;abstractHomeController&#039;,
                 data: {
                     title: &#039;Home&#039;
                 }
@@ -163,19 +163,23 @@
             })
             .state(&#039;app.home.two&#039;, {
                 url: &#039;/two&#039;,
-                templateUrl: &#039;views/home/home.two.html&#039;
+                templateUrl: &#039;views/home/home.two.html&#039;,
+                controller: &#039;homeTwoController&#039;
             })
             .state(&#039;app.home.three&#039;, {
                 url: &#039;/three&#039;,
-                templateUrl: &#039;views/home/home.three.html&#039;
+                templateUrl: &#039;views/home/home.three.html&#039;,
+                controller: &#039;homeThreeController&#039;
             })
             .state(&#039;app.home.four&#039;, {
                 url: &#039;/four&#039;,
-                templateUrl: &#039;views/home/home.four.html&#039;
+                templateUrl: &#039;views/home/home.four.html&#039;,
+                controller: &#039;homeFourController&#039;
             })
             .state(&#039;app.home.five&#039;, {
                 url: &#039;/five&#039;,
-                templateUrl: &#039;views/home/home.five.html&#039;
+                templateUrl: &#039;views/home/home.five.html&#039;,
+                controller: &#039;homeFiveController&#039;
             })
 
             /* REPORTING ROUTING*/
@@ -183,21 +187,25 @@
                 abstract: true,
                 url: &#039;/reporting&#039;,
                 template: &#039;&lt;div ui-view class=&quot;partial__wrapper&quot;&gt;&lt;/div&gt;&#039;,
+                controller: &#039;abstractReportingController&#039;,
                 data: {
                     title: &#039;Reporting&#039;
                 }
             })
             .state(&#039;app.reporting.one&#039;, {
                 url: &#039;/one&#039;,
-                templateUrl: &#039;views/reporting/reporting.one.html&#039;
+                templateUrl: &#039;views/reporting/reporting.one.html&#039;,
+                controller: &#039;reportingOneController&#039;
             })
             .state(&#039;app.reporting.two&#039;, {
                 url: &#039;/two&#039;,
-                templateUrl: &#039;views/reporting/reporting.two.html&#039;
+                templateUrl: &#039;views/reporting/reporting.two.html&#039;,
+                controller: &#039;reportingTwoController&#039;
             })
             .state(&#039;app.reporting.three&#039;, {
                 url: &#039;/three&#039;,
-                templateUrl: &#039;views/reporting/reporting.three.html&#039;
+                templateUrl: &#039;views/reporting/reporting.three.html&#039;,
+                controller: &#039;reportingThreeController&#039;
             })
 
             /* ADMIN ROUTING*/
@@ -205,21 +213,25 @@
                 abstract: true,
                 url: &#039;/admin&#039;,
                 template: &#039;&lt;div ui-view class=&quot;partial__wrapper&quot;&gt;&lt;/div&gt;&#039;,
+                controller: &#039;abstractAdminController&#039;,
                 data: {
                     title: &#039;Admin&#039;
                 }
             })
             .state(&#039;app.admin.one&#039;, {
                 url: &#039;/one&#039;,
-                templateUrl: &#039;views/sysadmin/sysadmin.one.html&#039;
+                templateUrl: &#039;views/sysadmin/sysadmin.one.html&#039;,
+                controller: &#039;adminOneController&#039;
             })
             .state(&#039;app.admin.two&#039;, {
                 url: &#039;/two&#039;,
-                templateUrl: &#039;views/sysadmin/sysadmin.two.html&#039;
+                templateUrl: &#039;views/sysadmin/sysadmin.two.html&#039;,
+                controller: &#039;adminTwoController&#039;
             })
             .state(&#039;app.admin.three&#039;, {
                 url: &#039;/three&#039;,
-                templateUrl: &#039;views/sysadmin/sysadmin.three.html&#039;
+                templateUrl: &#039;views/sysadmin/sysadmin.three.html&#039;,
+                controller: &#039;adminThreeController&#039;
             });
     };
 

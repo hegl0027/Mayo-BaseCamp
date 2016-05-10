@@ -59,8 +59,8 @@
             .state('app.home', {
                 abstract: true,
                 url: '/home',
-                templateUrl: 'views/home/home.context.html',
-                controller: 'homeContextController',
+                templateUrl: 'views/home/home.abstract.html',
+                controller: 'abstractHomeController',
                 data: {
                     title: 'Home'
                 }
@@ -72,19 +72,23 @@
             })
             .state('app.home.two', {
                 url: '/two',
-                templateUrl: 'views/home/home.two.html'
+                templateUrl: 'views/home/home.two.html',
+                controller: 'homeTwoController'
             })
             .state('app.home.three', {
                 url: '/three',
-                templateUrl: 'views/home/home.three.html'
+                templateUrl: 'views/home/home.three.html',
+                controller: 'homeThreeController'
             })
             .state('app.home.four', {
                 url: '/four',
-                templateUrl: 'views/home/home.four.html'
+                templateUrl: 'views/home/home.four.html',
+                controller: 'homeFourController'
             })
             .state('app.home.five', {
                 url: '/five',
-                templateUrl: 'views/home/home.five.html'
+                templateUrl: 'views/home/home.five.html',
+                controller: 'homeFiveController'
             })
 
             /* REPORTING ROUTING*/
@@ -92,21 +96,25 @@
                 abstract: true,
                 url: '/reporting',
                 template: '<div ui-view class="partial__wrapper"></div>',
+                controller: 'abstractReportingController',
                 data: {
                     title: 'Reporting'
                 }
             })
             .state('app.reporting.one', {
                 url: '/one',
-                templateUrl: 'views/reporting/reporting.one.html'
+                templateUrl: 'views/reporting/reporting.one.html',
+                controller: 'reportingOneController'
             })
             .state('app.reporting.two', {
                 url: '/two',
-                templateUrl: 'views/reporting/reporting.two.html'
+                templateUrl: 'views/reporting/reporting.two.html',
+                controller: 'reportingTwoController'
             })
             .state('app.reporting.three', {
                 url: '/three',
-                templateUrl: 'views/reporting/reporting.three.html'
+                templateUrl: 'views/reporting/reporting.three.html',
+                controller: 'reportingThreeController'
             })
 
             /* ADMIN ROUTING*/
@@ -114,21 +122,25 @@
                 abstract: true,
                 url: '/admin',
                 template: '<div ui-view class="partial__wrapper"></div>',
+                controller: 'abstractAdminController',
                 data: {
                     title: 'Admin'
                 }
             })
             .state('app.admin.one', {
                 url: '/one',
-                templateUrl: 'views/sysadmin/sysadmin.one.html'
+                templateUrl: 'views/sysadmin/sysadmin.one.html',
+                controller: 'adminOneController'
             })
             .state('app.admin.two', {
                 url: '/two',
-                templateUrl: 'views/sysadmin/sysadmin.two.html'
+                templateUrl: 'views/sysadmin/sysadmin.two.html',
+                controller: 'adminTwoController'
             })
             .state('app.admin.three', {
                 url: '/three',
-                templateUrl: 'views/sysadmin/sysadmin.three.html'
+                templateUrl: 'views/sysadmin/sysadmin.three.html',
+                controller: 'adminThreeController'
             });
     };
 

@@ -4,6 +4,7 @@
     var indexController = function ($scope, $interval, $state, $log, apiService) {
         var now = moment();
         $scope.myState = $state;
+        $scope.appVersion = 'v0.8.0'
 
         apiService.User.get({ userId: 1 }).$promise.then(function (user) {
             $log.log('MOCKED:');
