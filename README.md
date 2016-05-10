@@ -58,15 +58,16 @@ npm start
 The unit test files (app/\*\*/\*_tests.js) should hang out with the the rest of the application code
 ```
 npm test
-npm run testq  <-- quick version without npm/bower install, single run
+npm run test-q  <-- quick version without npm/bower install, single run
 ```
 
 ###Protractor
 The Protractor tests live under the 'e2e-tests' folder
-> Dependent on HTTP Server
+> - Dependent on HTTP Server
+  - Available browser configs: firefox, chrome, ie, safari
 ```
-npm run protractor
-npm run protractorq  <-- quick version without webdriver update
+npm run protractor-[browser]
+npm run protractor-[browser]-q  <-- quick version without webdriver update
 ```
 
 ###REST API Tests
