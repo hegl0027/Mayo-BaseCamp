@@ -6,6 +6,16 @@ header {
   justify-content: flex-end;
   z-index: 1;
 
+  .logout {
+    align-self: flex-end;
+
+    a {
+      padding: 0;
+      width: 100%;
+      font-size: .8em;
+    }
+  }
+
   .username,
   .app-name {
     align-self: flex-end;
