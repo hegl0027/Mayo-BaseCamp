@@ -75,7 +75,9 @@
             {{appVersion}}
         </section>
     </nav>
+
     <div class="content__wrapper">
+
         <header>
             <span class="app-logo"></span>
             <span class="app-name">Super Clever App Name</span>
@@ -85,6 +87,7 @@
                 <use xlink:href="#icon-user"></use>
             </svg>
         </header>
+
         <nav class="nav__secondary">
             <ul class="nav__secondary--horizontal" ng-if="doesStateInclude('app.home')">
                 <li class="crumb">HOME</li>
@@ -135,7 +138,9 @@
                 </div>
             </div>
         </nav>
+
         <div ui-view class="content"></div>
+
         <div class="footer">
             <span>
                 <a href="http://codepen.io/bradyhullopeter/pen/yebXNZ" target="_blank">see dark theme</a>
