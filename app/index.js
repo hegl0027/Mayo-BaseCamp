@@ -12,12 +12,20 @@
             $scope.user = user;
         });
 
-        $timeout(function () {
-            apiService.User.update({id: 1}, $scope.user).$promise.then(function (res) {
-                $log.log('MOCKED PUT:');
-                $log.log(res);
-            });
-        }, 1000);
+        apiService.User.update({id: 1}, $scope.user).$promise.then(function (res) {
+            $log.log('MOCKED PUT:');
+            $log.log(res);
+        });
+
+        apiService.User.save($scope.user).$promise.then(function (res) {
+            $log.log('MOCKED POST:');
+            $log.log(res);
+        });
+
+        apiService.User.remove($scope.user).$promise.then(function (res) {
+            $log.log('MOCKED DELETE:');
+            $log.log(res);
+        });
 
         $(document).on('click', '.nav', function () {
             $(this).siblings('.selected').removeClass('selected');
