@@ -61,6 +61,15 @@
                 }
             })
 
+            .state('app.fonz', {
+                url: '/fonz',
+                templateUrl: 'views/fonz/fonz.html',
+                data: {
+                    title: 'The Fonz',
+                    hasSecondaryNav: false
+                }
+            })
+
             .state('app.home', {
                 abstract: true,
                 url: '/home',
