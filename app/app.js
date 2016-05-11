@@ -164,7 +164,8 @@
             'ui.router',
             'ngAnimate',
             'angular-loading-bar',
-            'ngResource'
+            'ngResource',
+            'ngDialog'
         ])
         .config(stateConfig)
         .config(loadingBarConfig);

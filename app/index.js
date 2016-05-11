@@ -1,10 +1,10 @@
 (function (angular, $) {
     'use strict';
 
-    var indexController = function ($scope, $interval, $state, $log, apiService, $timeout) {
+    var indexController = function ($scope, $interval, $state, $log, apiService, ngDialog) {
         var now = moment();
         $scope.myState = $state;
-        $scope.appVersion = 'v0.8.0';
+        $scope.appVersion = 'v0.10';
 
         apiService.User.get({id: 1}).$promise.then(function (user) {
             $log.log('MOCKED GET:');
@@ -43,6 +43,14 @@
 
         $scope.hasSecondaryNav = function () {
             return $state.current.data ? $state.current.data.hasSecondaryNav === true : false;
+        };
+
+        $scope.openSettings = function () {
+            $scope.settingsDialog = ngDialog.open({ template: 'views/global/settings.html', className: 'ngdialog-theme-default' });
+        };
+
+        $scope.openLogout = function () {
+            $scope.logoutDialog = ngDialog.open({ template: 'views/global/logout.html', className: 'ngdialog-theme-default' });
         };
 
         var updateLastSaved = (function fn() {
