@@ -64,7 +64,7 @@ gulp.task('html-beautify', function () {
  */
 
 gulp.task('js', function () {
-    return gulp.src(['app/**/*.js', '!app/**/*_tests.js', '!app/**/*_mocks.js'])
+    return gulp.src(['app/**/*.js', '!app/**/*_tests.js'])
         .pipe(plugins.plumber())
         .pipe(plugins.sourcemaps.init())
         .pipe(plugins.angularFilesort())
