@@ -3,6 +3,11 @@ module.exports = function (config) {
 
         basePath: '',
 
+        preprocessors: {
+            '../dist/**/*.js': 'coverage'
+        },
+
+
         files: [
             '../dist/js/vendor.min.js',
             '../dist/js/app.min.js',
@@ -27,7 +32,7 @@ module.exports = function (config) {
 
             // post processing of browsers list
             // here you can edit the list of browsers used by karma
-            postDetection: function(availableBrowser) {
+            postDetection: function (availableBrowser) {
                 /* Karma configuration with custom launchers
                  customLaunchers: {
                  IE9: {
@@ -40,12 +45,12 @@ module.exports = function (config) {
                 //Add IE Emulation
                 var result = availableBrowser;
 
-                if (availableBrowser.indexOf('IE')>-1) {
+                if (availableBrowser.indexOf('IE') > -1) {
                     result.push('IE9');
                 }
 
                 //Remove PhantomJS if another browser has been detected
-                if (availableBrowser.length > 1 && availableBrowser.indexOf('PhantomJS')>-1) {
+                if (availableBrowser.length > 1 && availableBrowser.indexOf('PhantomJS') > -1) {
                     var i = result.indexOf('PhantomJS');
 
                     if (i !== -1) {
@@ -66,10 +71,16 @@ module.exports = function (config) {
             'karma-jasmine',
             'karma-junit-reporter',
             'karma-spec-reporter',
-            'karma-detect-browsers'
+            'karma-detect-browsers',
+            'karma-coverage'
         ],
 
-        reporters: ['specs', 'junit'],
+        reporters: ['specs', 'junit', 'coverage'],
+
+        coverageReporter: {
+            type: 'html',
+            dir: '../reports/coverage/'
+        },
 
         specReporter: {
             maxLogLines: 5,
