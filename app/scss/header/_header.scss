@@ -7,13 +7,13 @@ header {
   z-index: 1;
 
   .user-links {
-    align-self: flex-end;
+    display: flex;
+    justify-content: flex-end;
     color: #c0392b;
     font-size: .8em;
 
     a {
       padding: 0;
-      width: 100%;
     }
   }
 
