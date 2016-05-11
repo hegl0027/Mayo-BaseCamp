@@ -22,7 +22,7 @@
         };
         
         $scope.hasSecondaryNav = function () {
-            return $state.current.data.hasSecondaryNav === true;
+            return $state.current.data ? $state.current.data.hasSecondaryNav === true : false;
         };
 
         var updateLastSaved = (function fn() {
