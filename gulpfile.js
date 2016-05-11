@@ -269,7 +269,7 @@ gulp.task('watch', function () {
     jsWatch.on('change', function (event) {
         console.log('File ' + event.path + ' was ' + event.type + ', running js tasks...');
         runSequence('js', function () {
-            console.log(getTimestamp() + ' #################  JS WATCH FINISHED #################');
+            console.log(getTimestamp() + ' ------------  JS WATCH FINISHED ------------');
         });
 
     });
@@ -277,14 +277,14 @@ gulp.task('watch', function () {
     htmlWatch.on('change', function (event) {
         console.log('File ' + event.path + ' was ' + event.type + ', running html tasks...');
         runSequence('html', function () {
-            console.log(getTimestamp() + ' #################  HTML WATCH FINISHED #################');
+            console.log(getTimestamp() + ' ------------  HTML WATCH FINISHED ------------');
         });
     });
 
     scssWatch.on('change', function (event) {
         console.log('File ' + event.path + ' was ' + event.type + ', running sass tasks...');
         runSequence('styles', function () {
-            console.log(getTimestamp() + ' #################  STYLES WATCH FINISHED #################');
+            console.log(getTimestamp() + ' ------------  STYLES WATCH FINISHED ------------');
         });
     });
 });
