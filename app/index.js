@@ -27,6 +27,11 @@
             $log.log(res);
         });
 
+        apiService.User.query($scope.user).$promise.then(function (res) {
+            $log.log('MOCKED QUERY:');
+            $log.log(res);
+        });
+
         $(document).on('click', '.nav', function () {
             $(this).siblings('.selected').removeClass('selected');
             $(this).addClass('selected');

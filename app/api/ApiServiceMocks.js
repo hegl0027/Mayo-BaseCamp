@@ -10,6 +10,7 @@
             };
 
             $httpBackend.whenGET(/resources\/users\/.*/).respond(user);
+            $httpBackend.whenGET(/resources\/users*/).respond([user]);
             $httpBackend.whenPUT(/resources\/users\/.*/).respond(user);
             $httpBackend.whenPOST(/resources\/users*/).respond(user);
             $httpBackend.whenDELETE(/resources\/users*/).respond();
