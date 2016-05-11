@@ -109,7 +109,7 @@
                 <li ui-sref-active="selected" ui-sref="app.admin.two">Two</li>
                 <li ui-sref-active="selected" ui-sref="app.admin.three">Three</li>
             </ul>
-            <div class="nav__secondary--drawer">
+            <div class="nav__secondary--drawer" ng-if="hasSecondaryNav()">
                 <input type="checkbox" class="check" id="checked">
                 <label class="menu-btn" for="checked">
                     <span class="bar top"></span>

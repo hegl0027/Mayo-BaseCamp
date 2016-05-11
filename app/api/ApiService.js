@@ -8,7 +8,6 @@
                 userId: '@id'
             })
         };
-
     };
 
     angular.module('app').service('apiService', apiService);

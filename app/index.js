@@ -20,6 +20,10 @@
         $scope.doesStateInclude = function (stateName) {
             return $state.includes(stateName);
         };
+        
+        $scope.hasSecondaryNav = function () {
+            return $state.current.data.hasSecondaryNav === true;
+        };
 
         var updateLastSaved = (function fn() {
             $scope.lastSaved = moment(now).fromNow();

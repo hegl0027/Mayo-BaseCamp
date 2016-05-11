@@ -16,7 +16,8 @@
                 templateUrl: 'views/patterns/patterns.html',
                 controller: 'patternsController',
                 data: {
-                    title: 'Patterns'
+                    title: 'Patterns',
+                    hasSecondaryNav: false
                 }
             })
 
@@ -25,7 +26,8 @@
                 templateUrl: 'views/support/support.html',
                 controller: 'supportController',
                 data: {
-                    title: 'Support'
+                    title: 'Support',
+                    hasSecondaryNav: false
                 }
             })
 
@@ -34,7 +36,8 @@
                 templateUrl: 'views/voiceandtone/voiceandtone.html',
                 controller: 'voiceAndToneController',
                 data: {
-                    title: 'Voice and Tone'
+                    title: 'Voice and Tone',
+                    hasSecondaryNav: false
                 }
             })
 
@@ -43,7 +46,8 @@
                 templateUrl: 'views/styleguide/styleguide.html',
                 controller: 'styleGuideController',
                 data: {
-                    title: 'Style Guide'
+                    title: 'Style Guide',
+                    hasSecondaryNav: false
                 }
             })
 
@@ -52,7 +56,8 @@
                 templateUrl: 'views/architecture/architecture.html',
                 controller: 'architectureController',
                 data: {
-                    title: 'Architecture'
+                    title: 'Architecture',
+                    hasSecondaryNav: false
                 }
             })
 
@@ -62,7 +67,8 @@
                 templateUrl: 'views/home/home.abstract.html',
                 controller: 'abstractHomeController',
                 data: {
-                    title: 'Home'
+                    title: 'Home',
+                    hasSecondaryNav: true
                 }
             })
             .state('app.home.one', {
@@ -98,7 +104,8 @@
                 template: '<div ui-view class="partial__wrapper"></div>',
                 controller: 'abstractReportingController',
                 data: {
-                    title: 'Reporting'
+                    title: 'Reporting',
+                    hasSecondaryNav: true
                 }
             })
             .state('app.reporting.one', {
@@ -124,7 +131,8 @@
                 template: '<div ui-view class="partial__wrapper"></div>',
                 controller: 'abstractAdminController',
                 data: {
-                    title: 'Admin'
+                    title: 'Admin',
+                    hasSecondaryNav: true
                 }
             })
             .state('app.admin.one', {
