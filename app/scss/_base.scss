@@ -57,6 +57,7 @@ ul {
 
 .content {
   flex-grow: 1;
+  overflow-y: auto;
 
   &__wrapper {
     display: flex;

@@ -1,4 +1,14 @@
-.guide {
+.patterns {
+  &__section {
+    padding: 1em;
+
+    &:nth-child(odd) {
+      background-color: #fff;
+      border: 1px solid $cloud;
+      border-radius: $border__radius;
+    }
+  }
+
   &__button {
     &__wrapper {
       padding: .5em 0;
