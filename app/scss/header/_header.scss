@@ -7,10 +7,10 @@ header {
   z-index: 1;
 
   .user-links {
-    display: flex;
-    justify-content: flex-end;
     color: $red--hover;
+    display: flex;
     font-size: .8em;
+    justify-content: flex-end;
 
     a {
       padding: 0;

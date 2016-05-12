@@ -6,13 +6,13 @@
         $scope.myState = $state;
         $scope.appVersion = 'v0.10';
 
-        apiService.User.get({id: 1}).$promise.then(function (user) {
+        apiService.User.get({ id: 1 }).$promise.then(function (user) {
             $log.log('MOCKED GET:');
             $log.log(user);
             $scope.user = user;
         });
 
-        apiService.User.update({id: 1}, $scope.user).$promise.then(function (res) {
+        apiService.User.update({ id: 1 }, $scope.user).$promise.then(function (res) {
             $log.log('MOCKED PUT:');
             $log.log(res);
         });
@@ -46,11 +46,17 @@
         };
 
         $scope.openSettings = function () {
-            $scope.settingsDialog = ngDialog.open({ template: 'views/global/settings.html', className: 'ngdialog-theme-default' });
+            $scope.settingsDialog = ngDialog.open({
+                template: 'views/global/settings.html',
+                className: 'ngdialog-theme-default'
+            });
         };
 
         $scope.openLogout = function () {
-            $scope.logoutDialog = ngDialog.open({ template: 'views/global/logout.html', className: 'ngdialog-theme-default' });
+            $scope.logoutDialog = ngDialog.open({
+                template: 'views/global/logout.html',
+                className: 'ngdialog-theme-default'
+            });
         };
 
         var updateLastSaved = (function fn() {

@@ -1,10 +1,10 @@
 .throwaway {
   &__section {
-    padding: 1em;
     background-color: #fff;
     border: 1px solid $cloud;
     border-radius: $border__radius;
     margin-bottom: 1em;
+    padding: 1em;
 
     > h3 {
       margin-top: 2rem;
