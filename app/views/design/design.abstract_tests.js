@@ -11,14 +11,14 @@ describe('app module', function () {
         $controller = _$controller_;
     }));
 
-    describe('Style Guide controller', function () {
+    describe('Abstract Design controller', function () {
 
         it('should be defined', inject(function ($controller) {
             var $scope = {};
-            var styleGuideController = $controller('styleGuideController', {
+            var abstractDesignController = $controller('abstractDesignController', {
                 $scope: $scope
             });
-            expect(styleGuideController).toBeDefined();
+            expect(abstractDesignController).toBeDefined();
         }));
 
     });

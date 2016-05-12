@@ -11,16 +11,6 @@
                 template: '<div ui-view></div>'
             })
 
-            .state('app.patterns', {
-                url: '/patterns',
-                templateUrl: 'views/patterns/patterns.html',
-                controller: 'patternsController',
-                data: {
-                    title: 'Patterns',
-                    hasSecondaryNav: false
-                }
-            })
-
             .state('app.support', {
                 url: '/support',
                 templateUrl: 'views/support/support.html',
@@ -41,14 +31,21 @@
                 }
             })
 
-            .state('app.styleguide', {
-                url: '/styleguide',
-                templateUrl: 'views/styleguide/styleguide.html',
-                controller: 'styleGuideController',
+            .state('app.design', {
+                abstract: true,
+                url: '/design',
+                templateUrl: 'views/design/design.abstract.html',
+                controller: 'abstractDesignController',
                 data: {
-                    title: 'Style Guide',
-                    hasSecondaryNav: false
+                    title: 'Design',
+                    hasSecondaryNav: true
                 }
+            })
+
+            .state('app.design.patterns', {
+                url: '/patterns',
+                templateUrl: 'views/design/patterns/design.patterns.html',
+                controller: 'patternsController'
             })
 
             .state('app.architecture', {

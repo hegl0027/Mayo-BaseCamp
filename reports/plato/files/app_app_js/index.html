@@ -44,11 +44,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
-      <p class="stat">50.39</p>
+      <p class="stat">50.01</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
-      <p class="stat">173</p>
+      <p class="stat">179</p>
     </div>
   </div>
   <div class="row historical">
@@ -62,11 +62,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
-      <p class="stat">9.66</p>
+      <p class="stat">9.72</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
-      <p class="stat">1.02</p>
+      <p class="stat">1.06</p>
     </div>
   </div>
 </div>
@@ -102,16 +102,6 @@
                 template: &#039;&lt;div ui-view&gt;&lt;/div&gt;&#039;
             })
 
-            .state(&#039;app.patterns&#039;, {
-                url: &#039;/patterns&#039;,
-                templateUrl: &#039;views/patterns/patterns.html&#039;,
-                controller: &#039;patternsController&#039;,
-                data: {
-                    title: &#039;Patterns&#039;,
-                    hasSecondaryNav: false
-                }
-            })
-
             .state(&#039;app.support&#039;, {
                 url: &#039;/support&#039;,
                 templateUrl: &#039;views/support/support.html&#039;,
@@ -132,14 +122,21 @@
                 }
             })
 
-            .state(&#039;app.styleguide&#039;, {
-                url: &#039;/styleguide&#039;,
-                templateUrl: &#039;views/styleguide/styleguide.html&#039;,
-                controller: &#039;styleGuideController&#039;,
+            .state(&#039;app.design&#039;, {
+                abstract: true,
+                url: &#039;/design&#039;,
+                templateUrl: &#039;views/design/design.abstract.html&#039;,
+                controller: &#039;abstractDesignController&#039;,
                 data: {
-                    title: &#039;Style Guide&#039;,
-                    hasSecondaryNav: false
+                    title: &#039;Design&#039;,
+                    hasSecondaryNav: true
                 }
+            })
+
+            .state(&#039;app.design.patterns&#039;, {
+                url: &#039;/patterns&#039;,
+                templateUrl: &#039;views/design/patterns/design.patterns.html&#039;,
+                controller: &#039;patternsController&#039;
             })
 
             .state(&#039;app.architecture&#039;, {
@@ -148,6 +145,15 @@
                 controller: &#039;architectureController&#039;,
                 data: {
                     title: &#039;Architecture&#039;,
+                    hasSecondaryNav: false
+                }
+            })
+
+            .state(&#039;app.fonz&#039;, {
+                url: &#039;/fonz&#039;,
+                templateUrl: &#039;views/fonz/fonz.html&#039;,
+                data: {
+                    title: &#039;The Fonz&#039;,
                     hasSecondaryNav: false
                 }
             })
