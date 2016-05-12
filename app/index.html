@@ -38,6 +38,9 @@
 
 <div class="view">
     <nav class="nav__primary">
+        <section class="app-logo__wrapper">
+            <img class="app-logo" src="images/logo.svg" alt="Application Logo">
+        </section>
         <ul>
             <li class="nav ng-class:{'selected': doesStateInclude('app.home')};" ui-sref="app.home.one">
                 <svg class="icon icon--nav"><use xlink:href="#icon-home2"></use></svg>
@@ -80,7 +83,6 @@
     <div class="content__wrapper">
 
         <header>
-            <span class="app-logo"></span>
             <span class="app-name">Super Clever App Name</span>
             <span class="app-context"></span>
             <span class="username">{{user.lastName}}, {{user.firstName}}<div class="user-links"><a href="" ng-click="openLogout()">logout</a> | <a href="" ng-click="openSettings()">settings</a> </div></span>
