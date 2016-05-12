@@ -1,11 +1,13 @@
 .throwaway {
   &__section {
     padding: 1em;
+    background-color: #fff;
+    border: 1px solid $cloud;
+    border-radius: $border__radius;
+    margin-bottom: 1em;
 
-    &:nth-child(odd) {
-      background-color: #fff;
-      border: 1px solid $cloud;
-      border-radius: $border__radius;
+    > h3 {
+      margin-top: 2rem;
     }
   }
 
