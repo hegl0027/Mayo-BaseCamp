@@ -48,6 +48,30 @@
                 controller: 'patternsController'
             })
 
+            .state('app.design.components', {
+                url: '/components',
+                templateUrl: 'views/design/components/design.components.html',
+                controller: 'componentsController'
+            })
+
+            .state('app.design.foundations', {
+                url: '/foundations',
+                templateUrl: 'views/design/foundations/design.foundations.html',
+                controller: 'foundationsController'
+            })
+
+            .state('app.design.onboarding', {
+                url: '/onboarding',
+                templateUrl: 'views/design/onboarding/design.onboarding.html',
+                controller: 'onboardingController'
+            })
+
+            .state('app.design.overview', {
+                url: '/overview',
+                templateUrl: 'views/design/overview/design.overview.html',
+                controller: 'overviewController'
+            })
+
             .state('app.architecture', {
                 url: '/architecture',
                 templateUrl: 'views/architecture/architecture.html',

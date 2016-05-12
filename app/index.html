@@ -55,7 +55,7 @@
                 <svg class="icon icon--nav"><use xlink:href="#icon-question"></use></svg>
                 <span>Support</span>
             </li>
-            <li class="nav ng-class:{'selected': doesStateInclude('app.design')};" ui-sref="app.design.patterns">
+            <li class="nav ng-class:{'selected': doesStateInclude('app.design')};" ui-sref="app.design.overview">
                 <svg class="icon icon--nav"><use xlink:href="#icon-droplet"></use></svg>
                 <span>Design</span>
             </li>
@@ -112,11 +112,11 @@
             </ul>
             <ul class="nav__secondary--horizontal" ng-if="doesStateInclude('app.design')">
                 <li class="crumb">Design</li>
-                <li ui-sref-active="selected">Overview</li>
-                <li ui-sref-active="selected">Foundations</li>
+                <li ui-sref-active="selected" ui-sref="app.design.overview">Overview</li>
+                <li ui-sref-active="selected" ui-sref="app.design.foundations">Foundations</li>
                 <li ui-sref-active="selected" ui-sref="app.design.patterns">Patterns</li>
-                <li ui-sref-active="selected">Components</li>
-                <li ui-sref-active="selected">Onboarding</li>
+                <li ui-sref-active="selected" ui-sref="app.design.components">Components</li>
+                <li ui-sref-active="selected" ui-sref="app.design.onboarding">Onboarding</li>
             </ul>
             <div class="nav__secondary--drawer" ng-if="hasSecondaryNav()">
                 <input type="checkbox" class="check" id="checked">
@@ -145,11 +145,11 @@
                         <li ui-sref-active="selected" ui-sref="app.admin.three">Three</li>
                     </ul>
                     <ul ng-if="doesStateInclude('app.design')">
-                        <li ui-sref-active="selected">Overview</li>
-                        <li ui-sref-active="selected">Foundations</li>
+                        <li ui-sref-active="selected" ui-sref="app.design.overview">Overview</li>
+                        <li ui-sref-active="selected" ui-sref="app.design.foundations">Foundations</li>
                         <li ui-sref-active="selected" ui-sref="app.design.patterns">Patterns</li>
-                        <li ui-sref-active="selected">Components</li>
-                        <li ui-sref-active="selected">Onboarding</li>
+                        <li ui-sref-active="selected" ui-sref="app.design.components">Components</li>
+                        <li ui-sref-active="selected" ui-sref="app.design.onboarding">Onboarding</li>
                     </ul>
                 </div>
             </div>
