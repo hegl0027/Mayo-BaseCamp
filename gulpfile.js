@@ -317,7 +317,7 @@ gulp.task('protractor', [], function () {
 gulp.task('assets', function (cb) {
     runSequence(['images', 'fonts'], cb);
 });
-gulp.task('qa', ['jscpd', 'js-sloc', 'js-complexity', 'jscs', 'scsslint', 'jshint', 'plato']);
+gulp.task('qa', ['jscpd', 'js-sloc', 'js-complexity', 'jscs', 'scsslint', 'jshint']);
 gulp.task('docs', function (cb) {
     runSequence('clean-docs', ['todo', 'angular-jsdoc', 'jsdoc'], cb);
 });
