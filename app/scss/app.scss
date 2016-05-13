@@ -2,9 +2,9 @@
 @import 'variables';
 @import 'base';
 @import 'mixins/mixins';
-@import 'forms';
-@import 'buttons';
-@import 'modals';
+@import 'components/forms';
+@import 'components/buttons';
+@import 'components/modals';
 @import 'throwaway';
 @import 'nav/nav-primary';
 @import 'nav/nav-secondary';
