@@ -12,15 +12,17 @@
   }
 
   &__button {
-    &__wrapper {
-      padding: .5em 0;
 
-      > button {
-        margin-left: .5em;
+  }
 
-        &:first-child {
-          margin-left: 0;
-        }
+  &__wrapper {
+    padding: .5em 0;
+
+    > button {
+      margin-left: .5em;
+
+      &:first-child {
+        margin-left: 0;
       }
     }
   }

@@ -24,14 +24,14 @@
       z-index: 2;
 
       &:hover {
-        background-color: #2990cf;
+        background-color: $blue;
         border-bottom-right-radius: 0;
         border-top-right-radius: 0;
         color: #eee;
         transform: translate(7px, 0);
 
         svg {
-          color: #eee;
+          color: $cloud;
         }
       }
 
@@ -40,7 +40,7 @@
       }
 
       > span {
-        padding-left: 5px;
+        padding-left: 10px;
         position: relative;
         top: -10px;
         z-index: 2;
@@ -49,8 +49,8 @@
 
     .selected {
       background-color: $blue--hover;
-      border-radius: 0;
       color: $cloud;
+      transform: translateX(7px);
     }
   }
 }

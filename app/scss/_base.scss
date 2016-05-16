@@ -19,7 +19,12 @@ h1 {
 }
 
 h3 {
-  color: $blue;
+  color: $blue--hover;
+}
+
+h4 {
+  color: $blue--hover;
+  font-weight: 300;
 }
 
 [ng\:cloak],
