@@ -5,7 +5,7 @@
 
         return {
             User: $resource('/resources/users/:id', {
-                id: '@_id'
+                id: '@id'
             }, {
                 update: {
                     method: 'PUT'

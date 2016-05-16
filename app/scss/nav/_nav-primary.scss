@@ -13,7 +13,7 @@
     li {
       border-bottom-right-radius: 10px;
       border-top-right-radius: 10px;
-      color: #fff;
+      color: $cloud;
       cursor: pointer;
       overflow: hidden;
       padding: 10px;
@@ -48,11 +48,9 @@
     }
 
     .selected {
-      color: #2990cf;
-
-      svg {
-        color: #2990cf;
-      }
+      background-color: $blue--hover;
+      border-radius: 0;
+      color: $cloud;
     }
   }
 }
@@ -70,13 +68,8 @@
 .app-logo {
   height: 40px;
   width: 40px;
-
-  .rect {
-
-  }
-
   &__wrapper {
-    display: flex;
+    display: none;
     flex-direction: row;
     justify-content: center;
     margin-top: 5px;
