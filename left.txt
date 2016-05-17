@@ -21,3 +21,5 @@
 - tree
 - accessibility
 - masking library
+- inline dialog
+- contact card
