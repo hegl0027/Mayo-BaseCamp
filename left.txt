@@ -23,3 +23,4 @@
 - masking library
 - inline dialog
 - contact card
+- ngMessages templates
