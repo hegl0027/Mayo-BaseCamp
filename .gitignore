@@ -10,3 +10,5 @@ docs/**/report.history.js
 docs/**/report.history.json
 docs
 dist/
+reports/coverage
+reports/karma
