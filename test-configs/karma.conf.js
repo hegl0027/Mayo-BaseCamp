@@ -4,7 +4,7 @@ module.exports = function (config) {
         basePath: '',
 
         preprocessors: {
-            '../dist/**/*.js': 'coverage'
+            '../app/**/!(*.tests).js': 'coverage'
         },
 
 
