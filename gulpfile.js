@@ -58,6 +58,13 @@ gulp.task('html-beautify', function () {
         .pipe(gulp.dest('./app/'));
 });
 
+gulp.task('template-cache', function () {
+    return gulp.src('app/views/**/*.html')
+        .pipe(plugins.angularTemplatecache({
+            module: 'app'
+        }))
+        .pipe(gulp.dest('app'));
+});
 
 /**
  * JS
@@ -102,13 +109,13 @@ gulp.task('bower-js', function () {
 });
 
 gulp.task('js-fix', function () {
-    return gulp.src(['app/**/*.js'])
+    return gulp.src(['app/**/*.js', '!app/templates.js'])
         .pipe(plugins.fixmyjs())
         .pipe(gulp.dest('app'));
 });
 
 gulp.task('js-jsbeautify', function () {
-    return gulp.src(['app/**/*.js'])
+    return gulp.src(['app/**/*.js', '!app/templates.js'])
         .pipe(plugins.plumber())
         .pipe(plugins.beautify({
             'space_after_anon_function': true
@@ -117,7 +124,7 @@ gulp.task('js-jsbeautify', function () {
 });
 
 gulp.task('jscpd', function () {
-    return gulp.src(['app/**/*.js'])
+    return gulp.src(['app/**/*.js', '!app/templates.js'])
         .pipe(plugins.plumber())
         .pipe(plugins.jscpd({
             'min-lines': 10,
@@ -127,21 +134,21 @@ gulp.task('jscpd', function () {
 });
 
 gulp.task('jshint', function () {
-    return gulp.src(['app/**/*.js'])
+    return gulp.src(['app/**/*.js', '!app/templates.js'])
         .pipe(plugins.plumber())
         .pipe(plugins.jshint())
         .pipe(plugins.jshint.reporter('jshint-stylish'));
 });
 
 gulp.task('jscs', function () {
-    return gulp.src(['app/**/*.js'])
+    return gulp.src(['app/**/*.js', '!app/templates.js'])
         .pipe(plugins.plumber())
         .pipe(plugins.jscs())
         .pipe(plugins.jscs.reporter());
 });
 
 gulp.task('js-complexity', function () {
-    return gulp.src(['app/**/*.js'])
+    return gulp.src(['app/**/*.js', '!app/templates.js'])
         .pipe(plugins.plumber())
         .pipe(plugins.complexity({
             breakOnErrors: false
@@ -262,14 +269,14 @@ gulp.task('clean-docs', function () {
  */
 
 gulp.task('watch', function () {
-    var jsWatch = gulp.watch('app/**/*.js');
+    var jsWatch = gulp.watch(['app/**/*.js', '!app/templates.js']);
     var htmlWatch = gulp.watch('app/**/*.html');
     var scssWatch = gulp.watch('app/**/*.scss');
 
     jsWatch.on('change', function (event) {
         console.log('File ' + event.path + ' was ' + event.type + ', running js tasks...');
-        runSequence('js', function () {
-            console.log(getTimestamp() + ' ------------  JS WATCH FINISHED ------------');
+        runSequence('template-cache', 'jscpd', 'jshint', 'js-complexity', 'jscs', 'js', function () {
+            console.log(getTimestamp() + ' ------  JS WATCH FINISHED ------');
         });
 
     });
@@ -277,14 +284,14 @@ gulp.task('watch', function () {
     htmlWatch.on('change', function (event) {
         console.log('File ' + event.path + ' was ' + event.type + ', running html tasks...');
         runSequence('html', function () {
-            console.log(getTimestamp() + ' ------------  HTML WATCH FINISHED ------------');
+            console.log(getTimestamp() + ' ------  HTML WATCH FINISHED ------');
         });
     });
 
     scssWatch.on('change', function (event) {
         console.log('File ' + event.path + ' was ' + event.type + ', running sass tasks...');
-        runSequence('styles', function () {
-            console.log(getTimestamp() + ' ------------  STYLES WATCH FINISHED ------------');
+        runSequence('scsslint', 'styles', function () {
+            console.log(getTimestamp() + ' ------  STYLES WATCH FINISHED ------');
         });
     });
 });

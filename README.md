@@ -22,7 +22,7 @@
 > - You will likely need root or admin privileges to use '-g'
 ```
 gem install sass scss_lint
-npm install -g gulp-cli karma karma-cli protractor mocha jsdoc
+npm install -g gulp-cli karma karma-cli protractor mocha jsdoc serve
 npm install
 ```
 

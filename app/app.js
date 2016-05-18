@@ -13,118 +13,155 @@
 
             .state('app.support', {
                 url: '/support',
-                templateUrl: 'views/support/support.html',
                 controller: 'supportController',
                 data: {
                     title: 'Support',
                     hasSecondaryNav: false
+                },
+                templateProvider: function ($templateCache) {
+                    return $templateCache.get('support/support.html');
                 }
             })
 
             .state('app.voiceandtone', {
                 url: '/voiceandtone',
-                templateUrl: 'views/voiceandtone/voiceandtone.html',
                 controller: 'voiceAndToneController',
                 data: {
                     title: 'Voice and Tone',
                     hasSecondaryNav: false
+                },
+                templateProvider: function ($templateCache) {
+                    return $templateCache.get('voiceandtone/voiceandtone.html');
                 }
             })
 
             .state('app.design', {
                 abstract: true,
                 url: '/design',
-                templateUrl: 'views/design/design.abstract.html',
                 controller: 'abstractDesignController',
                 data: {
                     title: 'Design',
                     hasSecondaryNav: true
+                },
+                templateProvider: function ($templateCache) {
+                    return $templateCache.get('design/design.abstract.html');
                 }
             })
 
             .state('app.design.patterns', {
                 url: '/patterns',
-                templateUrl: 'views/design/patterns/design.patterns.html',
-                controller: 'patternsController'
+                controller: 'patternsController',
+                templateProvider: function ($templateCache) {
+                    return $templateCache.get('design/patterns/design.patterns.html');
+                }
             })
 
             .state('app.design.components', {
                 url: '/components',
-                templateUrl: 'views/design/components/design.components.html',
-                controller: 'componentsController'
+                controller: 'componentsController',
+                templateProvider: function ($templateCache) {
+                    return $templateCache.get('design/components/design.components.html');
+                }
             })
 
             .state('app.design.foundations', {
                 url: '/foundations',
-                templateUrl: 'views/design/foundations/design.foundations.html',
-                controller: 'foundationsController'
+                controller: 'foundationsController',
+                templateProvider: function ($templateCache) {
+                    return $templateCache.get('design/foundations/design.foundations.html');
+                }
             })
 
             .state('app.design.onboarding', {
                 url: '/onboarding',
-                templateUrl: 'views/design/onboarding/design.onboarding.html',
-                controller: 'onboardingController'
+                controller: 'onboardingController',
+                templateProvider: function ($templateCache) {
+                    return $templateCache.get('design/onboarding/design.onboarding.html');
+                }
             })
 
             .state('app.design.overview', {
                 url: '/overview',
-                templateUrl: 'views/design/overview/design.overview.html',
-                controller: 'overviewController'
+                controller: 'overviewController',
+                templateProvider: function ($templateCache) {
+                    return $templateCache.get('design/overview/design.overview.html');
+                }
             })
 
             .state('app.architecture', {
                 url: '/architecture',
-                templateUrl: 'views/architecture/architecture.html',
                 controller: 'architectureController',
                 data: {
                     title: 'Architecture',
                     hasSecondaryNav: false
+                },
+                templateProvider: function ($templateCache) {
+                    return $templateCache.get('architecture/architecture.html');
                 }
             })
 
             .state('app.fonz', {
                 url: '/fonz',
-                templateUrl: 'views/fonz/fonz.html',
                 data: {
                     title: 'The Fonz',
                     hasSecondaryNav: false
+                },
+                templateProvider: function ($templateCache) {
+                    return $templateCache.get('fonz/fonz.html');
                 }
             })
 
             .state('app.home', {
                 abstract: true,
                 url: '/home',
-                templateUrl: 'views/home/home.abstract.html',
                 controller: 'abstractHomeController',
                 data: {
                     title: 'Home',
                     hasSecondaryNav: true
+                },
+                templateProvider: function ($templateCache) {
+                    return $templateCache.get('home/home.abstract.html');
                 }
             })
+
             .state('app.home.one', {
                 url: '/one',
-                templateUrl: 'views/home/home.one.html',
-                controller: 'homeOneController'
+                controller: 'homeOneController',
+                templateProvider: function ($templateCache) {
+                    return $templateCache.get('home/home.one.html');
+                }
             })
+
             .state('app.home.two', {
                 url: '/two',
-                templateUrl: 'views/home/home.two.html',
-                controller: 'homeTwoController'
+                controller: 'homeTwoController',
+                templateProvider: function ($templateCache) {
+                    return $templateCache.get('home/home.two.html');
+                }
             })
+
             .state('app.home.three', {
                 url: '/three',
-                templateUrl: 'views/home/home.three.html',
-                controller: 'homeThreeController'
+                controller: 'homeThreeController',
+                templateProvider: function ($templateCache) {
+                    return $templateCache.get('home/home.three.html');
+                }
             })
+
             .state('app.home.four', {
                 url: '/four',
-                templateUrl: 'views/home/home.four.html',
-                controller: 'homeFourController'
+                controller: 'homeFourController',
+                templateProvider: function ($templateCache) {
+                    return $templateCache.get('home/home.four.html');
+                }
             })
+
             .state('app.home.five', {
                 url: '/five',
-                templateUrl: 'views/home/home.five.html',
-                controller: 'homeFiveController'
+                controller: 'homeFiveController',
+                templateProvider: function ($templateCache) {
+                    return $templateCache.get('home/home.five.html');
+                }
             })
 
             /* REPORTING ROUTING*/
@@ -138,20 +175,29 @@
                     hasSecondaryNav: true
                 }
             })
+
             .state('app.reporting.one', {
                 url: '/one',
-                templateUrl: 'views/reporting/reporting.one.html',
-                controller: 'reportingOneController'
+                controller: 'reportingOneController',
+                templateProvider: function ($templateCache) {
+                    return $templateCache.get('reporting/reporting.one.html');
+                }
             })
+
             .state('app.reporting.two', {
                 url: '/two',
-                templateUrl: 'views/reporting/reporting.two.html',
-                controller: 'reportingTwoController'
+                controller: 'reportingTwoController',
+                templateProvider: function ($templateCache) {
+                    return $templateCache.get('reporting/reporting.two.html');
+                }
             })
+
             .state('app.reporting.three', {
                 url: '/three',
-                templateUrl: 'views/reporting/reporting.three.html',
-                controller: 'reportingThreeController'
+                controller: 'reportingThreeController',
+                templateProvider: function ($templateCache) {
+                    return $templateCache.get('reporting/reporting.three.html');
+                }
             })
 
             /* ADMIN ROUTING*/
@@ -165,25 +211,34 @@
                     hasSecondaryNav: true
                 }
             })
+
             .state('app.admin.one', {
                 url: '/one',
-                templateUrl: 'views/sysadmin/sysadmin.one.html',
-                controller: 'adminOneController'
+                controller: 'adminOneController',
+                templateProvider: function ($templateCache) {
+                    return $templateCache.get('sysadmin/sysadmin.one.html');
+                }
             })
+
             .state('app.admin.two', {
                 url: '/two',
-                templateUrl: 'views/sysadmin/sysadmin.two.html',
-                controller: 'adminTwoController'
+                controller: 'adminTwoController',
+                templateProvider: function ($templateCache) {
+                    return $templateCache.get('sysadmin/sysadmin.two.html');
+                }
             })
+
             .state('app.admin.three', {
                 url: '/three',
-                templateUrl: 'views/sysadmin/sysadmin.three.html',
-                controller: 'adminThreeController'
+                controller: 'adminThreeController',
+                templateProvider: function ($templateCache) {
+                    return $templateCache.get('sysadmin/sysadmin.three.html');
+                }
             });
     };
 
     var loadingBarConfig = function (cfpLoadingBarProvider) {
-        cfpLoadingBarProvider.includeBar = false;
+        cfpLoadingBarProvider.includeSpinner = false;
         cfpLoadingBarProvider.latencyThreshold = 20;
     };
 
