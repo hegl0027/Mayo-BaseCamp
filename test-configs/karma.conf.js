@@ -75,7 +75,7 @@ module.exports = function (config) {
             'karma-coverage'
         ],
 
-        reporters: ['specs', 'junit', 'coverage'],
+        reporters: ['spec', 'junit', 'coverage'],
 
         coverageReporter: {
             type: 'html',
