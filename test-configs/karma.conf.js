@@ -92,7 +92,7 @@ module.exports = function (config) {
         },
 
         junitReporter: {
-            outputDir: 'reports/karma',
+            outputDir: '../reports/karma',
             outputFile: 'unit.xml',
             suite: 'unit',
             useBrowserName: true
