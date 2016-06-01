@@ -16,7 +16,7 @@
       color: $cloud;
       cursor: pointer;
       overflow: hidden;
-      padding: 10px;
+      padding: .625em .8em;
       padding-bottom: 5px;
       position: relative;
       transition: transform .3s ease, border-radius 1s ease;
@@ -35,14 +35,10 @@
         }
       }
 
-      &:first-child {
-        margin-top: 5px;
-      }
-
       > span {
         padding-left: 10px;
         position: relative;
-        top: -10px;
+        top: -.5em;
         z-index: 2;
       }
     }
@@ -51,6 +47,8 @@
       background-color: $blue--hover;
       color: $cloud;
       transform: translateX(4px);
+      border-bottom-left-radius: $border__radius;
+      border-top-left-radius: $border__radius;
     }
   }
 }
@@ -75,3 +73,9 @@
   }
 }
 
+.icon {
+  &--nav {
+    color: #fefefe;
+    font-size: 1.8em;
+  }
+}

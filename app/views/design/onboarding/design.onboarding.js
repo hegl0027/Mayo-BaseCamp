@@ -1,10 +1,23 @@
-(function (angular) {
-    'use strict';
+'use strict';
 
-    var onboardingController = function ($scope) {
+import angular from 'angular';
 
-    };
+function OnboardingController() {
 
-    angular.module('app').controller('onboardingController', onboardingController);
+}
 
-})(angular);
+var onboardingStateConfig = ($stateProvider) => {
+
+    $stateProvider
+        .state('app.design.onboarding', {
+            url: '/onboarding',
+            controller: OnboardingController,
+            controllerAs: 'onboarding',
+            templateProvider: function ($templateCache) {
+                return $templateCache.get('design/onboarding/design.onboarding.html');
+            }
+        });
+};
+
+export default angular.module('app.design.onboarding', [])
+    .config(onboardingStateConfig);

@@ -4,12 +4,12 @@ module.exports = function (config) {
         basePath: '',
 
         preprocessors: {
-            '../app/**/!(*.tests).js': 'coverage'
+            '../app/**/!(*.tests).js': 'coverage',
+            '../app/**/*_tests.js': 'babel'
         },
 
 
         files: [
-            '../dist/js/vendor.min.js',
             '../dist/js/app.min.js',
             '../app/**/*_tests.js'
         ],
@@ -20,8 +20,6 @@ module.exports = function (config) {
 
         frameworks: ['jasmine', 'detectBrowsers'],
 
-        //browsers: ['Chrome', 'Firefox', 'IE', 'Safari', 'PhantomJS'],
-
         // configuration
         detectBrowsers: {
             // enable/disable, default is true
@@ -30,35 +28,9 @@ module.exports = function (config) {
             // enable/disable phantomjs support, default is true
             usePhantomJS: true,
 
-            // post processing of browsers list
             // here you can edit the list of browsers used by karma
             postDetection: function (availableBrowser) {
-                /* Karma configuration with custom launchers
-                 customLaunchers: {
-                 IE9: {
-                 base: 'IE',
-                 'x-ua-compatible': 'IE=EmulateIE9'
-                 }
-                 }
-                 */
-
-                //Add IE Emulation
-                var result = availableBrowser;
-
-                if (availableBrowser.indexOf('IE') > -1) {
-                    result.push('IE9');
-                }
-
-                //Remove PhantomJS if another browser has been detected
-                if (availableBrowser.length > 1 && availableBrowser.indexOf('PhantomJS') > -1) {
-                    var i = result.indexOf('PhantomJS');
-
-                    if (i !== -1) {
-                        result.splice(i, 1);
-                    }
-                }
-
-                return result;
+                return availableBrowser;
             }
         },
 
@@ -72,7 +44,8 @@ module.exports = function (config) {
             'karma-junit-reporter',
             'karma-spec-reporter',
             'karma-detect-browsers',
-            'karma-coverage'
+            'karma-coverage',
+            'karma-babel-preprocessor'
         ],
 
         reporters: ['spec', 'junit', 'coverage'],
@@ -86,7 +59,7 @@ module.exports = function (config) {
             maxLogLines: 5,
             suppressErrorSummary: true,
             suppressFailed: false,
-            suppressPassed: false,
+            suppressPassed: true,
             suppressSkipped: true,
             showSpecTiming: false
         },
@@ -96,6 +69,19 @@ module.exports = function (config) {
             outputFile: 'unit.xml',
             suite: 'unit',
             useBrowserName: true
+        },
+
+        babelPreprocessor: {
+            options: {
+                presets: ['es2015'],
+                sourceMap: 'inline'
+            },
+            filename: function (file) {
+                return file.originalPath.replace(/\.js$/, '.es5.js');
+            },
+            sourceFileName: function (file) {
+                return file.originalPath;
+            }
         }
     });
 };

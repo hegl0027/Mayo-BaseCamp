@@ -1,13 +1,13 @@
 'use strict';
 
-var server = require('supertest').agent("http://localhost:8000");
+var server = require('supertest').agent("http://localhost:3000");
 var should = require('chai').should();
 
 describe("api test", function () {
 
     it("returns json data", function (done) {
         server
-            .get("/app/api/sample.json")
+            .get("/sample/sample.json")
             .expect("Content-type", /json/)
             .expect(200)
             .end(function (err, res) {
@@ -18,20 +18,20 @@ describe("api test", function () {
     });
 
 
-    it("attepts to redirect", function (done) {
+    it("returns html", function (done) {
         server
-            .get("/dist")
-            .expect(302)
+            .get("/")
+            .expect("Content-type", /html/)
+            .expect(200)
             .end(function (err, res) {
                 if (err) throw err;
                 done();
             });
     });
 
-
     it("returns html", function (done) {
         server
-            .get("/dist/index.html")
+            .get("/index.html")
             .expect("Content-type", /html/)
             .expect(200)
             .end(function (err, res) {

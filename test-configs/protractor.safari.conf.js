@@ -9,7 +9,7 @@ exports.config = {
         'browserName': 'safari'
     },
 
-    baseUrl: 'http://localhost:8000/dist/',
+    baseUrl: 'http://localhost:3000/',
 
     framework: 'jasmine',
 

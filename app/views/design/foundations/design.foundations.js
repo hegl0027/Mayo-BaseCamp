@@ -1,10 +1,23 @@
-(function (angular) {
-    'use strict';
+'use strict';
 
-    var foundationsController = function ($scope) {
+import angular from 'angular';
 
-    };
+function FoundationsController() {
 
-    angular.module('app').controller('foundationsController', foundationsController);
+}
 
-})(angular);
+var foundationsStateConfig = ($stateProvider) => {
+
+    $stateProvider
+        .state('app.design.foundations', {
+            url: '/foundations',
+            controller: FoundationsController,
+            controllerAs: 'foundations',
+            templateProvider: function ($templateCache) {
+                return $templateCache.get('design/foundations/design.foundations.html');
+            }
+        });
+};
+
+export default angular.module('app.design.foundations', [])
+    .config(foundationsStateConfig);

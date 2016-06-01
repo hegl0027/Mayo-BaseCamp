@@ -22,31 +22,21 @@
 > - You will likely need root or admin privileges to use '-g'
 ```
 gem install sass scss_lint
-npm install -g gulp-cli karma karma-cli protractor mocha jsdoc serve
 npm install
 ```
 
 ###Gulp
 ######Main Tasks
 ```
-gulp
-gulp watch
-```
-
-######Tasks that aren't inherently executed by the main tasks
-```
-gulp size
-gulp qa
-gulp docs
-gulp webstandards
+npm run gulp
+npm run gulp watch
 ```
 
 ######Tasks that generate stuff outside of the 'dist' folder
 ```
-gulp plato
-gulp jsdoc
-gulp todo
-gulp clean-docs
+npm run gulp plato
+npm run gulp jsdoc
+npm run gulp todo
 ```
 
 ###HTTP Server

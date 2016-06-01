@@ -1,10 +1,23 @@
-(function (angular) {
-    'use strict';
+'use strict';
 
-    var componentsController = function ($scope) {
+import angular from 'angular';
 
-    };
+function ComponentsController() {
 
-    angular.module('app').controller('componentsController', componentsController);
+}
 
-})(angular);
+var componentsStateConfig = ($stateProvider) => {
+
+    $stateProvider
+        .state('app.design.components', {
+            url: '/components',
+            controller: ComponentsController,
+            controllerAs: 'components',
+            templateProvider: function ($templateCache) {
+                return $templateCache.get('design/components/design.components.html');
+            }
+        });
+};
+
+export default angular.module('app.design.components', [])
+    .config(componentsStateConfig);

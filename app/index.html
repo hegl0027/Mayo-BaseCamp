@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="appResourceMocks" ng-controller="indexController">
+<html lang="en" ng-app="app" ng-controller="indexController as idxCtrlr">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{myState.current.data.title}} | Root</title>
+    <title>{{idxCtrlr.myState.current.data.title}} | Root</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-touch-icon-57x57.png">
@@ -30,7 +30,6 @@
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/vendor.min.css">
     <link rel="stylesheet" href="css/app.min.css">
 
 </head>
@@ -62,55 +61,55 @@
         </section>
 
         <ul>
-            <li class="nav ng-class:{'selected': doesStateInclude('app.home')};" ui-sref="app.home.one">
+            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.home')};" ui-sref="app.home.one">
                 <svg class="icon icon--nav">
                     <use xlink:href="#icon-home2"></use>
                 </svg>
                 <span>Home</span>
             </li>
-            <li class="nav ng-class:{'selected': doesStateInclude('app.reporting')};" ui-sref="app.reporting.one">
+            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.reporting')};" ui-sref="app.reporting.one">
                 <svg class="icon icon--nav">
                     <use xlink:href="#icon-file-text"></use>
                 </svg>
                 <span>Reporting</span>
             </li>
-            <li class="nav ng-class:{'selected': doesStateInclude('app.admin')};" ui-sref="app.admin.one">
+            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.admin')};" ui-sref="app.admin.one">
                 <svg class="icon icon--nav">
                     <use xlink:href="#icon-cog"></use>
                 </svg>
                 <span>System Administration</span>
             </li>
-            <li class="nav ng-class:{'selected': doesStateInclude('app.support')};" ui-sref="app.support">
+            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.support')};" ui-sref="app.support">
                 <svg class="icon icon--nav">
                     <use xlink:href="#icon-question"></use>
                 </svg>
                 <span>Support</span>
             </li>
-            <li class="nav ng-class:{'selected': doesStateInclude('app.design')};" ui-sref="app.design.overview">
+            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.design')};" ui-sref="app.design.overview">
                 <svg class="icon icon--nav">
                     <use xlink:href="#icon-droplet"></use>
                 </svg>
                 <span>Design</span>
             </li>
-            <li class="nav ng-class:{'selected': doesStateInclude('app.voiceandtone')};" ui-sref="app.voiceandtone">
+            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.voiceandtone')};" ui-sref="app.voiceandtone">
                 <svg class="icon icon--nav">
                     <use xlink:href="#icon-mic"></use>
                 </svg>
                 <span>Voice and Tone</span>
             </li>
-            <li class="nav ng-class:{'selected': doesStateInclude('app.architecture')};" ui-sref="app.architecture">
+            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.architecture')};" ui-sref="app.architecture">
                 <svg class="icon icon--nav">
                     <use xlink:href="#icon-leaf"></use>
                 </svg>
                 <span>Architecture</span>
             </li>
-            <li class="nav ng-class:{'selected': doesStateInclude('app.performance')};" ui-sref="app.performance">
+            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.performance')};" ui-sref="app.performance">
                 <svg class="icon icon--nav">
                     <use xlink:href="#icon-rocket"></use>
                 </svg>
                 <span>Performance</span>
             </li>
-            <li class="nav ng-class:{'selected': doesStateInclude('app.fonz')};" ui-sref="app.fonz">
+            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.fonz')};" ui-sref="app.fonz">
                 <svg class="icon icon--nav">
                     <use xlink:href="#icon-point-right"></use>
                 </svg>
@@ -118,25 +117,29 @@
             </li>
         </ul>
         <section class="app-version">
-            {{appVersion}}
+            {{idxCtrlr.appVersion}}
         </section>
     </nav>
 
     <main class="content__wrapper">
 
         <header>
-            <span class="app-name">Super Clever App Name</span>
-            <span class="app-context"></span>
-            <span class="username">{{user.lastName}}, {{user.firstName}}<div class="user-links"><a href=""
-                                                                                                   ng-click="openLogout()">logout</a> | <a
-                    href="" ng-click="openSettings()">settings</a> </div></span>
+            <section class="app-name">Super Clever App Name</section>
+            <section class="app-context"></section>
+            <section class="username">
+                {{idxCtrlr.user.lastName}}, {{idxCtrlr.user.firstName}}
+                <div class="user-links">
+                    <a href="" ng-click="idxCtrlr.openLogout()">logout</a> |
+                    <a href="" ng-click="idxCtrlr.openSettings()">settings</a>
+                </div>
+            </section>
             <svg class="icon icon--user">
                 <use xlink:href="#icon-user"></use>
             </svg>
         </header>
 
         <nav class="nav__secondary">
-            <ul class="nav__secondary--horizontal" ng-if="doesStateInclude('app.home')">
+            <ul class="nav__secondary--horizontal" ng-if="idxCtrlr.doesStateInclude('app.home')">
                 <li class="crumb">HOME</li>
                 <li ui-sref-active="selected" ui-sref="app.home.one">One</li>
                 <li ui-sref-active="selected" ui-sref="app.home.two">Two</li>
@@ -144,19 +147,19 @@
                 <li ui-sref-active="selected" ui-sref="app.home.four">Four</li>
                 <li ui-sref-active="selected" ui-sref="app.home.five">Five</li>
             </ul>
-            <ul class="nav__secondary--horizontal" ng-if="doesStateInclude('app.reporting')">
+            <ul class="nav__secondary--horizontal" ng-if="idxCtrlr.doesStateInclude('app.reporting')">
                 <li class="crumb">REPORTING</li>
                 <li ui-sref-active="selected" ui-sref="app.reporting.one">One</li>
                 <li ui-sref-active="selected" ui-sref="app.reporting.two">Two</li>
                 <li ui-sref-active="selected" ui-sref="app.reporting.three">Three</li>
             </ul>
-            <ul class="nav__secondary--horizontal" ng-if="doesStateInclude('app.admin')">
+            <ul class="nav__secondary--horizontal" ng-if="idxCtrlr.doesStateInclude('app.admin')">
                 <li class="crumb">SYS. ADMIN.</li>
                 <li ui-sref-active="selected" ui-sref="app.admin.one">One</li>
                 <li ui-sref-active="selected" ui-sref="app.admin.two">Two</li>
                 <li ui-sref-active="selected" ui-sref="app.admin.three">Three</li>
             </ul>
-            <ul class="nav__secondary--horizontal" ng-if="doesStateInclude('app.design')">
+            <ul class="nav__secondary--horizontal" ng-if="idxCtrlr.doesStateInclude('app.design')">
                 <li class="crumb">Design</li>
                 <li ui-sref-active="selected" ui-sref="app.design.overview">Overview</li>
                 <li ui-sref-active="selected" ui-sref="app.design.foundations">Foundations</li>
@@ -164,7 +167,7 @@
                 <li ui-sref-active="selected" ui-sref="app.design.components">Components</li>
                 <li ui-sref-active="selected" ui-sref="app.design.onboarding">Onboarding</li>
             </ul>
-            <div class="nav__secondary--drawer" ng-if="hasSecondaryNav()">
+            <div class="nav__secondary--drawer" ng-if="idxCtrlr.hasSecondaryNav()">
                 <input type="checkbox" class="check" id="checked">
                 <label class="menu-btn" for="checked">
                     <span class="bar top"></span>
@@ -173,24 +176,24 @@
                     <span class="menu-btn__text">MENU</span>
                 </label>
                 <div class="list">
-                    <ul ng-if="doesStateInclude('app.home')">
+                    <ul ng-if="idxCtrlr.doesStateInclude('app.home')">
                         <li ui-sref-active="selected" ui-sref="app.home.one">One</li>
                         <li ui-sref-active="selected" ui-sref="app.home.two">Two</li>
                         <li ui-sref-active="selected" ui-sref="app.home.three">Three</li>
                         <li ui-sref-active="selected" ui-sref="app.home.four">Four</li>
                         <li ui-sref-active="selected" ui-sref="app.home.five">Five</li>
                     </ul>
-                    <ul ng-if="doesStateInclude('app.reporting')">
+                    <ul ng-if="idxCtrlr.doesStateInclude('app.reporting')">
                         <li ui-sref-active="selected" ui-sref="app.reporting.one">One</li>
                         <li ui-sref-active="selected" ui-sref="app.reporting.two">Two</li>
                         <li ui-sref-active="selected" ui-sref="app.reporting.three">Three</li>
                     </ul>
-                    <ul ng-if="doesStateInclude('app.admin')">
+                    <ul ng-if="idxCtrlr.doesStateInclude('app.admin')">
                         <li ui-sref-active="selected" ui-sref="app.admin.one">One</li>
                         <li ui-sref-active="selected" ui-sref="app.admin.two">Two</li>
                         <li ui-sref-active="selected" ui-sref="app.admin.three">Three</li>
                     </ul>
-                    <ul ng-if="doesStateInclude('app.design')">
+                    <ul ng-if="idxCtrlr.doesStateInclude('app.design')">
                         <li ui-sref-active="selected" ui-sref="app.design.overview">Overview</li>
                         <li ui-sref-active="selected" ui-sref="app.design.foundations">Foundations</li>
                         <li ui-sref-active="selected" ui-sref="app.design.patterns">Patterns</li>
@@ -207,7 +210,7 @@
             <span>
                 <a href="http://codepen.io/bradyhullopeter/pen/yebXNZ" target="_blank">see dark theme</a>
             </span>
-            <span class="saved-msg" ng-if="lastSaved">Last saved {{lastSaved}}</span>
+            <span class="saved-msg">Last saved {{idxCtrlr.lastSaved}}</span>
         </div>
     </main>
 </div>
@@ -274,10 +277,7 @@
     </defs>
 </svg>
 
-
-<script src="js/vendor.min.js"></script>
-<script src="js/app.min.js"></script>
-
+<script src="js/app.js"></script>
 
 </body>
 </html>

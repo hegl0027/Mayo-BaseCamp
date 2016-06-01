@@ -1,10 +1,23 @@
-(function (angular) {
-    'use strict';
+'use strict';
 
-    var overviewController = function ($scope) {
+import angular from 'angular';
 
-    };
+function OverviewController() {
 
-    angular.module('app').controller('overviewController', overviewController);
+}
 
-})(angular);
+var overviewStateConfig = ($stateProvider) => {
+
+    $stateProvider
+        .state('app.design.overview', {
+            url: '/overview',
+            controller: OverviewController,
+            controllerAs: 'overview',
+            templateProvider: function ($templateCache) {
+                return $templateCache.get('design/overview/design.overview.html');
+            }
+        });
+};
+
+export default angular.module('app.design.overview', [])
+    .config(overviewStateConfig);

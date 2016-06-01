@@ -1,22 +1,38 @@
-(function (angular) {
-    'use strict';
+'use strict';
 
-    angular.module('appResourceMocks', ['app', 'ngMockE2E'])
-        .run(function ($httpBackend) {
-            var user = {
-                _id: 1,
-                firstName: 'Stan',
-                lastName: 'Lee'
-            };
+import angular from 'angular';
+import 'angular-mocks';
 
-            $httpBackend.whenGET(/resources\/users\/.*/).respond(user);
-            $httpBackend.whenGET(/resources\/users*/).respond([user]);
-            $httpBackend.whenPUT(/resources\/users\/.*/).respond(user);
-            $httpBackend.whenPOST(/resources\/users*/).respond(user);
-            $httpBackend.whenDELETE(/resources\/users*/).respond();
+function mockHttp($httpBackend) {
+    const user = {
+        _id: 1,
+        firstName: 'Stan',
+        lastName: 'Lee'
+    };
 
-            // Requests for partials are handled by the real server
-            $httpBackend.whenGET(/views\/.*/).passThrough();
+    $httpBackend.whenGET(/resources\/users\/.*/).respond(user);
+    $httpBackend.whenGET(/resources\/users*/).respond([user]);
+    $httpBackend.whenPUT(/resources\/users\/.*/).respond(user);
+    $httpBackend.whenPOST(/resources\/users*/).respond(user);
+    $httpBackend.whenDELETE(/resources\/users*/).respond();
 
-        });
-})(angular);
+    // Requests for partials are handled by the real server
+    $httpBackend.whenGET(/views\/.*/).passThrough();
+}
+
+/**
+ * @ngdoc module
+ * @name app-mocks-http
+ * @module app-mocks-http
+ * @packageName root-app
+ * @requires ngMockE2E
+ * @description
+ *
+ * The 'app-mocks-http' is an angular module which contains mocks suitable for end-to-end testing
+ * the root app.  It utilizes the $httpBackend service to mock all interactions with the server
+ * with the exception of view requests.
+ */
+export default angular.module('app-mocks-http', [
+    'ngMockE2E'
+])
+    .run(mockHttp);

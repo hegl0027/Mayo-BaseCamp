@@ -1,0 +1,29 @@
+{
+  "extends": "eslint:recommended",
+  "env": {
+    "mocha": true,
+    "browser": true,
+    "es6": true,
+    "jasmine": true,
+    "protractor": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions" : {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "modules": true
+    }
+  },
+  "rules": {
+    "semi": ["error", "always"],
+    "smells/no-this-assign": 1,
+    "smells/no-complex-string-concat": 1,
+    "angular/controller-as-route": 2,
+    "angular/on-watch": 2,
+    "angular/module-setter": 2
+  },
+  "plugins": [
+    "smells",
+    "angular"
+  ]
+}

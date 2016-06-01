@@ -22,7 +22,7 @@ cache:
     - node_modules
 
 before_script:
-  - npm install -g gulp codeclimate-test-reporter mocha
+  - npm install -g codeclimate-test-reporter
   - gem install sass
   - gem install scss-lint
   - export DISPLAY=:99.0
@@ -32,8 +32,7 @@ before_script:
   - sleep 1 # give server time to start
 
 script:
-  - gulp
-  - npm run karma-q
+  - npm run gulp
   - npm run protractor-firefox
   - npm run api-tests
 

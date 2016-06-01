@@ -1,72 +1,70 @@
-(function (angular, $) {
-    'use strict';
+'use strict';
 
-    var indexController = function ($scope, $interval, $state, $log, apiService, ngDialog) {
-        var now = moment();
-        $scope.myState = $state;
-        $scope.appVersion = 'v0.10';
+import angular from 'angular';
+import moment from 'moment';
+import jQuery from 'jquery';
 
-        apiService.User.get({ id: 1 }).$promise.then(function (user) {
-            $log.log('MOCKED GET:');
-            $log.log(user);
-            $scope.user = user;
-        });
+function IndexController($interval, $state, $log, apiService) {
+    var now = moment();
+    this.myState = $state;
+    this.lastSaved = now.fromNow();
+    this.appVersion = 'v0.10';
 
-        apiService.User.update({ id: 1 }, $scope.user).$promise.then(function (res) {
-            $log.log('MOCKED PUT:');
-            $log.log(res);
-        });
+    apiService.User.get({ id: 1 }).$promise.then(user => {
+        $log.log('MOCKED GET:');
+        $log.log(user);
+        this.user = user;
+    });
 
-        apiService.User.save($scope.user).$promise.then(function (res) {
-            $log.log('MOCKED POST:');
-            $log.log(res);
-        });
+    apiService.User.update({ id: 1 }, this.user).$promise.then(res => {
+        $log.log('MOCKED PUT:');
+        $log.log(res);
+    });
 
-        apiService.User.remove($scope.user).$promise.then(function (res) {
-            $log.log('MOCKED DELETE:');
-            $log.log(res);
-        });
+    apiService.User.save(this.user).$promise.then(res => {
+        $log.log('MOCKED POST:');
+        $log.log(res);
+    });
 
-        apiService.User.query($scope.user).$promise.then(function (res) {
-            $log.log('MOCKED QUERY:');
-            $log.log(res);
-        });
+    apiService.User.remove(this.user).$promise.then(res => {
+        $log.log('MOCKED DELETE:');
+        $log.log(res);
+    });
 
-        $(document).on('click', '.nav', function () {
-            $(this).siblings('.selected').removeClass('selected');
-            $(this).addClass('selected');
-        });
+    apiService.User.query(this.user).$promise.then(res => {
+        $log.log('MOCKED QUERY:');
+        $log.log(res);
+    });
 
-        $scope.doesStateInclude = function (stateName) {
-            return $state.includes(stateName);
-        };
+    jQuery(document).on('click', '.nav', () => {
+        jQuery(this).siblings('.selected').removeClass('selected');
+        jQuery(this).addClass('selected');
+    });
 
-        $scope.hasSecondaryNav = function () {
-            return $state.current.data ? $state.current.data.hasSecondaryNav === true : false;
-        };
+    this.doesStateInclude = (stateName) => $state.includes(stateName);
 
-        $scope.openSettings = function () {
-            $scope.settingsDialog = ngDialog.open({
-                template: 'views/global/settings.html',
-                className: 'ngdialog-theme-default'
-            });
-        };
+    this.hasSecondaryNav = () => $state.current.data ? $state.current.data.hasSecondaryNav === true : false;
 
-        $scope.openLogout = function () {
-            $scope.logoutDialog = ngDialog.open({
-                template: 'views/global/logout.html',
-                className: 'ngdialog-theme-default'
-            });
-        };
-
-        var updateLastSaved = (function fn() {
-            $scope.lastSaved = moment(now).fromNow();
-            return fn;
-        })();
-
-        $interval(updateLastSaved, 10000);
+    this.openSettings = () => {
+        /*this.settingsDialog = ngDialog.open({
+            template: 'views/global/settings.html',
+            className: 'ngdialog-theme-default'
+        });*/
     };
 
-    angular.module('app').controller('indexController', indexController);
+    this.openLogout = () => {
+        /*this.logoutDialog = ngDialog.open({
+            template: 'views/global/logout.html',
+            className: 'ngdialog-theme-default'
+        });*/
+    };
 
-})(angular, jQuery);
+    var updateLastSaved = () => {
+        this.lastSaved = moment(now).fromNow();
+    };
+
+    $interval(updateLastSaved, 10000);
+}
+
+export default angular.module('app-index', [])
+    .controller('indexController', IndexController);

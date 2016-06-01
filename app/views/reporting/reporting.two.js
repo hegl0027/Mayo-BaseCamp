@@ -1,10 +1,23 @@
-(function (angular) {
-    'use strict';
+'use strict';
 
-    var reportingTwoController = function ($scope) {
+import angular from 'angular';
 
-    };
+function ReportingTwoController() {
 
-    angular.module('app').controller('reportingTwoController', reportingTwoController);
+}
 
-})(angular);
+var reportingTwoStateConfig = ($stateProvider) => {
+
+    $stateProvider
+        .state('app.reporting.two', {
+            url: '/two',
+            controller: ReportingTwoController,
+            controllerAs: 'reportingTwo',
+            templateProvider: function ($templateCache) {
+                return $templateCache.get('reporting/reporting.two.html');
+            }
+        });
+};
+
+export default angular.module('app.reporting.two', [])
+    .config(reportingTwoStateConfig);

@@ -1,8 +1,8 @@
-angular.module("app").run(["$templateCache", function($templateCache) {$templateCache.put("architecture/architecture.html","<section class=\"partial__wrapper\">Hi from the Architecture :)</section>");
+import angular from 'angular'; export default angular.module("templates", []).run(["$templateCache", function($templateCache) {$templateCache.put("architecture/architecture.html","<section class=\"partial__wrapper\">Hi from the Architecture :)</section>");
 $templateCache.put("fonz/fonz.html","<section class=\"partial__wrapper fonz__wrapper\">\n    <iframe width=\"640\"\n            height=\"480\"\n            src=\"https://www.youtube.com/embed/yyzK6e6py9A?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1\"\n            frameborder=\"0\"\n            allowfullscreen>\n    </iframe>\n</section>\n");
+$templateCache.put("design/design.abstract.html","<div ui-view class=\"partial__wrapper\"></div>\n");
 $templateCache.put("global/logout.html","<div class=\"modals\">\n    <section>Are you sure you want to logout?</section>\n    <section class=\"modals__btn__wrapper\">\n        <button class=\"a-btn--filled modals__btn\">Logout</button>\n        <button class=\"a-btn--red modals__btn\">Cancel</button>\n    </section>\n</div>\n");
 $templateCache.put("global/settings.html","Hi from the settings dialog!");
-$templateCache.put("design/design.abstract.html","<div ui-view class=\"partial__wrapper\"></div>\n");
 $templateCache.put("home/home.abstract.html","<section class=\"abstract-context__wrapper\">\n    Cross-view context info goes here...\n</section>\n<div ui-view class=\"partial__wrapper\"></div>\n");
 $templateCache.put("home/home.five.html","Hi from home five");
 $templateCache.put("home/home.four.html","Hi from home four");

@@ -1,6 +1,6 @@
 'use strict';
 
-describe('app module', function () {
+describe('app.architecture module', function () {
 
     beforeEach(module('app'));
 

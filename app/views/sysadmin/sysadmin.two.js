@@ -1,10 +1,23 @@
-(function (angular) {
-    'use strict';
+'use strict';
 
-    var adminTwoController = function ($scope) {
+import angular from 'angular';
 
-    };
+function AdminTwoController() {
 
-    angular.module('app').controller('adminTwoController', adminTwoController);
+}
 
-})(angular);
+var adminTwoStateConfig = ($stateProvider) => {
+
+    $stateProvider
+        .state('app.admin.two', {
+            url: '/two',
+            controller: AdminTwoController,
+            controllerAs: 'adminTwo',
+            templateProvider: function ($templateCache) {
+                return $templateCache.get('sysadmin/sysadmin.two.html');
+            }
+        });
+};
+
+export default angular.module('app.admin.two', [])
+    .config(adminTwoStateConfig);

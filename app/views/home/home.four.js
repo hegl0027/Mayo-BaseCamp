@@ -1,9 +1,23 @@
-(function (angular) {
-    'use strict';
+'use strict';
 
-    var homeFourController = function ($scope) {
+import angular from 'angular';
 
-    };
+function HomeFourController() {
 
-    angular.module('app').controller('homeFourController', homeFourController);
-})(angular);
+}
+
+var homeFourStateConfig = ($stateProvider) => {
+
+    $stateProvider
+        .state('app.home.four', {
+            url: '/four',
+            controller: HomeFourController,
+            controllerAs: 'homeFour',
+            templateProvider: function ($templateCache) {
+                return $templateCache.get('home/home.four.html');
+            }
+        });
+};
+
+export default angular.module('app.home.four', [])
+    .config(homeFourStateConfig);

@@ -1,9 +1,23 @@
-(function (angular) {
-    'use strict';
+'use strict';
 
-    var homeOneController = function ($scope) {
+import angular from 'angular';
 
-    };
+function HomeOneController() {
 
-    angular.module('app').controller('homeOneController', homeOneController);
-})(angular);
+}
+
+var homeOneStateConfig = ($stateProvider) => {
+
+    $stateProvider
+        .state('app.home.one', {
+            url: '/one',
+            controller: HomeOneController,
+            controllerAs: 'homeOne',
+            templateProvider: function ($templateCache) {
+                return $templateCache.get('home/home.one.html');
+            }
+        });
+};
+
+export default angular.module('app.home.one', [])
+    .config(homeOneStateConfig);

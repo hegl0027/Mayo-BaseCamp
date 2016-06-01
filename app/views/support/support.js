@@ -1,10 +1,28 @@
-(function (angular) {
-    'use strict';
+'use strict';
 
-    var supportController = function ($scope) {
+import angular from 'angular';
 
-    };
+function SupportController() {
 
-    angular.module('app').controller('supportController', supportController);
+}
 
-})(angular);
+var stateConfig = ($stateProvider) => {
+
+    $stateProvider
+        .state('app.support', {
+            url: '/support',
+            controller: SupportController,
+            controllerAs: 'support',
+            data: {
+                title: 'Support',
+                hasSecondaryNav: false
+            },
+            templateProvider: function ($templateCache) {
+                return $templateCache.get('support/support.html');
+            }
+        });
+};
+
+export default angular.module('app.support', [])
+    .config(stateConfig);
+

@@ -1,10 +1,23 @@
-(function (angular) {
-    'use strict';
+'use strict';
 
-    var reportingThreeController = function ($scope) {
+import angular from 'angular';
 
-    };
+function ReportingThreeController() {
 
-    angular.module('app').controller('reportingThreeController', reportingThreeController);
+}
 
-})(angular);
+var reportingThreeStateConfig = ($stateProvider) => {
+
+    $stateProvider
+        .state('app.reporting.three', {
+            url: '/three',
+            controller: ReportingThreeController,
+            controllerAs: 'reportingThree',
+            templateProvider: function ($templateCache) {
+                return $templateCache.get('reporting/reporting.three.html');
+            }
+        });
+};
+
+export default angular.module('app.reporting.three', [])
+    .config(reportingThreeStateConfig);
