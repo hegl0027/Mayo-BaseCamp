@@ -18,8 +18,7 @@
   - [Everyone else](https://www.ruby-lang.org/en/)
 
 ###Setup
-> - Clone the repo and run the following from the web project root directory
-> - You will likely need root or admin privileges to use '-g'
+> - Clone or download the repo and run the following from the web project root directory
 ```
 gem install sass scss_lint
 npm install
