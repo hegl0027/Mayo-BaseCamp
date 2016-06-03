@@ -9,15 +9,15 @@ import sanitize from 'angular-sanitize';
 import aria from 'angular-aria';
 import support from './views/support/support';
 import voiceandtone from './views/voiceandtone/voiceandtone';
-import architecture from './views/architecture/architecture';
+import architecture from './views/architecture/architecture.config';
 import design from './views/design/design.abstract';
 import home from './views/home/home.abstract';
 import reporting from './views/reporting/reporting.abstract';
 import admin from './views/sysadmin/sysadmin.abstract';
 import templates from './templates';
 import index from './index';
-import api from './api/ApiService';
-import httpMock from './api/ApiService_mocks';
+import api from './api/api.service.config';
+import httpMock from './api/api.service.mocks';
 
 var stateConfig = ($stateProvider, $urlRouterProvider) => {
     $urlRouterProvider.otherwise('/app/home/one');

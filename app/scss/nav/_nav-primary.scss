@@ -1,55 +1,52 @@
-.nav {
+.nav__primary {
+  background-color: #333;
+  transition: all .4s ease;
+  transition-delay: 246ms;
+  width: 50px;
 
-  &__primary {
-    background-color: #333;
-    transition: all .4s ease;
-    transition-delay: 246ms;
-    width: 50px;
+  &:hover {
+    width: 225px;
+  }
+
+  li {
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    color: $cloud;
+    cursor: pointer;
+    overflow: hidden;
+    padding: .625em .8em;
+    padding-bottom: 5px;
+    position: relative;
+    transition: transform .3s ease, border-radius 1s ease;
+    white-space: nowrap;
+    z-index: 4;
 
     &:hover {
-      width: 225px;
+      background-color: $blue;
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+      color: #eee;
+      transform: translate(7px, 0);
+
+      svg {
+        color: $cloud;
+      }
     }
 
-    li {
-      border-bottom-right-radius: 10px;
-      border-top-right-radius: 10px;
-      color: $cloud;
-      cursor: pointer;
-      overflow: hidden;
-      padding: .625em .8em;
-      padding-bottom: 5px;
+    > span {
+      padding-left: 10px;
       position: relative;
-      transition: transform .3s ease, border-radius 1s ease;
-      white-space: nowrap;
-      z-index: 4;
-
-      &:hover {
-        background-color: $blue;
-        border-bottom-right-radius: 0;
-        border-top-right-radius: 0;
-        color: #eee;
-        transform: translate(7px, 0);
-
-        svg {
-          color: $cloud;
-        }
-      }
-
-      > span {
-        padding-left: 10px;
-        position: relative;
-        top: -.5em;
-        z-index: 2;
-      }
+      top: -.5em;
+      z-index: 2;
     }
+  }
 
-    .selected {
-      background-color: $blue--hover;
-      color: $cloud;
-      transform: translateX(4px);
-      border-bottom-left-radius: $border__radius;
-      border-top-left-radius: $border__radius;
-    }
+  .selected {
+    background-color: $blue--hover;
+    border-bottom-left-radius: $border__radius;
+    border-top-left-radius: $border__radius;
+    color: $cloud;
+    transform: translateX(4px);
   }
 }
 

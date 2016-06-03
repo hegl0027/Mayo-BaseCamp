@@ -1,109 +1,103 @@
-.nav {
 
-  &__secondary {
+.nav__secondary--drawer {
+  height: calc(100% - 93px);
+  position: absolute;
+  right: 0;
 
-    &--drawer {
-      height: calc(100% - 93px);
-      position: absolute;
-      right: 0;
+  .list {
+    background-color: #2990cf;
+    border-bottom-left-radius: 5vh;
+    border-top-left-radius: 5vh;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: 5em;
+    transition: all .3s ease;
+    transition-delay: .3s;
+    width: 0;
 
-      .list {
-        background-color: #2990cf;
-        border-bottom-left-radius: 5vh;
-        border-top-left-radius: 5vh;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        padding-top: 5em;
-        transition: all .3s ease;
-        transition-delay: .3s;
-        width: 0;
+    > ul {
+      flex: 1;
+    }
 
-        > ul {
-          flex: 1;
-        }
+    li {
+      border-bottom-left-radius: 10px;
+      border-right: 5px solid transparent;
+      border-top-left-radius: 10px;
+      color: #fefefe;
+      cursor: pointer;
+      list-style: none;
+      overflow: hidden;
+      padding: .45em 1em;
+      position: relative;
+      text-align: right;
+      transition: transform .3s ease, border-radius 1s ease;
+      white-space: nowrap;
 
-        li {
-          border-bottom-left-radius: 10px;
-          border-right: 5px solid transparent;
-          border-top-left-radius: 10px;
-          color: #fefefe;
-          cursor: pointer;
-          list-style: none;
-          overflow: hidden;
-          padding: .45em 1em;
-          position: relative;
-          text-align: right;
-          transition: transform .3s ease, border-radius 1s ease;
-          white-space: nowrap;
+      &:hover {
+        background-color: #2172a4;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        transform: translate(-7px, 0);
+      }
 
-          &:hover {
-            background-color: #2172a4;
-            border-bottom-left-radius: 0;
-            border-top-left-radius: 0;
-            transform: translate(-7px, 0);
-          }
-
-          &:last-child {
-            margin-bottom: .5em;
-          }
-        }
-
-        .selected {
-          background-color: #2172a4;
-          border-bottom-left-radius: 0;
-          border-right: 5px solid #fefefe;
-          border-top-left-radius: 0;
-        }
+      &:last-child {
+        margin-bottom: .5em;
       }
     }
 
-    &--horizontal {
-      border-bottom: 1px solid #ccc;
-      display: flex;
+    .selected {
+      background-color: #2172a4;
+      border-bottom-left-radius: 0;
+      border-right: 5px solid #fefefe;
+      border-top-left-radius: 0;
+    }
+  }
+}
 
-      .crumb {
-        background-color: #eee;
-        border-right: 2px solid #2172a4;
-        position: static;
-      }
+.nav__secondary--horizontal {
+  border-bottom: 1px solid #ccc;
+  display: flex;
 
-      li {
-        border-bottom: 2px solid transparent;
-        list-style: none;
-        padding: .4em 1em 0;
-        position: relative;
-        transition: border-color 246ms ease;
+  .crumb {
+    background-color: #eee;
+    border-right: 2px solid #2172a4;
+    position: static;
+  }
 
+  li {
+    border-bottom: 2px solid transparent;
+    list-style: none;
+    padding: .4em 1em 0;
+    position: relative;
+    transition: border-color 246ms ease;
 
-        &:after {
-          border-bottom: 4px solid #fff;
-          content: '';
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-          position: relative;
-          top: 4px;
-          transition: all .4s;
-          width: 0;
-        }
+    &:after {
+      border-bottom: 4px solid #fff;
+      content: '';
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      top: 4px;
+      transition: all .4s;
+      width: 0;
+    }
 
-        &:not(.crumb):hover {
-          border-bottom-color: #777;
-          color: #2990cf;
-          cursor: pointer;
+    &:not(.crumb):hover {
+      border-bottom-color: #777;
+      color: #2990cf;
+      cursor: pointer;
 
-          &:after {
-            border-color: #2980b9;
-            width: 100%;
-          }
-        }
-      }
-
-      .selected {
-        border-bottom: 2px solid #2990cf;
+      &:after {
+        border-color: #2980b9;
+        width: 100%;
       }
     }
+  }
+
+  .selected {
+    border-bottom: 2px solid #2990cf;
   }
 }
 

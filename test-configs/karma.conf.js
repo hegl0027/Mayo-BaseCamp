@@ -4,21 +4,20 @@ module.exports = function (config) {
         basePath: '',
 
         preprocessors: {
-            '../app/**/!(*.tests).js': 'coverage',
-            '../app/**/*_tests.js': 'babel'
+            '../app/**/!(*.tests).js': ['coverage', 'browserify'],
+            '../app/**/*.tests.js': ['browserify']
         },
 
 
         files: [
-            '../dist/js/app.min.js',
-            '../app/**/*_tests.js'
+            '../app/**/architecture.tests.js'
         ],
 
         logLevel: 'INFO',
 
         autoWatch: true,
 
-        frameworks: ['jasmine', 'detectBrowsers'],
+        frameworks: ['jasmine', 'detectBrowsers', 'browserify'],
 
         // configuration
         detectBrowsers: {
@@ -30,7 +29,7 @@ module.exports = function (config) {
 
             // here you can edit the list of browsers used by karma
             postDetection: function (availableBrowser) {
-                return availableBrowser;
+                return ['Firefox'];
             }
         },
 
@@ -45,8 +44,14 @@ module.exports = function (config) {
             'karma-spec-reporter',
             'karma-detect-browsers',
             'karma-coverage',
-            'karma-babel-preprocessor'
+            'karma-babel-preprocessor',
+            'karma-browserify'
         ],
+
+        browserify: {
+            debug: true,
+            transform: [ 'babelify' ]
+        },
 
         reporters: ['spec', 'junit', 'coverage'],
 
@@ -69,19 +74,6 @@ module.exports = function (config) {
             outputFile: 'unit.xml',
             suite: 'unit',
             useBrowserName: true
-        },
-
-        babelPreprocessor: {
-            options: {
-                presets: ['es2015'],
-                sourceMap: 'inline'
-            },
-            filename: function (file) {
-                return file.originalPath.replace(/\.js$/, '.es5.js');
-            },
-            sourceFileName: function (file) {
-                return file.originalPath;
-            }
         }
     });
 };

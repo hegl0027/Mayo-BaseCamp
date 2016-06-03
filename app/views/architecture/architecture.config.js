@@ -1,17 +1,14 @@
 'use strict';
 
 import angular from 'angular';
+import ctrl from './architecture.controller';
 
-function ArchitectureController() {
-
-}
-
-var architectureStateConfig = ($stateProvider) => {
+let architectureStateConfig = $stateProvider => {
 
     $stateProvider
         .state('app.architecture', {
             url: '/architecture',
-            controller: ArchitectureController,
+            controller: ctrl,
             controllerAs: 'architecture',
             data: {
                 title: 'Architecture',

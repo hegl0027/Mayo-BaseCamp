@@ -19,7 +19,7 @@ const config = {
         "fonts": "app/fonts/**/!(*.txt)*",
         "images": "app/images/**/*",
         "js": "app/**/*.js",
-        "unitTests": "app/**/*_tests.js",
+        "unitTests": "app/**/*.tests.js",
         "templatesJs": "app/templates.js"
     },
     "dist": {
@@ -178,7 +178,7 @@ gulp.task('todo', () => {
         .pipe(gulp.dest('.'));
 });
 
-gulp.task('plato', plugins.shell.task([
+gulp.task('metrics', plugins.shell.task([
     'plato -l .jshintrc -t "Root Static Analysis" -r -d reports/plato app'
 ]));
 
