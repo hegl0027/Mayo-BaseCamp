@@ -46,8 +46,8 @@ npm start
 ###Karma
 The unit test files (app/\*\*/\*_tests.js) should hang out with the the rest of the application code
 ```
-npm test
-npm run test-q  <-- quick version without npm/bower install, single run
+npm run karma
+npm run karma-q  <-- quick version without npm/bower install, single run
 ```
 
 ###Protractor
