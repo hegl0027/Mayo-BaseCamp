@@ -33,6 +33,7 @@ before_script:
 
 script:
   - npm run gulp
+  - npm run karma-q
   - npm run protractor-firefox
   - npm run api-tests
 

@@ -4,16 +4,17 @@ module.exports = function (config) {
         basePath: '',
 
         preprocessors: {
-            '../app/**/!(*.tests).js': ['coverage', 'browserify'],
-            '../app/**/*.tests.js': ['browserify']
+            '../app/**/!(*.tests).js': ['eslint', 'browserify', 'coverage'],
+            '../app/**/*.js': ['browserify']
         },
 
 
         files: [
-            '../app/**/architecture.tests.js'
+            '../app/app.js',
+            '../app/**/*.spec.js'
         ],
 
-        logLevel: 'INFO',
+        logLevel: config.LOG_INFO,
 
         autoWatch: true,
 
@@ -29,7 +30,7 @@ module.exports = function (config) {
 
             // here you can edit the list of browsers used by karma
             postDetection: function (availableBrowser) {
-                return ['Firefox'];
+                return availableBrowser;
             }
         },
 
@@ -45,12 +46,13 @@ module.exports = function (config) {
             'karma-detect-browsers',
             'karma-coverage',
             'karma-babel-preprocessor',
-            'karma-browserify'
+            'karma-browserify',
+            'karma-eslint'
         ],
 
         browserify: {
             debug: true,
-            transform: [ 'babelify' ]
+            transform: ['babelify']
         },
 
         reporters: ['spec', 'junit', 'coverage'],
@@ -67,6 +69,19 @@ module.exports = function (config) {
             suppressPassed: true,
             suppressSkipped: true,
             showSpecTiming: false
+        },
+
+        babelPreprocessor: {
+            options: {
+                presets: ['es2015'],
+                sourceMap: 'inline'
+            },
+            filename: function (file) {
+                return file.originalPath.replace(/\.js$/, '.es5.js');
+            },
+            sourceFileName: function (file) {
+                return file.originalPath;
+            }
         },
 
         junitReporter: {

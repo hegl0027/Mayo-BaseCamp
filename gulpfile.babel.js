@@ -102,7 +102,6 @@ gulp.task('js', () => {
         })
         .transform(babel)
         .bundle()
-        .pipe(plugins.plumber())
         .pipe(source('app.js'))
         .pipe(buffer())
         .pipe(plugins.ngAnnotate())

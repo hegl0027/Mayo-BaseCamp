@@ -7,17 +7,16 @@ import loadingbar from 'angular-loading-bar';
 import messages from 'angular-messages';
 import sanitize from 'angular-sanitize';
 import aria from 'angular-aria';
-import support from './views/support/support';
-import voiceandtone from './views/voiceandtone/voiceandtone';
-import architecture from './views/architecture/architecture.config';
-import design from './views/design/design.abstract';
-import home from './views/home/home.abstract';
-import reporting from './views/reporting/reporting.abstract';
-import admin from './views/sysadmin/sysadmin.abstract';
+import support from './views/support/support-config';
+import voiceandtone from './views/voiceandtone/voiceandtone-config';
+import architecture from './views/architecture/architecture-config';
+import design from './views/design/design-abstract-config';
+import home from './views/home/home-abstract-config';
+import reporting from './views/reporting/reporting-abstract-config';
+import admin from './views/sysadmin/sysadmin-abstract-config';
 import templates from './templates';
-import index from './index';
-import api from './api/api.service.config';
-import httpMock from './api/api.service.mocks';
+import index from './index-config';
+import api from './services/api/api-service-config';
 
 var stateConfig = ($stateProvider, $urlRouterProvider) => {
     $urlRouterProvider.otherwise('/app/home/one');
@@ -81,8 +80,7 @@ export default angular.module('app', [
     home.name,
     admin.name,
     design.name,
-    reporting.name,
-    httpMock.name
+    reporting.name
 ])
     .config(stateConfig)
     .config(loadingBarConfig);

@@ -7,7 +7,7 @@
 --- checkbox
 --- switch
 --- label
---- prefix/suffix/infix
+--- affixes
 --- buttons
 --- element states
 --- inline buttons
@@ -16,7 +16,7 @@
 - responsive flex based grid
 - table
 - responsive table
-- type ahead
+- autocomplete
 - list
 - tree
 - accessibility
