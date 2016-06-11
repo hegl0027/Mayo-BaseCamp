@@ -5,6 +5,7 @@
 - AngularJS 1.x
 - Gulp
 - Sass
+- Babel (ES6)
 
 ###Prerequisites
 1. [Git](https://git-scm.com/downloads)
