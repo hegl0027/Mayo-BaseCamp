@@ -83,7 +83,7 @@
   "scripts": {
     "gulp": "gulp",
     "start": "serve --compress dist --",
-    "api-tests": "mocha api-tests/**/*.js",
+    "api-tests": "mocha api-tests/**/*.js --compilers js:babel-core/register",
     "karma": "karma start test-configs/karma.conf.js",
     "karma-q": "karma start test-configs/karma.conf.js  --no-auto-watch --single-run",
     "preupdate-webdriver": "npm install",

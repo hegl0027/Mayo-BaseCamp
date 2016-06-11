@@ -238,7 +238,7 @@ gulp.task('docs', cb => {
 });
 
 gulp.task('sample', () => {
-   return gulp.src('app/api/sample.json')
+   return gulp.src('app/services/api/sample.json')
        .pipe(gulp.dest('dist/sample'));
 });
 
