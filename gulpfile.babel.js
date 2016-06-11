@@ -1,4 +1,3 @@
-import 'babel-core/register';
 import gulp from 'gulp';
 import runSequence from 'run-sequence';
 import del from 'del';
