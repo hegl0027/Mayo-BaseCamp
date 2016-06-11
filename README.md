@@ -45,7 +45,7 @@ npm start
 ```
 
 ###Karma
-The unit test files (app/\*\*/\*_tests.js) should hang out with the the rest of the application code
+The unit test files (app/\*\*/\*.spec.js) should hang out with the the rest of the application code
 ```
 npm run karma
 npm run karma-q  <-- quick version without npm/bower install, single run
