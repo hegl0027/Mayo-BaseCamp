@@ -67,7 +67,8 @@
                 </svg>
                 <span>Home</span>
             </li>
-            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.reporting')};" ui-sref="app.reporting.one">
+            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.reporting')};"
+                ui-sref="app.reporting.one">
                 <svg class="icon icon--nav">
                     <use xlink:href="#icon-file-text"></use>
                 </svg>
@@ -85,25 +86,36 @@
                 </svg>
                 <span>Support</span>
             </li>
-            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.design')};" ui-sref="app.design.overview">
+            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.design')};"
+                ui-sref="app.design.overview">
                 <svg class="icon icon--nav">
                     <use xlink:href="#icon-droplet"></use>
                 </svg>
                 <span>Design</span>
             </li>
-            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.voiceandtone')};" ui-sref="app.voiceandtone">
+            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.accessibility')};"
+                ui-sref="app.accessibility">
+                <svg class="icon icon--nav">
+                    <use xlink:href="#icon-accessible"></use>
+                </svg>
+                <span>Accessibility</span>
+            </li>
+            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.voiceandtone')};"
+                ui-sref="app.voiceandtone">
                 <svg class="icon icon--nav">
                     <use xlink:href="#icon-mic"></use>
                 </svg>
                 <span>Voice and Tone</span>
             </li>
-            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.architecture')};" ui-sref="app.architecture">
+            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.architecture')};"
+                ui-sref="app.architecture">
                 <svg class="icon icon--nav">
                     <use xlink:href="#icon-leaf"></use>
                 </svg>
                 <span>Architecture</span>
             </li>
-            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.performance')};" ui-sref="app.performance">
+            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.performance')};"
+                ui-sref="app.performance">
                 <svg class="icon icon--nav">
                     <use xlink:href="#icon-rocket"></use>
                 </svg>
@@ -165,6 +177,7 @@
                 <li ui-sref-active="selected" ui-sref="app.design.foundations">Foundations</li>
                 <li ui-sref-active="selected" ui-sref="app.design.patterns">Patterns</li>
                 <li ui-sref-active="selected" ui-sref="app.design.components">Components</li>
+                <li ui-sref-active="selected">Animation</li>
                 <li ui-sref-active="selected" ui-sref="app.design.onboarding">Onboarding</li>
             </ul>
             <div class="nav__secondary--drawer" ng-if="idxCtrlr.hasSecondaryNav()">
@@ -198,6 +211,7 @@
                         <li ui-sref-active="selected" ui-sref="app.design.foundations">Foundations</li>
                         <li ui-sref-active="selected" ui-sref="app.design.patterns">Patterns</li>
                         <li ui-sref-active="selected" ui-sref="app.design.components">Components</li>
+                        <li ui-sref-active="selected">Animation</li>
                         <li ui-sref-active="selected" ui-sref="app.design.onboarding">Onboarding</li>
                     </ul>
                 </div>
@@ -219,6 +233,10 @@
 <svg style="position: absolute; width: 0; height: 0;" width="0" height="0" version="1.1"
      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
+        <symbol id="icon-accessible" viewBox="0 0 24 24">
+            <title>accessible</title>
+            <path class="path1" d="M12.844 18h2.063c-0.469 2.297-2.484 3.984-4.922 3.984-2.766 0-4.969-2.203-4.969-4.969 0-2.438 1.688-4.453 3.984-4.922v2.063c-1.172 0.422-2.016 1.547-2.016 2.859 0 1.641 1.359 3 3 3 1.313 0 2.438-0.844 2.859-2.016zM9.984 9.094c0-1.406 1.564-2.649 3-1.828h0.047v0.047c0.234 0.094 0.422 0.234 0.609 0.422l1.313 1.453c0.984 1.078 2.484 1.828 4.031 1.828v1.969c-1.734 0-3.656-0.844-4.969-1.922v3.422h3c1.078 0 1.969 0.938 1.969 2.016v5.484h-1.969v-4.969h-5.016c-1.078 0-2.016-0.938-2.016-2.016v-5.906zM9.984 3.984c0-1.125 0.891-1.969 2.016-1.969s2.016 0.844 2.016 1.969-0.891 2.016-2.016 2.016-2.016-0.891-2.016-2.016z"></path>
+        </symbol>
         <symbol id="icon-point-right" viewBox="0 0 32 32">
             <title>point-right</title>
             <path class="path1"
