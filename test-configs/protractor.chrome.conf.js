@@ -1,26 +1,7 @@
-exports.config = {
-    allScriptsTimeout: 11000,
+var base = require('./protractor.base.config');
 
-    specs: [
-        '../e2e-tests/**/*.spec.js'
-    ],
+base.config.capabilities = {
+    'browserName': 'chrome'
+}
 
-    capabilities: {
-        'browserName': 'chrome'
-    },
-
-    baseUrl: 'http://localhost:3000/',
-
-    framework: 'jasmine',
-
-    jasmineNodeOpts: {
-        showColors: true,
-        defaultTimeoutInterval: 30000,
-        isVerbose: false,
-        includeStackTrace: false
-    },
-
-    onPrepare: function () {
-        require("babel-core/register")({presets: ["es2015"]})
-    }
-};
+exports.config = base.config;

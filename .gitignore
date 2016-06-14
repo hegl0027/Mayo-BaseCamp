@@ -12,3 +12,4 @@ docs
 dist/
 reports/coverage
 reports/karma
+reports/protractor
