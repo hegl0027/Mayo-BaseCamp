@@ -4,7 +4,7 @@ module.exports = function (config) {
         basePath: '',
 
         preprocessors: {
-            '../app/**/!(*.tests).js': ['eslint', 'browserify', 'coverage'],
+            '../app/**/!(*.spec).js': ['eslint', 'browserify', 'coverage'],
             '../app/**/*.js': ['browserify']
         },
 
