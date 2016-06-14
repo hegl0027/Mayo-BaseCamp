@@ -1,26 +1,28 @@
 module.exports = function (config) {
     config.set({
 
+        autoWatch: true,
+
         basePath: '',
 
-        preprocessors: {
-            '../app/**/!(*.spec).js': ['eslint', 'browserify', 'coverage'],
-            '../app/**/*.js': ['browserify']
-        },
-
-
         files: [
-            '../app/app.js',
-            '../app/**/*.spec.js'
+            '../app/**/*.spec.js',
+            {
+                pattern: '../app/**/*!(.spec).js',
+                included: false
+            }
         ],
 
-        logLevel: config.LOG_INFO,
+        preprocessors: {
+            '../app/**/*.js': ['eslint', 'browserify', 'coverage']
+        },
 
-        autoWatch: true,
+        // level of logging
+        // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+        logLevel: config.LOG_INFO,
 
         frameworks: ['jasmine', 'detectBrowsers', 'browserify'],
 
-        // configuration
         detectBrowsers: {
             // enable/disable, default is true
             enabled: true,
@@ -34,54 +36,25 @@ module.exports = function (config) {
             }
         },
 
-        plugins: [
-            'karma-chrome-launcher',
-            'karma-firefox-launcher',
-            'karma-ie-launcher',
-            'karma-phantomjs-launcher',
-            'karma-safari-launcher',
-            'karma-jasmine',
-            'karma-junit-reporter',
-            'karma-spec-reporter',
-            'karma-detect-browsers',
-            'karma-coverage',
-            'karma-babel-preprocessor',
-            'karma-browserify',
-            'karma-eslint'
-        ],
-
         browserify: {
             debug: true,
-            transform: ['babelify']
+            transform: [
+                require('browserify-istanbul')({
+                    instrumenter: require('isparta'),
+                    ignore: ['**/*.spec.js']
+                }),
+                'babelify']
         },
 
-        reporters: ['spec', 'junit', 'coverage'],
+        reporters: ['progress', 'junit', 'coverage'],
 
         coverageReporter: {
-            type: 'html',
-            dir: '../reports/coverage/'
-        },
-
-        specReporter: {
-            maxLogLines: 5,
-            suppressErrorSummary: true,
-            suppressFailed: false,
-            suppressPassed: true,
-            suppressSkipped: true,
-            showSpecTiming: false
-        },
-
-        babelPreprocessor: {
-            options: {
-                presets: ['es2015'],
-                sourceMap: 'inline'
-            },
-            filename: function (file) {
-                return file.originalPath.replace(/\.js$/, '.es5.js');
-            },
-            sourceFileName: function (file) {
-                return file.originalPath;
-            }
+            reporters: [
+                { type: 'html' },
+                { type: 'text-summary' }
+            ],
+            dir: '../reports/coverage/',
+            sourceStore: require("isparta").Store.create("fslookup")
         },
 
         junitReporter: {
@@ -89,6 +62,10 @@ module.exports = function (config) {
             outputFile: 'unit.xml',
             suite: 'unit',
             useBrowserName: true
+        },
+
+        eslint: {
+            stopOnError: false
         }
     });
 };

@@ -3,7 +3,7 @@
 import angular from 'angular';
 import resource from 'angular-resource';
 import apiService from './api-service';
-import httpMock from './api-service-mocks';
+import httpMock from './api-service.mock';
 
 /**
  * @ngdoc module
