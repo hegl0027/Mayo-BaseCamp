@@ -17,6 +17,7 @@
 
   &:enabled:hover {
     color: #fff;
+    box-shadow: $hover-shadow;
   }
 }
 

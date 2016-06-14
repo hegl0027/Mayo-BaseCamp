@@ -10,6 +10,8 @@ import aria from 'angular-aria';
 import support from './views/support/support-config';
 import voiceandtone from './views/voiceandtone/voiceandtone-config';
 import architecture from './views/architecture/architecture-config';
+import performance from './views/performance/performance-config';
+import accessibility from './views/accessibility/accessibility-config';
 import design from './views/design/design-abstract-config';
 import home from './views/home/home-abstract-config';
 import reporting from './views/reporting/reporting-abstract-config';
@@ -80,7 +82,9 @@ export default angular.module('app', [
     home.name,
     admin.name,
     design.name,
-    reporting.name
+    reporting.name,
+    performance.name,
+    accessibility.name
 ])
     .config(stateConfig)
     .config(loadingBarConfig);
