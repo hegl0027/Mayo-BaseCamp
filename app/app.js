@@ -19,6 +19,7 @@ import admin from './views/sysadmin/sysadmin-abstract-config';
 import templates from './templates';
 import index from './index-config';
 import api from './services/api/api-service-config';
+import animation from './views/design/animation/design-animation-config';
 
 var stateConfig = ($stateProvider, $urlRouterProvider) => {
     $urlRouterProvider.otherwise('/app/home/one');
@@ -36,13 +37,13 @@ var stateConfig = ($stateProvider, $urlRouterProvider) => {
                 title: 'The Fonz',
                 hasSecondaryNav: false
             },
-            templateProvider: function ($templateCache) {
+            templateProvider: ($templateCache) => {
                 return $templateCache.get('fonz/fonz.html');
             }
         });
 };
 
-var loadingBarConfig = function (cfpLoadingBarProvider) {
+var loadingBarConfig = (cfpLoadingBarProvider) => {
     cfpLoadingBarProvider.includeSpinner = false;
     cfpLoadingBarProvider.latencyThreshold = 20;
 };
@@ -84,7 +85,8 @@ export default angular.module('app', [
     design.name,
     reporting.name,
     performance.name,
-    accessibility.name
+    accessibility.name,
+    animation.name
 ])
     .config(stateConfig)
     .config(loadingBarConfig);
