@@ -37,3 +37,6 @@ script:
   - npm run protractor-firefox
   - npm run api-tests
 
+after_success:
+  - coveralls
+
