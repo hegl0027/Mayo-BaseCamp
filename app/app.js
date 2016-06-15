@@ -37,9 +37,7 @@ var stateConfig = ($stateProvider, $urlRouterProvider) => {
                 title: 'The Fonz',
                 hasSecondaryNav: false
             },
-            templateProvider: ($templateCache) => {
-                return $templateCache.get('fonz/fonz.html');
-            }
+            templateProvider: ($templateCache) => $templateCache.get('fonz/fonz.html')
         });
 };
 
