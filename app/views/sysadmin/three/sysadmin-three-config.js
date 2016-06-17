@@ -10,7 +10,7 @@ var adminThreeStateConfig = ($stateProvider) => {
             url: '/three',
             controller: AdminThreeController,
             controllerAs: 'adminThree',
-            templateProvider: ($templateCache) => $templateCache.get('sysadmin/sysadmin.three.html')
+            templateProvider: ($templateCache) => $templateCache.get('sysadmin/three/sysadmin-three.html')
         });
 };
 

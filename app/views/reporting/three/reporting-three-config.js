@@ -10,7 +10,7 @@ var reportingThreeStateConfig = ($stateProvider) => {
             url: '/three',
             controller: ReportingThreeController,
             controllerAs: 'reportingThree',
-            templateProvider: ($templateCache) => $templateCache.get('reporting/reporting.three.html')
+            templateProvider: ($templateCache) => $templateCache.get('reporting/three/reporting-three.html')
         });
 };
 
