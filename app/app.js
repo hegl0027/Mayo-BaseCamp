@@ -16,7 +16,7 @@ import design from './views/design/design-abstract-config';
 import home from './views/home/home-abstract-config';
 import reporting from './views/reporting/reporting-abstract-config';
 import admin from './views/sysadmin/sysadmin-abstract-config';
-import templates from './templates';
+import templates from '../tmp/templates';
 import index from './index-config';
 import api from './services/api/api-service-config';
 import animation from './views/design/animation/design-animation-config';

@@ -8,35 +8,10 @@ import source from 'vinyl-source-stream';
 import babel from 'babelify';
 import buffer from 'vinyl-buffer';
 import loadPlugins from 'gulp-load-plugins';
+import watchify from 'watchify';
+import files from './files';
 var plugins = loadPlugins();
 
-const config = {
-    "app": {
-        "root": "app",
-        "html": "app/**/*.html",
-        "scss": "app/**/*.scss",
-        "angularTemplates": "app/views/**/*.html",
-        "fonts": "app/fonts/**/!(*.txt)*",
-        "images": "app/images/**/*",
-        "js": "app/**/*.js",
-        "unitTests": "app/**/*.tests.js",
-        "templatesJs": "app/templates.js"
-    },
-    "dist": {
-        "root": "dist",
-        "html": [],
-        "fonts": "dist/fonts",
-        "images": "dist/images",
-        "js": "dist/js",
-        "css": "dist/css"
-    },
-    "rdm": {
-        "e2eTests": "e2e-tests/**/*.js",
-        "allDist": "dist/**/*",
-        "jsWithoutTemplates": ["app/**/*.js", "!app/templates.js"],
-        "scssWithoutReset": ["app/**/*.scss", "!app/**/*_reset.scss"]
-    }
-};
 
 /**
  * Get the current [hrs:min:sec] timestamp used in the console
@@ -48,25 +23,48 @@ function getTimestamp() {
     return '[' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + ']  ';
 }
 
+function compile(watch) {
+    var bundler = browserify(files.src.entry, { debug: true }).transform(babel);
+
+    function rebundle() {
+        bundler.bundle()
+            .on('error', function(err) { console.error(err); this.emit('end'); })
+            .pipe(source('app.js'))
+            .pipe(buffer())
+            .pipe(gulp.dest(files.dest.js))
+            .pipe(plugins.uglify())
+            .pipe(plugins.rename('app.min.js'))
+            .pipe(plugins.sourcemaps.init({ loadMaps: true }))
+            .pipe(plugins.sourcemaps.write('./'))
+            .pipe(gulp.dest(files.dest.js));
+    }
+
+    if (watch) {
+        watchify(bundler.on('update', function() {
+            rebundle();
+        }));
+    }
+
+    rebundle();
+}
 
 /**
  * ASSETS
  */
 gulp.task('fonts', () => {
-    return gulp.src(config.app.fonts)
-        .pipe(plugins.plumber())
-        .pipe(gulp.dest(config.dist.fonts));
+    return gulp.src(files.src.fonts)
+        .pipe(gulp.dest(files.dest.fonts));
 });
 
 gulp.task('images', () => {
-    return gulp.src(config.app.images)
+    return gulp.src(files.src.images)
         .pipe(plugins.plumber())
         .pipe(plugins.imagemin({
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant()]
         }))
-        .pipe(gulp.dest(config.dist.images));
+        .pipe(gulp.dest(files.dest.images));
 });
 
 
@@ -75,19 +73,19 @@ gulp.task('images', () => {
  */
 
 gulp.task('html', () => {
-    return gulp.src(config.app.html)
+    return gulp.src(files.src.html)
         .pipe(plugins.plumber())
         .pipe(plugins.angularHtmlify())
-        .pipe(gulp.dest(config.dist.root));
+        .pipe(gulp.dest(files.dest.dir));
 });
 
 gulp.task('template-cache', () => {
-    return gulp.src(config.app.angularTemplates)
+    return gulp.src(((files.src.partials)))
         .pipe(plugins.angularTemplatecache({
             standalone: true,
             moduleSystem: 'ES6'
         }))
-        .pipe(gulp.dest(config.app.root));
+        .pipe(gulp.dest(files.dest.tmp));
 });
 
 
@@ -96,8 +94,10 @@ gulp.task('template-cache', () => {
  */
 
 gulp.task('js', () => {
-    return browserify({
-            entries: "app/app.js",
+    compile();
+
+    /*return browserify({
+            entries: files.src.entry,
             debug: true
         })
         .transform(babel)
@@ -106,29 +106,30 @@ gulp.task('js', () => {
         .pipe(buffer())
         .pipe(plugins.ngAnnotate())
         .pipe(plugins.sourcemaps.init({loadMaps: true}))
-        .pipe(gulp.dest(config.dist.js))
+        .pipe(gulp.dest(files.dest.js))
+        .pipe(buffer())
         .pipe(plugins.uglify())
         .pipe(plugins.rename('app.min.js'))
         .pipe(plugins.sourcemaps.write('.'))
-        .pipe(gulp.dest(config.dist.js));
+        .pipe(gulp.dest(files.dest.js));*/
 });
 
 gulp.task('size', () => {
-    return gulp.src([config.rdm.allDist, '!dist/images/favicon/**/*'])
+    return gulp.src(files.src.size)
         .pipe(plugins.sizereport({
             gzip: true
         }));
 });
 
 gulp.task('eslint', () => {
-    return gulp.src(config.rdm.jsWithoutTemplates)
+    return gulp.src(files.src.js)
         .pipe(plugins.plumber())
         .pipe(eslint())
         .pipe(eslint.format());
 });
 
 gulp.task('jscs', () => {
-    return gulp.src(config.rdm.jsWithoutTemplates)
+    return gulp.src(files.src.js)
         .pipe(plugins.plumber())
         .pipe(plugins.jscs())
         .pipe(plugins.jscs.reporter());
@@ -141,22 +142,22 @@ gulp.task('jscs', () => {
  */
 
 gulp.task('styles', () => {
-    return plugins.rubySass(config.app.scss)
+    return plugins.rubySass(files.src.sass)
         .pipe(plugins.sourcemaps.init())
         .on('error', plugins.rubySass.logError)
         .pipe(plugins.concat('app.css'))
         .pipe(plugins.autoprefixer())
-        .pipe(gulp.dest(config.dist.css))
+        .pipe(gulp.dest(files.dest.css))
         .pipe(plugins.rename('app.min.css'))
         .pipe(plugins.cssnano())
-        .pipe(plugins.sourcemaps.write('.'))
-        .pipe(gulp.dest(config.dist.css));
+        .pipe(plugins.sourcemaps.write('./'))
+        .pipe(gulp.dest(files.dest.css));
 });
 
 gulp.task('scsslint', () => {
-    return gulp.src(config.rdm.scssWithoutReset)
+    return gulp.src(files.src.sassIgnoreReset)
         .pipe(plugins.scssLint({
-            config: '.scsslint.yml'
+            config: files.configs.scssLint
         }));
 });
 
@@ -172,7 +173,7 @@ gulp.task('jsdoc', plugins.shell.task([
 ]));
 
 gulp.task('todo', () => {
-    return gulp.src([config.app.js, config.rdm.e2eTests])
+    return gulp.src(files.src.allJs)
         .pipe(plugins.todo())
         .pipe(gulp.dest('.'));
 });
@@ -187,11 +188,12 @@ gulp.task('metrics', plugins.shell.task([
  */
 
 gulp.task('clean', () => {
-    return del(config.dist.root);
+    del(files.src.templatesJs);
+    return del(files.dest.dir);
 });
 
 gulp.task('clean-docs', () => {
-    return del('docs');
+    return del(files.dest.docs);
 });
 
 
@@ -199,12 +201,14 @@ gulp.task('clean-docs', () => {
  *  WATCHES
  */
 gulp.task('watch', () => {
-    var jsWatch = gulp.watch(config.rdm.jsWithoutTemplates);
-    var htmlWatch = gulp.watch(config.app.html);
-    var scssWatch = gulp.watch(config.app.scss);
+    var jsWatch = gulp.watch(files.src.appJs);
+    var htmlWatch = gulp.watch(files.src.html);
+    var scssWatch = gulp.watch(files.src.sass);
+
+    compile(true);
 
     jsWatch.on('change', function (event) {
-        runSequence('eslint', 'jscs', 'js', 'docs', () => {
+        runSequence('eslint', 'jscs', 'docs', () => {
             console.log(getTimestamp() + ' ------  JS WATCH FINISHED ------');
         });
 
@@ -247,7 +251,7 @@ gulp.task('sample', () => {
  *  BUILD IT ALL!!!
  */
 gulp.task('build', [], cb => {
-    runSequence('clean', ['sample', 'assets', 'html', 'js', 'styles'], ['qa', 'docs', 'template-cache'], cb);
+    runSequence('clean', 'template-cache', ['sample', 'assets', 'html', 'js', 'styles'], ['qa', 'docs'], cb);
 });
 
 
