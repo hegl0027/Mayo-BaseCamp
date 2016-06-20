@@ -159,7 +159,7 @@ gulp.task('jsdoc', plugins.shell.task([
 gulp.task('todo', () => {
     return gulp.src(files.src.allJs)
         .pipe(plugins.todo())
-        .pipe(gulp.dest('.'));
+        .pipe(gulp.dest('./'));
 });
 
 gulp.task('metrics', (cb) => {
@@ -234,7 +234,7 @@ gulp.task('sample', () => {
  *  BUILD IT ALL!!!
  */
 gulp.task('build', [], cb => {
-    runSequence('clean', 'template-cache', ['sample', 'assets', 'html', 'js', 'styles'], ['qa', 'docs'], cb);
+    runSequence('clean', 'template-cache', ['sample', 'assets', 'html', 'js', 'styles'], ['qa'], cb);
 });
 
 

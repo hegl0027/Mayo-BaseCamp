@@ -1,6 +1,7 @@
 const APP_DIR = 'app';
 const TEMP_DIR = 'tmp';
 const DEST_DIR = 'dist';
+const DOCS_DIR = 'docs';
 const REPORTS_DIR = 'reports';
 const APP_SPEC_SRC = `${APP_DIR}/**/*.spec.js`;
 const E2E_SPEC_SRC = 'e2e-tests/**/*.spec.js';
@@ -10,7 +11,6 @@ const HTML_SRC = `${APP_DIR}/**/*.html`;
 const ANGULAR_PARTIALS = `${APP_DIR}/views/**/*.html`;
 const FONTS_SRC = `${APP_DIR}/fonts/**/*!(.txt)`;
 const IMAGES_SRC = `${APP_DIR}/images/**/*`;
-const TEMPLATES_JS = `${TEMP_DIR}/templates.js`;
 const ENTRY = `${APP_DIR}/app.js`;
 const APP_JS = `${APP_DIR}/**/*.js`;
 
@@ -45,7 +45,6 @@ export default {
         js: JS_SRC,
         partials: ANGULAR_PARTIALS,
         images: IMAGES_SRC,
-        templatesJs: TEMPLATES_JS,
         fonts: FONTS_SRC,
         html: HTML_SRC,
         e2e: E2E_SPEC_SRC,
@@ -64,9 +63,8 @@ export default {
         html: `${DEST_DIR}`,
         css: `${DEST_DIR}/css`,
         tmp: `${TEMP_DIR}`,
-        templatesJs: TEMPLATES_JS,
         js: `${DEST_DIR}/js`,
-        docs: 'docs',
+        docs: `${DOCS_DIR}`,
         plato: `${REPORTS_DIR}/plato`
     },
     configs: {
