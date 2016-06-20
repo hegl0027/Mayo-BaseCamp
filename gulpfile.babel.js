@@ -81,7 +81,7 @@ gulp.task('html', () => {
 });
 
 gulp.task('template-cache', () => {
-    return gulp.src(((files.src.partials)))
+    return gulp.src(files.src.partials)
         .pipe(plugins.angularTemplatecache({
             standalone: true,
             moduleSystem: 'ES6'
@@ -172,7 +172,6 @@ gulp.task('metrics', (cb) => {
  */
 
 gulp.task('clean', () => {
-    del(files.src.templatesJs);
     return del(files.dest.dir);
 });
 

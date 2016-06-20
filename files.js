@@ -1,7 +1,7 @@
 const APP_DIR = 'app';
 const TEMP_DIR = 'tmp';
 const DEST_DIR = 'dist';
-const REPORTS_DIR = 'reports'
+const REPORTS_DIR = 'reports';
 const APP_SPEC_SRC = `${APP_DIR}/**/*.spec.js`;
 const E2E_SPEC_SRC = 'e2e-tests/**/*.spec.js';
 const BUILD_SCRIPT = 'gulpfile.babel.js';
@@ -64,7 +64,7 @@ export default {
         html: `${DEST_DIR}`,
         css: `${DEST_DIR}/css`,
         tmp: `${TEMP_DIR}`,
-        templatesJs: `${TEMPLATES_JS}`,
+        templatesJs: TEMPLATES_JS,
         js: `${DEST_DIR}/js`,
         docs: 'docs',
         plato: `${REPORTS_DIR}/plato`
