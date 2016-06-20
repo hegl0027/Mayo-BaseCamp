@@ -234,7 +234,7 @@ gulp.task('sample', () => {
  *  BUILD IT ALL!!!
  */
 gulp.task('build', [], cb => {
-    runSequence('clean', 'template-cache', ['sample', 'assets', 'html', 'js', 'styles'], ['qa'], cb);
+    runSequence('clean', 'template-cache', ['sample', 'assets', 'html', 'js', 'styles'], ['qa', 'docs'], cb);
 });
 
 
