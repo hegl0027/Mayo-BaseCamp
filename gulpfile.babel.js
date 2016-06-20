@@ -242,6 +242,3 @@ gulp.task('build', [], cb => {
  *  default task executed when using cli 'gulp'
  */
 gulp.task('default', ['build']);
-
-
-//todo: add ci and prod builds
