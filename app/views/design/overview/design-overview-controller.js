@@ -1,6 +1,6 @@
 'use strict';
 
-export default class OverviewController {
+export default class {
     contstructor() {
         
     }

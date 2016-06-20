@@ -1,6 +1,6 @@
 'use strict';
 
-export default class ComponentsController {
+export default class {
     constructor() {
         
     }

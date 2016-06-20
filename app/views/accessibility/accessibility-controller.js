@@ -1,6 +1,6 @@
 'use strict';
 
-export default class AccessibilityController {
+export default class {
     constructor() {
 
     }

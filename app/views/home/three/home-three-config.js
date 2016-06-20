@@ -10,7 +10,7 @@ var homeThreeStateConfig = ($stateProvider) => {
             url: '/three',
             controller: HomeThreeController,
             controllerAs: 'homeThree',
-            templateProvider: ($templateCache) => $templateCache.get('home/home-three.html')
+            templateProvider: ($templateCache) => $templateCache.get('home/three/home-three.html')
         });
 };
 

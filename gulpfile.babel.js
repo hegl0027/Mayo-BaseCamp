@@ -10,6 +10,7 @@ import buffer from 'vinyl-buffer';
 import loadPlugins from 'gulp-load-plugins';
 import watchify from 'watchify';
 import files from './files';
+import plato from './helpers/plato';
 var plugins = loadPlugins();
 
 
@@ -95,23 +96,6 @@ gulp.task('template-cache', () => {
 
 gulp.task('js', () => {
     compile();
-
-    /*return browserify({
-            entries: files.src.entry,
-            debug: true
-        })
-        .transform(babel)
-        .bundle()
-        .pipe(source('app.js'))
-        .pipe(buffer())
-        .pipe(plugins.ngAnnotate())
-        .pipe(plugins.sourcemaps.init({loadMaps: true}))
-        .pipe(gulp.dest(files.dest.js))
-        .pipe(buffer())
-        .pipe(plugins.uglify())
-        .pipe(plugins.rename('app.min.js'))
-        .pipe(plugins.sourcemaps.write('.'))
-        .pipe(gulp.dest(files.dest.js));*/
 });
 
 gulp.task('size', () => {
@@ -178,9 +162,9 @@ gulp.task('todo', () => {
         .pipe(gulp.dest('.'));
 });
 
-gulp.task('metrics', plugins.shell.task([
-    'plato -l .jshintrc -t "Root Static Analysis" -r -d reports/plato app'
-]));
+gulp.task('metrics', (cb) => {
+    plato(cb);
+});
 
 
 /**

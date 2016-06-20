@@ -10,7 +10,7 @@ var homeTwoStateConfig = ($stateProvider) => {
             url: '/two',
             controller: HomeTwoController,
             controllerAs: 'homeTwo',
-            templateProvider: ($templateCache) => $templateCache.get('home/home-two.html')
+            templateProvider: ($templateCache) => $templateCache.get('home/two/home-two.html')
         });
 };
 

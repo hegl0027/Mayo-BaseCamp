@@ -24,3 +24,16 @@
   display: flex;
   justify-content: center;
 }
+
+.force-scroll {
+  display: flex;
+  flex-direction: column;
+
+  &:nth-child(odd) {
+    background-color: $cloud--hover;
+  }
+
+  > div {
+    min-height: 500px;
+  }
+}

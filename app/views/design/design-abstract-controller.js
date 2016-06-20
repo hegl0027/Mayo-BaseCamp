@@ -1,6 +1,6 @@
 'use strict';
 
-export default class AbstractDesignController {
+export default class {
     constructor() {
 
     }

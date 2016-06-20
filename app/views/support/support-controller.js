@@ -1,6 +1,6 @@
 'use strict';
 
-export default class SupportController {
+export default class {
     constructor() {
 
     }

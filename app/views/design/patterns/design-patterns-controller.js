@@ -1,6 +1,6 @@
 'use strict';
 
-export default class PatternsController {
+export default class {
     constructor() {
         
     }

@@ -1,6 +1,6 @@
 'use strict';
 
-export default class FoundationsController {
+export default class {
     constructor() {
         
     }

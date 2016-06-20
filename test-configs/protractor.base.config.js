@@ -2,7 +2,8 @@ var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
 
 var reporter = new HtmlScreenshotReporter({
     dest: 'reports/protractor',
-    filename: 'e2e-tests.html'
+    filename: 'e2e-tests.html',
+    captureOnlyFailedSpecs: false
 });
 
 exports.config = {
@@ -38,6 +39,7 @@ exports.config = {
     onPrepare: function() {
         require("babel-core/register")({presets: ["es2015"]})
         jasmine.getEnv().addReporter(reporter);
+        browser.driver.manage().window().setSize(2400, 6000);
     },
 
     // Close the report after all tests finish

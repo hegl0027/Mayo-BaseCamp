@@ -1,6 +1,6 @@
 'use strict';
 
-export default class AdminAbstractController {
+export default class {
     constructor() {
         
     }

@@ -1,6 +1,6 @@
 'use strict';
 
-export default class ReportingOneController {
+export default class {
     constructor() {
         
     }

@@ -1,6 +1,6 @@
 'use strict';
 
-export default class OnboardingController {
+export default class {
     constructor() {
         
     }

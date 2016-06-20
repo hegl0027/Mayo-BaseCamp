@@ -1,6 +1,6 @@
 'use strict';
 
-export default class HomeTwoController {
+export default class {
     constructor() {
 
     }

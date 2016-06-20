@@ -3,7 +3,7 @@
 import moment from 'moment';
 import jQuery from 'jquery';
 
-export default class IndexController {
+export default class {
     constructor($interval, $state, $log, apiService) {
         var now = moment();
         this.myState = $state;

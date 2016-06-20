@@ -1,6 +1,6 @@
 'use strict';
 
-export default class AnimationController {
+export default class {
     constructor() {
         
     }

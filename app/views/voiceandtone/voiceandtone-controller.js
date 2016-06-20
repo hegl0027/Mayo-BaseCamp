@@ -1,6 +1,6 @@
 'use strict';
 
-export default class VoiceAndToneController {
+export default class {
     constructor() {
         
     }

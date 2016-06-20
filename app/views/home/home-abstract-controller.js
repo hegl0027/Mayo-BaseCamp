@@ -1,6 +1,6 @@
 'use strict';
 
-export default class AbstractHomeController {
+export default class {
     constructor() {
 
     }
