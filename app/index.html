@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app" ng-controller="indexController as idxCtrlr">
+<html lang="en" ng-app="app" ng-controller="indexController as idxCtlr">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{idxCtrlr.myState.current.data.title}} | Root</title>
+    <title>{{idxCtlr.myState.current.data.title}} | Root</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-touch-icon-57x57.png">
@@ -36,6 +36,8 @@
 <body ng-cloak>
 
 <div class="view">
+
+    <!-- PRIMARY VERTICAL NAV BAR ON THE LEFT HAND SIDE OF THE VIEWPORT -->
     <nav class="nav__primary">
         <section class="app-logo__wrapper">
             <svg class="app-logo" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -61,67 +63,67 @@
         </section>
 
         <ul>
-            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.home')};" ui-sref="app.home.one">
+            <li class="nav ng-class:{'selected': idxCtlr.doesStateInclude('app.home')};" ui-sref="app.home.one">
                 <svg class="icon icon--nav">
                     <use xlink:href="#icon-home2"></use>
                 </svg>
                 <span>Home</span>
             </li>
-            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.reporting')};"
+            <li class="nav ng-class:{'selected': idxCtlr.doesStateInclude('app.reporting')};"
                 ui-sref="app.reporting.one">
                 <svg class="icon icon--nav">
                     <use xlink:href="#icon-file-text"></use>
                 </svg>
                 <span>Reporting</span>
             </li>
-            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.admin')};" ui-sref="app.admin.one">
+            <li class="nav ng-class:{'selected': idxCtlr.doesStateInclude('app.admin')};" ui-sref="app.admin.one">
                 <svg class="icon icon--nav">
                     <use xlink:href="#icon-cog"></use>
                 </svg>
                 <span>System Administration</span>
             </li>
-            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.support')};" ui-sref="app.support">
+            <li class="nav ng-class:{'selected': idxCtlr.doesStateInclude('app.support')};" ui-sref="app.support">
                 <svg class="icon icon--nav">
                     <use xlink:href="#icon-question"></use>
                 </svg>
                 <span>Support</span>
             </li>
-            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.design')};"
+            <li class="nav ng-class:{'selected': idxCtlr.doesStateInclude('app.design')};"
                 ui-sref="app.design.overview">
                 <svg class="icon icon--nav">
                     <use xlink:href="#icon-droplet"></use>
                 </svg>
                 <span>Design</span>
             </li>
-            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.accessibility')};"
+            <li class="nav ng-class:{'selected': idxCtlr.doesStateInclude('app.accessibility')};"
                 ui-sref="app.accessibility">
                 <svg class="icon icon--nav">
                     <use xlink:href="#icon-accessible"></use>
                 </svg>
                 <span>Accessibility</span>
             </li>
-            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.voiceandtone')};"
+            <li class="nav ng-class:{'selected': idxCtlr.doesStateInclude('app.voiceandtone')};"
                 ui-sref="app.voiceandtone">
                 <svg class="icon icon--nav">
                     <use xlink:href="#icon-mic"></use>
                 </svg>
                 <span>Voice and Tone</span>
             </li>
-            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.architecture')};"
+            <li class="nav ng-class:{'selected': idxCtlr.doesStateInclude('app.architecture')};"
                 ui-sref="app.architecture">
                 <svg class="icon icon--nav">
                     <use xlink:href="#icon-leaf"></use>
                 </svg>
                 <span>Architecture</span>
             </li>
-            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.performance')};"
+            <li class="nav ng-class:{'selected': idxCtlr.doesStateInclude('app.performance')};"
                 ui-sref="app.performance">
                 <svg class="icon icon--nav">
                     <use xlink:href="#icon-rocket"></use>
                 </svg>
                 <span>Performance</span>
             </li>
-            <li class="nav ng-class:{'selected': idxCtrlr.doesStateInclude('app.fonz')};" ui-sref="app.fonz">
+            <li class="nav ng-class:{'selected': idxCtlr.doesStateInclude('app.fonz')};" ui-sref="app.fonz">
                 <svg class="icon icon--nav">
                     <use xlink:href="#icon-point-right"></use>
                 </svg>
@@ -129,20 +131,20 @@
             </li>
         </ul>
         <section class="app-version">
-            {{idxCtrlr.appVersion}}
+            {{idxCtlr.appVersion}}
         </section>
     </nav>
 
+    <!-- MORE OR LESS EVERYTHING BUT THE PRIMARY NAV -->
     <main class="content__wrapper">
-
         <header>
             <section class="app-name">Super Clever App Name</section>
             <section class="app-context"></section>
             <section class="username">
-                {{idxCtrlr.user.lastName}}, {{idxCtrlr.user.firstName}}
+                {{idxCtlr.user.lastName}}, {{idxCtlr.user.firstName}}
                 <div class="user-links">
-                    <a href="" ng-click="idxCtrlr.openLogout()">logout</a> |
-                    <a href="" ng-click="idxCtrlr.openSettings()">settings</a>
+                    <a href="" ng-click="idxCtlr.openLogout()">logout</a> |
+                    <a href="" ng-click="idxCtlr.openSettings()">settings</a>
                 </div>
             </section>
             <svg class="icon icon--user">
@@ -150,13 +152,15 @@
             </svg>
         </header>
 
+        <!-- ALL VIEWS ARE INJECTED HERE -->
         <div ui-view class="content"></div>
 
+        <!-- FOOTER CONTENT HERE -->
         <div class="footer">
             <span>
                 <a href="http://codepen.io/bradyhullopeter/pen/yebXNZ" target="_blank">see dark theme</a>
             </span>
-            <span class="saved-msg">Last saved {{idxCtrlr.lastSaved}}</span>
+            <span class="saved-msg">Last saved {{idxCtlr.lastSaved}}</span>
         </div>
     </main>
 </div>
@@ -167,7 +171,8 @@
     <defs>
         <symbol id="icon-accessible" viewBox="0 0 24 24">
             <title>accessible</title>
-            <path class="path1" d="M12.844 18h2.063c-0.469 2.297-2.484 3.984-4.922 3.984-2.766 0-4.969-2.203-4.969-4.969 0-2.438 1.688-4.453 3.984-4.922v2.063c-1.172 0.422-2.016 1.547-2.016 2.859 0 1.641 1.359 3 3 3 1.313 0 2.438-0.844 2.859-2.016zM9.984 9.094c0-1.406 1.564-2.649 3-1.828h0.047v0.047c0.234 0.094 0.422 0.234 0.609 0.422l1.313 1.453c0.984 1.078 2.484 1.828 4.031 1.828v1.969c-1.734 0-3.656-0.844-4.969-1.922v3.422h3c1.078 0 1.969 0.938 1.969 2.016v5.484h-1.969v-4.969h-5.016c-1.078 0-2.016-0.938-2.016-2.016v-5.906zM9.984 3.984c0-1.125 0.891-1.969 2.016-1.969s2.016 0.844 2.016 1.969-0.891 2.016-2.016 2.016-2.016-0.891-2.016-2.016z"></path>
+            <path class="path1"
+                  d="M12.844 18h2.063c-0.469 2.297-2.484 3.984-4.922 3.984-2.766 0-4.969-2.203-4.969-4.969 0-2.438 1.688-4.453 3.984-4.922v2.063c-1.172 0.422-2.016 1.547-2.016 2.859 0 1.641 1.359 3 3 3 1.313 0 2.438-0.844 2.859-2.016zM9.984 9.094c0-1.406 1.564-2.649 3-1.828h0.047v0.047c0.234 0.094 0.422 0.234 0.609 0.422l1.313 1.453c0.984 1.078 2.484 1.828 4.031 1.828v1.969c-1.734 0-3.656-0.844-4.969-1.922v3.422h3c1.078 0 1.969 0.938 1.969 2.016v5.484h-1.969v-4.969h-5.016c-1.078 0-2.016-0.938-2.016-2.016v-5.906zM9.984 3.984c0-1.125 0.891-1.969 2.016-1.969s2.016 0.844 2.016 1.969-0.891 2.016-2.016 2.016-2.016-0.891-2.016-2.016z"></path>
         </symbol>
         <symbol id="icon-point-right" viewBox="0 0 32 32">
             <title>point-right</title>
