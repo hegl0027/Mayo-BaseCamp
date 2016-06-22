@@ -12,13 +12,12 @@ var abstractReportingStateConfig = ($stateProvider) => {
         .state('app.reporting', {
             abstract: true,
             url: '/reporting',
-            template: '<div ui-view class="partial__wrapper"></div>',
             controller: ReportingAbstractController,
             controllerAs: 'abstractReporting',
             data: {
-                title: 'Reporting',
-                hasSecondaryNav: true
-            }
+                title: 'Reporting'
+            },
+            templateProvider: ($templateCache) => $templateCache.get('reporting/reporting-abstract.html')
         });
 };
 

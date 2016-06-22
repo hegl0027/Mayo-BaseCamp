@@ -12,13 +12,12 @@ var abstractAdminStateConfig = ($stateProvider) => {
         .state('app.admin', {
             abstract: true,
             url: '/admin',
-            template: '<div ui-view class="partial__wrapper"></div>',
             controller: AdminAbstractController,
             controllerAs: 'abstractAdmin',
             data: {
-                title: 'Admin',
-                hasSecondaryNav: true
-            }
+                title: 'Admin'
+            },
+            templateProvider: ($templateCache) => $templateCache.get('sysadmin/sysadmin-abstract.html')
         });
 };
 

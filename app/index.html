@@ -150,74 +150,6 @@
             </svg>
         </header>
 
-        <nav class="nav__secondary">
-            <ul class="nav__secondary--horizontal" ng-if="idxCtrlr.doesStateInclude('app.home')">
-                <li class="crumb">HOME</li>
-                <li ui-sref-active="selected" ui-sref="app.home.one">One</li>
-                <li ui-sref-active="selected" ui-sref="app.home.two">Two</li>
-                <li ui-sref-active="selected" ui-sref="app.home.three">Three</li>
-                <li ui-sref-active="selected" ui-sref="app.home.four">Four</li>
-                <li ui-sref-active="selected" ui-sref="app.home.five">Five</li>
-            </ul>
-            <ul class="nav__secondary--horizontal" ng-if="idxCtrlr.doesStateInclude('app.reporting')">
-                <li class="crumb">REPORTING</li>
-                <li ui-sref-active="selected" ui-sref="app.reporting.one">One</li>
-                <li ui-sref-active="selected" ui-sref="app.reporting.two">Two</li>
-                <li ui-sref-active="selected" ui-sref="app.reporting.three">Three</li>
-            </ul>
-            <ul class="nav__secondary--horizontal" ng-if="idxCtrlr.doesStateInclude('app.admin')">
-                <li class="crumb">SYS. ADMIN.</li>
-                <li ui-sref-active="selected" ui-sref="app.admin.one">One</li>
-                <li ui-sref-active="selected" ui-sref="app.admin.two">Two</li>
-                <li ui-sref-active="selected" ui-sref="app.admin.three">Three</li>
-            </ul>
-            <ul class="nav__secondary--horizontal" ng-if="idxCtrlr.doesStateInclude('app.design')">
-                <li class="crumb">Design</li>
-                <li ui-sref-active="selected" ui-sref="app.design.overview">Overview</li>
-                <li ui-sref-active="selected" ui-sref="app.design.foundations">Foundations</li>
-                <li ui-sref-active="selected" ui-sref="app.design.patterns">Patterns</li>
-                <li ui-sref-active="selected" ui-sref="app.design.components">Components</li>
-                <li ui-sref-active="selected" ui-sref="app.design.animation">Animation</li>
-                <li ui-sref-active="selected" ui-sref="app.design.onboarding">Onboarding</li>
-            </ul>
-            <div class="nav__secondary--drawer" ng-if="idxCtrlr.hasSecondaryNav()">
-                <input type="checkbox" class="check" id="checked">
-                <label class="menu-btn" for="checked">
-                    <span class="bar top"></span>
-                    <span class="bar middle"></span>
-                    <span class="bar bottom"></span>
-                    <span class="menu-btn__text">MENU</span>
-                </label>
-                <div class="list">
-                    <ul ng-if="idxCtrlr.doesStateInclude('app.home')">
-                        <li ui-sref-active="selected" ui-sref="app.home.one">One</li>
-                        <li ui-sref-active="selected" ui-sref="app.home.two">Two</li>
-                        <li ui-sref-active="selected" ui-sref="app.home.three">Three</li>
-                        <li ui-sref-active="selected" ui-sref="app.home.four">Four</li>
-                        <li ui-sref-active="selected" ui-sref="app.home.five">Five</li>
-                    </ul>
-                    <ul ng-if="idxCtrlr.doesStateInclude('app.reporting')">
-                        <li ui-sref-active="selected" ui-sref="app.reporting.one">One</li>
-                        <li ui-sref-active="selected" ui-sref="app.reporting.two">Two</li>
-                        <li ui-sref-active="selected" ui-sref="app.reporting.three">Three</li>
-                    </ul>
-                    <ul ng-if="idxCtrlr.doesStateInclude('app.admin')">
-                        <li ui-sref-active="selected" ui-sref="app.admin.one">One</li>
-                        <li ui-sref-active="selected" ui-sref="app.admin.two">Two</li>
-                        <li ui-sref-active="selected" ui-sref="app.admin.three">Three</li>
-                    </ul>
-                    <ul ng-if="idxCtrlr.doesStateInclude('app.design')">
-                        <li ui-sref-active="selected" ui-sref="app.design.overview">Overview</li>
-                        <li ui-sref-active="selected" ui-sref="app.design.foundations">Foundations</li>
-                        <li ui-sref-active="selected" ui-sref="app.design.patterns">Patterns</li>
-                        <li ui-sref-active="selected" ui-sref="app.design.components">Components</li>
-                        <li ui-sref-active="selected" ui-sref="app.design.animation">Animation</li>
-                        <li ui-sref-active="selected" ui-sref="app.design.onboarding">Onboarding</li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
         <div ui-view class="content"></div>
 
         <div class="footer">
@@ -229,7 +161,7 @@
     </main>
 </div>
 
-<!-- PRIMARY NAV SVG ICONS -->
+<!-- PRIMARY NAV SVG ICONS -- NOT CACHED -->
 <svg style="position: absolute; width: 0; height: 0;" width="0" height="0" version="1.1"
      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>

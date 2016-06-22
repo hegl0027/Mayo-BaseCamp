@@ -36,7 +36,7 @@ const SIZE_SRC = [
 
 const SASS_IGNORE_RESET = [
     `${SASS_SRC}`,
-    `!${APP_DIR}/**/*reset.scss`
+    `!${APP_DIR}/**/*normalize.scss`
 ];
 
 export default {

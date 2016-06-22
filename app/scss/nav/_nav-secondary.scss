@@ -58,6 +58,7 @@
 .nav__secondary--horizontal {
   border-bottom: 1px solid #ccc;
   display: flex;
+  flex-shrink: 0;
 
   .crumb {
     background-color: #eee;

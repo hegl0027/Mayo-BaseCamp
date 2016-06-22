@@ -1,5 +1,3 @@
-'use strict';
-
 import moment from 'moment';
 import jQuery from 'jquery';
 
@@ -43,23 +41,7 @@ export default class IndexController{
 
         this.doesStateInclude = (stateName) => $state.includes(stateName);
 
-        this.hasSecondaryNav = () => $state.current.data ? $state.current.data.hasSecondaryNav === true : false;
-
-        this.openSettings = () => {
-            /*this.settingsDialog = ngDialog.open({
-             template: 'views/global/settings.html',
-             className: 'ngdialog-theme-default'
-             });*/
-        };
-
-        this.openLogout = () => {
-            /*this.logoutDialog = ngDialog.open({
-             template: 'views/global/logout.html',
-             className: 'ngdialog-theme-default'
-             });*/
-        };
-
-        var updateLastSaved = () => {
+        let updateLastSaved = () => {
             this.lastSaved = moment(now).fromNow();
         };
 

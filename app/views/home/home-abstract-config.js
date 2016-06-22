@@ -17,8 +17,7 @@ var abstractHomeStateConfig = ($stateProvider) => {
             controller: HomeAbstractController,
             controllerAs: 'abstractHome',
             data: {
-                title: 'Home',
-                hasSecondaryNav: true
+                title: 'Home'
             },
             templateProvider: ($templateCache) => $templateCache.get('home/home-abstract.html')
         });

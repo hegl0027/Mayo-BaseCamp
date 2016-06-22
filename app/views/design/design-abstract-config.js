@@ -17,8 +17,7 @@ var abstractDesignStateConfig = ($stateProvider) => {
             controller: DesignAbstractController,
             controllerAs: 'abstractDesign',
             data: {
-                title: 'Design',
-                hasSecondaryNav: true
+                title: 'Design'
             },
             templateProvider: ($templateCache) => $templateCache.get('design/design-abstract.html')
         });
