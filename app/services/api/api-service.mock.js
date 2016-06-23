@@ -33,4 +33,4 @@ function mockHttp($httpBackend) {
 export default angular.module('app-mocks-http', [
     'ngMockE2E'
 ])
-    .run(mockHttp);
+    .run(['$httpBackend', mockHttp]);

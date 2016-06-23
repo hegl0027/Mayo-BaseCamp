@@ -17,4 +17,4 @@ export default angular.module('api', [
     resource,
     httpMock.name
 ])
-    .service('apiService', apiService);
+    .service('apiService', ['$http', '$q', '$resource', apiService]);

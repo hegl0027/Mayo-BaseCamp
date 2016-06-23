@@ -86,5 +86,5 @@ export default angular.module('app', [
     accessibility.name,
     animation.name
 ])
-    .config(stateConfig)
-    .config(loadingBarConfig);
+    .config(['$stateProvider', '$urlRouterProvider', stateConfig])
+    .config(['cfpLoadingBarProvider', loadingBarConfig]);

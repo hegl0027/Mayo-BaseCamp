@@ -3,7 +3,7 @@
 import angular from 'angular';
 import AnimationController from './design-animation-controller';
 
-var componentsStateConfig = ($stateProvider) => {
+var stateConfig = ($stateProvider) => {
 
     $stateProvider
         .state('app.design.animation', {
@@ -15,4 +15,4 @@ var componentsStateConfig = ($stateProvider) => {
 };
 
 export default angular.module('app.design.animation', [])
-    .config(componentsStateConfig);
+    .config(['$stateProvider', stateConfig]);

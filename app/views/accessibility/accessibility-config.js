@@ -11,13 +11,12 @@ var stateConfig = ($stateProvider) => {
             controller: AccessibilityController,
             controllerAs: 'accessibility',
             data: {
-                title: 'Accessibility',
-                hasSecondaryNav: false
+                title: 'Accessibility'
             },
             templateProvider: ($templateCache) => $templateCache.get('accessibility/accessibility.html')
         });
 };
 
 export default angular.module('app.accessibility', [])
-    .config(stateConfig);
+    .config(['$stateProvider', stateConfig]);
 

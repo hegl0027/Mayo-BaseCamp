@@ -3,7 +3,7 @@
 import angular from 'angular';
 import ArchitectureController from './architecture-controller';
 
-let architectureStateConfig = $stateProvider => {
+let stateConfig = ($stateProvider) => {
 
     $stateProvider
         .state('app.architecture', {
@@ -11,12 +11,11 @@ let architectureStateConfig = $stateProvider => {
             controller: ArchitectureController,
             controllerAs: 'architecture',
             data: {
-                title: 'Architecture',
-                hasSecondaryNav: false
+                title: 'Architecture'
             },
             templateProvider: ($templateCache) => $templateCache.get('architecture/architecture.html')
         });
 };
 
 export default angular.module('app.architecture', [])
-    .config(architectureStateConfig);
+    .config(['$stateProvider', stateConfig]);

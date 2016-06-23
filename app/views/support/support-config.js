@@ -11,13 +11,12 @@ var stateConfig = ($stateProvider) => {
             controller: SupportController,
             controllerAs: 'support',
             data: {
-                title: 'Support',
-                hasSecondaryNav: false
+                title: 'Support'
             },
             templateProvider: ($templateCache) => $templateCache.get('support/support.html')
         });
 };
 
 export default angular.module('app.support', [])
-    .config(stateConfig);
+    .config(['$stateProvider', stateConfig]);
 

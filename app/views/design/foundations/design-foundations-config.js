@@ -3,7 +3,7 @@
 import angular from 'angular';
 import FoundationsController from './design-foundations-controller';
 
-var foundationsStateConfig = ($stateProvider) => {
+var stateConfig = ($stateProvider) => {
 
     $stateProvider
         .state('app.design.foundations', {
@@ -15,4 +15,4 @@ var foundationsStateConfig = ($stateProvider) => {
 };
 
 export default angular.module('app.design.foundations', [])
-    .config(foundationsStateConfig);
+    .config(['$stateProvider', stateConfig]);

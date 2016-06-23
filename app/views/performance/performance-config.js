@@ -11,13 +11,12 @@ var stateConfig = ($stateProvider) => {
             controller: PerformanceController,
             controllerAs: 'performance',
             data: {
-                title: 'Performance',
-                hasSecondaryNav: false
+                title: 'Performance'
             },
             templateProvider: ($templateCache) => $templateCache.get('performance/performance.html')
         });
 };
 
 export default angular.module('app.performance', [])
-    .config(stateConfig);
+    .config(['$stateProvider', stateConfig]);
 

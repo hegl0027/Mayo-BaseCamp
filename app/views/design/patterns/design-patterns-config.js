@@ -3,7 +3,7 @@
 import angular from 'angular';
 import PatternsController from './design-patterns-controller';
 
-var patternsStateConfig = ($stateProvider) => {
+var stateConfig = ($stateProvider) => {
 
     $stateProvider
         .state('app.design.patterns', {
@@ -15,4 +15,4 @@ var patternsStateConfig = ($stateProvider) => {
 };
 
 export default angular.module('app.design.patterns', [])
-    .config(patternsStateConfig);
+    .config(['$stateProvider', stateConfig]);

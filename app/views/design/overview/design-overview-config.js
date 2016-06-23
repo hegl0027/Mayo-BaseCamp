@@ -3,7 +3,7 @@
 import angular from 'angular';
 import OverviewController from './design-overview-controller';
 
-var overviewStateConfig = ($stateProvider) => {
+var stateConfig = ($stateProvider) => {
 
     $stateProvider
         .state('app.design.overview', {
@@ -15,4 +15,4 @@ var overviewStateConfig = ($stateProvider) => {
 };
 
 export default angular.module('app.design.overview', [])
-    .config(overviewStateConfig);
+    .config(['$stateProvider', stateConfig]);

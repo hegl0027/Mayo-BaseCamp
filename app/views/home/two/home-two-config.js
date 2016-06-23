@@ -3,7 +3,7 @@
 import angular from 'angular';
 import HomeTwoController from './home-two-controller';
 
-var homeTwoStateConfig = ($stateProvider) => {
+var stateConfig = ($stateProvider) => {
 
     $stateProvider
         .state('app.home.two', {
@@ -15,4 +15,4 @@ var homeTwoStateConfig = ($stateProvider) => {
 };
 
 export default angular.module('app.home.two', [])
-    .config(homeTwoStateConfig);
+    .config(['$stateProvider', stateConfig]);

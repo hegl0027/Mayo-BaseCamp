@@ -3,7 +3,7 @@
 import angular from 'angular';
 import ComponentsController from './design-components-controller';
 
-var componentsStateConfig = ($stateProvider) => {
+var stateConfig = ($stateProvider) => {
 
     $stateProvider
         .state('app.design.components', {
@@ -15,4 +15,4 @@ var componentsStateConfig = ($stateProvider) => {
 };
 
 export default angular.module('app.design.components', [])
-    .config(componentsStateConfig);
+    .config(['$stateProvider', stateConfig]);

@@ -3,7 +3,7 @@
 import angular from 'angular';
 import OnboardingController from './design-onboarding-controller';
 
-var onboardingStateConfig = ($stateProvider) => {
+var stateConfig = ($stateProvider) => {
 
     $stateProvider
         .state('app.design.onboarding', {
@@ -15,4 +15,4 @@ var onboardingStateConfig = ($stateProvider) => {
 };
 
 export default angular.module('app.design.onboarding', [])
-    .config(onboardingStateConfig);
+    .config(['$stateProvider', stateConfig]);

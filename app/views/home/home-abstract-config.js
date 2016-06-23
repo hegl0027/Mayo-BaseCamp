@@ -8,7 +8,7 @@ import homeFour from './four/home-four-config';
 import homeFive from './five/home-five-config';
 import HomeAbstractController from './home-abstract-controller';
 
-var abstractHomeStateConfig = ($stateProvider) => {
+var stateConfig = ($stateProvider) => {
 
     $stateProvider
         .state('app.home', {
@@ -30,4 +30,4 @@ export default angular.module('app.home', [
     homeFour.name,
     homeFive.name
 ])
-    .config(abstractHomeStateConfig);
+    .config(['$stateProvider', stateConfig]);

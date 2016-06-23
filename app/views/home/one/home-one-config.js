@@ -3,7 +3,7 @@
 import angular from 'angular';
 import HomeOneController from './home-one-controller';
 
-var homeOneStateConfig = ($stateProvider) => {
+var stateConfig = ($stateProvider) => {
 
     $stateProvider
         .state('app.home.one', {
@@ -15,4 +15,4 @@ var homeOneStateConfig = ($stateProvider) => {
 };
 
 export default angular.module('app.home.one', [])
-    .config(homeOneStateConfig);
+    .config(['$stateProvider', stateConfig]);

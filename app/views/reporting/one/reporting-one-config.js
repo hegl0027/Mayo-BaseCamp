@@ -3,7 +3,7 @@
 import angular from 'angular';
 import ReportingOneController from './reporting-one-controller';
 
-var reportingOneStateConfig = ($stateProvider) => {
+var stateConfig = ($stateProvider) => {
 
     $stateProvider
         .state('app.reporting.one', {
@@ -15,4 +15,4 @@ var reportingOneStateConfig = ($stateProvider) => {
 };
 
 export default angular.module('app.reporting.one', [])
-    .config(reportingOneStateConfig);
+    .config(['$stateProvider', stateConfig]);

@@ -20,28 +20,31 @@ var plugins = loadPlugins();
  * @returns {string}
  */
 function getTimestamp() {
-    var date = new Date();
+    let date = new Date();
     return '[' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + ']  ';
 }
 
 function compile(watch) {
-    var bundler = browserify(files.src.entry, { debug: true }).transform(babel);
+    let bundler = browserify(files.src.entry, { debug: true }).transform(babel);
 
     function rebundle() {
         bundler.bundle()
-            .on('error', function(err) { console.error(err); this.emit('end'); })
+            .on('error', function (err) {
+                console.error(err);
+                this.emit('end');
+            })
             .pipe(source('app.js'))
             .pipe(buffer())
+            .pipe(plugins.sourcemaps.init({ loadMaps: true }))
             .pipe(gulp.dest(files.dest.js))
             .pipe(plugins.uglify())
             .pipe(plugins.rename('app.min.js'))
-            .pipe(plugins.sourcemaps.init({ loadMaps: true }))
             .pipe(plugins.sourcemaps.write('./'))
             .pipe(gulp.dest(files.dest.js));
     }
 
     if (watch) {
-        watchify(bundler.on('update', function() {
+        watchify(bundler.on('update', function () {
             rebundle();
         }));
     }
@@ -118,7 +121,6 @@ gulp.task('jscs', () => {
         .pipe(plugins.jscs())
         .pipe(plugins.jscs.reporter());
 });
-
 
 
 /**
@@ -225,8 +227,8 @@ gulp.task('docs', cb => {
 });
 
 gulp.task('sample', () => {
-   return gulp.src('app/services/api/sample.json')
-       .pipe(gulp.dest('dist/sample'));
+    return gulp.src('app/services/api/sample.json')
+        .pipe(gulp.dest('dist/sample'));
 });
 
 

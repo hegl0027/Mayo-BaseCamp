@@ -6,7 +6,7 @@ import adminTwo from './two/sysadmin-two-config';
 import adminThree from './three/sysadmin-three-config';
 import AdminAbstractController from './sysadmin-abstract-controller';
 
-var abstractAdminStateConfig = ($stateProvider) => {
+var stateConfig = ($stateProvider) => {
 
     $stateProvider
         .state('app.admin', {
@@ -26,4 +26,4 @@ export default angular.module('app.admin', [
     adminTwo.name,
     adminThree.name
 ])
-    .config(abstractAdminStateConfig);
+    .config(['$stateProvider', stateConfig]);

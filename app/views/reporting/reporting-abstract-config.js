@@ -6,7 +6,7 @@ import reportingTwo from './two/reporting-two-config';
 import reportingThree from './three/reporting-three-config';
 import ReportingAbstractController from './reporting-abstract-controller';
 
-var abstractReportingStateConfig = ($stateProvider) => {
+var stateConfig = ($stateProvider) => {
 
     $stateProvider
         .state('app.reporting', {
@@ -26,4 +26,4 @@ export default angular.module('app.reporting', [
     reportingTwo.name,
     reportingThree.name
 ])
-    .config(abstractReportingStateConfig);
+    .config(['$stateProvider', stateConfig]);

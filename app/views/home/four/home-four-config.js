@@ -3,7 +3,7 @@
 import angular from 'angular';
 import HomeFourController from './home-four-controller';
 
-var homeFourStateConfig = ($stateProvider) => {
+var stateConfig = ($stateProvider) => {
 
     $stateProvider
         .state('app.home.four', {
@@ -15,4 +15,4 @@ var homeFourStateConfig = ($stateProvider) => {
 };
 
 export default angular.module('app.home.four', [])
-    .config(homeFourStateConfig);
+    .config(['$stateProvider', stateConfig]);

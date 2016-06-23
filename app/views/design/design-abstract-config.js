@@ -8,7 +8,7 @@ import foundations from './foundations/design-foundations-config';
 import onboarding from './onboarding/design-onboarding-config';
 import DesignAbstractController from './design-abstract-controller';
 
-var abstractDesignStateConfig = ($stateProvider) => {
+var stateConfig = ($stateProvider) => {
 
     $stateProvider
         .state('app.design', {
@@ -30,4 +30,4 @@ export default angular.module('app.design', [
         onboarding.name,
         overview.name
     ])
-    .config(abstractDesignStateConfig);
+    .config(['$stateProvider', stateConfig]);
