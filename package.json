@@ -94,7 +94,7 @@
     "karma-q": "karma start test-configs/karma.conf.js  --no-auto-watch --single-run",
     "preupdate-webdriver": "npm install",
     "update-webdriver": "webdriver-manager update",
-    "prestart-ie-webdriver": "webdriver-manager update --ie",
+    "preprotractor-ie": "webdriver-manager update --ie",
     "start-ie-webdriver": "webdriver-manager start",
     "protractor-ie": "protractor test-configs/protractor.ie.conf.js",
     "protractor-ie-specs": "protractor test-configs/protractor.ie.conf.js --specs",
