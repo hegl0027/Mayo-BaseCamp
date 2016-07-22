@@ -1,5 +1,4 @@
 var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
-var exec = require('child_process').exec;
 
 var reporter = new HtmlScreenshotReporter({
     dest: 'reports/protractor',
