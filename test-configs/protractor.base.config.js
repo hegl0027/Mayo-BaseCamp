@@ -1,4 +1,5 @@
 var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
+var exec = require('child_process').exec;
 
 var reporter = new HtmlScreenshotReporter({
     dest: 'reports/protractor',
@@ -21,6 +22,10 @@ exports.config = {
 
     framework: 'jasmine',
 
+    // Options to be passed to jasmine.
+    //
+    // See https://github.com/jasmine/jasmine-npm/blob/master/lib/jasmine.js
+    // for the exact options available.
     jasmineNodeOpts: {
         showColors: true,
         defaultTimeoutInterval: 30000,
@@ -28,8 +33,12 @@ exports.config = {
         includeStackTrace: false
     },
 
-    // Setup the report before any tests start
+    // A callback function called once configs are read but before any environment
+    // setup. This will only run once, and before onPrepare.
+    // You can specify a file containing code to run by setting beforeLaunch to
+    // the filename string.
     beforeLaunch: function() {
+        exec('npm start');
         return new Promise(function(resolve){
             reporter.beforeLaunch(resolve);
         });
@@ -47,5 +56,14 @@ exports.config = {
         return new Promise(function(resolve){
             reporter.afterLaunch(resolve.bind(this, exitCode));
         });
-    }
+    },
+
+    // A callback function called once tests are finished.
+    // onComplete can optionally return a promise, which Protractor will wait for
+    // before shutting down webdriver.
+    onComplete: function() {
+        // At this point, tests will be done but global objects will still be
+        // available.
+
+    },
 };
