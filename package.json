@@ -104,6 +104,8 @@
     "protractor-firefox-specs": "protractor test-configs/protractor.firefox.conf.js --specs",
     "preprotractor-chrome": "npm run update-webdriver",
     "protractor-chrome": "protractor test-configs/protractor.chrome.conf.js",
+    "preprotractor-ci": "npm run update-webdriver",
+    "protractor-ci": "protractor test-configs/protractor.ci.conf.js",
     "protractor-chrome-q": "protractor test-configs/protractor.chrome.conf.js",
     "protractor-chrome-specs": "protractor test-configs/protractor.chrome.conf.js --specs",
     "preprotractor-safari": "webdriver-manager update --safari",

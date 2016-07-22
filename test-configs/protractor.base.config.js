@@ -38,7 +38,6 @@ exports.config = {
     // You can specify a file containing code to run by setting beforeLaunch to
     // the filename string.
     beforeLaunch: function() {
-        exec('npm start');
         return new Promise(function(resolve){
             reporter.beforeLaunch(resolve);
         });
