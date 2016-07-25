@@ -51,7 +51,8 @@ module.exports = function (config) {
         coverageReporter: {
             reporters: [
                 { type: 'html' },
-                { type: 'text-summary' }
+                { type: 'text-summary' },
+                { type: 'cobertura', subdir: '.', file: 'cobertura.txt'}
             ],
             dir: '../reports/coverage/',
             sourceStore: require("isparta").Store.create("fslookup")
