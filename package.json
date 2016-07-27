@@ -1,6 +1,6 @@
 {
   "name": "blueprint",
-  "private": true,
+  "private": false,
   "version": "0.1.0-alpha",
   "description": "An AngularJS 1.x starter project developed to simplify the web application startup process.",
   "repository": {
