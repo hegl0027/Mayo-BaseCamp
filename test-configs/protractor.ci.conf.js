@@ -1,5 +1,6 @@
 var exec = require('child_process').exec;
 var base = require('./protractor.base.config');
+var serve;
 
 base.config.capabilities = {
     'browserName': 'chrome'
@@ -9,8 +10,20 @@ base.config.capabilities = {
 // setup. This will only run once, and before onPrepare.
 // You can specify a file containing code to run by setting beforeLaunch to
 // the filename string.
-base.config.beforeLaunch = function() {
-    exec('npm start');
+base.config.beforeLaunch = function () {
+    serve = exec('npm start');
 },
 
-exports.config = base.config;
+    // A callback function called once tests are finished.
+    // onComplete can optionally return a promise, which Protractor will wait for
+    // before shutting down webdriver.
+    base.config.onComplete = function () {
+        // At this point, tests will be done but global objects will still be
+        // available.
+        if (serve) {
+            serve.kill();
+        }
+    },
+
+
+    exports.config = base.config;
