@@ -1,13 +1,14 @@
 {
-  "name": "blueprint",
+  "name": "mayo-web-basecamp",
   "private": false,
   "version": "0.1.0",
   "description": "An AngularJS 1.x starter project developed to simplify the web application startup process.",
   "repository": {
     "type": "git",
-    "url": "http://tfs:8080/tfs/MayoClinic/Mayo%20Open%20Developer%20Network_Git/_git/mc-web-blueprint"
+    "url": "http://tfs/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-web-basecamp"
   },
   "main": "./dist/js/app.js",
+  "license": "Unlicense",
   "devDependencies": {
     "angular-jsdoc": "^1.3.3",
     "babel-core": "^6.9.0",
@@ -55,6 +56,7 @@
     "isparta": "^4.0.0",
     "istanbul": "^0.4.3",
     "jasmine-core": "^2.3.4",
+    "jasmine-reporters": "^2.2.0",
     "jsdoc": "^3.4.0",
     "karma": "^0.13.22",
     "karma-babel-preprocessor": "^6.0.1",
@@ -104,7 +106,7 @@
     "protractor-firefox-specs": "protractor test-configs/protractor.firefox.conf.js --specs",
     "preprotractor-chrome": "npm run update-webdriver",
     "protractor-chrome": "protractor test-configs/protractor.chrome.conf.js",
-    "preprotractor-ci": "npm run update-webdriver",
+    "preprotractor-ci": "webdriver-manager update",
     "protractor-ci": "protractor test-configs/protractor.ci.conf.js",
     "protractor-chrome-q": "protractor test-configs/protractor.chrome.conf.js",
     "protractor-chrome-specs": "protractor test-configs/protractor.chrome.conf.js --specs",
@@ -113,7 +115,7 @@
     "protractor-safari-q": "protractor test-configs/protractor.safari.conf.js",
     "protractor-safari-specs": "protractor test-configs/protractor.safari.conf.js --specs"
   },
-  "files": "./",
+  "files": "./**/*",
   "dependencies": {
     "angular": "^1.5.5",
     "angular-animate": "^1.5.5",
