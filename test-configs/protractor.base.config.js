@@ -6,6 +6,7 @@ var reporter = new HtmlScreenshotReporter({
     captureOnlyFailedSpecs: false
 });
 
+
 exports.config = {
     allScriptsTimeout: 11000,
 
@@ -36,22 +37,28 @@ exports.config = {
     // setup. This will only run once, and before onPrepare.
     // You can specify a file containing code to run by setting beforeLaunch to
     // the filename string.
-    beforeLaunch: function() {
-        return new Promise(function(resolve){
+    beforeLaunch: function () {
+        return new Promise(function (resolve) {
             reporter.beforeLaunch(resolve);
         });
     },
 
     // Assign the test reporter to each running instance
-    onPrepare: function() {
-        require("babel-core/register")({presets: ["es2015"]})
+    onPrepare: function () {
+        require("babel-core/register")({presets: ["es2015"]});
         jasmine.getEnv().addReporter(reporter);
-        browser.driver.manage().window().setSize(2400, 6000);
+
+        var jasmineReporters = require('jasmine-reporters');
+        jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
+            consolidateAll: true,
+            savePath: 'reports/protractor',
+            filePrefix: 'unit'
+        }));
     },
 
     // Close the report after all tests finish
-    afterLaunch: function(exitCode) {
-        return new Promise(function(resolve){
+    afterLaunch: function (exitCode) {
+        return new Promise(function (resolve) {
             reporter.afterLaunch(resolve.bind(this, exitCode));
         });
     },
@@ -59,7 +66,7 @@ exports.config = {
     // A callback function called once tests are finished.
     // onComplete can optionally return a promise, which Protractor will wait for
     // before shutting down webdriver.
-    onComplete: function() {
+    onComplete: function () {
         // At this point, tests will be done but global objects will still be
         // available.
 
