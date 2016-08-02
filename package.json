@@ -115,7 +115,7 @@
     "protractor-safari-q": "protractor test-configs/protractor.safari.conf.js",
     "protractor-safari-specs": "protractor test-configs/protractor.safari.conf.js --specs"
   },
-  "files": "./**/*",
+  "files": "./",
   "dependencies": {
     "angular": "^1.5.5",
     "angular-animate": "^1.5.5",

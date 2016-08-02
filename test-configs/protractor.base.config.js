@@ -3,7 +3,7 @@ var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
 var reporter = new HtmlScreenshotReporter({
     dest: 'reports/protractor',
     filename: 'e2e-tests.html',
-    captureOnlyFailedSpecs: false
+    captureOnlyFailedSpecs: true
 });
 
 
