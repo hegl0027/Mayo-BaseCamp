@@ -1,10 +1,10 @@
-var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
-
-var reporter = new HtmlScreenshotReporter({
-    dest: 'reports/protractor',
-    filename: 'e2e-tests.html',
-    captureOnlyFailedSpecs: true
-});
+// var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
+//
+// var reporter = new HtmlScreenshotReporter({
+//     dest: './reports/protractor',
+//     filename: 'e2e-tests.html',
+//     captureOnlyFailedSpecs: true
+// });
 
 
 exports.config = {
@@ -46,7 +46,7 @@ exports.config = {
     // Assign the test reporter to each running instance
     onPrepare: function () {
         require("babel-core/register")({presets: ["es2015"]});
-        jasmine.getEnv().addReporter(reporter);
+        //jasmine.getEnv().addReporter(reporter);
 
         var jasmineReporters = require('jasmine-reporters');
         jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
@@ -58,9 +58,9 @@ exports.config = {
 
     // Close the report after all tests finish
     afterLaunch: function (exitCode) {
-        return new Promise(function (resolve) {
-            reporter.afterLaunch(resolve.bind(this, exitCode));
-        });
+        // return new Promise(function (resolve) {
+        //     reporter.afterLaunch(resolve.bind(this, exitCode));
+        // });
     },
 
     // A callback function called once tests are finished.
