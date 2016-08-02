@@ -5,13 +5,9 @@ import loadingbar from 'angular-loading-bar';
 import messages from 'angular-messages';
 import sanitize from 'angular-sanitize';
 import aria from 'angular-aria';
-import support from './components/support/support-config';
-import home from './components/home/home-abstract-config';
-import reporting from './components/reporting/reporting-abstract-config';
-import admin from './components/sysadmin/sysadmin-abstract-config';
-import templates from './components/templates';
 import index from './index-config';
-import api from './shared/api/api-service-config';
+import components from './components/components';
+import shared from './shared/shared';
 
 var stateConfig = ($stateProvider, $urlRouterProvider) => {
     $urlRouterProvider.otherwise('/app/home/one');
@@ -40,13 +36,13 @@ var loadingBarConfig = (cfpLoadingBarProvider) => {
  * @requires ngAria
  * @requires angular-loading-bar
  * @requires ngAnimate
- * @requires templates
  * @requires app-index
- * @requires api
+ * @requires shared
+ * @requires components
  *
  * @description
  *
- * The 'app' is an angular module which bootstraps the root project.
+ * The 'app' is an angular module which bootstraps the basecamp project.
  */
 export default angular.module('app', [
     uirouter,
@@ -56,12 +52,8 @@ export default angular.module('app', [
     loadingbar,
     animate,
     index.name,
-    api.name,
-    templates.name,
-    support.name,
-    home.name,
-    admin.name,
-    reporting.name
+    components.name,
+    shared.name
 ])
     .config(['$stateProvider', '$urlRouterProvider', stateConfig])
     .config(['cfpLoadingBarProvider', loadingBarConfig]);
