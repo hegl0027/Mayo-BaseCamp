@@ -69,16 +69,10 @@ export default angular.module('app', [
     index.name,
     api.name,
     templates.name,
-    voiceandtone.name,
-    architecture.name,
     support.name,
     home.name,
     admin.name,
-    design.name,
-    reporting.name,
-    performance.name,
-    accessibility.name,
-    animation.name
+    reporting.name
 ])
     .config(['$stateProvider', '$urlRouterProvider', stateConfig])
     .config(['cfpLoadingBarProvider', loadingBarConfig]);
