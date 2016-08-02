@@ -5,7 +5,7 @@ import HomeThreeController from './home-three-controller';
 
 let ctrl;
 
-describe('app module', () => {
+describe('home three controller', () => {
 
     beforeEach(() => {
         ctrl = new HomeThreeController();

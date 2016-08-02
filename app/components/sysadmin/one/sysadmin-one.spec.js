@@ -5,7 +5,7 @@ import SysadminOneController from './sysadmin-one-controller';
 
 let ctrl;
 
-describe('app module', () => {
+describe('sys admin one controller', () => {
 
     beforeEach(() => {
         ctrl = new SysadminOneController();

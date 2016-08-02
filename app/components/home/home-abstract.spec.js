@@ -5,7 +5,7 @@ import HomeAbstractController from './home-abstract-controller';
 
 let ctrl;
 
-describe('app module', () => {
+describe('home abstract controller', () => {
 
     beforeEach(() => {
         ctrl = new HomeAbstractController();

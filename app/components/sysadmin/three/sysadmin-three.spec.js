@@ -5,7 +5,7 @@ import SysadminThreeController from './sysadmin-three-controller';
 
 let ctrl;
 
-describe('app module', () => {
+describe('sys admin three controller', () => {
 
     beforeEach(() => {
         ctrl = new SysadminThreeController();

@@ -5,7 +5,7 @@ import ReportingOneController from './reporting-one-controller';
 
 let ctrl;
 
-describe('app module', () => {
+describe('reporting one controller', () => {
 
     beforeEach(() => {
         ctrl = new ReportingOneController();

@@ -5,7 +5,7 @@ import HomeFourController from './home-four-controller';
 
 let ctrl;
 
-describe('app module', () => {
+describe('home four controller', () => {
 
     beforeEach(() => {
         ctrl = new HomeFourController();

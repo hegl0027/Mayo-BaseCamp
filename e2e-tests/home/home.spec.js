@@ -1,4 +1,4 @@
-describe('app home smoke test', () => {
+describe('app home', () => {
 
     it('should automatically redirect to /app/home/one when location hash/fragment is empty', () => {
         browser.get('/');

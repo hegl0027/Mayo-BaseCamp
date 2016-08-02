@@ -5,7 +5,7 @@ import ReportingAbstractController from './reporting-abstract-controller';
 
 let ctrl;
 
-describe('app module', () => {
+describe('reporting abstract controller', () => {
 
     beforeEach(() => {
         ctrl = new ReportingAbstractController();

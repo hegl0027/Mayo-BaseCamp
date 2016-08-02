@@ -5,7 +5,7 @@ import HomeFiveController from './home-five-controller';
 
 let ctrl;
 
-describe('app module', () => {
+describe('home five controller', () => {
 
     beforeEach(() => {
         ctrl = new HomeFiveController();

@@ -5,7 +5,7 @@ import SupportController from './support-controller';
 
 let ctrl;
 
-describe('app module', () => {
+describe('support controller', () => {
 
     beforeEach(() => {
         ctrl = new SupportController();
