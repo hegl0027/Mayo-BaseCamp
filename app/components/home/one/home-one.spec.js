@@ -5,7 +5,7 @@ import HomeOneController from './home-one-controller';
 
 let ctrl;
 
-describe('app module', () => {
+describe('home one controller', () => {
 
     beforeEach(() => {
         ctrl = new HomeOneController();

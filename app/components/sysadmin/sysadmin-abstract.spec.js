@@ -5,7 +5,7 @@ import SysadminAbstractController from './sysadmin-abstract-controller';
 
 let ctrl;
 
-describe('app module', () => {
+describe('sys admin abstract controller', () => {
 
     beforeEach(() => {
         ctrl = new SysadminAbstractController();

@@ -5,7 +5,7 @@ import HomeTwoController from './home-two-controller';
 
 let ctrl;
 
-describe('app module', () => {
+describe('home two controller', () => {
 
     beforeEach(() => {
         ctrl = new HomeTwoController();

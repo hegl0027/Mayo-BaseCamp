@@ -5,7 +5,7 @@ import ReportingThreeController from './reporting-three-controller';
 
 let ctrl;
 
-describe('app module', () => {
+describe('reporting three controller', () => {
 
     beforeEach(() => {
         ctrl = new ReportingThreeController();
