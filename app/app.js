@@ -8,18 +8,12 @@ import messages from 'angular-messages';
 import sanitize from 'angular-sanitize';
 import aria from 'angular-aria';
 import support from './views/support/support-config';
-import voiceandtone from './views/voiceandtone/voiceandtone-config';
-import architecture from './views/architecture/architecture-config';
-import performance from './views/performance/performance-config';
-import accessibility from './views/accessibility/accessibility-config';
-import design from './views/design/design-abstract-config';
 import home from './views/home/home-abstract-config';
 import reporting from './views/reporting/reporting-abstract-config';
 import admin from './views/sysadmin/sysadmin-abstract-config';
 import templates from '../tmp/templates';
 import index from './index-config';
 import api from './services/api/api-service-config';
-import animation from './views/design/animation/design-animation-config';
 
 var stateConfig = ($stateProvider, $urlRouterProvider) => {
     $urlRouterProvider.otherwise('/app/home/one');
