@@ -1,5 +1,3 @@
-'use strict';
-
 import angular from 'angular';
 import uirouter from 'angular-ui-router';
 import animate from 'angular-animate';
@@ -23,15 +21,6 @@ var stateConfig = ($stateProvider, $urlRouterProvider) => {
             abstract: true,
             url: '/app',
             template: '<div ui-view></div>'
-        })
-
-        .state('app.fonz', {
-            url: '/fonz',
-            data: {
-                title: 'The Fonz',
-                hasSecondaryNav: false
-            },
-            templateProvider: ($templateCache) => $templateCache.get('fonz/fonz.html')
         });
 };
 
