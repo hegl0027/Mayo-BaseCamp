@@ -3,7 +3,7 @@ var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
 var reporter = new HtmlScreenshotReporter({
     dest: 'reports/protractor',
     filename: 'e2e-tests.html',
-    captureOnlyFailedSpecs: false
+    captureOnlyFailedSpecs: true
 });
 
 
@@ -52,15 +52,7 @@ exports.config = {
         jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
             consolidateAll: true,
             savePath: 'reports/protractor',
-            filePrefix: 'unit',
-            modifySuiteName: function(generatedSuiteName, suite) {
-                // this will produce distinct suite names for each capability,
-                // e.g. 'firefox.login tests' and 'chrome.login tests'
-                //return browserName + '.' + generatedSuiteName;
-                console.log(generatedSuiteName);
-                console.log(suite);
-                return generatedSuiteName;
-            }
+            filePrefix: 'unit'
         }));
     },
 
