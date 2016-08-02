@@ -6,7 +6,7 @@ export default class IndexController{
         var now = moment();
         this.myState = $state;
         this.lastSaved = now.fromNow();
-        this.appVersion = 'v0.10';
+        this.appVersion = 'v0.1.0';
 
         apiService.User.get({ id: 1 }).$promise.then(user => {
             $log.log('MOCKED GET:');

@@ -10,7 +10,6 @@ import buffer from 'vinyl-buffer';
 import loadPlugins from 'gulp-load-plugins';
 import watchify from 'watchify';
 import files from './files';
-import plato from './helpers/plato';
 var plugins = loadPlugins();
 
 
@@ -89,7 +88,7 @@ gulp.task('template-cache', () => {
             standalone: true,
             moduleSystem: 'ES6'
         }))
-        .pipe(gulp.dest(files.dest.tmp));
+        .pipe(gulp.dest(files.dest.components));
 });
 
 
@@ -200,7 +199,7 @@ gulp.task('watch', () => {
     });
 
     htmlWatch.on('change', event => {
-        runSequence('html', 'template-cache', 'js', () => {
+        runSequence('template-cache', 'js', () => {
             console.log(getTimestamp() + ' ------  HTML WATCH FINISHED ------');
         });
     });
@@ -236,7 +235,7 @@ gulp.task('sample', () => {
  *  BUILD IT ALL!!!
  */
 gulp.task('build', [], cb => {
-    runSequence('clean', 'template-cache', ['sample', 'assets', 'html', 'js', 'styles'], ['qa', 'docs'], cb);
+    runSequence('clean', 'template-cache', ['sample', 'assets', 'js', 'styles'], ['qa', 'docs'], cb);
 });
 
 
