@@ -2,15 +2,16 @@ const APP_DIR = 'app';
 const DEST_DIR = 'dist';
 const DOCS_DIR = 'docs';
 const REPORTS_DIR = 'reports';
+const ASSETS_DIR = `${APP_DIR}/assets`;
 const COMPONENTS_DIR = `${APP_DIR}/components`
 const APP_SPEC_SRC = `${APP_DIR}/**/*.spec.js`;
 const E2E_SPEC_SRC = 'e2e-tests/**/*.spec.js';
 const BUILD_SCRIPT = 'gulpfile.babel.js';
-const SASS_SRC = `${APP_DIR}/**/*.scss`;
+const SASS_SRC = `${ASSETS_DIR}/**/*.scss`;
 const HTML_SRC = `${APP_DIR}/**/*.html`;
 const ANGULAR_PARTIALS = `${APP_DIR}/components/**/*.html`;
-const FONTS_SRC = `${APP_DIR}/fonts/**/*!(.txt)`;
-const IMAGES_SRC = `${APP_DIR}/images/**/*`;
+const FONTS_SRC = `${ASSETS_DIR}/fonts/**/*!(.txt)`;
+const IMAGES_SRC = `${ASSETS_DIR}/images/**/*`;
 const ENTRY = `${APP_DIR}/app.js`;
 const APP_JS = `${APP_DIR}/**/*.js`;
 
@@ -37,7 +38,7 @@ const SIZE_SRC = [
 
 const SASS_IGNORE_RESET = [
     `${SASS_SRC}`,
-    `!${APP_DIR}/**/*normalize.scss`
+    `!${ASSETS_DIR}/**/*normalize.scss`
 ];
 
 export default {
