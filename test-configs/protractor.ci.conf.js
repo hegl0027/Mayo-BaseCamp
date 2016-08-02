@@ -12,20 +12,10 @@ base.config.capabilities = {
 // the filename string.
 base.config.beforeLaunch = function () {
     console.log('************* Starting local http server *************');
-    serve = exec('npm start', function (err, stdout, stderror) {
-
+    serve = exec('npm start', function (err) {
         if (err) {
-            console.error('~~~~~~~~~~~~~~' + err);
+            console.error(err);
         }
-
-        if (stdout) {
-            console.log('~~~~~~~~~~~~~~' + stdout)
-        }
-
-        if (stderror) {
-            console.error('~~~~~~~~~~~~~~' + stderror);
-        }
-
     });
 };
 
