@@ -89,7 +89,7 @@ gulp.task('template-cache', () => {
             standalone: true,
             moduleSystem: 'ES6'
         }))
-        .pipe(gulp.dest(files.dest.tmp));
+        .pipe(gulp.dest(files.dest.components));
 });
 
 

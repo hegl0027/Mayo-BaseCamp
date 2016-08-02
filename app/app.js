@@ -7,13 +7,13 @@ import loadingbar from 'angular-loading-bar';
 import messages from 'angular-messages';
 import sanitize from 'angular-sanitize';
 import aria from 'angular-aria';
-import support from './views/support/support-config';
-import home from './views/home/home-abstract-config';
-import reporting from './views/reporting/reporting-abstract-config';
-import admin from './views/sysadmin/sysadmin-abstract-config';
-import templates from '../tmp/templates';
+import support from './components/support/support-config';
+import home from './components/home/home-abstract-config';
+import reporting from './components/reporting/reporting-abstract-config';
+import admin from './components/sysadmin/sysadmin-abstract-config';
+import templates from './components/templates';
 import index from './index-config';
-import api from './services/api/api-service-config';
+import api from './shared/api/api-service-config';
 
 var stateConfig = ($stateProvider, $urlRouterProvider) => {
     $urlRouterProvider.otherwise('/app/home/one');
