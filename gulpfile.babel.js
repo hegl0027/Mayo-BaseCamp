@@ -86,6 +86,9 @@ gulp.task('inline-svg', () => {
 
     var svgs = gulp
         .src(files.src.inlineSvg)
+        .pipe(plugins.rename({
+            prefix: 'icon-'
+        }))
         .pipe(plugins.svgstore({ inlineSvg: true }));
 
     function fileContents (filePath, file) {
