@@ -12,7 +12,6 @@ const HTML_SRC = `${APP_DIR}/**/*.html`;
 const ANGULAR_PARTIALS = `${APP_DIR}/components/**/*.html`;
 const FONTS_SRC = `${ASSETS_DIR}/fonts/**/*!(.txt)`;
 const ENTRY = `${APP_DIR}/app.js`;
-const APP_JS = `${APP_DIR}/**/*.js`;
 const SVG_SRC = `${ASSETS_DIR}/images/svg-bundle/**/*.svg`;
 const INLINE_SVG_SRC = `${ASSETS_DIR}/images/inline-svg/**/*.svg`;
 
@@ -22,6 +21,11 @@ const IMAGES_SRC = [
     `!${ASSETS_DIR}/images/svg-bundle/`,
     `!${SVG_SRC}`,
     `!${INLINE_SVG_SRC}`
+];
+
+const APP_JS = [
+    `${APP_DIR}/**/*.js`,
+    `!${COMPONENTS_DIR}/templates.js`
 ];
 
 const JS_SRC = [
