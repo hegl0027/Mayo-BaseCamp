@@ -3,7 +3,7 @@ const DEST_DIR = 'dist';
 const DOCS_DIR = 'docs';
 const REPORTS_DIR = 'reports';
 const ASSETS_DIR = 'assets';
-const COMPONENTS_DIR = `${APP_DIR}/components`
+const COMPONENTS_DIR = `${APP_DIR}/components`;
 const APP_SPEC_SRC = `${APP_DIR}/**/*.spec.js`;
 const E2E_SPEC_SRC = 'e2e-tests/**/*.spec.js';
 const BUILD_SCRIPT = 'gulpfile.babel.js';
@@ -11,9 +11,18 @@ const SASS_SRC = `${ASSETS_DIR}/**/*.scss`;
 const HTML_SRC = `${APP_DIR}/**/*.html`;
 const ANGULAR_PARTIALS = `${APP_DIR}/components/**/*.html`;
 const FONTS_SRC = `${ASSETS_DIR}/fonts/**/*!(.txt)`;
-const IMAGES_SRC = `${ASSETS_DIR}/images/**/*`;
 const ENTRY = `${APP_DIR}/app.js`;
 const APP_JS = `${APP_DIR}/**/*.js`;
+const SVG_SRC = `${ASSETS_DIR}/images/svg-bundle/**/*.svg`;
+const INLINE_SVG_SRC = `${ASSETS_DIR}/images/inline-svg/**/*.svg`;
+
+const IMAGES_SRC = [
+    `${ASSETS_DIR}/images/**/*`,
+    `!${ASSETS_DIR}/images/inline-svg/`,
+    `!${ASSETS_DIR}/images/svg-bundle/`,
+    `!${SVG_SRC}`,
+    `!${INLINE_SVG_SRC}`
+];
 
 const JS_SRC = [
     `${APP_DIR}/**/*.js`,
@@ -47,6 +56,8 @@ export default {
         js: JS_SRC,
         partials: ANGULAR_PARTIALS,
         images: IMAGES_SRC,
+        svg: SVG_SRC,
+        inlineSvg: INLINE_SVG_SRC,
         fonts: FONTS_SRC,
         html: HTML_SRC,
         e2e: E2E_SPEC_SRC,

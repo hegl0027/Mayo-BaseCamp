@@ -70,6 +70,35 @@ gulp.task('images', () => {
         .pipe(gulp.dest(files.dest.images));
 });
 
+gulp.task('svg-bundle', () => {
+    return gulp.src(files.src.svg)
+        .pipe(plugins.plumber())
+        .pipe(plugins.imagemin({
+            progressive: true,
+            svgoPlugins: [{removeViewBox: false}],
+            use: [pngquant()]
+        }))
+        .pipe(plugins.svgstore())
+        .pipe(gulp.dest(files.dest.images));
+});
+
+gulp.task('inline-svg', () => {
+
+    var svgs = gulp
+        .src(files.src.inlineSvg)
+        .pipe(plugins.svgstore({ inlineSvg: true }));
+
+    function fileContents (filePath, file) {
+        return file.contents.toString();
+    }
+
+    return gulp
+        .src(`${files.dest.dir}/index.html`)
+        .pipe(plugins.inject(svgs, { transform: fileContents }))
+        .pipe(gulp.dest(files.dest.dir));
+
+
+});
 
 /**
  * HTML
@@ -199,7 +228,7 @@ gulp.task('watch', () => {
     });
 
     htmlWatch.on('change', event => {
-        runSequence('html', 'template-cache', 'js', () => {
+        runSequence('html', 'template-cache', 'js', 'inline-svg', () => {
             console.log(getTimestamp() + ' ------  HTML WATCH FINISHED ------');
         });
     });
@@ -216,7 +245,7 @@ gulp.task('watch', () => {
  * WRAPPERS
  */
 gulp.task('assets', cb => {
-    runSequence(['images', 'fonts'], cb);
+    runSequence('svg-bundle', ['images', 'fonts'], 'inline-svg', cb);
 });
 
 gulp.task('qa', ['jscs', 'scsslint', 'eslint']);
