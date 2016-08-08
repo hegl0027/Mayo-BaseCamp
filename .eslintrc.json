@@ -1,5 +1,5 @@
 {
-  "extends": "eslint:recommended",
+  "extends": ["eslint:recommended"],
   "env": {
     "mocha": true,
     "browser": true,
@@ -20,10 +20,20 @@
     "smells/no-complex-string-concat": 1,
     "angular/controller-as-route": 2,
     "angular/on-watch": 2,
-    "angular/module-setter": 2
+    "angular/module-setter": 2,
+    "jsdoc/check-param-names": 1,
+    "jsdoc/check-tag-names": 1,
+    "jsdoc/check-types": 1,
+    "jsdoc/newline-after-description": 1,
+    "jsdoc/require-description-complete-sentence": 1,
+    "jsdoc/require-hyphen-before-param-description": 1,
+    "jsdoc/require-param": 1,
+    "jsdoc/require-returns-description": 1,
+    "jsdoc/require-returns-type": 1
   },
   "plugins": [
     "smells",
-    "angular"
+    "angular",
+    "jsdoc"
   ]
 }

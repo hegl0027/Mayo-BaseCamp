@@ -28,16 +28,13 @@ function compile(watch) {
 
     function rebundle() {
         bundler.bundle()
-            .on('error', function (err) {
-                console.error(err);
-                this.emit('end');
-            })
-            .pipe(source('app.js'))
+            .on('error', plugins.util.log)
+            .pipe(source('app.bundle.js'))
             .pipe(buffer())
             .pipe(plugins.sourcemaps.init({ loadMaps: true }))
             .pipe(gulp.dest(files.dest.js))
             .pipe(plugins.uglify())
-            .pipe(plugins.rename('app.min.js'))
+            .pipe(plugins.rename('app.bundle.min.js'))
             .pipe(plugins.sourcemaps.write('./'))
             .pipe(gulp.dest(files.dest.js));
     }
@@ -50,6 +47,7 @@ function compile(watch) {
 
     rebundle();
 }
+
 
 /**
  * ASSETS
@@ -103,6 +101,7 @@ gulp.task('inline-svg', () => {
 
 });
 
+
 /**
  * HTML
  */
@@ -118,7 +117,7 @@ gulp.task('template-cache', () => {
     return gulp.src(files.src.partials)
         .pipe(plugins.angularTemplatecache({
             standalone: true,
-            moduleSystem: 'ES6'
+            moduleSystem: 'Browserify'
         }))
         .pipe(gulp.dest(files.dest.components));
 });
@@ -181,8 +180,6 @@ gulp.task('scsslint', () => {
 
 /**
  * DOCS
- *
- *
  */
 
 gulp.task('jsdoc', plugins.shell.task([
@@ -224,10 +221,9 @@ gulp.task('watch', () => {
     compile(true);
 
     jsWatch.on('change', function (event) {
-        runSequence('eslint', 'jscs', 'docs', () => {
+        runSequence('jscs', 'docs', () => {
             console.log(getTimestamp() + ' ------  JS WATCH FINISHED ------');
         });
-
     });
 
     htmlWatch.on('change', event => {
