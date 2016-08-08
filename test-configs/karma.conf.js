@@ -3,7 +3,7 @@ module.exports = function (config) {
 
         autoWatch: true,
 
-        basePath: '',
+        basePath: './',
 
         files: [
             '../app/**/*.spec.js',
@@ -31,8 +31,9 @@ module.exports = function (config) {
             usePhantomJS: true,
 
             // here you can edit the list of browsers used by karma
-            postDetection: function (availableBrowser) {
-                return availableBrowser;
+            postDetection: function (availableBrowsersArray) {
+                //return availableBrowsersArray;
+                return ['Chrome']
             }
         },
 
