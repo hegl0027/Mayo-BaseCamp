@@ -3,7 +3,7 @@ var base = require('./protractor.base.config');
 var serve;
 
 base.config.capabilities = {
-    'browserName': 'chrome'
+    'browserName': 'phantomjs'
 };
 
 // A callback function called once configs are read but before any environment

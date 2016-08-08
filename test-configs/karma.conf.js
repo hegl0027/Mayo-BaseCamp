@@ -33,7 +33,7 @@ module.exports = function (config) {
             // here you can edit the list of browsers used by karma
             postDetection: function (availableBrowsersArray) {
                 //return availableBrowsersArray;
-                return ['Chrome']
+                return ['PhantomJS']
             }
         },
 
