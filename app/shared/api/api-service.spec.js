@@ -7,7 +7,7 @@ let apiService;
 
 describe('api service', () => {
 
-    beforeEach(angular.mock.module('api'));
+    beforeEach(angular.mock.module('app.shared.api'));
 
     beforeEach(angular.mock.inject((_apiService_) => {
         apiService = _apiService_;

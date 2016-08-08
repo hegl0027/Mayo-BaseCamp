@@ -1,11 +1,17 @@
 .nav__primary {
   background-color: #333;
+  display: flex;
+  flex-direction: column;
   transition: all .4s ease;
   transition-delay: 246ms;
   width: 50px;
 
   &:hover {
     width: 225px;
+  }
+
+  > ul {
+    flex-grow: 1;
   }
 
   li {
@@ -57,13 +63,14 @@
   justify-content: center;
   padding: 1em 0;
   transition: color .5s cubic-bezier(.64, .1, .34, .1);
-  width: 50px;
 }
 
 .app-logo {
+  height: 50px;
   width: 50px;
 
   &__wrapper {
+    display: flex;
     flex-direction: row;
     justify-content: center;
     margin-top: 20px;

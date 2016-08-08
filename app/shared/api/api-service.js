@@ -1,11 +1,12 @@
-'use strict';
 
 /**
- * @ngdoc service
- * @service api
- * @description
+ * @module app.shared.api
+ * @description - The 'api' is an angular service that facilitates mapping RESTful endpoints via ngResource.
+ * @param {Object} $http - Angular's built-in $http service
+ * @param {Object} $q - Angular's built-in $q service
+ * @param {Object} $resource - Angular's optional $resource service
  *
- * The 'api' is an angular service that facilitates mapping RESTful endpoints via ngResource
+ * @returns {{User: *}} - Object literal representing the associated REST endpoint entities and actions available.
  */
 export default function ApiService($http, $q, $resource) {
     return {

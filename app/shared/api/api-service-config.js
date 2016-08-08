@@ -6,14 +6,11 @@ import apiService from './api-service';
 import httpMock from './api-service.mock';
 
 /**
- * @ngdoc module
- * @module api
+ * @module app.shared.api
+ * @description - The 'api' is an angular service that facilitates mapping RESTful endpoints via ngResource
  * @requires ngResource
- * @description
- *
- * The 'api' is an angular service that facilitates mapping RESTful endpoints via ngResource
  */
-export default angular.module('api', [
+export default angular.module('app.shared.api', [
     resource,
     httpMock.name
 ])
