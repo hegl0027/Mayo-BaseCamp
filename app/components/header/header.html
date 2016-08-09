@@ -1,0 +1,12 @@
+<section class="app-name">Basecamp</section>
+<section class="app-context"></section>
+<section class="username">
+    {{idx.user.lastName}}, {{idx.user.firstName}}
+    <div class="user-links">
+        <a href="" ng-click="idx.openLogout()">logout</a> |
+        <a href="" ng-click="idx.openSettings()">settings</a>
+    </div>
+</section>
+<svg class="icon icon--user">
+    <use xlink:href="#icon-user"></use>
+</svg>

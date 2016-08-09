@@ -1,0 +1,47 @@
+<section class="app-logo__wrapper">
+    <!-- icon design by Google -->
+    <svg class="app-logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 561 561" style="enable-background:new 0 0 561 561;" xml:space="preserve">
+        <g>
+            <g id="terrain">
+                <path d="M331.5,127.5L234.6,255l73.95,96.9l-40.8,30.6C224.4,326.4,153,229.5,153,229.5L0,433.5h561L331.5,127.5z" fill="#3498DB"/>
+            </g>
+        </g>
+    </svg>
+</section>
+
+<ul>
+    <li class="nav ng-class:{'selected': idx.doesStateInclude('app.home')};" ui-sref="app.home.one">
+        <svg class="icon icon--nav">
+            <use xlink:href="#icon-home"></use>
+        </svg>
+        <span>Home</span>
+    </li>
+    <li class="nav ng-class:{'selected': idx.doesStateInclude('app.reporting')};"
+        ui-sref="app.reporting.one">
+        <svg class="icon icon--nav">
+            <use xlink:href="#icon-file-text"></use>
+        </svg>
+        <span>Reporting</span>
+    </li>
+    <li class="nav ng-class:{'selected': idx.doesStateInclude('app.admin')};" ui-sref="app.admin.one">
+        <svg class="icon icon--nav">
+            <use xlink:href="#icon-cog"></use>
+        </svg>
+        <span>System Administration</span>
+    </li>
+    <li class="nav ng-class:{'selected': idx.doesStateInclude('app.support')};" ui-sref="app.support">
+        <svg class="icon icon--nav">
+            <use xlink:href="#icon-question"></use>
+        </svg>
+        <span>Support</span>
+    </li>
+    <li class="nav ng-class:{'selected': idx.doesStateInclude('app.yeoman')};" ui-sref="app.yeoman">
+        <svg class="icon icon--nav">
+            <use xlink:href="/images/svg-bundle.svg#yeoman"></use>
+        </svg>
+        <span>Yeoman</span>
+    </li>
+</ul>
+<section class="app-version">
+    {{idx.appVersion}}
+</section>

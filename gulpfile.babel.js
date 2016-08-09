@@ -254,8 +254,8 @@ gulp.task('docs', cb => {
 });
 
 gulp.task('sample', () => {
-    return gulp.src('app/services/api/sample.json')
-        .pipe(gulp.dest('dist/sample'));
+    return gulp.src('app/shared/api/sample.json')
+        .pipe(gulp.dest(`${files.dest.dir}/sample`));
 });
 
 

@@ -19,7 +19,7 @@ module.exports = function (config) {
 
         // level of logging
         // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-        logLevel: config.LOG_DEBUG,
+        logLevel: config.LOG_INFO,
 
         frameworks: ['jasmine', 'detectBrowsers', 'browserify'],
 
@@ -32,8 +32,8 @@ module.exports = function (config) {
 
             // here you can edit the list of browsers used by karma
             postDetection: function (availableBrowsersArray) {
-                //return availableBrowsersArray;
-                return ['PhantomJS']
+                return availableBrowsersArray;
+                //return ['PhantomJS']
             }
         },
 

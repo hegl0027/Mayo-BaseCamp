@@ -6,6 +6,7 @@ import messages from 'angular-messages';
 import sanitize from 'angular-sanitize';
 import aria from 'angular-aria';
 import index from './index-config';
+import IndexController from './index-controller';
 import components from './components/components';
 import shared from './shared/shared';
 
@@ -16,7 +17,22 @@ var stateConfig = ($stateProvider, $urlRouterProvider) => {
         .state('app', {
             abstract: true,
             url: '/app',
-            template: '<div ui-view></div>'
+            views: {
+                '@': {
+                    templateProvider: ($templateCache) => $templateCache.get('wrapper/wrapper.html'),
+                    controller: IndexController,
+                    controllerAs: 'idx'
+                },
+                'header@app': {
+                    templateProvider: ($templateCache) => $templateCache.get('header/header.html')
+                },
+                'footer@app': {
+                    templateProvider: ($templateCache) => $templateCache.get('footer/footer.html')
+                },
+                'nav@app': {
+                    templateProvider: ($templateCache) => $templateCache.get('nav/nav.html')
+                }
+            }
         });
 };
 

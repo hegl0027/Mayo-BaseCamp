@@ -19,6 +19,7 @@ var stateConfig = ($stateProvider) => {
             },
             templateProvider: ($templateCache) => $templateCache.get('sysadmin/sysadmin-abstract.html')
         });
+
 };
 
 export default angular.module('app.admin', [
