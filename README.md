@@ -56,7 +56,7 @@ Available browser configs: firefox, chrome, ie, safari
 |  npm run protractor-[browser]-q  |  Execute the Protractor test suite for a given browser, less the webdriver update  |
 
 
-###REST API Tests
+###API Tests (Mocha)
 The REST API tests live under the 'api-tests' folder
 Dependent on HTTP Server
 
