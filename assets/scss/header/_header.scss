@@ -33,10 +33,19 @@ header {
 
   .app-name {
     font-size: 1.2em;
-    padding-left: .8em;
   }
 
   .app-context {
     flex: 1;
+  }
+
+  .app-logo {
+    height: 45px;
+    width: 50px;
+
+    &__wrapper {
+      align-self: flex-end;
+      padding: 0 .5em;
+    }
   }
 }
