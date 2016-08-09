@@ -33,8 +33,8 @@ function compile(watch) {
             .pipe(buffer())
             .pipe(plugins.sourcemaps.init({ loadMaps: true }))
             .pipe(gulp.dest(files.dest.js))
-            .pipe(plugins.uglify())
-            .pipe(plugins.rename('app.bundle.min.js'))
+            .pipe(plugins.uglify({ mangle: false }))
+            .pipe(plugins.rename({extname: '.min.js'}))
             .pipe(plugins.sourcemaps.write('./'))
             .pipe(gulp.dest(files.dest.js));
     }

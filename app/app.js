@@ -9,8 +9,10 @@ import index from './index-config';
 import IndexController from './index-controller';
 import components from './components/components';
 import shared from './shared/shared';
+import templates from './components/templates';
 
 var stateConfig = ($stateProvider, $urlRouterProvider) => {
+    console.log('app state config');
     $urlRouterProvider.otherwise('/app/home/one');
 
     $stateProvider
@@ -69,7 +71,8 @@ export default angular.module('app', [
     animate,
     index.name,
     components.name,
-    shared.name
+    shared.name,
+    templates.name
 ])
     .config(['$stateProvider', '$urlRouterProvider', stateConfig])
     .config(['cfpLoadingBarProvider', loadingBarConfig]);
