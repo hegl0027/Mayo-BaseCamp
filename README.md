@@ -1,4 +1,4 @@
-[![Build Status](http://tfs:8080/tfs/MayoClinic/_apis/public/build/definitions/bdf4d5db-f911-44d8-8e1f-af0cae720b80/536/badge)](http://tfs/tfs/MayoClinic/Mayo%20Open%20Developer%20Network_Git/_git/mc-web-blueprint?path=%2F&version=GBmaster&_a=contents) [![Dependency Status](https://david-dm.org/bradyhullopeter/Root.svg)](https://david-dm.org/bradyhullopeter/Root) [![devDependency Status](https://david-dm.org/bradyhullopeter/Root/dev-status.svg)](https://david-dm.org/bradyhullopeter/Root#info=devDependencies) [![Code Climate](https://codeclimate.com/github/bradyhullopeter/Root/badges/gpa.svg)](https://codeclimate.com/github/bradyhullopeter/Root) [![Issue Count](https://codeclimate.com/github/bradyhullopeter/Root/badges/issue_count.svg)](https://codeclimate.com/github/bradyhullopeter/Root)
+[![Build Status](http://tfs:8080/tfs/MayoClinic/_apis/public/build/definitions/bdf4d5db-f911-44d8-8e1f-af0cae720b80/536/badge)](http://tfs/tfs/MayoClinic/Mayo%20Open%20Developer%20Network_Git/_git/mc-web-blueprint?path=%2F&version=GBmaster&_a=contents)
 
 #Get Started
 ###Notable Technologies
@@ -23,46 +23,39 @@
 ```
 gem install sass scss_lint
 npm install
-```
-
-###Gulp
-######Main Tasks
-```
 npm run gulp
-npm run gulp watch
-```
-
-######Tasks that generate stuff outside of the 'dist' folder
-```
-npm run gulp plato
-npm run gulp jsdoc
-npm run gulp todo
-```
-
-###HTTP Server
-```
 npm start
 ```
 
-###Karma
-The unit test files (app/\*\*/\*.spec.js) should hang out with the the rest of the application code
-```
-npm run karma
-npm run karma-q  <-- quick version without npm/bower install, single run
-```
+###Build System (main tasks)
+|  Command  |  Description  |
+|  -------  |  -----------  |
+|  npm run gulp  |  Execute entire build  |
+|  npm run gulp watch  |  Watch for file updates and run corresponding build tasks  |
+|  npm start  |  Serve ./dist on local http server  |
 
-###Protractor
-The Protractor tests live under the 'e2e-tests' folder
-> - Dependent on HTTP Server
-- Available browser configs: firefox, chrome, ie, safari
-```
-npm run protractor-[browser]
-npm run protractor-[browser]-q  <-- quick version without webdriver update
-```
+
+###Unit Testing (Karma)
+######The unit test files (app/\*\*/\*.spec.js) should hang out with the the rest of the application code
+|  Command  |  Description  |
+|  -------  |  -----------  |
+|  npm run karma  |  Execute Karma test runner;  autowatch true  |
+|  npm run kara-q  |  Execute Karma test runner;  autowatch false;  single run  |
+
+
+###E2E Testing (Protractor)
+######The Protractor tests live under the 'e2e-tests' folder
+######Dependent on HTTP Server
+######Available browser configs: firefox, chrome, ie, safari
+|  Command  |  Description  |
+|  -------  |  -----------  |
+|  npm run protractor-[browser]  |  Execute the Protractor test suite for a given browser  |
+|  npm run protractor-[browser]-q  |  Execute the Protractor test suite for a given browser, less the webdriver update  |
+
 
 ###REST API Tests
-The REST API tests live under the 'api-tests' folder
-> Dependent on HTTP Server
-```
-npm run api-tests
-```
+######The REST API tests live under the 'api-tests' folder
+######Dependent on HTTP Server
+|  Command  |  Description  |
+|  -------  |  -----------  |
+|  npm run api-tests  |  Execute the api tests  |
