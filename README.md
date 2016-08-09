@@ -10,7 +10,7 @@
 ###Prerequisites
 1. [Git](https://git-scm.com/downloads)
 2. [NodeJS](https://nodejs.org/en/)
-  - Update to the latest NPM version
+Update to the latest NPM version
   ```
   npm install -g npm
   ```
@@ -19,7 +19,8 @@
   - [Everyone else](https://www.ruby-lang.org/en/)
 
 ###Setup
-> - Clone or download the repo and run the following from the web project root directory
+Clone or download the repo and run the following from the web project root directory
+
 ```
 gem install sass scss_lint
 npm install
@@ -36,7 +37,8 @@ npm start
 
 
 ###Unit Testing (Karma)
-######The unit test files (app/\*\*/\*.spec.js) should hang out with the the rest of the application code
+The unit test files (app/\*\*/\*.spec.js) should hang out with the the rest of the application code
+
 |  Command  |  Description  |
 |  -------  |  -----------  |
 |  npm run karma  |  Execute Karma test runner;  autowatch true  |
@@ -44,9 +46,10 @@ npm start
 
 
 ###E2E Testing (Protractor)
-######The Protractor tests live under the 'e2e-tests' folder
-######Dependent on HTTP Server
-######Available browser configs: firefox, chrome, ie, safari
+The Protractor tests live under the 'e2e-tests' folder
+Dependent on HTTP Server
+Available browser configs: firefox, chrome, ie, safari
+
 |  Command  |  Description  |
 |  -------  |  -----------  |
 |  npm run protractor-[browser]  |  Execute the Protractor test suite for a given browser  |
@@ -54,8 +57,9 @@ npm start
 
 
 ###REST API Tests
-######The REST API tests live under the 'api-tests' folder
-######Dependent on HTTP Server
+The REST API tests live under the 'api-tests' folder
+Dependent on HTTP Server
+
 |  Command  |  Description  |
 |  -------  |  -----------  |
 |  npm run api-tests  |  Execute the api tests  |
