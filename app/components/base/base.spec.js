@@ -2,17 +2,17 @@
 
 import angular from 'angular';
 import {expect} from 'chai';
-import IndexController from './index-controller';
+import BaseController from './base-controller';
 import app from './app';
 
 let ctrl;
 
-describe('index module', () => {
+describe('base controller', () => {
 
     beforeEach(angular.mock.module(app.name));
 
     beforeEach(angular.mock.inject(($interval, $state, $log, apiService) => {
-        ctrl = new IndexController($interval, $state, $log, apiService);
+        ctrl = new BaseController($interval, $state, $log, apiService);
     }));
 
     it('should be initialized', () => {

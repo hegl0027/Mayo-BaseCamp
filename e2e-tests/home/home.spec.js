@@ -15,7 +15,7 @@ describe('app home', () => {
 
     describe('button', () => {
         it('should have a button', () => {
-            expect(page.getButton.getText()).toEqual('Button');
+            expect(page.button.getText()).toEqual('Button');
         })
     });
 

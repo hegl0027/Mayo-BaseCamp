@@ -3,7 +3,7 @@ var HomePage = function () {
 };
 
 HomePage.prototype = Object.create({}, {
-    getButton: {
+    button: {
         get: function () {
             return element(by.css('.a-btn'));
         }

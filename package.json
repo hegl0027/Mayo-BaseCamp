@@ -8,7 +8,7 @@
     "url": "http://tfs/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-web-basecamp"
   },
   "main": "./dist/js/app.js",
-  "license": "Unlicense",
+  "license": "MIT",
   "devDependencies": {
     "angular-jsdoc": "^1.3.3",
     "babel-core": "^6.9.0",
@@ -93,7 +93,7 @@
     "gulp": "gulp",
     "start": "serve --compress dist",
     "test": "npm run karma-q",
-    "api-tests": "mocha api-tests/**/*.js --compilers js:babel-core/register",
+    "api-tests": "mocha api-tests/**/*spec.js --compilers js:babel-core/register",
     "karma": "karma start test-configs/karma.conf.js",
     "karma-q": "karma start test-configs/karma.conf.js  --no-auto-watch --single-run",
     "preupdate-webdriver": "npm install",
