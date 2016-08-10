@@ -3,7 +3,7 @@
 import angular from 'angular';
 import {expect} from 'chai';
 import BaseController from './base-controller';
-import app from './app';
+import app from '../../app';
 
 let ctrl;
 
