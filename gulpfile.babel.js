@@ -27,7 +27,7 @@ function compile(watch) {
     let bundler = browserify(files.src.entry, { debug: true }).transform(babel);
 
     function rebundle() {
-        bundler.bundle()
+        return bundler.bundle()
             .on('error', plugins.util.log)
             .pipe(source('app.bundle.js'))
             .pipe(buffer())
@@ -45,7 +45,7 @@ function compile(watch) {
         }));
     }
 
-    rebundle();
+    return rebundle();
 }
 
 
@@ -128,7 +128,7 @@ gulp.task('template-cache', () => {
  */
 
 gulp.task('js', () => {
-    compile();
+    return compile();
 });
 
 gulp.task('size', () => {
