@@ -90,7 +90,7 @@
     "yargs": "^4.3.2"
   },
   "scripts": {
-    "gulp": "gulp",
+    "build": "gulp",
     "start": "serve --compress dist",
     "test": "npm run karma-q",
     "api-tests": "mocha api-tests/**/*spec.js --compilers js:babel-core/register",

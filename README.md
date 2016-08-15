@@ -24,15 +24,15 @@ Clone or download the repo and run the following from the web project root direc
 ```
 gem install sass scss_lint
 npm install
-npm run gulp
+npm run build
 npm start
 ```
 
 ###Build System (main tasks)
 |  Command  |  Description  |
 |  -------  |  -----------  |
-|  npm run gulp  |  Execute entire build  |
-|  npm run gulp watch  |  Watch for file updates and run corresponding build tasks  |
+|  npm run build  |  Execute entire build  |
+|  npm run build watch  |  Watch for file updates and run corresponding build tasks  |
 |  npm start  |  Serve ./dist on local http server  |
 
 
