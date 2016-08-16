@@ -114,10 +114,26 @@ ul {
 }
 
 .abstract-context {
-  &__wrapper {
+  &__horizontal {
     background-color: #eee;
     border-bottom: 1px solid #ccc;
     flex-shrink: 0;
     padding: .5em 1em;
+  }
+
+  &__vertical {
+    background-color: #eee;
+    border-right: 1px solid #ccc;
+    flex-shrink: 0;
+    padding: 1em;
+
+    &__wrapper {
+      display: flex;
+      height: 100%;
+
+      > [ui-view] {
+        flex-grow: 1;
+      }
+    }
   }
 }
