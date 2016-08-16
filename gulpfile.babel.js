@@ -187,7 +187,7 @@ gulp.task('jsdoc', plugins.shell.task([
 ]));
 
 gulp.task('todo', () => {
-    return gulp.src(files.src.allJs)
+    return gulp.src(files.src.todo)
         .pipe(plugins.todo())
         .pipe(gulp.dest('./'));
 });

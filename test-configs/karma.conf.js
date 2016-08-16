@@ -41,8 +41,11 @@ module.exports = function (config) {
 
             // here you can edit the list of browsers used by karma
             postDetection: function (availableBrowsersArr) {
-                // fix for chrome v52 issue
-                // https://github.com/karma-runner/karma-chrome-launcher/issues/73#issuecomment-236597429
+                /*
+                    fix for chrome v52 issue
+                    https://github.com/karma-runner/karma-chrome-launcher/issues/73#issuecomment-236597429
+                    todo: retest with newer versions of chrome
+                 */
                 if (availableBrowsersArr.indexOf('Chrome') >= 0) {
                     availableBrowsersArr.push('ChromeNoSandbox');
                     _.pull(availableBrowsersArr, 'Chrome');

@@ -3,6 +3,7 @@ const DEST_DIR = 'dist';
 const DOCS_DIR = 'docs';
 const REPORTS_DIR = 'reports';
 const ASSETS_DIR = 'assets';
+const TEST_CONFIGS_DIR = 'test-configs';
 const COMPONENTS_DIR = `${APP_DIR}/components`;
 const APP_SPEC_SRC = `${APP_DIR}/**/*.spec.js`;
 const E2E_SPEC_SRC = 'e2e-tests/**/*.spec.js';
@@ -14,6 +15,7 @@ const FONTS_SRC = `${ASSETS_DIR}/fonts/**/*!(.txt)`;
 const ENTRY = `${APP_DIR}/app.js`;
 const SVG_SRC = `${ASSETS_DIR}/images/svg-bundle/**/*.svg`;
 const INLINE_SVG_SRC = `${ASSETS_DIR}/images/inline-svg/**/*.svg`;
+
 
 const IMAGES_SRC = [
     `${ASSETS_DIR}/images/**/*`,
@@ -37,6 +39,12 @@ const JS_SRC = [
 const ALL_JS = [
     `${APP_DIR}/**/*.js`,
     `${E2E_SPEC_SRC}`
+];
+
+const TODO_SRC = [
+    `${ALL_JS}`,
+    `${TEST_CONFIGS_DIR}/**/*.js`,
+    `./*.js`
 ];
 
 const SIZE_SRC = [
@@ -71,7 +79,8 @@ export default {
         allJs: ALL_JS,
         entry: ENTRY,
         sassIgnoreReset: SASS_IGNORE_RESET,
-        appJs: APP_JS
+        appJs: APP_JS,
+        todo: TODO_SRC
     },
     dest: {
         dir: DEST_DIR,
