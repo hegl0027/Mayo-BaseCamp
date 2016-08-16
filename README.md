@@ -2,16 +2,16 @@
 
 #Get Started
 ###Notable Technologies
-- AngularJS 1.x
-- Gulp
-- Sass
-- Babel (ES6)
+- [AngularJS 1.x](https://angularjs.org/) -- MV* framework for web applications
+- [Gulp](http://gulpjs.com/) -- Build system
+- [Sass](http://sass-lang.com/) -- CSS preprocessor
+- [Babel (ES6)](https://babeljs.io/) -- JavaScript transpiler for code written to the ECMAScript 2015 standard ([modules](https://babeljs.io/docs/learn-es2015/#modules), [classes](https://babeljs.io/docs/learn-es2015/#classes), [template strings](https://babeljs.io/docs/learn-es2015/#template-strings), and [more](https://babeljs.io/docs/learn-es2015/))
 
 ###Prerequisites
 1. [Git](https://git-scm.com/downloads)
 2. [NodeJS](https://nodejs.org/en/)
 Update to the latest NPM version
-  ```
+  ```bash
   npm install -g npm
   ```
 3. Ruby
@@ -21,14 +21,14 @@ Update to the latest NPM version
 ###Setup
 Clone or download the repo and run the following from the web project root directory
 
-```
+```bash
 gem install sass scss_lint
 npm install
 npm run build
 npm start
 ```
 
-###Build System (main tasks)
+###Build System [(NPM Scripts)](https://docs.npmjs.com/misc/scripts)
 |  Command  |  Description  |
 |  -------  |  -----------  |
 |  npm run build  |  Execute entire build  |
@@ -36,7 +36,7 @@ npm start
 |  npm start  |  Serve ./dist on local http server  |
 
 
-###Unit Testing (Karma)
+###Unit Testing ([Karma](https://karma-runner.github.io/0.13/index.html))
 The unit test files (app/\*\*/\*.spec.js) should hang out with the the rest of the application code
 
 |  Command  |  Description  |
@@ -45,7 +45,7 @@ The unit test files (app/\*\*/\*.spec.js) should hang out with the the rest of t
 |  npm run karma-q  |  Execute Karma test runner;  autowatch false;  single run  |
 
 
-###E2E Testing (Protractor)
+###E2E Testing ([Protractor](http://www.protractortest.org/#/))
 The Protractor tests live under the 'e2e-tests' folder
 Dependent on HTTP Server
 Available browser configs: firefox, chrome, ie, safari
@@ -57,7 +57,7 @@ Available browser configs: firefox, chrome, ie, safari
 |  npm run protractor-<browser>-q -- --spec e2e-tests/<path to specs>  |  Execute Protractor against a specific set of spec files for a given browser  |
 
 
-###API Tests (Mocha)
+###API Tests ([Mocha](https://mochajs.org/) and [SuperTest](https://github.com/visionmedia/supertest))
 The REST API tests live under the 'api-tests' folder
 Dependent on HTTP Server
 
@@ -112,6 +112,7 @@ File names should use kebab case for the base name (with dot notation to indicat
 |  File Type / Ext.  |  Description  |
 |  ---  |  ---  |
 |  *.config.js  |  Module/State configuration  |
+|  *.directive.js  |  Directive configuration  |
 |  *.controller.js  |  Controller class  |
 |  *.spec.js  |  Test specification  |
 |  *.page.js  |  Object literal representing the UI elements the test cases will need to interact with.  |
