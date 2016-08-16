@@ -17,21 +17,26 @@
     width: 0;
 
     > ul {
+      display: flex;
       flex: 1;
+      flex-direction: column;
     }
 
     li {
       border-bottom-left-radius: 10px;
       border-right: 5px solid transparent;
       border-top-left-radius: 10px;
+      box-sizing: border-box;
       color: #fefefe;
       cursor: pointer;
       list-style: none;
       overflow: hidden;
-      padding: .45em 1em;
+      padding: .45em 0;
       position: relative;
       text-align: right;
-      transition: transform .3s ease, border-radius 1s ease;
+      transition: transform .3s ease,
+                  border-radius 1s ease,
+                  padding 1000ms ease;
       white-space: nowrap;
 
       &:hover {
@@ -49,7 +54,7 @@
     .selected {
       background-color: #2172a4;
       border-bottom-left-radius: 0;
-      border-right: 5px solid #fefefe;
+      border-right: 5px solid transparent;
       border-top-left-radius: 0;
     }
   }
@@ -110,6 +115,14 @@
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
   width: 250px;
+
+  li {
+    padding: .45em 1em;
+
+    &.selected {
+      border-color: #fefefe;
+    }
+  }
 }
 
 /* menu button - label tag */
@@ -193,7 +206,8 @@
   }
 
   .bar.middle {
-    transform: translate(100px, 0);
+    transform: translate(20px, 0);
+    width: 0;
   }
 
   .bar.bottom {

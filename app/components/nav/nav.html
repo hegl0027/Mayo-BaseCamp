@@ -1,0 +1,38 @@
+<section class="mc-stack__wrapper">
+    <svg class="mc-stack">
+        <use xlink:href="#icon-mc-stack-white"></use>
+    </svg>
+</section>
+
+<ul class="nav__primary__list">
+    <li class="nav ng-class:{'selected': base.doesStateInclude('app.home')};" ui-sref="app.home.one">
+        <svg class="icon icon--nav">
+            <use xlink:href="#icon-home"></use>
+        </svg>
+        <span>Home</span>
+    </li>
+    <li class="nav ng-class:{'selected': base.doesStateInclude('app.reporting')};"
+        ui-sref="app.reporting.one">
+        <svg class="icon icon--nav">
+            <use xlink:href="#icon-file-text"></use>
+        </svg>
+        <span>Reporting</span>
+    </li>
+    <li class="nav ng-class:{'selected': base.doesStateInclude('app.admin')};" ui-sref="app.admin.one">
+        <svg class="icon icon--nav">
+            <use xlink:href="#icon-cog"></use>
+        </svg>
+        <span>System Administration</span>
+    </li>
+    <li class="nav">
+        <a ng-href="https://mcsm.service-now.com" target="_blank">
+        <svg class="icon icon--nav">
+            <use xlink:href="#icon-question"></use>
+        </svg>
+        <span>Support</span>
+            </a>
+    </li>
+</ul>
+<section class="app-version">
+    {{base.appVersion}}
+</section>

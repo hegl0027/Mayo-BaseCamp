@@ -5,9 +5,13 @@ import loadingbar from 'angular-loading-bar';
 import messages from 'angular-messages';
 import sanitize from 'angular-sanitize';
 import aria from 'angular-aria';
-import index from './index-config';
+import BaseController from './components/base/base.controller';
+import HeaderController from './components/header/header.controller';
+import FooterController from './components/footer/footer.controller';
+import NavController from './components/nav/nav.controller';
 import components from './components/components';
 import shared from './shared/shared';
+import templates from './components/templates';
 
 var stateConfig = ($stateProvider, $urlRouterProvider) => {
     $urlRouterProvider.otherwise('/app/home/one');
@@ -16,7 +20,28 @@ var stateConfig = ($stateProvider, $urlRouterProvider) => {
         .state('app', {
             abstract: true,
             url: '/app',
-            template: '<div ui-view></div>'
+            views: {
+                '@': {
+                    templateProvider: ($templateCache) => $templateCache.get('base/base.html'),
+                    controller: BaseController,
+                    controllerAs: 'base'
+                },
+                'header@app': {
+                    templateProvider: ($templateCache) => $templateCache.get('header/header.html'),
+                    controller: HeaderController,
+                    controllerAs: 'header'
+                },
+                'footer@app': {
+                    templateProvider: ($templateCache) => $templateCache.get('footer/footer.html'),
+                    controller: FooterController,
+                    controllerAs: 'footer'
+                },
+                'nav@app': {
+                    templateProvider: ($templateCache) => $templateCache.get('nav/nav.html'),
+                    controller: NavController,
+                    controllerAs: 'nav'
+                }
+            }
         });
 };
 
@@ -26,7 +51,6 @@ var loadingBarConfig = (cfpLoadingBarProvider) => {
 };
 
 /**
- * @ngdoc module
  * @name app
  * @module app
  * @packageName root-app
@@ -36,9 +60,9 @@ var loadingBarConfig = (cfpLoadingBarProvider) => {
  * @requires ngAria
  * @requires angular-loading-bar
  * @requires ngAnimate
- * @requires app-index
  * @requires shared
  * @requires components
+ * @requires templates
  *
  * @description
  *
@@ -51,9 +75,9 @@ export default angular.module('app', [
     aria,
     loadingbar,
     animate,
-    index.name,
     components.name,
-    shared.name
+    shared.name,
+    templates.name
 ])
     .config(['$stateProvider', '$urlRouterProvider', stateConfig])
     .config(['cfpLoadingBarProvider', loadingBarConfig]);

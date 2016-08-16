@@ -1,7 +1,5 @@
-'use strict';
-
 import {expect} from 'chai';
-import ReportingTwoController from './reporting-two-controller';
+import ReportingTwoController from './reporting-two.controller';
 
 let ctrl;
 

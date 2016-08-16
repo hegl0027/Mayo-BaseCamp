@@ -1,17 +1,17 @@
-[![Build Status](http://tfs:8080/tfs/MayoClinic/_apis/public/build/definitions/bdf4d5db-f911-44d8-8e1f-af0cae720b80/536/badge)](http://tfs/tfs/MayoClinic/Mayo%20Open%20Developer%20Network_Git/_git/mc-web-blueprint?path=%2F&version=GBmaster&_a=contents) [![Dependency Status](https://david-dm.org/bradyhullopeter/Root.svg)](https://david-dm.org/bradyhullopeter/Root) [![devDependency Status](https://david-dm.org/bradyhullopeter/Root/dev-status.svg)](https://david-dm.org/bradyhullopeter/Root#info=devDependencies) [![Code Climate](https://codeclimate.com/github/bradyhullopeter/Root/badges/gpa.svg)](https://codeclimate.com/github/bradyhullopeter/Root) [![Issue Count](https://codeclimate.com/github/bradyhullopeter/Root/badges/issue_count.svg)](https://codeclimate.com/github/bradyhullopeter/Root)
+[![Build Status](http://tfs:8080/tfs/MayoClinic/_apis/public/build/definitions/bdf4d5db-f911-44d8-8e1f-af0cae720b80/536/badge)](http://tfs/tfs/MayoClinic/Mayo%20Open%20Developer%20Network_Git/_git/mc-web-blueprint?path=%2F&version=GBmaster&_a=contents)
 
 #Get Started
 ###Notable Technologies
-- AngularJS 1.x
-- Gulp
-- Sass
-- Babel (ES6)
+- [AngularJS 1.x](https://angularjs.org/) -- MV* framework for web applications
+- [Gulp](http://gulpjs.com/) -- Build system
+- [Sass](http://sass-lang.com/) -- CSS preprocessor
+- [Babel (ES6)](https://babeljs.io/) -- JavaScript transpiler for code written to the ECMAScript 2015 standard ([modules](https://babeljs.io/docs/learn-es2015/#modules), [classes](https://babeljs.io/docs/learn-es2015/#classes), [template strings](https://babeljs.io/docs/learn-es2015/#template-strings), and [more](https://babeljs.io/docs/learn-es2015/))
 
 ###Prerequisites
 1. [Git](https://git-scm.com/downloads)
 2. [NodeJS](https://nodejs.org/en/)
-  - Update to the latest NPM version
-  ```
+Update to the latest NPM version
+  ```bash
   npm install -g npm
   ```
 3. Ruby
@@ -19,50 +19,100 @@
   - [Everyone else](https://www.ruby-lang.org/en/)
 
 ###Setup
-> - Clone or download the repo and run the following from the web project root directory
-```
+Clone or download the repo and run the following from the web project root directory
+
+```bash
 gem install sass scss_lint
 npm install
-```
-
-###Gulp
-######Main Tasks
-```
-npm run gulp
-npm run gulp watch
-```
-
-######Tasks that generate stuff outside of the 'dist' folder
-```
-npm run gulp plato
-npm run gulp jsdoc
-npm run gulp todo
-```
-
-###HTTP Server
-```
+npm run build
 npm start
 ```
 
-###Karma
+###Build System [(NPM Scripts)](https://docs.npmjs.com/misc/scripts)
+|  Command  |  Description  |
+|  -------  |  -----------  |
+|  npm run build  |  Execute entire build  |
+|  npm run build watch  |  Watch for file updates and run corresponding build tasks  |
+|  npm start  |  Serve ./dist on local http server  |
+
+
+###Unit Testing ([Karma](https://karma-runner.github.io/0.13/index.html))
 The unit test files (app/\*\*/\*.spec.js) should hang out with the the rest of the application code
-```
-npm run karma
-npm run karma-q  <-- quick version without npm/bower install, single run
-```
 
-###Protractor
+|  Command  |  Description  |
+|  -------  |  -----------  |
+|  npm run karma  |  Execute Karma test runner;  autowatch true  |
+|  npm run karma-q  |  Execute Karma test runner;  autowatch false;  single run  |
+
+
+###E2E Testing ([Protractor](http://www.protractortest.org/#/))
 The Protractor tests live under the 'e2e-tests' folder
-> - Dependent on HTTP Server
-- Available browser configs: firefox, chrome, ie, safari
+Dependent on HTTP Server
+Available browser configs: firefox, chrome, ie, safari
+
+|  Command  |  Description  |
+|  -------  |  -----------  |
+|  npm run protractor-<browser>  |  Execute the Protractor test suite for a given browser  |
+|  npm run protractor-<browser>-q  |  Execute the Protractor test suite for a given browser, less the webdriver update  |
+|  npm run protractor-<browser>-q -- --spec e2e-tests/<path to specs>  |  Execute Protractor against a specific set of spec files for a given browser  |
+
+
+###API Tests ([Mocha](https://mochajs.org/) and [SuperTest](https://github.com/visionmedia/supertest))
+The REST API tests live under the 'api-tests' folder
+Dependent on HTTP Server
+
+|  Command  |  Description  |
+|  ---  |  ---  |
+|  npm run api-tests  |  Execute the api tests  |
+
+
+###Directory Structure
 ```
-npm run protractor-[browser]
-npm run protractor-[browser]-q  <-- quick version without webdriver update
+.
+api-tests
+app
+|   components
+|   shared
+|   app.js
+|   index.html
+assets
+|   fonts
+|   images
+|   |   favicon
+|   |   inline-svg
+|   |   svg-bundle
+|   
+|   scss
+|   |   app.scss
+|   |   _base.scss
+|   |   _normalize.scss
+|   |   _variable.scss
+|
+_dist
+_docs
+_e2e-tests
+_node_modules
+_reports
+_test-configs
+.babelrc
+.eslintignore
+.eslint.json
+.jscsrc
+.npmrc
+.scsslint.yml
+.jsdoc.json
+package.json
+README.md
+TODO.md
 ```
 
-###REST API Tests
-The REST API tests live under the 'api-tests' folder
-> Dependent on HTTP Server
-```
-npm run api-tests
-```
+###File Naming Convention
+File names should use kebab case for the base name (with dot notation to indicate a semantic type if applicable), e.g., "my-super-awesome-test-suite.spec.js".
+
+|  File Type / Ext.  |  Description  |
+|  ---  |  ---  |
+|  *.config.js  |  Module/State configuration  |
+|  *.directive.js  |  Directive configuration  |
+|  *.controller.js  |  Controller class  |
+|  *.spec.js  |  Test specification  |
+|  *.page.js  |  Object literal representing the UI elements the test cases will need to interact with.  |

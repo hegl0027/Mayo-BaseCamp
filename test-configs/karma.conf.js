@@ -1,3 +1,5 @@
+var _ = require('lodash');
+
 module.exports = function (config) {
     config.set({
 
@@ -17,9 +19,16 @@ module.exports = function (config) {
             '../app/**/*.js': ['eslint', 'browserify', 'coverage']
         },
 
+        customLaunchers: {
+            ChromeNoSandbox: {
+                base: 'Chrome',
+                flags: ['--no-sandbox']
+            }
+        },
+
         // level of logging
         // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-        logLevel: config.LOG_DEBUG,
+        logLevel: config.LOG_INFO,
 
         frameworks: ['jasmine', 'detectBrowsers', 'browserify'],
 
@@ -31,9 +40,15 @@ module.exports = function (config) {
             usePhantomJS: true,
 
             // here you can edit the list of browsers used by karma
-            postDetection: function (availableBrowsersArray) {
-                //return availableBrowsersArray;
-                return ['PhantomJS']
+            postDetection: function (availableBrowsersArr) {
+                // fix for chrome v52 issue
+                // https://github.com/karma-runner/karma-chrome-launcher/issues/73#issuecomment-236597429
+                if (availableBrowsersArr.indexOf('Chrome') >= 0) {
+                    availableBrowsersArr.push('ChromeNoSandbox');
+                    _.pull(availableBrowsersArr, 'Chrome');
+                }
+
+                return availableBrowsersArr;
             }
         },
 

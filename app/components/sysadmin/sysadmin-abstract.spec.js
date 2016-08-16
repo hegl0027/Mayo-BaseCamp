@@ -1,7 +1,5 @@
-'use strict';
-
 import {expect} from 'chai';
-import SysadminAbstractController from './sysadmin-abstract-controller';
+import SysadminAbstractController from './sysadmin-abstract.controller';
 
 let ctrl;
 

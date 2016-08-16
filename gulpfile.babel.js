@@ -27,14 +27,14 @@ function compile(watch) {
     let bundler = browserify(files.src.entry, { debug: true }).transform(babel);
 
     function rebundle() {
-        bundler.bundle()
+        return bundler.bundle()
             .on('error', plugins.util.log)
             .pipe(source('app.bundle.js'))
             .pipe(buffer())
             .pipe(plugins.sourcemaps.init({ loadMaps: true }))
             .pipe(gulp.dest(files.dest.js))
-            .pipe(plugins.uglify())
-            .pipe(plugins.rename('app.bundle.min.js'))
+            .pipe(plugins.uglify({ mangle: false }))
+            .pipe(plugins.rename({extname: '.min.js'}))
             .pipe(plugins.sourcemaps.write('./'))
             .pipe(gulp.dest(files.dest.js));
     }
@@ -45,7 +45,7 @@ function compile(watch) {
         }));
     }
 
-    rebundle();
+    return rebundle();
 }
 
 
@@ -128,7 +128,7 @@ gulp.task('template-cache', () => {
  */
 
 gulp.task('js', () => {
-    compile();
+    return compile();
 });
 
 gulp.task('size', () => {
@@ -254,8 +254,8 @@ gulp.task('docs', cb => {
 });
 
 gulp.task('sample', () => {
-    return gulp.src('app/services/api/sample.json')
-        .pipe(gulp.dest('dist/sample'));
+    return gulp.src('app/shared/api/sample.json')
+        .pipe(gulp.dest(`${files.dest.dir}/sample`));
 });
 
 
