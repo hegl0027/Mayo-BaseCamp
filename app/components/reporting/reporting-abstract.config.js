@@ -1,10 +1,10 @@
 'use strict';
 
 import angular from 'angular';
-import reportingOne from './one/reporting-one-config';
-import reportingTwo from './two/reporting-two-config';
-import reportingThree from './three/reporting-three-config';
-import ReportingAbstractController from './reporting-abstract-controller';
+import reportingOne from './one/reporting-one.config';
+import reportingTwo from './two/reporting-two.config';
+import reportingThree from './three/reporting-three.config';
+import ReportingAbstractController from './reporting-abstract.controller';
 
 var stateConfig = ($stateProvider) => {
 

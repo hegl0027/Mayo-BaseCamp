@@ -1,7 +1,5 @@
-'use strict';
-
 import angular from 'angular';
-import AdminOneController from './sysadmin-one-controller';
+import AdminOneController from './sysadmin-one.controller';
 
 var stateConfig = ($stateProvider) => {
 

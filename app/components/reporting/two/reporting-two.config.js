@@ -1,7 +1,5 @@
-'use strict';
-
 import angular from 'angular';
-import ReportingTwoController from './reporting-two-controller';
+import ReportingTwoController from './reporting-two.controller';
 
 var stateConfig = ($stateProvider) => {
 

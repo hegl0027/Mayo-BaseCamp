@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import NavController from './nav-controller';
+import NavController from './nav.controller';
 
 let ctrl;
 

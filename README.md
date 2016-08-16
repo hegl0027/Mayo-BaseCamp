@@ -42,7 +42,7 @@ The unit test files (app/\*\*/\*.spec.js) should hang out with the the rest of t
 |  Command  |  Description  |
 |  -------  |  -----------  |
 |  npm run karma  |  Execute Karma test runner;  autowatch true  |
-|  npm run kara-q  |  Execute Karma test runner;  autowatch false;  single run  |
+|  npm run karma-q  |  Execute Karma test runner;  autowatch false;  single run  |
 
 
 ###E2E Testing (Protractor)
@@ -52,8 +52,9 @@ Available browser configs: firefox, chrome, ie, safari
 
 |  Command  |  Description  |
 |  -------  |  -----------  |
-|  npm run protractor-[browser]  |  Execute the Protractor test suite for a given browser  |
-|  npm run protractor-[browser]-q  |  Execute the Protractor test suite for a given browser, less the webdriver update  |
+|  npm run protractor-<browser>  |  Execute the Protractor test suite for a given browser  |
+|  npm run protractor-<browser>-q  |  Execute the Protractor test suite for a given browser, less the webdriver update  |
+|  npm run protractor-<browser>-q -- --spec e2e-tests/<path to specs>  |  Execute Protractor against a specific set of spec files for a given browser  |
 
 
 ###API Tests (Mocha)
@@ -61,5 +62,56 @@ The REST API tests live under the 'api-tests' folder
 Dependent on HTTP Server
 
 |  Command  |  Description  |
-|  -------  |  -----------  |
+|  ---  |  ---  |
 |  npm run api-tests  |  Execute the api tests  |
+
+
+###Directory Structure
+```
+.
+api-tests
+app
+|   components
+|   shared
+|   app.js
+|   index.html
+assets
+|   fonts
+|   images
+|   |   favicon
+|   |   inline-svg
+|   |   svg-bundle
+|   
+|   scss
+|   |   app.scss
+|   |   _base.scss
+|   |   _normalize.scss
+|   |   _variable.scss
+|
+_dist
+_docs
+_e2e-tests
+_node_modules
+_reports
+_test-configs
+.babelrc
+.eslintignore
+.eslint.json
+.jscsrc
+.npmrc
+.scsslint.yml
+.jsdoc.json
+package.json
+README.md
+TODO.md
+```
+
+###File Naming Convention
+File names should use kebab case for the base name (with dot notation to indicate a semantic type if applicable).
+
+|  File Type / Ext.  |  Description  |
+|  ---  |  ---  |
+|  *.config.js  |  Module/State configuration  |
+|  *.controller.js  |  Controller class  |
+|  *.spec.js  |  Test specification  |
+|  *.page.js  |  Object literal representing the UI elements the test cases will need to interact with.  |

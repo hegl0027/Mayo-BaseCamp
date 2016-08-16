@@ -1,7 +1,5 @@
-'use strict';
-
 import {expect} from 'chai';
-import SupportController from './support-controller';
+import SupportController from './support.controller';
 
 let ctrl;
 

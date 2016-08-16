@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import FooterController from './footer-controller';
+import FooterController from './footer.controller';
 
 let ctrl;
 

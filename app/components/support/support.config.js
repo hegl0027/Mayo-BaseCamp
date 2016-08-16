@@ -1,7 +1,5 @@
-'use strict';
-
 import angular from 'angular';
-import SupportController from './support-controller';
+import SupportController from './support.controller';
 
 var stateConfig = ($stateProvider) => {
 

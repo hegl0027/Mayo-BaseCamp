@@ -1,7 +1,5 @@
-'use strict';
-
 import { expect } from 'chai';
-import HomeFourController from './home-four-controller';
+import HomeFourController from './home-four.controller';
 
 let ctrl;
 

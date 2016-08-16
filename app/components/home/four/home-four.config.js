@@ -1,7 +1,5 @@
-'use strict';
-
 import angular from 'angular';
-import HomeFourController from './home-four-controller';
+import HomeFourController from './home-four.controller';
 
 var stateConfig = ($stateProvider) => {
 

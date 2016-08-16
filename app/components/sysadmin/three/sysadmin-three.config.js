@@ -1,7 +1,5 @@
-'use strict';
-
 import angular from 'angular';
-import AdminThreeController from './sysadmin-three-controller';
+import AdminThreeController from './sysadmin-three.controller';
 
 var stateConfig = ($stateProvider) => {
 

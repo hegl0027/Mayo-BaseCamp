@@ -1,7 +1,5 @@
-'use strict';
-
 import angular from 'angular';
-import HomeOneController from './home-one-controller';
+import HomeOneController from './home-one.controller';
 
 var stateConfig = ($stateProvider) => {
 

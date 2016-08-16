@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import HeaderController from './header-controller';
+import HeaderController from './header.controller';
 
 let ctrl;
 

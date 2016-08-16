@@ -1,6 +1,4 @@
-'use strict';
-
-export default class FourController {
+export default class TwoController {
     constructor() {
         this.notEmpty = null;
     }

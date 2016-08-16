@@ -1,7 +1,5 @@
-'use strict';
-
 import {expect} from 'chai';
-import SysadminThreeController from './sysadmin-three-controller';
+import SysadminThreeController from './sysadmin-three.controller';
 
 let ctrl;
 

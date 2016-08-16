@@ -1,7 +1,5 @@
-'use strict';
-
 import angular from 'angular';
-import ctrl from './home-five-controller';
+import ctrl from './home-five.controller';
 
 var stateConfig = ($stateProvider) => {
 

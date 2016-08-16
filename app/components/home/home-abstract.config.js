@@ -1,12 +1,10 @@
-'use strict';
-
 import angular from 'angular';
-import homeOne from './one/home-one-config';
-import homeTwo from './two/home-two-config';
-import homeThree from './three/home-three-config';
-import homeFour from './four/home-four-config';
-import homeFive from './five/home-five-config';
-import HomeAbstractController from './home-abstract-controller';
+import homeOne from './one/home-one.config';
+import homeTwo from './two/home-two.config';
+import homeThree from './three/home-three.config';
+import homeFour from './four/home-four.config';
+import homeFive from './five/home-five.config';
+import HomeAbstractController from './home-abstract.controller';
 
 var stateConfig = ($stateProvider) => {
 
