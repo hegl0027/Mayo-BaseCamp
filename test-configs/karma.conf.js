@@ -1,4 +1,4 @@
-var _ = require('lodash');
+var _ = require('../node_modules/lodash');
 
 module.exports = function (config) {
     config.set({
