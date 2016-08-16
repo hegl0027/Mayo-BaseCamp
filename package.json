@@ -1,7 +1,7 @@
 {
   "name": "mayo-web-basecamp",
   "private": false,
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "An AngularJS 1.x starter project developed to simplify the web application startup process.",
   "repository": {
     "type": "git",
