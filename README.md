@@ -108,6 +108,7 @@ TODO.md
 
 ###File Naming Convention
 File names should use kebab case for the base name (with dot notation to indicate a semantic type if applicable).
+E.g. "my-super-awesome-test-suite.spec.js"
 
 |  File Type / Ext.  |  Description  |
 |  ---  |  ---  |
