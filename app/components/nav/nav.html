@@ -26,13 +26,16 @@
     </li>
     <li class="nav">
         <a ng-href="https://mcsm.service-now.com" target="_blank">
-        <svg class="icon icon--nav">
-            <use xlink:href="#icon-question"></use>
-        </svg>
-        <span>Support</span>
-            </a>
+            <svg class="icon icon--nav">
+                <use xlink:href="#icon-question"></use>
+            </svg>
+            <span>Support</span>
+        </a>
     </li>
 </ul>
 <section class="app-version">
-    {{base.appVersion}}
+    <!-- This is generated based on the version listed in package.json -->
+    <!-- inject:version -->
+    0.1.6
+    <!-- endinject -->
 </section>

@@ -10,7 +10,9 @@ import buffer from 'vinyl-buffer';
 import loadPlugins from 'gulp-load-plugins';
 import watchify from 'watchify';
 import files from './files';
-var plugins = loadPlugins();
+import packagejson from './package.json';
+import stream from 'stream';
+const plugins = loadPlugins();
 
 
 /**
@@ -19,21 +21,58 @@ var plugins = loadPlugins();
  * @returns {string}
  */
 function getTimestamp() {
-    let date = new Date();
+    const date = new Date();
     return '[' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + ']  ';
 }
 
+/**
+ * Return the string representation of the file contents.  Used by gulp-inject#options.transform
+ *
+ * @param filePath
+ * @param file
+ */
+function fileContents(filePath, file) {
+    return file.contents.toString();
+}
+
+/**
+ * Create a fake vinyl from a string
+ *
+ * @param filename the filename to create
+ * @param string the contents of the file
+ * @returns {"stream".Readable|*}
+ */
+function stringSrc(filename, string) {
+    var src = stream.Readable({objectMode: true});
+    src._read = function () {
+        this.push(new plugins.util.File({
+            cwd: "",
+            base: "",
+            path: filename,
+            contents: new Buffer(string)
+        }));
+        this.push(null)
+    }
+    return src
+}
+
+/**
+ * Browserify config/compile function
+ *
+ * @param watch boolean to drive the use of watchify for js src files
+ * @returns {*}
+ */
 function compile(watch) {
-    let bundler = browserify(files.src.entry, { debug: true }).transform(babel);
+    const bundler = browserify(files.src.entry, {debug: true}).transform(babel);
 
     function rebundle() {
         return bundler.bundle()
             .on('error', plugins.util.log)
             .pipe(source('app.bundle.js'))
             .pipe(buffer())
-            .pipe(plugins.sourcemaps.init({ loadMaps: true }))
+            .pipe(plugins.sourcemaps.init({loadMaps: true}))
             .pipe(gulp.dest(files.dest.js))
-            .pipe(plugins.uglify({ mangle: false }))
+            .pipe(plugins.uglify({mangle: false}))
             .pipe(plugins.rename({extname: '.min.js'}))
             .pipe(plugins.sourcemaps.write('./'))
             .pipe(gulp.dest(files.dest.js));
@@ -82,23 +121,17 @@ gulp.task('svg-bundle', () => {
 
 gulp.task('inline-svg', () => {
 
-    var svgs = gulp
+    const svgs = gulp
         .src(files.src.inlineSvg)
         .pipe(plugins.rename({
             prefix: 'icon-'
         }))
-        .pipe(plugins.svgstore({ inlineSvg: true }));
-
-    function fileContents (filePath, file) {
-        return file.contents.toString();
-    }
+        .pipe(plugins.svgstore({inlineSvg: true}));
 
     return gulp
         .src(`${files.dest.dir}/index.html`)
-        .pipe(plugins.inject(svgs, { transform: fileContents }))
+        .pipe(plugins.inject(svgs, {transform: fileContents}))
         .pipe(gulp.dest(files.dest.dir));
-
-
 });
 
 
@@ -115,11 +148,25 @@ gulp.task('html', () => {
 
 gulp.task('template-cache', () => {
     return gulp.src(files.src.partials)
+        .pipe(plugins.angularHtmlify())
         .pipe(plugins.angularTemplatecache({
             standalone: true,
             moduleSystem: 'Browserify'
         }))
         .pipe(gulp.dest(files.dest.components));
+});
+
+gulp.task('inject-version', () => {
+    const version = packagejson.version;
+    const src = source(packagejson.version);
+
+    return gulp.src(`${files.src.dir}/components/nav/nav.html`)
+        .pipe(plugins.plumber())
+        .pipe(plugins.inject(stringSrc('version', version), {
+            starttag: '<!-- inject:version -->',
+            transform: fileContents
+        }))
+        .pipe(gulp.dest(`${files.src.dir}/components/nav/`));
 });
 
 
@@ -263,7 +310,7 @@ gulp.task('sample', () => {
  *  BUILD IT ALL!!!
  */
 gulp.task('build', [], cb => {
-    runSequence('clean', 'template-cache', ['sample', 'assets', 'html', 'js', 'styles'], ['qa', 'docs'], cb);
+    runSequence('clean', 'inject-version', 'template-cache', ['sample', 'assets', 'html', 'js', 'styles'], ['qa', 'docs'], cb);
 });
 
 

@@ -6,7 +6,10 @@ export default class BaseController{
         var now = moment();
         this.myState = $state;
         this.lastSaved = now.fromNow();
+
+        /* start - inject package.json version */
         this.appVersion = 'v0.1.0';
+        /* end - inject package.json version */
 
         apiService.User.get({ id: 1 }).$promise.then(user => {
             $log.log('MOCKED GET:');

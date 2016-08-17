@@ -16,7 +16,6 @@ const ENTRY = `${APP_DIR}/app.js`;
 const SVG_SRC = `${ASSETS_DIR}/images/svg-bundle/**/*.svg`;
 const INLINE_SVG_SRC = `${ASSETS_DIR}/images/inline-svg/**/*.svg`;
 
-
 const IMAGES_SRC = [
     `${ASSETS_DIR}/images/**/*`,
     `!${ASSETS_DIR}/images/inline-svg/`,
