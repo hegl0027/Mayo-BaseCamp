@@ -1,5 +1,5 @@
 export default class ThreeController {
-    constructor() {
-        this.notEmpty = null;
-    }
+  constructor() {
+    this.notEmpty = null;
+  }
 }

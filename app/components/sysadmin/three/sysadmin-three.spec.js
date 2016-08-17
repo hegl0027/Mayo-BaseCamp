@@ -5,11 +5,11 @@ let ctrl;
 
 describe('sys admin three controller', () => {
 
-    beforeEach(() => {
-        ctrl = new SysadminThreeController();
-    });
+  beforeEach(() => {
+    ctrl = new SysadminThreeController();
+  });
 
-    it('should be initialized', () => {
-        expect(ctrl).to.exist;
-    });
+  it('should be initialized', () => {
+    expect(ctrl).to.exist;
+  });
 });

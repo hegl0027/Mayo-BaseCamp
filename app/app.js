@@ -14,40 +14,40 @@ import shared from './shared/shared';
 import templates from './components/templates';
 
 var stateConfig = ($stateProvider, $urlRouterProvider) => {
-    $urlRouterProvider.otherwise('/app/home/one');
+  $urlRouterProvider.otherwise('/app/home/one');
 
-    $stateProvider
-        .state('app', {
-            abstract: true,
-            url: '/app',
-            views: {
-                '@': {
-                    templateProvider: ($templateCache) => $templateCache.get('base/base.html'),
-                    controller: BaseController,
-                    controllerAs: 'base'
-                },
-                'header@app': {
-                    templateProvider: ($templateCache) => $templateCache.get('header/header.html'),
-                    controller: HeaderController,
-                    controllerAs: 'header'
-                },
-                'footer@app': {
-                    templateProvider: ($templateCache) => $templateCache.get('footer/footer.html'),
-                    controller: FooterController,
-                    controllerAs: 'footer'
-                },
-                'nav@app': {
-                    templateProvider: ($templateCache) => $templateCache.get('nav/nav.html'),
-                    controller: NavController,
-                    controllerAs: 'nav'
-                }
-            }
-        });
+  $stateProvider
+    .state('app', {
+      abstract: true,
+      url: '/app',
+      views: {
+        '@': {
+          templateProvider: ($templateCache) => $templateCache.get('base/base.html'),
+          controller: BaseController,
+          controllerAs: 'base'
+        },
+        'header@app': {
+          templateProvider: ($templateCache) => $templateCache.get('header/header.html'),
+          controller: HeaderController,
+          controllerAs: 'header'
+        },
+        'footer@app': {
+          templateProvider: ($templateCache) => $templateCache.get('footer/footer.html'),
+          controller: FooterController,
+          controllerAs: 'footer'
+        },
+        'nav@app': {
+          templateProvider: ($templateCache) => $templateCache.get('nav/nav.html'),
+          controller: NavController,
+          controllerAs: 'nav'
+        }
+      }
+    });
 };
 
 var loadingBarConfig = (cfpLoadingBarProvider) => {
-    cfpLoadingBarProvider.includeSpinner = false;
-    cfpLoadingBarProvider.latencyThreshold = 20;
+  cfpLoadingBarProvider.includeSpinner = false;
+  cfpLoadingBarProvider.latencyThreshold = 20;
 };
 
 /**
@@ -69,15 +69,15 @@ var loadingBarConfig = (cfpLoadingBarProvider) => {
  * The 'app' is an angular module which bootstraps the basecamp project.
  */
 export default angular.module('app', [
-    uirouter,
-    messages,
-    sanitize,
-    aria,
-    loadingbar,
-    animate,
-    components.name,
-    shared.name,
-    templates.name
+  uirouter,
+  messages,
+  sanitize,
+  aria,
+  loadingbar,
+  animate,
+  components.name,
+  shared.name,
+  templates.name
 ])
-    .config(['$stateProvider', '$urlRouterProvider', stateConfig])
-    .config(['cfpLoadingBarProvider', loadingBarConfig]);
+  .config(['$stateProvider', '$urlRouterProvider', stateConfig])
+  .config(['cfpLoadingBarProvider', loadingBarConfig]);

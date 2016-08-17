@@ -5,11 +5,11 @@ let ctrl;
 
 describe('nav controller', () => {
 
-    beforeEach(() => {
-        ctrl = new NavController();
-    });
+  beforeEach(() => {
+    ctrl = new NavController();
+  });
 
-    it('should be initialized', () => {
-        expect(ctrl).to.exist;
-    });
+  it('should be initialized', () => {
+    expect(ctrl).to.exist;
+  });
 });

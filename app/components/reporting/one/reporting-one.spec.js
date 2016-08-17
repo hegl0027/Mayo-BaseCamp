@@ -5,11 +5,11 @@ let ctrl;
 
 describe('reporting one controller', () => {
 
-    beforeEach(() => {
-        ctrl = new ReportingOneController();
-    });
+  beforeEach(() => {
+    ctrl = new ReportingOneController();
+  });
 
-    it('should be initialized', () => {
-        expect(ctrl).to.exist;
-    });
+  it('should be initialized', () => {
+    expect(ctrl).to.exist;
+  });
 });

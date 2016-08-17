@@ -193,13 +193,6 @@ gulp.task('eslint', () => {
         .pipe(eslint.format());
 });
 
-gulp.task('jscs', () => {
-    return gulp.src(files.src.js)
-        .pipe(plugins.plumber())
-        .pipe(plugins.jscs())
-        .pipe(plugins.jscs.reporter());
-});
-
 
 /**
  * STYLES
@@ -269,7 +262,7 @@ gulp.task('watch', () => {
     compile(true);
 
     jsWatch.on('change', function (event) {
-        runSequence('jscs', 'docs', () => {
+        runSequence('docs', () => {
             console.log(getTimestamp() + ' ------  JS WATCH FINISHED ------');
         });
     });
@@ -295,7 +288,7 @@ gulp.task('assets', cb => {
     runSequence('svg-bundle', ['images', 'fonts'], 'inline-svg', cb);
 });
 
-gulp.task('qa', ['jscs', 'scsslint', 'eslint']);
+gulp.task('qa', ['scsslint', 'eslint']);
 
 gulp.task('docs', cb => {
     runSequence('clean-docs', 'jsdoc', cb);

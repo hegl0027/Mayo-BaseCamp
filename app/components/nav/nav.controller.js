@@ -1,5 +1,5 @@
-export default class NavController{
-    constructor() {
-        this.notEmpty = null;
-    }
+export default class NavController {
+  constructor() {
+    this.notEmpty = null;
+  }
 }

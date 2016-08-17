@@ -7,15 +7,15 @@ let apiService;
 
 describe('api service', () => {
 
-    beforeEach(angular.mock.module('app.shared.api'));
+  beforeEach(angular.mock.module('app.shared.api'));
 
-    beforeEach(angular.mock.inject((_apiService_) => {
-        apiService = _apiService_;
-    }));
+  beforeEach(angular.mock.inject((_apiService_) => {
+    apiService = _apiService_;
+  }));
 
-    it('should be initialized', () => {
-        expect(apiService).to.exist;
-    });
+  it('should be initialized', () => {
+    expect(apiService).to.exist;
+  });
 
 });
 

@@ -5,11 +5,11 @@ let ctrl;
 
 describe('home abstract controller', () => {
 
-    beforeEach(() => {
-        ctrl = new HomeAbstractController();
-    });
+  beforeEach(() => {
+    ctrl = new HomeAbstractController();
+  });
 
-    it('should be initialized', () => {
-        expect(ctrl).to.exist;
-    });
+  it('should be initialized', () => {
+    expect(ctrl).to.exist;
+  });
 });

@@ -1,15 +1,15 @@
-import { expect } from 'chai';
+import {expect} from 'chai';
 import HomeOneController from './home-one.controller';
 
 let ctrl;
 
 describe('home one controller', () => {
 
-    beforeEach(() => {
-        ctrl = new HomeOneController();
-    });
+  beforeEach(() => {
+    ctrl = new HomeOneController();
+  });
 
-    it('should be initialized', () => {
-        expect(ctrl).to.exist;
-    });
+  it('should be initialized', () => {
+    expect(ctrl).to.exist;
+  });
 });

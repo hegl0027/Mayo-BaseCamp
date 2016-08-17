@@ -8,22 +8,22 @@ import ReportingAbstractController from './reporting-abstract.controller';
 
 var stateConfig = ($stateProvider) => {
 
-    $stateProvider
-        .state('app.reporting', {
-            abstract: true,
-            url: '/reporting',
-            controller: ReportingAbstractController,
-            controllerAs: 'abstractReporting',
-            data: {
-                title: 'Reporting'
-            },
-            templateProvider: ($templateCache) => $templateCache.get('reporting/reporting-abstract.html')
-        });
+  $stateProvider
+    .state('app.reporting', {
+      abstract: true,
+      url: '/reporting',
+      controller: ReportingAbstractController,
+      controllerAs: 'abstractReporting',
+      data: {
+        title: 'Reporting'
+      },
+      templateProvider: ($templateCache) => $templateCache.get('reporting/reporting-abstract.html')
+    });
 };
 
 export default angular.module('app.reporting', [
-    reportingOne.name,
-    reportingTwo.name,
-    reportingThree.name
+  reportingOne.name,
+  reportingTwo.name,
+  reportingThree.name
 ])
-    .config(['$stateProvider', stateConfig]);
+  .config(['$stateProvider', stateConfig]);

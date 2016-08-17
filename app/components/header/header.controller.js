@@ -1,5 +1,5 @@
-export default class HeaderController{
-    constructor() {
-        this.notEmpty = null;
-    }
+export default class HeaderController {
+  constructor() {
+    this.notEmpty = null;
+  }
 }
