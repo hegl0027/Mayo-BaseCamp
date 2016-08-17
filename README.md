@@ -75,7 +75,6 @@ Ensure code written within the application conforms to a common style and syntax
 |  npm run build scsslint  |  Check for style and syntax issues in the apps's Sass files  |
 
 
-
 ###Directory Structure
 ```
 .
@@ -114,6 +113,7 @@ package.json
 README.md
 TODO.md
 ```
+
 
 ###File Naming Convention
 File names should use kebab case for the base name (with dot notation to indicate a semantic type if applicable), e.g., "my-super-awesome-test-suite.spec.js".
