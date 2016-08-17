@@ -72,8 +72,8 @@ Ensure code written within the application conforms to a common style and syntax
 |  Command  |  Description  |
 |  ---  |  ---  |
 |  npm run build eslint  |  Check for style and syntax issues in the app's JavaScript files |
-|  npm run build scsslint  |  Check for style and syntax issues in the apps's Sass files  |
-
+|  npm run build sass-lint  |  Check for style and syntax issues in the apps's Sass files  |
+|  npm run build qa  |  Run both eslint and sass-lint  |
 
 ###Directory Structure
 ```
@@ -91,7 +91,7 @@ assets
 |   |   inline-svg
 |   |   svg-bundle
 |   
-|   scss
+|   sass
 |   |   app.scss
 |   |   _base.scss
 |   |   _normalize.scss
