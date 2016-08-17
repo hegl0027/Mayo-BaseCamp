@@ -66,6 +66,16 @@ Dependent on HTTP Server
 |  npm run api-tests  |  Execute the api tests  |
 
 
+###Syntax and Style ([ESLint](http://eslint.org/) and [SCSSLint](https://github.com/brigade/scss-lint))
+Ensure code written within the application conforms to a common style and syntax.
+
+|  Command  |  Description  |
+|  ---  |  ---  |
+|  npm run build eslint  |  Check for style and syntax issues in the app's JavaScript files |
+|  npm run build scsslint  |  Check for style and syntax issues in the apps's Sass files  |
+
+
+
 ###Directory Structure
 ```
 .
