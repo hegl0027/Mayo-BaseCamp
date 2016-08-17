@@ -52,8 +52,8 @@ function stringSrc(filename, string) {
             contents: new Buffer(string)
         }));
         this.push(null)
-    }
-    return src
+    };
+    return src;
 }
 
 /**
@@ -231,7 +231,7 @@ gulp.task('scsslint', () => {
  */
 
 gulp.task('jsdoc', plugins.shell.task([
-    'jsdoc app -r -d docs/jsdoc -R README.md -c jsdoc.json'
+    'jsdoc -c jsdoc.json'
 ]));
 
 gulp.task('todo', () => {
