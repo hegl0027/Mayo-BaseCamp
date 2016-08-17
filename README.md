@@ -67,7 +67,7 @@ Dependent on HTTP Server
 
 
 ###Syntax and Style ([ESLint](http://eslint.org/) and [SCSSLint](https://github.com/brigade/scss-lint))
-Ensure code written within the application conforms to a common style and syntax.
+Ensure code written within the application conforms to a common style and syntax.  Any errors print to the console.
 
 |  Command  |  Description  |
 |  ---  |  ---  |
