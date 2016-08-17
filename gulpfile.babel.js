@@ -63,7 +63,7 @@ function stringSrc(filename, string) {
  * @returns {*}
  */
 function compile(watch) {
-    const bundler = browserify(files.src.entry, {debug: true}).transform(babel);
+    const bundler = browserify(files.src.entry, {debug: false}).transform(babel);
 
     function rebundle() {
         return bundler.bundle()
@@ -80,6 +80,7 @@ function compile(watch) {
 
     if (watch) {
         watchify(bundler.on('update', function () {
+            console.log(getTimestamp() + ' ------  REBUNDLE FINISHED ------');
             rebundle();
         }));
     }
@@ -140,7 +141,7 @@ gulp.task('inline-svg', () => {
  */
 
 gulp.task('html', () => {
-    return gulp.src(files.src.html)
+    return gulp.src(`${files.src.dir}/index.html`)
         .pipe(plugins.plumber())
         .pipe(plugins.angularHtmlify())
         .pipe(gulp.dest(files.dest.dir));
@@ -274,7 +275,7 @@ gulp.task('watch', () => {
     });
 
     htmlWatch.on('change', event => {
-        runSequence('html', 'template-cache', 'js', 'inline-svg', () => {
+        runSequence('html', 'template-cache', 'inline-svg', () => {
             console.log(getTimestamp() + ' ------  HTML WATCH FINISHED ------');
         });
     });

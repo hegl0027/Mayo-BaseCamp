@@ -1,13 +1,11 @@
 .abstract-context {
   &__horizontal {
-    background-color: #eee;
     border-bottom: 1px solid #ccc;
     flex-shrink: 0;
     padding: .5em 1em;
   }
 
   &__vertical {
-    background-color: #eee;
     border-right: 1px solid #ccc;
     flex-shrink: 0;
     padding: 1em;
