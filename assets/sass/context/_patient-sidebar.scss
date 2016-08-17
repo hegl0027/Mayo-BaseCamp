@@ -1,0 +1,10 @@
+.patient__sidebar {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+
+  &__name {
+    font-size: .8em;
+  }
+}

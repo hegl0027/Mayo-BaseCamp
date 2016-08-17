@@ -8,24 +8,24 @@ import HomeAbstractController from './home-abstract.controller';
 
 var stateConfig = ($stateProvider) => {
 
-    $stateProvider
-        .state('app.home', {
-            abstract: true,
-            url: '/home',
-            controller: HomeAbstractController,
-            controllerAs: 'abstractHome',
-            data: {
-                title: 'Home'
-            },
-            templateProvider: ($templateCache) => $templateCache.get('home/home-abstract.html')
-        });
+  $stateProvider
+    .state('app.home', {
+      abstract: true,
+      url: '/home',
+      controller: HomeAbstractController,
+      controllerAs: 'abstractHome',
+      data: {
+        title: 'Home'
+      },
+      templateProvider: ($templateCache) => $templateCache.get('home/home-abstract.html')
+    });
 };
 
 export default angular.module('app.home', [
-    homeOne.name,
-    homeTwo.name,
-    homeThree.name,
-    homeFour.name,
-    homeFive.name
+  homeOne.name,
+  homeTwo.name,
+  homeThree.name,
+  homeFour.name,
+  homeFive.name
 ])
-    .config(['$stateProvider', stateConfig]);
+  .config(['$stateProvider', stateConfig]);

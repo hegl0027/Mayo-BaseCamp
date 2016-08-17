@@ -11,7 +11,7 @@ import httpMock from './api-service.mock';
  * @requires ngResource
  */
 export default angular.module('app.shared.api', [
-    resource,
-    httpMock.name
+  resource,
+  httpMock.name
 ])
-    .service('apiService', ['$http', '$q', '$resource', apiService]);
+  .service('apiService', ['$http', '$q', '$resource', apiService]);

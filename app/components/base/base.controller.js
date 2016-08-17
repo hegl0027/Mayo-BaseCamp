@@ -1,50 +1,53 @@
 import moment from 'moment';
 import jQuery from 'jquery';
 
-export default class BaseController{
-    constructor($interval, $state, $log, apiService) {
-        var now = moment();
-        this.myState = $state;
-        this.lastSaved = now.fromNow();
-        this.appVersion = 'v0.1.0';
+export default class BaseController {
+  constructor($interval, $state, $log, apiService) {
+    var now = moment();
+    this.myState = $state;
+    this.lastSaved = now.fromNow();
 
-        apiService.User.get({ id: 1 }).$promise.then(user => {
-            $log.log('MOCKED GET:');
-            $log.log(user);
-            this.user = user;
-        });
+    /* start - inject package.json version */
+    this.appVersion = 'v0.1.0';
+    /* end - inject package.json version */
 
-        apiService.User.update({ id: 1 }, this.user).$promise.then(res => {
-            $log.log('MOCKED PUT:');
-            $log.log(res);
-        });
+    apiService.User.get({id: 1}).$promise.then(user => {
+      $log.log('MOCKED GET:');
+      $log.log(user);
+      this.user = user;
+    });
 
-        apiService.User.save(this.user).$promise.then(res => {
-            $log.log('MOCKED POST:');
-            $log.log(res);
-        });
+    apiService.User.update({id: 1}, this.user).$promise.then(res => {
+      $log.log('MOCKED PUT:');
+      $log.log(res);
+    });
 
-        apiService.User.remove(this.user).$promise.then(res => {
-            $log.log('MOCKED DELETE:');
-            $log.log(res);
-        });
+    apiService.User.save(this.user).$promise.then(res => {
+      $log.log('MOCKED POST:');
+      $log.log(res);
+    });
 
-        apiService.User.query(this.user).$promise.then(res => {
-            $log.log('MOCKED QUERY:');
-            $log.log(res);
-        });
+    apiService.User.remove(this.user).$promise.then(res => {
+      $log.log('MOCKED DELETE:');
+      $log.log(res);
+    });
 
-        jQuery(document).on('click', '.nav', () => {
-            jQuery(this).siblings('.selected').removeClass('selected');
-            jQuery(this).addClass('selected');
-        });
+    apiService.User.query(this.user).$promise.then(res => {
+      $log.log('MOCKED QUERY:');
+      $log.log(res);
+    });
 
-        this.doesStateInclude = (stateName) => $state.includes(stateName);
+    jQuery(document).on('click', '.nav', () => {
+      jQuery(this).siblings('.selected').removeClass('selected');
+      jQuery(this).addClass('selected');
+    });
 
-        let updateLastSaved = () => {
-            this.lastSaved = moment(now).fromNow();
-        };
+    this.doesStateInclude = (stateName) => $state.includes(stateName);
 
-        $interval(updateLastSaved, 10000);
-    }
+    let updateLastSaved = () => {
+      this.lastSaved = moment(now).fromNow();
+    };
+
+    $interval(updateLastSaved, 10000);
+  }
 }

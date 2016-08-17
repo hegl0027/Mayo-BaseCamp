@@ -5,11 +5,11 @@ let ctrl;
 
 describe('support controller', () => {
 
-    beforeEach(() => {
-        ctrl = new SupportController();
-    });
+  beforeEach(() => {
+    ctrl = new SupportController();
+  });
 
-    it('should be initialized', () => {
-        expect(ctrl).to.exist;
-    });
+  it('should be initialized', () => {
+    expect(ctrl).to.exist;
+  });
 });

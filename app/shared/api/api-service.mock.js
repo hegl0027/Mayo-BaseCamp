@@ -3,21 +3,26 @@
 import angular from 'angular';
 import 'angular-mocks';
 
+/**
+ * Mock ReST backend
+ *
+ * @param {Object} $httpBackend - Angular's $httpBackend service
+ */
 function mockHttp($httpBackend) {
-    const user = {
-        _id: 1,
-        firstName: 'Stan',
-        lastName: 'Lee'
-    };
+  const user = {
+    _id: 1,
+    firstName: 'Stan',
+    lastName: 'Lee'
+  };
 
-    $httpBackend.whenGET(/resources\/users\/.*/).respond(user);
-    $httpBackend.whenGET(/resources\/users*/).respond([user]);
-    $httpBackend.whenPUT(/resources\/users\/.*/).respond(user);
-    $httpBackend.whenPOST(/resources\/users*/).respond(user);
-    $httpBackend.whenDELETE(/resources\/users*/).respond();
+  $httpBackend.whenGET(/resources\/users\/.*/).respond(user);
+  $httpBackend.whenGET(/resources\/users*/).respond([user]);
+  $httpBackend.whenPUT(/resources\/users\/.*/).respond(user);
+  $httpBackend.whenPOST(/resources\/users*/).respond(user);
+  $httpBackend.whenDELETE(/resources\/users*/).respond();
 
-    // Requests for partials are handled by the real server
-    $httpBackend.whenGET(/views\/.*/).passThrough();
+  // Requests for partials are handled by the real server
+  $httpBackend.whenGET(/views\/.*/).passThrough();
 }
 
 /**
@@ -31,6 +36,6 @@ function mockHttp($httpBackend) {
  * with the exception of view requests.
  */
 export default angular.module('app-mocks-http', [
-    'ngMockE2E'
+  'ngMockE2E'
 ])
-    .run(['$httpBackend', mockHttp]);
+  .run(['$httpBackend', mockHttp]);

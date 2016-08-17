@@ -5,11 +5,11 @@ let ctrl;
 
 describe('header controller', () => {
 
-    beforeEach(() => {
-        ctrl = new HeaderController();
-    });
+  beforeEach(() => {
+    ctrl = new HeaderController();
+  });
 
-    it('should be initialized', () => {
-        expect(ctrl).to.exist;
-    });
+  it('should be initialized', () => {
+    expect(ctrl).to.exist;
+  });
 });

@@ -1,5 +1,5 @@
 export default class ReportingAbstractController {
-    constructor() {
-        this.notEmpty = null;
-    }
+  constructor() {
+    this.notEmpty = null;
+  }
 }

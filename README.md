@@ -1,4 +1,4 @@
-[![Build Status](http://tfs:8080/tfs/MayoClinic/_apis/public/build/definitions/bdf4d5db-f911-44d8-8e1f-af0cae720b80/536/badge)](http://tfs/tfs/MayoClinic/Mayo%20Open%20Developer%20Network_Git/_git/mc-web-blueprint?path=%2F&version=GBmaster&_a=contents)
+[![Build Status](http://tfs:8080/tfs/MayoClinic/_apis/public/build/definitions/2f49d3e6-4c50-4efe-9a92-a45130cc4a0a/545/badge)](http://tfs/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-web-basecamp?path=%2F&version=GBdevelop&_a=contents)
 
 #Get Started
 ###Notable Technologies
@@ -66,6 +66,15 @@ Dependent on HTTP Server
 |  npm run api-tests  |  Execute the api tests  |
 
 
+###Syntax and Style ([ESLint](http://eslint.org/) and [SCSSLint](https://github.com/brigade/scss-lint))
+Ensure code written within the application conforms to a common style and syntax.  Any errors print to the console.
+
+|  Command  |  Description  |
+|  ---  |  ---  |
+|  npm run build eslint  |  Check for style and syntax issues in the app's JavaScript files |
+|  npm run build sass-lint  |  Check for style and syntax issues in the apps's Sass files  |
+|  npm run build qa  |  Run both eslint and sass-lint  |
+
 ###Directory Structure
 ```
 .
@@ -82,7 +91,7 @@ assets
 |   |   inline-svg
 |   |   svg-bundle
 |   
-|   scss
+|   sass
 |   |   app.scss
 |   |   _base.scss
 |   |   _normalize.scss
@@ -97,7 +106,6 @@ _test-configs
 .babelrc
 .eslintignore
 .eslint.json
-.jscsrc
 .npmrc
 .scsslint.yml
 .jsdoc.json
@@ -105,6 +113,7 @@ package.json
 README.md
 TODO.md
 ```
+
 
 ###File Naming Convention
 File names should use kebab case for the base name (with dot notation to indicate a semantic type if applicable), e.g., "my-super-awesome-test-suite.spec.js".

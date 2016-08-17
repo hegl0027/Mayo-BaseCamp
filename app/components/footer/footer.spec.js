@@ -5,11 +5,11 @@ let ctrl;
 
 describe('footer controller', () => {
 
-    beforeEach(() => {
-        ctrl = new FooterController();
-    });
+  beforeEach(() => {
+    ctrl = new FooterController();
+  });
 
-    it('should be initialized', () => {
-        expect(ctrl).to.exist;
-    });
+  it('should be initialized', () => {
+    expect(ctrl).to.exist;
+  });
 });

@@ -3,6 +3,7 @@ const DEST_DIR = 'dist';
 const DOCS_DIR = 'docs';
 const REPORTS_DIR = 'reports';
 const ASSETS_DIR = 'assets';
+const TEST_CONFIGS_DIR = 'test-configs';
 const COMPONENTS_DIR = `${APP_DIR}/components`;
 const APP_SPEC_SRC = `${APP_DIR}/**/*.spec.js`;
 const E2E_SPEC_SRC = 'e2e-tests/**/*.spec.js';
@@ -39,6 +40,12 @@ const ALL_JS = [
     `${E2E_SPEC_SRC}`
 ];
 
+const TODO_SRC = [
+    `${ALL_JS}`,
+    `${TEST_CONFIGS_DIR}/**/*.js`,
+    `./*.js`
+];
+
 const SIZE_SRC = [
     `${DEST_DIR}/**/*`,
     `!${DEST_DIR}/images/favicon/**/*`, // ignore favicons
@@ -71,7 +78,8 @@ export default {
         allJs: ALL_JS,
         entry: ENTRY,
         sassIgnoreReset: SASS_IGNORE_RESET,
-        appJs: APP_JS
+        appJs: APP_JS,
+        todo: TODO_SRC
     },
     dest: {
         dir: DEST_DIR,

@@ -1,3 +1,17 @@
 {
-  "plugins": ["plugins/markdown"]
+  "plugins": ["plugins/markdown"],
+  "markdown": {
+    "parser": "gfm",
+    "hardwrap": true
+  },
+  "opts": {
+    "template": "templates/default",
+    "encoding": "utf8",
+    "destination": "docs/jsdoc",
+    "recurse": true,
+    "readme": "README.md"
+  },
+  "source": {
+    "include": ["app", "package.json", "README.md"]
+  }
 }

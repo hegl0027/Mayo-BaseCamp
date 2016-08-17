@@ -1,5 +1,5 @@
 export default class TwoController {
-    constructor() {
-        this.notEmpty = null;
-    }
+  constructor() {
+    this.notEmpty = null;
+  }
 }
