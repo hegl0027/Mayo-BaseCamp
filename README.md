@@ -97,7 +97,6 @@ _test-configs
 .babelrc
 .eslintignore
 .eslint.json
-.jscsrc
 .npmrc
 .scsslint.yml
 .jsdoc.json
