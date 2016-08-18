@@ -13,6 +13,7 @@ import files from './files';
 import packagejson from './package.json';
 import stream from 'stream';
 import moment from 'moment';
+import ConsoleTimer from './helpers/console-timer';
 const plugins = loadPlugins();
 
 
@@ -22,30 +23,9 @@ const plugins = loadPlugins();
  * @returns {string}
  */
 function getTimestamp() {
-  const now = moment();
-  return '[' + now.hours() + ':' + now.minutes() + ':' + now.seconds() + '] ';
+  return moment().format('hh:mm:ss');
 }
 
-class ConsoleTimer {
-  constructor (taskName) {
-    if (!taskName)
-      throw new Error('ConsoleTimer requires a task name');
-
-    this.taskName = taskName;
-  }
-
-  start() {
-    this.startTime = moment();
-    console.log(getTimestamp() + 'Starting ' + this.taskName);
-    return this;
-  }
-
-  end() {
-    this.endTime = moment();
-    let diff = this.endTime.diff(this.startTime);
-    console.log(getTimestamp() + 'Finished ' + this.taskName + ' after ' + diff + ' ms');
-  }
-}
 
 /**
  * Return the string representation of the file contents.  Used by gulp-inject#options.transform
