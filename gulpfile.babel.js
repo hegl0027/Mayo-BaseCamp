@@ -12,19 +12,19 @@ import watchify from 'watchify';
 import files from './files';
 import packagejson from './package.json';
 import stream from 'stream';
-import moment from 'moment';
-import ConsoleTimer from './util/console-timer';
+
+import gutil from 'gulp-util';
+import _ from 'lodash';
+
+import browserSync from 'browser-sync';
+const browserSyncServer = browserSync.create();
+
 const plugins = loadPlugins();
 
-
-/**
- * Get the current [hrs:min:sec] timestamp used in the console
- *
- * @returns {string}
- */
-function getTimestamp() {
-  return moment().format('hh:mm:ss');
-}
+const logs = {
+  info: _.flowRight([gutil.colors.cyan, _.toUpper]),
+  success: _.flowRight([gutil.colors.green, _.toUpper])
+};
 
 
 /**
@@ -58,6 +58,47 @@ function stringSrc(filename, string) {
   return src;
 }
 
+function browserifyBundle(browserifyConfig, destFname, destDir, watch, prebundleFn) {
+  let bundler;
+
+  function rebundle() {
+    gutil.log(
+      logs.info(` ------  Bundling ${destFname} ------`)
+    );
+
+    const rebundle_s = bundler.bundle()
+      .on('error', plugins.util.log)
+      .pipe(source(destFname))
+      .pipe(buffer())
+      .pipe(plugins.sourcemaps.init({loadMaps: true}))
+      .pipe(plugins.uglify({mangle: false}))
+      .pipe(plugins.rename({extname: '.min.js'}))
+      .pipe(plugins.sourcemaps.write('./'))
+      .pipe(gulp.dest(destDir));
+
+    rebundle_s
+      .on('end', function() {
+        gutil.log(
+          logs.success(` ------  ${destFname} Bundled   ------`)
+        );
+      });
+    return rebundle_s;
+  }
+
+  bundler = browserify(browserifyConfig);
+  if (prebundleFn) {
+    prebundleFn(bundler);
+  }
+  bundler.transform(babel);
+
+  if (watch) {
+    bundler = watchify(bundler);
+    bundler.on('update', rebundle);
+  }
+
+  return rebundle(bundler);
+}
+
 /**
  * Browserify config/compile function
  *
@@ -65,34 +106,16 @@ function stringSrc(filename, string) {
  * @returns {*}
  */
 function compile(watch) {
-  const bundler = browserify(files.src.entry, {debug: false}).transform(babel);
 
-  function rebundle() {
-    return bundler.bundle()
-      .on('error', plugins.util.log)
-      .pipe(source('app.bundle.js'))
-      .pipe(buffer())
-      .pipe(plugins.sourcemaps.init({loadMaps: true}))
-      .pipe(gulp.dest(files.dest.js))
-      .pipe(plugins.uglify({mangle: false}))
-      .pipe(plugins.rename({extname: '.min.js'}))
-      .pipe(plugins.sourcemaps.write('./'))
-      .pipe(gulp.dest(files.dest.js));
-  }
+  let config = {
+    entries: [files.src.entry],
+    cache: {},
+    packageCache: {},
+    debug: false
+  };
 
-  if (watch) {
-    watchify(bundler.on('update', () => {
-      let timer = new ConsoleTimer('bundle').start();
-      rebundle().on('end', () => {
-        timer.end();
-      });
-
-    }));
-  }
-
-  return rebundle();
+  return browserifyBundle(config, 'app.bundle.js', files.dest.js, watch, b => b);
 }
-
 
 /**
  * ASSETS
@@ -175,12 +198,11 @@ gulp.task('inject-version', () => {
     .pipe(gulp.dest(`${files.src.dir}/components/nav/`));
 });
 
-
 /**
  * JS
  */
 
-gulp.task('js', () => {
+gulp.task('js', [], () => {
   return compile();
 });
 
@@ -259,7 +281,7 @@ gulp.task('clean-docs', () => {
 /**
  *  WATCHES
  */
-gulp.task('watch', () => {
+gulp.task('watch', ['html', 'template-cache', 'assets', 'sass-lint', 'styles'], () => {
   var jsWatch = gulp.watch(files.src.appJs);
   var htmlWatch = gulp.watch(files.src.html);
   var scssWatch = gulp.watch(files.src.sass);
@@ -268,16 +290,19 @@ gulp.task('watch', () => {
 
   jsWatch.on('change', function (event) {
     runSequence('docs', () => {
+      gutil.log(logs.success(' ------  JS WATCH FINISHED ------'));
     });
   });
 
   htmlWatch.on('change', event => {
     runSequence('html', 'template-cache', 'inline-svg', () => {
+      gutil.log(logs.success(' ------  HTML WATCH FINISHED ------'));
     });
   });
 
   scssWatch.on('change', event => {
     runSequence('sass-lint', 'styles', () => {
+      gutil.log(logs.success(' ------  STYLES WATCH FINISHED ------'));
     });
   });
 });
@@ -299,6 +324,14 @@ gulp.task('docs', cb => {
 gulp.task('sample', () => {
   return gulp.src('app/shared/api/sample.json')
     .pipe(gulp.dest(`${files.dest.dir}/sample`));
+});
+
+gulp.task('serve', ['watch'], () => {
+  browserSyncServer.init({
+    serveStatic: ['./dist'],
+    files: ['./dist/'],
+    port: 9000
+  });
 });
 
 
