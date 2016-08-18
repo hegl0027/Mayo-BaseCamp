@@ -13,7 +13,7 @@ import files from './files';
 import packagejson from './package.json';
 import stream from 'stream';
 import moment from 'moment';
-import ConsoleTimer from './helpers/console-timer';
+import ConsoleTimer from './util/console-timer';
 const plugins = loadPlugins();
 
 
