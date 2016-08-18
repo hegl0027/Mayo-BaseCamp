@@ -12,6 +12,8 @@ import watchify from 'watchify';
 import files from './files';
 import packagejson from './package.json';
 import stream from 'stream';
+import moment from 'moment';
+import ConsoleTimer from './helpers/console-timer';
 const plugins = loadPlugins();
 
 
@@ -21,9 +23,9 @@ const plugins = loadPlugins();
  * @returns {string}
  */
 function getTimestamp() {
-  const date = new Date();
-  return '[' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + ']  ';
+  return moment().format('hh:mm:ss');
 }
+
 
 /**
  * Return the string representation of the file contents.  Used by gulp-inject#options.transform
@@ -79,9 +81,12 @@ function compile(watch) {
   }
 
   if (watch) {
-    watchify(bundler.on('update', function () {
-      console.log(getTimestamp() + ' ------  REBUNDLE FINISHED ------');
-      rebundle();
+    watchify(bundler.on('update', () => {
+      let timer = new ConsoleTimer('bundle').start();
+      rebundle().on('end', () => {
+        timer.end();
+      });
+
     }));
   }
 
