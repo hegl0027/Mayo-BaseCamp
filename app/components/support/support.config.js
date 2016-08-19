@@ -11,7 +11,7 @@ var stateConfig = ($stateProvider) => {
       data: {
         title: 'Support'
       },
-      templateProvider: ($templateCache) => $templateCache.get('support/support.html')
+      templateProvider: (templates) => templates.get('support/support.html')
     });
 };
 

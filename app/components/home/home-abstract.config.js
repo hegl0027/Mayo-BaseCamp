@@ -17,7 +17,7 @@ var stateConfig = ($stateProvider) => {
       data: {
         title: 'Home'
       },
-      templateProvider: ($templateCache) => $templateCache.get('home/home-abstract.html')
+      templateProvider: (templates) => templates.get('home/home-abstract.html')
     });
 };
 

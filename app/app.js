@@ -27,17 +27,17 @@ var stateConfig = ($stateProvider, $urlRouterProvider) => {
           controllerAs: 'base'
         },
         'header@app': {
-          templateProvider: ($templateCache) => $templateCache.get('header/header.html'),
+          templateProvider: (templates) => templates.get('header/header.html'),
           controller: HeaderController,
           controllerAs: 'header'
         },
         'footer@app': {
-          templateProvider: ($templateCache) => $templateCache.get('footer/footer.html'),
+          templateProvider: (templates) => templates.get('footer/footer.html'),
           controller: FooterController,
           controllerAs: 'footer'
         },
         'nav@app': {
-          templateProvider: ($templateCache) => $templateCache.get('nav/nav.html'),
+          templateProvider: (templates) => templates.get('nav/nav.html'),
           controller: NavController,
           controllerAs: 'nav'
         }

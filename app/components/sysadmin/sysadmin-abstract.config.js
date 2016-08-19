@@ -15,7 +15,7 @@ var stateConfig = ($stateProvider) => {
       data: {
         title: 'Admin'
       },
-      templateProvider: ($templateCache) => $templateCache.get('sysadmin/sysadmin-abstract.html')
+      templateProvider: (templates) => templates.get('sysadmin/sysadmin-abstract.html')
     });
 
 };

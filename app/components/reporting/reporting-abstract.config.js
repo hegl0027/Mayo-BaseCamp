@@ -17,7 +17,7 @@ var stateConfig = ($stateProvider) => {
       data: {
         title: 'Reporting'
       },
-      templateProvider: ($templateCache) => $templateCache.get('reporting/reporting-abstract.html')
+      templateProvider: (templates) => templates.get('reporting/reporting-abstract.html')
     });
 };
 
