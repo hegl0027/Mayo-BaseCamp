@@ -6,7 +6,7 @@
  * @return {{get: (function(*=))}} - Object literal with get function that wraps $templateCache.get(..)
  * @constructor
  */
-export default function GetTemplate($templateCache, $log) {
+export default function getTemplate($templateCache, $log) {
   return {
 
     /**
@@ -16,11 +16,26 @@ export default function GetTemplate($templateCache, $log) {
      * @return {*} - html of the template
      */
     get: (templateCachePath) => {
+      if (!templateCachePath) {
+        throw new Error('templateCachePath must be a string');
+      }
+
       let template = $templateCache.get(templateCachePath);
+
       if (!template) {
-        $log.error("Unable to find " + templateCachePath + " in the template cache.");
+        throw new ReferenceError("Unable to find " + templateCachePath + " in the template cache.");
       }
       return template;
+    },
+
+    /**
+     * Put function wrapping the $templateCache.put(..) just for completeness
+     *
+     * @param  {String} templateCachePath - $templateCache key
+     * @param {String} content - $templateCache value
+     */
+    put: (templateCachePath, content) => {
+      $templateCache.put(templateCachePath, content);
     }
   };
 }

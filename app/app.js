@@ -22,7 +22,7 @@ var stateConfig = ($stateProvider, $urlRouterProvider) => {
       url: '/app',
       views: {
         '@': {
-          templateProvider: (getTemplate) => getTemplate.get('sbase/base.html'),
+          templateProvider: (templates) => templates.get('base/base.html'),
           controller: BaseController,
           controllerAs: 'base'
         },
@@ -66,7 +66,7 @@ var loadingBarConfig = (cfpLoadingBarProvider) => {
  *
  * @description
  *
- * The 'app' is an angular module which bootstraps the basecamp project.
+ * The 'app' is an angular module that bootstraps the basecamp project.
  */
 export default angular.module('app', [
   uirouter,
