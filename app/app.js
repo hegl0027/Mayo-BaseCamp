@@ -22,7 +22,7 @@ var stateConfig = ($stateProvider, $urlRouterProvider) => {
       url: '/app',
       views: {
         '@': {
-          templateProvider: ($templateCache) => $templateCache.get('base/base.html'),
+          templateProvider: (getTemplate) => getTemplate.get('sbase/base.html'),
           controller: BaseController,
           controllerAs: 'base'
         },
