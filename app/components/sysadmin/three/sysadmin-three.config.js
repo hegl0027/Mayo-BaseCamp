@@ -1,4 +1,3 @@
-import angular from 'angular';
 import AdminThreeController from './sysadmin-three.controller';
 
 var stateConfig = ($stateProvider) => {
@@ -12,5 +11,4 @@ var stateConfig = ($stateProvider) => {
     });
 };
 
-export default angular.module('app.admin.three', [])
-  .config(['$stateProvider', stateConfig]);
+export default stateConfig;

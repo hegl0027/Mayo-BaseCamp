@@ -1,4 +1,3 @@
-import angular from 'angular';
 import AdminOneController from './sysadmin-one.controller';
 
 var stateConfig = ($stateProvider) => {
@@ -12,6 +11,5 @@ var stateConfig = ($stateProvider) => {
     });
 };
 
-export default angular.module('app.admin.one', [])
-  .config(['$stateProvider', stateConfig]);
+export default stateConfig;
 

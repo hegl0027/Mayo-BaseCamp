@@ -1,4 +1,3 @@
-import angular from 'angular';
 import HomeTwoController from './home-two.controller';
 
 var stateConfig = ($stateProvider) => {
@@ -12,5 +11,4 @@ var stateConfig = ($stateProvider) => {
     });
 };
 
-export default angular.module('app.home.two', [])
-  .config(['$stateProvider', stateConfig]);
+export default stateConfig;

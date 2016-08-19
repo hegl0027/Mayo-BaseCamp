@@ -1,4 +1,3 @@
-import angular from 'angular';
 import ReportingThreeController from './reporting-three.controller';
 
 var stateConfig = ($stateProvider) => {
@@ -12,5 +11,4 @@ var stateConfig = ($stateProvider) => {
     });
 };
 
-export default angular.module('app.reporting.three', [])
-  .config(['$stateProvider', stateConfig]);
+export default stateConfig;

@@ -21,11 +21,10 @@ var stateConfig = ($stateProvider) => {
     });
 };
 
-export default angular.module('app.home', [
-  homeOne.name,
-  homeTwo.name,
-  homeThree.name,
-  homeFour.name,
-  homeFive.name
-])
-  .config(['$stateProvider', stateConfig]);
+export default angular.module('app.home', [])
+  .config(['$stateProvider', stateConfig])
+  .config(['$stateProvider', homeOne])
+  .config(['$stateProvider', homeTwo])
+  .config(['$stateProvider', homeThree])
+  .config(['$stateProvider', homeFour])
+  .config(['$stateProvider', homeFive]);

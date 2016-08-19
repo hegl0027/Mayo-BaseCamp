@@ -1,4 +1,3 @@
-import angular from 'angular';
 import HomeThreeController from './home-three.controller';
 
 var stateConfig = ($stateProvider) => {
@@ -12,5 +11,4 @@ var stateConfig = ($stateProvider) => {
     });
 };
 
-export default angular.module('app.home.three', [])
-  .config(['$stateProvider', stateConfig]);
+export default stateConfig;

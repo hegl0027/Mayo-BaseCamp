@@ -1,4 +1,3 @@
-import angular from 'angular';
 import ctrl from './home-five.controller';
 
 var stateConfig = ($stateProvider) => {
@@ -12,5 +11,4 @@ var stateConfig = ($stateProvider) => {
     });
 };
 
-export default angular.module('app.home.five', [])
-  .config(['$stateProvider', stateConfig]);
+export default stateConfig;
