@@ -16,14 +16,14 @@ export default function getTemplate($templateCache, $log) {
      * @return {*} - html of the template
      */
     get: (templateCachePath) => {
-      if (!templateCachePath) {
+      if (!templateCachePath || typeof templateCachePath !== 'string') {
         throw new Error('templateCachePath must be a string');
       }
 
       let template = $templateCache.get(templateCachePath);
 
       if (!template) {
-        throw new ReferenceError("Unable to find " + templateCachePath + " in the template cache.");
+        throw new Error("Unable to find " + templateCachePath + " in the template cache.");
       }
       return template;
     },

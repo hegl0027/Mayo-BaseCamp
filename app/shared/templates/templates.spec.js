@@ -16,12 +16,18 @@ describe('Templates service', () => {
   });
 
   it('should throw error if no template is provided', () => {
-    expect(templates.get).to.throw(Error);
+    expect(templates.get)
+      .to.throw(Error, /templateCachePath must be a string/);
+  });
+
+  it('should throw error template provided is not a string', () => {
+    expect(() => {templates.get(1);})
+      .to.throw(Error, /templateCachePath must be a string/);
   });
 
   it('should throw error if the template does not exist', () => {
     expect(() => {templates.get('notfound.html');})
-      .to.throw(ReferenceError, /Unable to find notfound.html in the template cache/);
+      .to.throw(Error, /Unable to find notfound.html in the template cache/);
   });
 
   it('should store template', () => {
