@@ -21,13 +21,6 @@
     "angular/controller-as-route": 2,
     "angular/on-watch": 2,
     "angular/module-setter": 2,
-    "jsdoc/check-param-names": 1,
-    "jsdoc/check-types": 1,
-    "jsdoc/newline-after-description": 1,
-    "jsdoc/require-hyphen-before-param-description": 1,
-    "jsdoc/require-param": 1,
-    "jsdoc/require-param-description": 1,
-    "jsdoc/require-returns-type": 1,
 
     "indent": [2, 2, {
       "SwitchCase": 1
