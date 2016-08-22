@@ -7,7 +7,7 @@ var stateConfig = ($stateProvider) => {
       url: '/one',
       controller: HomeOneController,
       controllerAs: 'homeOne',
-      templateProvider: ($templateCache) => $templateCache.get('home/one/home-one.html')
+      templateProvider: (templateCache) => templateCache.get('home/one/home-one.html')
     });
 };
 
