@@ -7,7 +7,7 @@ var stateConfig = ($stateProvider) => {
       url: '/one',
       controller: AdminOneController,
       controllerAs: 'adminOne',
-      templateProvider: (templates) => templates.get('sysadmin/one/sysadmin-one.html')
+      templateProvider: (templateCache) => templateCache.get('sysadmin/one/sysadmin-one.html')
     });
 };
 

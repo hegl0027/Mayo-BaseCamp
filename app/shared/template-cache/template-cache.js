@@ -6,7 +6,7 @@
  * @return {{get: (function(*=))}} - Object literal with get function that wraps $templateCache.get(..)
  * @constructor
  */
-export default function Templates($templateCache) {
+export default function TemplateCache($templateCache) {
   return {
 
     /**

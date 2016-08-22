@@ -7,7 +7,7 @@ var stateConfig = ($stateProvider) => {
       url: '/five',
       controller: ctrl,
       controllerAs: 'homeFive',
-      templateProvider: (templates) => templates.get('home/five/home-five.html')
+      templateProvider: (templateCache) => templateCache.get('home/five/home-five.html')
     });
 };
 

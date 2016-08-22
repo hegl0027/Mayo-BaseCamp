@@ -7,7 +7,7 @@ var stateConfig = ($stateProvider) => {
       url: '/one',
       controller: ReportingOneController,
       controllerAs: 'reportingOne',
-      templateProvider: (templates) => templates.get('reporting/one/reporting-one.html')
+      templateProvider: (templateCache) => templateCache.get('reporting/one/reporting-one.html')
     });
 };
 

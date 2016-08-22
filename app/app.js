@@ -11,7 +11,6 @@ import FooterController from './components/footer/footer.controller';
 import NavController from './components/nav/nav.controller';
 import components from './components/components';
 import shared from './shared/shared';
-import templates from './components/templates';
 
 var stateConfig = ($stateProvider, $urlRouterProvider) => {
   $urlRouterProvider.otherwise('/app/home/one');
@@ -22,22 +21,22 @@ var stateConfig = ($stateProvider, $urlRouterProvider) => {
       url: '/app',
       views: {
         '@': {
-          templateProvider: (templates) => templates.get('base/base.html'),
+          templateProvider: (templateCache) => templateCache.get('base/base.html'),
           controller: BaseController,
           controllerAs: 'base'
         },
         'header@app': {
-          templateProvider: (templates) => templates.get('header/header.html'),
+          templateProvider: (templateCache) => templateCache.get('header/header.html'),
           controller: HeaderController,
           controllerAs: 'header'
         },
         'footer@app': {
-          templateProvider: (templates) => templates.get('footer/footer.html'),
+          templateProvider: (templateCache) => templateCache.get('footer/footer.html'),
           controller: FooterController,
           controllerAs: 'footer'
         },
         'nav@app': {
-          templateProvider: (templates) => templates.get('nav/nav.html'),
+          templateProvider: (templateCache) => templateCache.get('nav/nav.html'),
           controller: NavController,
           controllerAs: 'nav'
         }
@@ -62,7 +61,6 @@ var loadingBarConfig = (cfpLoadingBarProvider) => {
  * @requires ngAnimate
  * @requires shared
  * @requires components
- * @requires templates
  *
  * @description
  *
@@ -76,8 +74,7 @@ export default angular.module('app', [
   loadingbar,
   animate,
   components.name,
-  shared.name,
-  templates.name
+  shared.name
 ])
   .config(['$stateProvider', '$urlRouterProvider', stateConfig])
   .config(['cfpLoadingBarProvider', loadingBarConfig]);
