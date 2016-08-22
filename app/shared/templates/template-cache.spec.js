@@ -5,10 +5,10 @@ let templates;
 
 describe('Templates service', () => {
 
-  beforeEach(angular.mock.module('app.shared.templates'));
+  beforeEach(angular.mock.module('template-cache'));
 
-  beforeEach(angular.mock.inject((_templates_) => {
-    templates = _templates_;
+  beforeEach(angular.mock.inject((_templateCache_) => {
+    templates = _templateCache_;
   }));
 
   it('should be initialized', () => {
