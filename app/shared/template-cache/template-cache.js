@@ -23,7 +23,7 @@ export default function TemplateCache($templateCache) {
       let template = $templateCache.get(templateCachePath);
 
       if (!template) {
-        throw new Error("Unable to find " + templateCachePath + " in the template cache.");
+        throw new Error("Unable to find html template: " + templateCachePath);
       }
       return template;
     },

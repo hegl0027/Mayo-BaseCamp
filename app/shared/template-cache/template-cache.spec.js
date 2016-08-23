@@ -5,7 +5,7 @@ let templateCache;
 
 describe('Template cache service', () => {
 
-  beforeEach(angular.mock.module('template-cache'));
+  beforeEach(angular.mock.module('templateCache'));
 
   beforeEach(angular.mock.inject((_templateCache_) => {
     templateCache = _templateCache_;
@@ -27,7 +27,7 @@ describe('Template cache service', () => {
 
   it('should throw error if the template does not exist', () => {
     expect(() => {templateCache.get('notfound.html');})
-      .to.throw(Error, /Unable to find notfound.html in the template cache/);
+      .to.throw(Error, /Unable to find html template: notfound.html/);
   });
 
   it('should store template', () => {
