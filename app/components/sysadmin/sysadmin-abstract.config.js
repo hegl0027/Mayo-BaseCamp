@@ -15,14 +15,13 @@ var stateConfig = ($stateProvider) => {
       data: {
         title: 'Admin'
       },
-      templateProvider: ($templateCache) => $templateCache.get('sysadmin/sysadmin-abstract.html')
+      templateProvider: (templateCache) => templateCache.get('sysadmin/sysadmin-abstract.html')
     });
 
 };
 
-export default angular.module('app.admin', [
-  adminOne.name,
-  adminTwo.name,
-  adminThree.name
-])
-  .config(['$stateProvider', stateConfig]);
+export default angular.module('app.admin', [])
+  .config(['$stateProvider', stateConfig])
+  .config(['$stateProvider', adminOne])
+  .config(['$stateProvider', adminTwo])
+  .config(['$stateProvider', adminThree]);

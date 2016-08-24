@@ -1,4 +1,3 @@
-import angular from 'angular';
 import HomeFourController from './home-four.controller';
 
 var stateConfig = ($stateProvider) => {
@@ -8,9 +7,8 @@ var stateConfig = ($stateProvider) => {
       url: '/four',
       controller: HomeFourController,
       controllerAs: 'homeFour',
-      templateProvider: ($templateCache) => $templateCache.get('home/four/home-four.html')
+      templateProvider: (templateCache) => templateCache.get('home/four/home-four.html')
     });
 };
 
-export default angular.module('app.home.four', [])
-  .config(['$stateProvider', stateConfig]);
+export default stateConfig;

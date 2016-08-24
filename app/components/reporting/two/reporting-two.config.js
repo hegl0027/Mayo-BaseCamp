@@ -1,4 +1,3 @@
-import angular from 'angular';
 import ReportingTwoController from './reporting-two.controller';
 
 var stateConfig = ($stateProvider) => {
@@ -8,9 +7,8 @@ var stateConfig = ($stateProvider) => {
       url: '/two',
       controller: ReportingTwoController,
       controllerAs: 'reportingTwo',
-      templateProvider: ($templateCache) => $templateCache.get('reporting/two/reporting-two.html')
+      templateProvider: (templateCache) => templateCache.get('reporting/two/reporting-two.html')
     });
 };
 
-export default angular.module('app.reporting.two', [])
-  .config(['$stateProvider', stateConfig]);
+export default stateConfig;

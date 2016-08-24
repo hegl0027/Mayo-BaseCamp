@@ -17,13 +17,12 @@ var stateConfig = ($stateProvider) => {
       data: {
         title: 'Reporting'
       },
-      templateProvider: ($templateCache) => $templateCache.get('reporting/reporting-abstract.html')
+      templateProvider: (templateCache) => templateCache.get('reporting/reporting-abstract.html')
     });
 };
 
-export default angular.module('app.reporting', [
-  reportingOne.name,
-  reportingTwo.name,
-  reportingThree.name
-])
-  .config(['$stateProvider', stateConfig]);
+export default angular.module('app.reporting', [])
+  .config(['$stateProvider', stateConfig])
+  .config(['$stateProvider', reportingOne])
+  .config(['$stateProvider', reportingTwo])
+  .config(['$stateProvider', reportingThree]);

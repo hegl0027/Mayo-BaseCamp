@@ -1,91 +1,100 @@
 var _ = require('lodash');
 
 module.exports = function (config) {
-    config.set({
+  config.set({
 
-        autoWatch: true,
+    autoWatch: true,
 
-        basePath: './',
+    basePath: './',
 
-        files: [
-            '../app/**/*.spec.js',
-            {
-                pattern: '../app/**/*!(.spec).js',
-                included: false
-            }
-        ],
+    files: [
+      '../app/**/*.spec.js',
+      {
+        pattern: '../app/**/*!(.spec).js',
+        included: false
+      }
+    ],
 
-        preprocessors: {
-            '../app/**/*.js': ['eslint', 'browserify', 'coverage']
-        },
+    preprocessors: {
+      '../app/**/*.js': ['eslint', 'browserify', 'coverage']
+    },
 
-        customLaunchers: {
-            ChromeNoSandbox: {
-                base: 'Chrome',
-                flags: ['--no-sandbox']
-            }
-        },
+    customLaunchers: {
+      ChromeNoSandbox: {
+        base: 'Chrome',
+        flags: ['--no-sandbox']
+      }
+    },
 
-        // level of logging
-        // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-        logLevel: config.LOG_INFO,
+    // level of logging
+    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+    logLevel: config.LOG_INFO,
 
-        frameworks: ['jasmine', 'detectBrowsers', 'browserify'],
+    frameworks: ['jasmine', 'detectBrowsers', 'browserify'],
 
-        detectBrowsers: {
-            // enable/disable, default is true
-            enabled: true,
+    detectBrowsers: {
+      // enable/disable, default is true
+      enabled: true,
 
-            // enable/disable phantomjs support, default is true
-            usePhantomJS: true,
+      // enable/disable phantomjs support, default is true
+      usePhantomJS: true,
 
-            // here you can edit the list of browsers used by karma
-            postDetection: function (availableBrowsersArr) {
-                /*
-                    fix for chrome v52 issue
-                    https://github.com/karma-runner/karma-chrome-launcher/issues/73#issuecomment-236597429
-                    todo: retest with newer versions of chrome
-                 */
-                if (availableBrowsersArr.indexOf('Chrome') >= 0) {
-                    availableBrowsersArr.push('ChromeNoSandbox');
-                    _.pull(availableBrowsersArr, 'Chrome');
-                }
-
-                return availableBrowsersArr;
-            }
-        },
-
-        browserify: {
-            debug: true,
-            transform: [
-                require('browserify-istanbul')({
-                    instrumenter: require('isparta'),
-                    ignore: ['**/*.spec.js']
-                }),
-                'babelify']
-        },
-
-        reporters: ['progress', 'junit', 'coverage'],
-
-        coverageReporter: {
-            reporters: [
-                { type: 'html' },
-                { type: 'text-summary' },
-                { type: 'cobertura', subdir: '.', file: 'cobertura.txt'}
-            ],
-            dir: '../reports/coverage/',
-            sourceStore: require("isparta").Store.create("fslookup")
-        },
-
-        junitReporter: {
-            outputDir: '../reports/karma',
-            outputFile: 'unit.xml',
-            suite: 'unit',
-            useBrowserName: true
-        },
-
-        eslint: {
-            stopOnError: false
+      // here you can edit the list of browsers used by karma
+      postDetection: function (availableBrowsersArr) {
+        /*
+         fix for chrome v52 issue
+         https://github.com/karma-runner/karma-chrome-launcher/issues/73#issuecomment-236597429
+         todo: retest with newer versions of chrome
+         */
+        if (availableBrowsersArr.indexOf('Chrome') >= 0) {
+          availableBrowsersArr.push('ChromeNoSandbox');
+          _.pull(availableBrowsersArr, 'Chrome');
         }
-    });
+
+        return availableBrowsersArr;
+      }
+    },
+
+    browserify: {
+      debug: true,
+      transform: [
+        require('browserify-istanbul')({
+          instrumenter: require('isparta'),
+          ignore: ['**/*.spec.js']
+        }),
+        'babelify']
+    },
+
+    reporters: ['spec', 'junit', 'coverage'],
+
+    coverageReporter: {
+      reporters: [
+        {type: 'html'},
+        {type: 'text-summary'},
+        {type: 'cobertura', subdir: '.', file: 'cobertura.txt'}
+      ],
+      dir: '../reports/coverage/',
+      sourceStore: require("isparta").Store.create("fslookup")
+    },
+
+    junitReporter: {
+      outputDir: '../reports/karma',
+      outputFile: 'unit.xml',
+      suite: 'unit',
+      useBrowserName: true
+    },
+
+    specReporter: {
+      maxLogLines: 5,
+      suppressErrorSummary: false,
+      suppressFailed: false,
+      suppressPassed: false,
+      suppressSkipped: true,
+      showSpecTiming: false
+    },
+
+    eslint: {
+      stopOnError: false
+    }
+  });
 };

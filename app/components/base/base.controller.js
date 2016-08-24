@@ -1,15 +1,9 @@
 import moment from 'moment';
-import jQuery from 'jquery';
 
 export default class BaseController {
   constructor($interval, $state, $log, apiService) {
     var now = moment();
-    this.myState = $state;
     this.lastSaved = now.fromNow();
-
-    /* start - inject package.json version */
-    this.appVersion = 'v0.1.0';
-    /* end - inject package.json version */
 
     apiService.User.get({id: 1}).$promise.then(user => {
       $log.log('MOCKED GET:');
@@ -35,11 +29,6 @@ export default class BaseController {
     apiService.User.query(this.user).$promise.then(res => {
       $log.log('MOCKED QUERY:');
       $log.log(res);
-    });
-
-    jQuery(document).on('click', '.nav', () => {
-      jQuery(this).siblings('.selected').removeClass('selected');
-      jQuery(this).addClass('selected');
     });
 
     this.doesStateInclude = (stateName) => $state.includes(stateName);
