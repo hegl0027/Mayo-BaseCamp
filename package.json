@@ -111,7 +111,7 @@
     "preprotractor-ci": "webdriver-manager update",
     "protractor-ci": "protractor test-configs/protractor.ci.conf.js"
   },
-  "files": "./",
+  "files": ["./"],
   "dependencies": {
     "angular": "^1.5.5",
     "angular-animate": "^1.5.5",
