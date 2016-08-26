@@ -19,6 +19,10 @@
     box-shadow: $hover-shadow;
     color: #fff;
   }
+
+  &:enabled:active {
+    box-shadow: $active-shadow;
+  }
 }
 
 .a-btn {

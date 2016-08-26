@@ -61,16 +61,24 @@ ul {
   flex-direction: column;
   height: calc(100vh - 70px - 32px);
 
-  &__wrapper {
-    flex-grow: 1;
-    overflow-y: auto;
-    padding: 1.5em;
+  > [ui-view],
+  ui-view {
+    @extend %partial--padding !optional;
   }
 }
 
 .content {
   flex-grow: 1;
   overflow: hidden;
+
+  > [ui-view],
+  ui-view {
+    @extend %partial--padding !optional;
+  }
+
+  .no-nav {
+    @extend %partial--padding !optional;
+  }
 
   &__wrapper {
     display: flex;
@@ -89,26 +97,4 @@ ul {
     font-size: 50px;
     padding: 10px;
   }
-}
-
-[ui-view].ng-enter,
-[ui-view].ng-leave {
-  position: absolute;
-  transition: all 0s ease-in-out;
-}
-
-[ui-view].ng-enter {
-  opacity: 0;
-}
-
-[ui-view].ng-enter-active {
-  opacity: 1;
-}
-
-[ui-view].ng-leave {
-  opacity: 1;
-}
-
-[ui-view].ng-leave-active {
-  opacity: 0;
 }

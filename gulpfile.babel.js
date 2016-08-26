@@ -268,19 +268,16 @@ gulp.task('watch', () => {
 
   jsWatch.on('change', function (event) {
     runSequence('docs', () => {
-      console.log(getTimestamp() + ' ------  JS WATCH FINISHED ------');
     });
   });
 
   htmlWatch.on('change', event => {
     runSequence('html', 'template-cache', 'inline-svg', () => {
-      console.log(getTimestamp() + ' ------  HTML WATCH FINISHED ------');
     });
   });
 
   scssWatch.on('change', event => {
     runSequence('sass-lint', 'styles', () => {
-      console.log(getTimestamp() + ' ------  STYLES WATCH FINISHED ------');
     });
   });
 });

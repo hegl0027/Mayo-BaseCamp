@@ -9,5 +9,5 @@
 }
 
 .visually-hidden {
-  @extend %visuallyhidden;
+  @extend %visuallyhidden !optional;
 }
