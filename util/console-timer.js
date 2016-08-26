@@ -1,4 +1,5 @@
 import moment from 'moment';
+import util from 'gulp-util';
 
 export default class ConsoleTimer {
   constructor (taskName) {
@@ -10,13 +11,13 @@ export default class ConsoleTimer {
 
   start() {
     this.startTime = moment();
-    console.log(this.startTime.format('hh:mm:ss') + ' Starting ' + this.taskName);
+    util.log('Starting', util.colors.cyan(this.taskName));
     return this;
   }
 
   end() {
     this.endTime = moment();
     const diff = this.endTime.diff(this.startTime);
-    console.log(this.endTime.format('hh:mm:ss') + ' Finished ' + this.taskName + ' after ' + diff + ' ms');
+    util.log('Finished', util.colors.cyan(this.taskName), 'after', util.colors.magenta(diff), util.colors.magenta('ms'));
   }
 }
