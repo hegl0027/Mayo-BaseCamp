@@ -4,8 +4,10 @@ var serve;
 
 base.config.capabilities = {
   browserName: 'chrome',
-  chromeOnly: true,
-  directConnect: true,
+
+  chromeOptions: {
+    args: ['--no-sandbox']
+  },
 
   /*
    * Can be used to specify the phantomjs binary path.
