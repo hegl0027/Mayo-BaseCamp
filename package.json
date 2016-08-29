@@ -112,7 +112,26 @@
     "protractor-ci": "protractor test-configs/protractor.ci.conf.js"
   },
   "files": [
-    "./"
+    "api-tests",
+    "app",
+    "assets",
+    ".babelrc",
+    "e2e-tests",
+    ".eslintignore",
+    ".eslintrc.json",
+    "files.js",
+    ".gitattributes",
+    ".gitignore",
+    "gulpfile.babel.js",
+    "jsdoc.json",
+    "LICENSE",
+    ".npmrc",
+    "package.json",
+    "README.md",
+    ".scsslint.yml",
+    "test-configs",
+    "TODO.md",
+    "util"
   ],
   "dependencies": {
     "angular": "^1.5.5",
