@@ -77,6 +77,7 @@
     "phantomjs-prebuilt": "^2.1.7",
     "protractor": "^4.0.2",
     "run-sequence": "^1.1.5",
+    "sassdoc": "^2.1.20",
     "serve": "^1.4.0",
     "shelljs": "^0.7.0",
     "supertest": "^2.0.0",

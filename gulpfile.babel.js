@@ -232,6 +232,10 @@ gulp.task('jsdoc', plugins.shell.task([
   'jsdoc -c jsdoc.json'
 ]));
 
+gulp.task('sassdoc', plugins.shell.task([
+  'sassdoc assets/ -d docs/sassdoc'
+]));
+
 gulp.task('todo', () => {
   return gulp.src(files.src.todo)
     .pipe(plugins.todo())
@@ -293,7 +297,7 @@ gulp.task('assets', cb => {
 gulp.task('qa', ['sass-lint', 'eslint']);
 
 gulp.task('docs', cb => {
-  runSequence('clean-docs', 'jsdoc', cb);
+  runSequence('clean-docs', 'jsdoc', 'sassdoc', cb);
 });
 
 gulp.task('sample', () => {
