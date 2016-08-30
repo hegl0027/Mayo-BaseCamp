@@ -61,6 +61,20 @@ const SASS_IGNORE_RESET = [
     `!${ASSETS_DIR}/**/*normalize.scss`
 ];
 
+const EXTERNALS = [
+  'angular-ui-router',
+  'angular-loading-bar',
+  'angular-messages',
+  'angular-sanitize',
+  'angular-aria',
+  'angular-animate',
+  'angular',
+  'moment',
+  'jquery',
+  'angular-resource',
+  'angular-mocks'
+];
+
 export default {
     src: {
         dir: APP_DIR,
@@ -95,5 +109,6 @@ export default {
     configs: {
         scssLint: '.scsslint.yml'
     },
-    buildScript: BUILD_SCRIPT
+    buildScript: BUILD_SCRIPT,
+    externals: EXTERNALS
 };
