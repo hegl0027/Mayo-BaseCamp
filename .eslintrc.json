@@ -1,55 +1,6 @@
+/**
+ Extends Mayo's internal shareable eslint config.
+ */
 {
-  "extends": ["eslint:recommended"],
-  "env": {
-    "mocha": true,
-    "browser": true,
-    "es6": true,
-    "jasmine": true,
-    "protractor": true
-  },
-  "parser": "babel-eslint",
-  "parserOptions" : {
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "modules": true
-    }
-  },
-  "rules": {
-    "semi": ["error", "always"],
-    "smells/no-this-assign": 1,
-    "smells/no-complex-string-concat": 1,
-    "angular/controller-as-route": 2,
-    "angular/on-watch": 2,
-    "angular/module-setter": 2,
-
-    "indent": [2, 2, {
-      "SwitchCase": 1
-    }],
-
-    "space-before-function-paren": [2, "never"],
-    "valid-jsdoc": [2, {
-      "requireReturn": false,
-      "prefer": {
-        "returns": "return"
-      }
-    }],
-
-    "require-jsdoc": 1,
-    "max-len": [1, 120, 4, {
-      "ignoreComments": true,
-      "ignoreUrls": true
-    }],
-
-    "curly": 0,
-    "no-floating-decimal": 0,
-    "no-unused-vars": [2, {
-      "args": "none"
-    }]
-
-  },
-  "plugins": [
-    "smells",
-    "angular",
-    "jsdoc"
-  ]
+  "extends": ["basecamp"]
 }
