@@ -24,6 +24,7 @@ export default function TemplateCache($templateCache) {
 
       if (!template) {
         throw new Error("Unable to find html template: " + templateCachePath);
+
       }
       return template;
     },
