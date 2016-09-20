@@ -122,6 +122,7 @@ File names should use kebab case for the base name (with dot notation to indicat
 |  ---  |  ---  |
 |  *.config.js  |  Module/State configuration  |
 |  *.directive.js  |  Directive configuration  |
+|  *.filter.js  | Filter configuration
 |  *.controller.js  |  Controller class  |
 |  *.spec.js  |  Test specification  |
 |  *.page.js  |  Object literal representing the UI elements the test cases will need to interact with.  |
