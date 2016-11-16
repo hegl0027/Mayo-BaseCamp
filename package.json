@@ -87,6 +87,8 @@
     "yargs": "^4.3.2"
   },
   "scripts": {
+    "bundle": "mayo-bundle --webpack -i=./app/app.js",
+    "html": "mayo-html-copy -i=app",
     "build": "gulp",
     "start": "serve --compress dist",
     "browsersync": "browser-sync start --serveStatic dist --files dist",
