@@ -1,5 +1,6 @@
 import angular from 'angular';
 import SupportController from './support.controller';
+import template from './support.html';
 
 var stateConfig = ($stateProvider) => {
 
@@ -11,7 +12,7 @@ var stateConfig = ($stateProvider) => {
       data: {
         title: 'Support'
       },
-      templateProvider: (templateCache) => templateCache.get('support/support.html')
+      template
     });
 };
 

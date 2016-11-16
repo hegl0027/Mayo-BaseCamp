@@ -1,5 +1,6 @@
 import angular from 'angular';
 import PatternsController from './patterns.controller';
+import template from './patterns.html';
 
 var stateConfig = ($stateProvider) => {
 
@@ -11,7 +12,7 @@ var stateConfig = ($stateProvider) => {
       data: {
         title: 'Patterns'
       },
-      templateProvider: (templateCache) => templateCache.get('patterns/patterns.html')
+      template
     });
 };
 

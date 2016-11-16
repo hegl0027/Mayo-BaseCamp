@@ -1,13 +1,14 @@
-import ReportingTwoController from './reporting-two.controller';
+import controller from './reporting-two.controller';
+import template from './reporting-two.html';
 
 var stateConfig = ($stateProvider) => {
 
   $stateProvider
     .state('app.reporting.two', {
       url: '/two',
-      controller: ReportingTwoController,
       controllerAs: 'reportingTwo',
-      templateProvider: (templateCache) => templateCache.get('reporting/two/reporting-two.html')
+      controller,
+      template
     });
 };
 

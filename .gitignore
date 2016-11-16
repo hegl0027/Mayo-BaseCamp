@@ -13,3 +13,5 @@ reports/coverage
 reports/karma
 reports/protractor
 /npm-debug.log*
+lib/
+tmp/

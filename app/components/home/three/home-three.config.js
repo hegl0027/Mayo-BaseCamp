@@ -1,4 +1,5 @@
 import HomeThreeController from './home-three.controller';
+import template from './home-three.html';
 
 var stateConfig = ($stateProvider) => {
 
@@ -7,7 +8,7 @@ var stateConfig = ($stateProvider) => {
       url: '/three',
       controller: HomeThreeController,
       controllerAs: 'homeThree',
-      templateProvider: (templateCache) => templateCache.get('home/three/home-three.html')
+      template
     });
 };
 

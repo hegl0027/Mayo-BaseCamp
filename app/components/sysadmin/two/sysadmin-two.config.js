@@ -1,4 +1,5 @@
 import AdminTwoController from './sysadmin-two.controller';
+import template from './sysadmin-two.html';
 
 var stateConfig = ($stateProvider) => {
 
@@ -7,7 +8,7 @@ var stateConfig = ($stateProvider) => {
       url: '/two',
       controller: AdminTwoController,
       controllerAs: 'adminTwo',
-      templateProvider: (templateCache) => templateCache.get('sysadmin/two/sysadmin-two.html')
+      template
     });
 };
 

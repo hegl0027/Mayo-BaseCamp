@@ -5,6 +5,7 @@ import reportingOne from './one/reporting-one.config';
 import reportingTwo from './two/reporting-two.config';
 import reportingThree from './three/reporting-three.config';
 import ReportingAbstractController from './reporting-abstract.controller';
+import template from './reporting-abstract.html';
 
 var stateConfig = ($stateProvider) => {
 
@@ -17,7 +18,7 @@ var stateConfig = ($stateProvider) => {
       data: {
         title: 'Reporting'
       },
-      templateProvider: (templateCache) => templateCache.get('reporting/reporting-abstract.html')
+      template
     });
 };
 

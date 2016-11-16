@@ -5,6 +5,7 @@ import homeThree from './three/home-three.config';
 import homeFour from './four/home-four.config';
 import homeFive from './five/home-five.config';
 import HomeAbstractController from './home-abstract.controller';
+import template from './home-abstract.html';
 
 var stateConfig = ($stateProvider) => {
 
@@ -17,7 +18,7 @@ var stateConfig = ($stateProvider) => {
       data: {
         title: 'Home'
       },
-      templateProvider: (templateCache) => templateCache.get('home/home-abstract.html')
+      template
     });
 };
 
