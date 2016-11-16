@@ -12,6 +12,12 @@ import NavController from './components/nav/nav.controller';
 import components from './components/components';
 import shared from './shared/shared';
 
+
+import BaseTemplate from './components/base/base.html';
+import HeaderTemplate from './components/header/header.html';
+import NavTemplate from './components/nav/nav.html';
+import FooterTemplate from './components/footer/footer.html';
+
 var stateConfig = ($stateProvider, $urlRouterProvider) => {
   $urlRouterProvider.otherwise('/app/home/one');
 
@@ -21,22 +27,22 @@ var stateConfig = ($stateProvider, $urlRouterProvider) => {
       url: '/app',
       views: {
         '@': {
-          templateProvider: (templateCache) => templateCache.get('base/base.html'),
+          template: BaseTemplate,
           controller: BaseController,
           controllerAs: 'base'
         },
         'header@app': {
-          templateProvider: (templateCache) => templateCache.get('header/header.html'),
+          template: HeaderTemplate,
           controller: HeaderController,
           controllerAs: 'header'
         },
         'footer@app': {
-          templateProvider: (templateCache) => templateCache.get('footer/footer.html'),
+          template: FooterTemplate,
           controller: FooterController,
           controllerAs: 'footer'
         },
         'nav@app': {
-          templateProvider: (templateCache) => templateCache.get('nav/nav.html'),
+          template: NavTemplate,
           controller: NavController,
           controllerAs: 'nav'
         }

@@ -3,7 +3,6 @@ import home from './home/home-abstract.config';
 import reporting from './reporting/reporting-abstract.config';
 import support from './support/support.config';
 import sysadmin from './sysadmin/sysadmin-abstract.config';
-import templates from './templates';
 import patterns from './patterns/patterns.config';
 
 export default angular.module('app.components', [
@@ -11,6 +10,5 @@ export default angular.module('app.components', [
   reporting.name,
   support.name,
   sysadmin.name,
-  templates.name,
   patterns.name
 ]);
