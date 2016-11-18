@@ -13,7 +13,7 @@ import components from './components/components';
 import shared from './shared/shared';
 
 import {defaultConfiguration as useDefaultLoggingConfiguration} from 'tmp-logging';
-import {decorateHttpService, decorateExceptionHandler} from 'tmp-logging/lib/angular';
+import {decorateStateChange, decorateHttpService, decorateExceptionHandler} from 'tmp-logging/lib/angular';
 
 var stateConfig = ($stateProvider, $urlRouterProvider) => {
   $urlRouterProvider.otherwise('/app/home/one');
@@ -84,6 +84,7 @@ const BasecampModule = angular.module('app', [
 
 
 decorateHttpService(BasecampModule);
+decorateStateChange(BasecampModule);
 decorateExceptionHandler(BasecampModule);
 useDefaultLoggingConfiguration();
 
