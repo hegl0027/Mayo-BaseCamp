@@ -12,6 +12,9 @@ import NavController from './components/nav/nav.controller';
 import components from './components/components';
 import shared from './shared/shared';
 
+import {defaultConfiguration as useDefaultLoggingConfiguration} from 'tmp-logging';
+import {decorateHttpService, decorateExceptionHandler} from 'tmp-logging/lib/angular';
+
 var stateConfig = ($stateProvider, $urlRouterProvider) => {
   $urlRouterProvider.otherwise('/app/home/one');
 
@@ -66,7 +69,7 @@ var loadingBarConfig = (cfpLoadingBarProvider) => {
  *
  * The 'app' is an angular module that bootstraps the basecamp project.
  */
-export default angular.module('app', [
+const BasecampModule = angular.module('app', [
   uirouter,
   messages,
   sanitize,
@@ -78,3 +81,11 @@ export default angular.module('app', [
 ])
   .config(['$stateProvider', '$urlRouterProvider', stateConfig])
   .config(['cfpLoadingBarProvider', loadingBarConfig]);
+
+
+decorateHttpService(BasecampModule);
+decorateExceptionHandler(BasecampModule);
+useDefaultLoggingConfiguration();
+
+export default BasecampModule;
+
