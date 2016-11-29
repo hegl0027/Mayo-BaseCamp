@@ -3,28 +3,12 @@
 </section>
 
 <ul class="nav__primary__list">
-    <li class="nav ng-class:{'selected': base.doesStateInclude('app.home')};" ui-sref="app.home.one" nav-select>
-        <img class="icon icon--nav" src="../../../assets/images/inline-svg/home.svg"></img>
-        <span>Home</span>
-    </li>
-    <li class="nav ng-class:{'selected': base.doesStateInclude('app.reporting')};" ui-sref="app.reporting.one" nav-select>
-        <img class="icon icon--nav" src="../../../assets/images/inline-svg/file-text.svg"></img>
-        <span>Reporting</span>
-    </li>
-    <li class="nav ng-class:{'selected': base.doesStateInclude('app.admin')};" ui-sref="app.admin.one" nav-select>
-        <img class="icon icon--nav" src="../../../assets/images/inline-svg/cog.svg"></img>
-        <span>System Administration</span>
-    </li>
-    <li class="nav" nav-select>
-        <a ng-href="https://mcsm.service-now.com" target="_blank">
-            <img class="icon icon--nav" src="../../../assets/images/inline-svg/question.svg"></img>
-            <span>Support</span>
-        </a>
-    </li>
-    <li class="nav ng-class:{'selected': base.doesStateInclude('app.patterns')};" ui-sref="app.patterns" nav-select>
-        <img class="icon icon--nav" src="../../../assets/images/inline-svg/pattern.svg"></img>
-        <span>Style</span>
-    </li>
+
+  <li ng-class="{'selected': navCtrl.isClosestState(link.stateRef)}" ng-repeat="link in navCtrl.links" class="nav" ui-sref="{{link.stateRef}}">
+    <img class="icon icon--nav" src="{{link.iconSrc}}"></src>
+    <span>{{link.label}}</span>
+  </li>
+
 </ul>
 <section class="app-version">
     <!-- This is generated based on the version listed in package.json -->

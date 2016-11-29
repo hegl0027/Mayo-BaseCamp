@@ -25,6 +25,9 @@ import HeaderTemplate from './components/header/header.html';
 import NavTemplate from './components/nav/nav.html';
 import FooterTemplate from './components/footer/footer.html';
 
+import styles from '../assets/sass/app.scss';
+styles._insertCss();
+
 var stateConfig = (stateHelperProvider, $urlRouterProvider) => {
   $urlRouterProvider.otherwise('/app/home/one');
 
