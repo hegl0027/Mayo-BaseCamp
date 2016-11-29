@@ -1,0 +1,20 @@
+{
+  "standard": {
+    "bundle": {
+      "input": "./app/app.js",
+      "webpack": true
+    }
+  },
+  "develop": { 
+    "html":{
+      "watch": true,
+      "input": "./app"
+    },
+    "bundle": {
+      "webpack": true,
+      "input": "./app/app.js",
+      "devserver": true,
+      "devhost": "vagrant"
+    }
+  }
+}
