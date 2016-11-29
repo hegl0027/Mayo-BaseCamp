@@ -28,10 +28,10 @@ import FooterTemplate from './components/footer/footer.html';
 import styles from '../assets/sass/app.scss';
 styles._insertCss();
 
-import {defaultConfiguration as useDefaultLoggingConfiguration} from 'tmp-logging';
-import {decorateStateChange, decorateHttpService, decorateExceptionHandler} from 'tmp-logging/lib/angular';
+import {defaultConfiguration as useDefaultLoggingConfiguration} from 'mayo-js-logging';
+import {decorateStateChange, decorateHttpService, decorateExceptionHandler} from 'mayo-js-logging/lib/angular';
 
-var stateConfig = ($stateProvider, $urlRouterProvider) => {
+var stateConfig = (stateHelperProvider, $urlRouterProvider) => {
   $urlRouterProvider.otherwise('/app/home/one');
 
   stateHelperProvider
