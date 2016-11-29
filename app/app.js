@@ -28,7 +28,10 @@ import FooterTemplate from './components/footer/footer.html';
 import styles from '../assets/sass/app.scss';
 styles._insertCss();
 
-var stateConfig = (stateHelperProvider, $urlRouterProvider) => {
+import {defaultConfiguration as useDefaultLoggingConfiguration} from 'tmp-logging';
+import {decorateStateChange, decorateHttpService, decorateExceptionHandler} from 'tmp-logging/lib/angular';
+
+var stateConfig = ($stateProvider, $urlRouterProvider) => {
   $urlRouterProvider.otherwise('/app/home/one');
 
   stateHelperProvider
@@ -89,7 +92,7 @@ var loadingBarConfig = (cfpLoadingBarProvider) => {
  *
  * The 'app' is an angular module that bootstraps the basecamp project.
  */
-export default angular.module('app', [
+const BasecampModule = angular.module('app', [
   uirouter,
   messages,
   sanitize,
@@ -102,4 +105,11 @@ export default angular.module('app', [
   .config(['stateHelperProvider', '$urlRouterProvider', stateConfig])
   .config(['cfpLoadingBarProvider', loadingBarConfig]);
 
+
+decorateHttpService(BasecampModule);
+decorateStateChange(BasecampModule);
+decorateExceptionHandler(BasecampModule);
+useDefaultLoggingConfiguration();
+
+export default BasecampModule;
 
