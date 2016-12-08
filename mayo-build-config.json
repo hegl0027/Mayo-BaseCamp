@@ -16,7 +16,6 @@
       "context": "./app",
       "input": "./app.js",
       "devserver": true,
-      "devhost": "vagrant",
       "html-template": "index.html"
     }
   }
