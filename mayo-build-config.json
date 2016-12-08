@@ -1,7 +1,8 @@
 {
   "standard": {
     "bundle": {
-      "input": "./app/app.js",
+      "context": "./app",
+      "input": "./app.js",
       "webpack": true
     }
   },
@@ -12,9 +13,11 @@
     },
     "bundle": {
       "webpack": true,
-      "input": "./app/app.js",
+      "context": "./app",
+      "input": "./app.js",
       "devserver": true,
-      "devhost": "vagrant"
+      "devhost": "vagrant",
+      "html-template": "index.html"
     }
   }
 }
