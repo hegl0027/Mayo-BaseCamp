@@ -46,5 +46,5 @@ export default class NavController {
   }
 }
 
-NavController.$inject = ['$state']
+NavController.$inject = ['$state'];
 
