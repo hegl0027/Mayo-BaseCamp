@@ -24,7 +24,6 @@ Clone or download the repo and run the following from the web project root direc
 ```bash
 gem install sass scss_lint
 npm install
-npm run build
 npm start
 ```
 
@@ -32,8 +31,7 @@ npm start
 |  Command  |  Description  |
 |  -------  |  -----------  |
 |  npm run build  |  Execute entire build  |
-|  npm run build watch  |  Watch for file updates and run corresponding build tasks  |
-|  npm start  |  Serve ./dist on local http server  |
+|  npm start  |  Start bundler, unit tests (with watch) and development server |
 
 
 ###Unit Testing ([Karma](https://karma-runner.github.io/0.13/index.html))
@@ -41,7 +39,6 @@ The unit test files (app/\*\*/\*.spec.js) should hang out with the the rest of t
 
 |  Command  |  Description  |
 |  -------  |  -----------  |
-|  npm run karma  |  Execute Karma test runner;  autowatch true  |
 |  npm run karma-q  |  Execute Karma test runner;  autowatch false;  single run  |
 
 Code coverage can be enabled by setting the environment variable NODE_ENV to 'development'. The easiest way to do this is via a `.env` file, placed in the root of the project (this file is ignored by .gitignore).
@@ -78,9 +75,8 @@ Ensure code written within the application conforms to a common style and syntax
 
 |  Command  |  Description  |
 |  ---  |  ---  |
-|  npm run build eslint  |  Check for style and syntax issues in the app's JavaScript files |
+|  npm run lint |  Check for style and syntax issues in the app's JavaScript files |
 |  npm run build sass-lint  |  Check for style and syntax issues in the apps's Sass files  |
-|  npm run build qa  |  Run both eslint and sass-lint  |
 
 ###Directory Structure
 ```
