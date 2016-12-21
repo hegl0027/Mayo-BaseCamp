@@ -25,9 +25,21 @@
       "quiet": true
     },
     "karma" : {
+      "angular": true,
       "directory": "./app",
       "watch": true,
       "webpack": true
+    }
+  },
+  "test":{
+    "lint": {
+      "watch": false
+    },
+    "karma": {
+      "angular": true,
+      "directory": "./app",
+      "webpack": true,
+      "watch": false
     }
   }
 }

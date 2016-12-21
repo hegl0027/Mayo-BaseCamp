@@ -14,7 +14,7 @@
     "imagemin-pngquant": "^5.0.0",
     "jasmine-core": "^2.3.4",
     "jasmine-reporters": "^2.2.0",
-    "mayo-build": "^0.1.11",
+    "mayo-build": "^0.1.13",
     "protractor": "4.0.2",
     "sassdoc": "^2.1.20",
     "supertest": "^2.0.0"
@@ -27,8 +27,7 @@
     "build": "npm run lint && npm run html && npm run bundle && npm run css",
     "test": "npm run karma-q",
     "api-tests": "mocha api-tests/**/*spec.js --compilers js:babel-core/register",
-    "karma": "mayo-build karma --watch -d=app --webpack",
-    "karma-q": "mayo-build karma --no-watch -d=app --webpack",
+    "karma-q": "mayo-build start --config=test",
     "preupdate-webdriver": "npm install",
     "update-webdriver": "webdriver-manager update",
     "preprotractor-ie": "webdriver-manager update --ie",
@@ -45,7 +44,7 @@
     "protractor-safari-q": "protractor test-configs/protractor.safari.conf.js",
     "preprotractor-ci": "webdriver-manager update",
     "protractor-ci": "protractor test-configs/protractor.ci.conf.js",
-    "start": "NODE_ENV=test mayo-build start --config=develop"
+    "start": "mayo-build start --config=develop"
   },
   "files": [
     "api-tests",
