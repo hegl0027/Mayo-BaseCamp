@@ -1,14 +1,12 @@
 import ReportingThreeController from './reporting-three.controller';
+import template from './reporting-three.html';
 
-var stateConfig = ($stateProvider) => {
-
-  $stateProvider
-    .state('app.reporting.three', {
-      url: '/three',
-      controller: ReportingThreeController,
-      controllerAs: 'reportingThree',
-      templateProvider: (templateCache) => templateCache.get('reporting/three/reporting-three.html')
-    });
+const stateTree = {
+  name: 'three',
+  url: '/three',
+  controller: ReportingThreeController,
+  controllerAs: 'reportingThree',
+  template
 };
 
-export default stateConfig;
+export default stateTree;

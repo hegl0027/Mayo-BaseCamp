@@ -25,14 +25,12 @@ const IMAGES_SRC = [
 ];
 
 const APP_JS = [
-    `${APP_DIR}/**/*.js`,
-    `!${COMPONENTS_DIR}/templates.js`
+    `${APP_DIR}/**/*.js`
 ];
 
 const JS_SRC = [
     `${APP_DIR}/**/*.js`,
-    `!${APP_DIR}/**/*.spec.js`,
-    `!${COMPONENTS_DIR}/templates.js`
+    `!${APP_DIR}/**/*.spec.js`
 ];
 
 const ALL_JS = [
