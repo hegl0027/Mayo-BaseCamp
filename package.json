@@ -20,11 +20,9 @@
     "supertest": "^2.0.0"
   },
   "scripts": {
-    "css": "mayo-sass -d=assets",
     "lint": "mayo-lint -d=app",
     "bundle": "mayo-bundle --webpack -i=./app/app.js",
-    "html": "mayo-html-copy -i=app",
-    "build": "npm run lint && npm run html && npm run bundle && npm run css",
+    "build": "mayo-build start",
     "test": "npm run karma-q",
     "api-tests": "mocha api-tests/**/*spec.js --compilers js:babel-core/register",
     "karma-q": "mayo-build start --config=test",
