@@ -1,42 +1,14 @@
 <section class="mc-stack__wrapper">
-    <svg class="mc-stack">
-        <use xlink:href="#icon-mc-stack-white"></use>
-    </svg>
+    <img class="icon icon--nav" src="../../../assets/images/inline-svg/mc-stack-white.svg"></img>
 </section>
 
 <ul class="nav__primary__list">
-    <li class="nav ng-class:{'selected': base.doesStateInclude('app.home')};" ui-sref="app.home.one" nav-select>
-        <svg class="icon icon--nav">
-            <use xlink:href="#icon-home"></use>
-        </svg>
-        <span>Home</span>
-    </li>
-    <li class="nav ng-class:{'selected': base.doesStateInclude('app.reporting')};" ui-sref="app.reporting.one" nav-select>
-        <svg class="icon icon--nav">
-            <use xlink:href="#icon-file-text"></use>
-        </svg>
-        <span>Reporting</span>
-    </li>
-    <li class="nav ng-class:{'selected': base.doesStateInclude('app.admin')};" ui-sref="app.admin.one" nav-select>
-        <svg class="icon icon--nav">
-            <use xlink:href="#icon-cog"></use>
-        </svg>
-        <span>System Administration</span>
-    </li>
-    <li class="nav" nav-select>
-        <a ng-href="https://mcsm.service-now.com" target="_blank">
-            <svg class="icon icon--nav">
-                <use xlink:href="#icon-question"></use>
-            </svg>
-            <span>Support</span>
-        </a>
-    </li>
-    <li class="nav ng-class:{'selected': base.doesStateInclude('app.patterns')};" ui-sref="app.patterns" nav-select>
-        <svg class="icon icon--nav">
-            <use xlink:href="#icon-pattern"></use>
-        </svg>
-        <span>Style</span>
-    </li>
+
+  <li ng-class="{'selected': navCtrl.isClosestState(link.stateRef)}" ng-repeat="link in navCtrl.links" class="nav" ui-sref="{{link.stateRef}}">
+    <img class="icon icon--nav" src="{{link.iconSrc}}"></src>
+    <span>{{link.label}}</span>
+  </li>
+
 </ul>
 <section class="app-version">
     <!-- This is generated based on the version listed in package.json -->

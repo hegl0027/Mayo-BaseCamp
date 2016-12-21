@@ -1,0 +1,46 @@
+{
+  "standard": {
+    "lint": {
+      "directory": "./app"
+    },
+    "bundle": {
+      "context": "./app",
+      "input": "./app.js",
+      "webpack": true,
+      "html-template": "index.html",
+      "output": "dist"
+    }
+  },
+  "develop": { 
+    "lint": {
+      "directory": "./app",
+      "watch": true
+    },
+    "bundle": {
+      "webpack": true,
+      "context": "./app",
+      "input": "./app.js",
+      "devserver": true,
+      "html-template": "index.html",
+      "quiet": true
+    },
+    "karma" : {
+      "angular": true,
+      "directory": "./app",
+      "watch": true,
+      "webpack": true
+    }
+  },
+  "test":{
+    "lint": {
+      "watch": false
+    },
+    "karma": {
+      "angular": true,
+      "directory": "./app",
+      "webpack": true,
+      "watch": false
+    }
+  }
+}
+

@@ -1,15 +1,13 @@
-import AdminOneController from './sysadmin-one.controller';
+import controller from './sysadmin-one.controller';
+import template from './sysadmin-one.html';
 
-var stateConfig = ($stateProvider) => {
-
-  $stateProvider
-    .state('app.admin.one', {
-      url: '/one',
-      controller: AdminOneController,
-      controllerAs: 'adminOne',
-      templateProvider: (templateCache) => templateCache.get('sysadmin/one/sysadmin-one.html')
-    });
+const stateTree = {
+  name: 'one',
+  url: '/one',
+  controllerAs: 'adminOne',
+  controller,
+  template
 };
 
-export default stateConfig;
+export default stateTree;
 

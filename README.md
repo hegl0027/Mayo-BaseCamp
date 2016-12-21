@@ -44,6 +44,13 @@ The unit test files (app/\*\*/\*.spec.js) should hang out with the the rest of t
 |  npm run karma  |  Execute Karma test runner;  autowatch true  |
 |  npm run karma-q  |  Execute Karma test runner;  autowatch false;  single run  |
 
+Code coverage can be enabled by setting the environment variable NODE_ENV to 'development'. The easiest way to do this is via a `.env` file, placed in the root of the project (this file is ignored by .gitignore).
+```
+NODE_ENV=development
+```
+
+You may also set environment variables for your process on [windows](https://msdn.microsoft.com/en-us/library/windows/desktop/ms682653(v=vs.85).aspx) or *nix (`NODE_ENV=development npm test`)
+
 
 ###E2E Testing ([Protractor](http://www.protractortest.org/#/))
 The Protractor tests live under the 'e2e-tests' folder

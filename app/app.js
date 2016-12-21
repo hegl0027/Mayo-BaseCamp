@@ -9,38 +9,65 @@ import BaseController from './components/base/base.controller';
 import HeaderController from './components/header/header.controller';
 import FooterController from './components/footer/footer.controller';
 import NavController from './components/nav/nav.controller';
-import components from './components/components';
 import shared from './shared/shared';
 
-var stateConfig = ($stateProvider, $urlRouterProvider) => {
+import reportingState from './components/reporting/reporting-abstract.config';
+import adminState from './components/sysadmin/sysadmin-abstract.config';
+import patternsState from './components/patterns/patterns.config';
+
+import homeState from './components/home/home-abstract.config';
+import supportState from './components/support/support.config';
+
+import 'angular-ui-router.statehelper';
+
+import BaseTemplate from './components/base/base.html';
+import HeaderTemplate from './components/header/header.html';
+import NavTemplate from './components/nav/nav.html';
+import FooterTemplate from './components/footer/footer.html';
+
+import styles from '../assets/sass/app.scss';
+styles._insertCss();
+
+import {defaultConfiguration as useDefaultLoggingConfiguration} from 'mayo-js-logging';
+import {decorateStateChange, decorateHttpService, decorateExceptionHandler} from 'mayo-js-logging/lib/angular';
+
+var stateConfig = (stateHelperProvider, $urlRouterProvider) => {
   $urlRouterProvider.otherwise('/app/home/one');
 
-  $stateProvider
-    .state('app', {
+  stateHelperProvider
+    .state({
+      name: 'app',
       abstract: true,
       url: '/app',
       views: {
         '@': {
-          templateProvider: (templateCache) => templateCache.get('base/base.html'),
+          template: BaseTemplate,
           controller: BaseController,
           controllerAs: 'base'
         },
         'header@app': {
-          templateProvider: (templateCache) => templateCache.get('header/header.html'),
+          template: HeaderTemplate,
           controller: HeaderController,
           controllerAs: 'header'
         },
         'footer@app': {
-          templateProvider: (templateCache) => templateCache.get('footer/footer.html'),
+          template: FooterTemplate,
           controller: FooterController,
           controllerAs: 'footer'
         },
         'nav@app': {
-          templateProvider: (templateCache) => templateCache.get('nav/nav.html'),
+          template: NavTemplate,
           controller: NavController,
-          controllerAs: 'nav'
+          controllerAs: 'navCtrl'
         }
-      }
+      },
+      children: [
+        homeState,
+        supportState,
+        patternsState,
+        reportingState,
+        adminState
+      ]
     });
 };
 
@@ -60,21 +87,29 @@ var loadingBarConfig = (cfpLoadingBarProvider) => {
  * @requires angular-loading-bar
  * @requires ngAnimate
  * @requires shared
- * @requires components
  *
  * @description
  *
  * The 'app' is an angular module that bootstraps the basecamp project.
  */
-export default angular.module('app', [
+const BasecampModule = angular.module('app', [
   uirouter,
   messages,
   sanitize,
   aria,
   loadingbar,
   animate,
-  components.name,
-  shared.name
+  shared.name,
+  'ui.router.stateHelper',
 ])
-  .config(['$stateProvider', '$urlRouterProvider', stateConfig])
+  .config(['stateHelperProvider', '$urlRouterProvider', stateConfig])
   .config(['cfpLoadingBarProvider', loadingBarConfig]);
+
+
+decorateHttpService(BasecampModule);
+decorateStateChange(BasecampModule);
+decorateExceptionHandler(BasecampModule);
+useDefaultLoggingConfiguration();
+
+export default BasecampModule;
+
