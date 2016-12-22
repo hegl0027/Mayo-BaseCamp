@@ -12,7 +12,6 @@ import watchify from 'watchify';
 import files from './files';
 import packagejson from './package.json';
 import stream from 'stream';
-
 import gutil from 'gulp-util';
 import _ from 'lodash';
 
