@@ -16,3 +16,4 @@ reports/protractor
 lib/
 tmp/
 .env
+app/components/templates.js
