@@ -1,3 +1,5 @@
+$shadow--pressed: inset 0 3px 6px -3px rgba(black, .8);
+
 %btn {
   background-color: #fff;
   border: 1px solid $blue;
@@ -21,7 +23,8 @@
   }
 
   &:enabled:active {
-    box-shadow: $active-shadow;
+    box-shadow: $shadow--pressed;
+    outline: none;
   }
 }
 

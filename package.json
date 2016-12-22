@@ -2,7 +2,7 @@
   "name": "mayo-web-basecamp",
   "private": false,
   "version": "0.1.9",
-  "description": "An AngularJS 1.x starter project developed to simplify the web application startup process.",
+  "description": "An opinionated AngularJS 1.x starter project developed to simplify the web application startup process.",
   "repository": {
     "type": "git",
     "url": "http://tfs/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-web-basecamp"

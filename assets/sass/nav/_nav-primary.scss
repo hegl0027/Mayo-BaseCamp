@@ -5,6 +5,9 @@
   transition: all .4s ease;
   transition-delay: 246ms;
   width: 50px;
+  position: fixed;
+  height: 100vh;
+  z-index: 9999;
 
   &:hover {
     width: 225px;
@@ -20,12 +23,13 @@
     color: $cloud;
     cursor: pointer;
     overflow: hidden;
-    padding: .625em .8em .625em .7em;
-    padding-bottom: 5px;
+    padding: .625em;
     position: relative;
     transition: transform .3s ease, border-radius 1s ease;
     white-space: nowrap;
     z-index: 4;
+    display: flex;
+    align-items: center;
 
     &:hover {
       background-color: $blue;
@@ -40,9 +44,7 @@
     }
 
     span {
-      padding-left: 10px;
-      position: relative;
-      top: -.5em;
+      padding-left: 15px;
       z-index: 2;
     }
 
@@ -87,6 +89,8 @@
 .icon {
   &--nav {
     color: #fefefe;
-    font-size: 1.8em;
+    font-size: 1.4em;
+    padding-left: .2em;
+    flex-shrink: 0;
   }
 }
