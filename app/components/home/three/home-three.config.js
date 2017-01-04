@@ -1,14 +1,11 @@
 import HomeThreeController from './home-three.controller';
+import template from './home-three.html';
 
-var stateConfig = ($stateProvider) => {
-
-  $stateProvider
-    .state('app.home.three', {
-      url: '/three',
-      controller: HomeThreeController,
-      controllerAs: 'homeThree',
-      templateProvider: (templateCache) => templateCache.get('home/three/home-three.html')
-    });
+export default {
+  controller: HomeThreeController,
+  controllerAs: 'homeThree',
+  template,
+  name: 'three',
+  url: '/three'
 };
 
-export default stateConfig;
