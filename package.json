@@ -48,6 +48,7 @@
     "api-tests",
     "app",
     "assets",
+    "mayo-build-config.json",
     ".babelrc",
     "e2e-tests",
     ".eslintignore",
