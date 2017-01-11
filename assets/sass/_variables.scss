@@ -1,6 +1,6 @@
 // forms
 $border: 1px solid #bdc3c7;
-$border__radius: 3px;
+$border__radius: 0;
 $inset: inset 0 7px 12px -7px rgba(100, 100, 100, .15);
 $padding: .25em .25em;
 $button-transition: all 146ms ease;
@@ -9,16 +9,13 @@ $hover-shadow: 0 8px 6px -6px rgba(0, 0, 0, .3);
 $active-shadow: inset 1px 2px 2px 0 rgba(0, 0, 0, .1);
 
 // color
-$blue: #3498db;
-$blue--hover: #2980b9;
-$green: #1abc9c;
-$green--hover: #16a085;
+$blue: #2990CF;
+$blue--hover: darken($blue, 7%);
+$green: #00a175;
+$green--hover: darken($green, 7%);;
 $yellow: #f1c40f;
-$yellow--hover: #f39c12;
+$yellow--hover: darken($yellow, 7%);
 $cloud: #ecf0f1;
-$cloud--hover: #bdc3c7;
-$red: #e74c3c;
-$red--hover: #c0392b;
-
-$hovers: #2980b9, #16a085, #f39c12, #bdc3c7, #c0392b;
-$colors: #3498db, #1abc9c, #f1c40f, #ecf0f1, #e74c3c;
+$cloud--hover: darken($cloud, 7%);
+$red: #c0392b;
+$red--hover: darken($red, 7%);;

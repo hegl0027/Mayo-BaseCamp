@@ -1,7 +1,7 @@
 $shadow--pressed: inset 0 3px 6px -3px rgba(black, .8);
 
 %btn {
-  background-color: #fff;
+  background-color: transparent;
   border: 1px solid $blue;
   border-radius: $border__radius;
   box-shadow: $shadow;
