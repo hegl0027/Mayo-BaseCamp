@@ -1,6 +1,6 @@
 html,
 body {
-  background-color: #f8f8f8;
+  background-color: $background--light;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   height: 100vh;
@@ -9,21 +9,29 @@ body {
   padding: 0;
 }
 
-h1,
-h2 {
-  font-weight: 300;
+h1 {
+  font-size: 1.75rem;
+  color: $mayo-blue--navy;
 }
 
-h1 {
-  font-family: 'Merriweather', serif;
+h2 {
+  font-size: 1.5rem;
+  color: $mayo-charcoal;
 }
 
 h3 {
-  color: $blue--hover;
+  font-size: 1.3rem;
+  color: $mayo-charcoal;
+}
+
+h2,
+h3 {
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 h4 {
-  color: #555;
+  font-size: 1.1rem;
+  color: $mayo-black;
 }
 
 [ng\:cloak],
