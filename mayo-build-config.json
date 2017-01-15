@@ -21,6 +21,7 @@
       "context": "./app",
       "input": "./app.js",
       "devserver": true,
+      "sourcemaps": true,
       "html-template": "index.html",
       "quiet": true
     },
