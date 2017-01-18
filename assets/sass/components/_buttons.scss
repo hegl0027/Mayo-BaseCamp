@@ -13,7 +13,7 @@ $shadow--pressed: inset 0 3px 6px -3px rgba(black, .8);
 
   &:disabled {
     background-color: $cloud;
-    border-color: $cloud--hover;
+    border-color: $cloud--monochrome;
     color: #6a6a6a;
   }
 
@@ -38,8 +38,8 @@ $shadow--pressed: inset 0 3px 6px -3px rgba(black, .8);
     color: #fff;
 
     &:enabled:hover {
-      background-color: $blue--hover;
-      border-color: $blue--hover;
+      background-color: $blue--monochrome;
+      border-color: $blue--monochrome;
     }
   }
 
@@ -62,8 +62,8 @@ $shadow--pressed: inset 0 3px 6px -3px rgba(black, .8);
       color: #fff;
 
       &:enabled:hover {
-        background-color: $green--hover;
-        border-color: $green--hover;
+        background-color: $green--monochrome;
+        border-color: $green--monochrome;
       }
     }
   }
@@ -83,18 +83,18 @@ $shadow--pressed: inset 0 3px 6px -3px rgba(black, .8);
       color: #fff;
 
       &:enabled:hover {
-        background-color: $yellow--hover;
-        border-color: $yellow--hover;
+        background-color: $yellow--monochrome;
+        border-color: $yellow--monochrome;
       }
     }
   }
 
   &--white {
     @extend %btn;
-    border-color: $cloud--hover;
+    border-color: $cloud--monochrome;
 
     &:enabled:hover {
-      background-color: $cloud--hover;
+      background-color: $cloud--monochrome;
       color: #333;
     }
   }
@@ -114,8 +114,8 @@ $shadow--pressed: inset 0 3px 6px -3px rgba(black, .8);
       color: #fff;
 
       &:enabled:hover {
-        background-color: $red--hover;
-        border-color: $red--hover;
+        background-color: $red--monochrome;
+        border-color: $red--monochrome;
       }
     }
   }
