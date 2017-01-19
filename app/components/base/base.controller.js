@@ -40,3 +40,5 @@ export default class BaseController {
     $interval(updateLastSaved, 10000);
   }
 }
+
+BaseController.$inject = ['$interval', '$state', '$log', 'apiService'];
