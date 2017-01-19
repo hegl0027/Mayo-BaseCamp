@@ -3,7 +3,6 @@
 import angular from 'angular';
 import resource from 'angular-resource';
 import apiService from './api-service';
-import httpMock from './api-service.mock';
 
 /**
  * @module app.shared.api
@@ -11,7 +10,6 @@ import httpMock from './api-service.mock';
  * @requires ngResource
  */
 export default angular.module('app.shared.api', [
-  resource,
-  httpMock.name
+  resource
 ])
   .service('apiService', ['$http', '$q', '$resource', apiService]);
