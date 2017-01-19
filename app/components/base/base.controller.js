@@ -1,7 +1,7 @@
 import moment from 'moment';
 
 export default class BaseController {
-  constructor($interval, $state, $log, apiService) {
+  constructor($interval, $state) {
     var now = moment();
     this.lastSaved = now.fromNow();
 
