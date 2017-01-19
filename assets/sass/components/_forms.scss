@@ -24,7 +24,7 @@ textarea {
 .informational {
   align-items: center;
   background-color: $cloud;
-  border: 1px solid $cloud--hover;
+  border: 1px solid $cloud--monochrome;
   border-bottom-left-radius: $border__radius;
   border-bottom-right-radius: $border__radius;
   border-top: 0;
@@ -42,7 +42,7 @@ textarea {
 %whateverfix {
   align-items: center;
   background-color: $cloud;
-  border: 1px solid $cloud--hover;
+  border: 1px solid $cloud--monochrome;
   color: #555;
   display: flex;
   font-size: 1rem;

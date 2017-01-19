@@ -1,59 +1,3 @@
-html,
-body {
-  background-color: $background--light;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  height: 100vh;
-  margin: 0;
-  overflow: hidden;
-  padding: 0;
-}
-
-h1 {
-  font-size: 1.75rem;
-  color: $mayo-blue--navy;
-}
-
-h2 {
-  font-size: 1.5rem;
-  color: $mayo-charcoal;
-}
-
-h3 {
-  font-size: 1.3rem;
-  color: $mayo-charcoal;
-}
-
-h2,
-h3 {
-  font-family: 'Roboto Condensed', sans-serif;
-}
-
-h4 {
-  font-size: 1.1rem;
-  color: $mayo-black;
-}
-
-[ng\:cloak],
-[ng-cloak],
-[data-ng-cloak],
-[x-ng-cloak],
-.ng-cloak,
-.x-ng-cloak {
-  display: none !important;
-}
-
-.link {
-  color: #c0392b;
-  outline: none;
-  padding: 0 2em;
-  text-decoration: none;
-
-  &:visited {
-    color: #e74c3c;
-  }
-}
-
 ul {
   margin: 0;
   padding: 0;
@@ -68,6 +12,7 @@ ul {
   display: flex;
   flex-direction: column;
   height: calc(100vh - 70px - 32px);
+  max-width: 100vw;
 
   > [ui-view],
   ui-view {
