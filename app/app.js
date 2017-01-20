@@ -13,7 +13,6 @@ import shared from './shared/shared';
 
 import reportingState from './components/reporting/reporting-abstract.config';
 import adminState from './components/sysadmin/sysadmin-abstract.config';
-import patternsState from './components/patterns/patterns.config';
 
 import homeState from './components/home/home-abstract.config';
 import supportState from './components/support/support.config';
@@ -64,7 +63,6 @@ var stateConfig = (stateHelperProvider, $urlRouterProvider) => {
       children: [
         homeState,
         supportState,
-        patternsState,
         reportingState,
         adminState
       ]
