@@ -2,7 +2,6 @@ import homeIcon from '../../../assets/images/inline-svg/home.svg?fill=#fefefe';
 import reportingIcon from '../../../assets/images/inline-svg/file-text.svg?fill=#fefefe';
 import adminIcon from '../../../assets/images/inline-svg/cog.svg?fill=#fefefe';
 import supportIcon from '../../../assets/images/inline-svg/question.svg?fill=#fefefe';
-import patternsIcon from '../../../assets/images/inline-svg/pattern.svg?fill=#fefefe';
 
 function matchState(s1, s2) {
   if (!s1 || !s2 || !s1[0] || !s2[0] || s1[0] !== s2[0])
@@ -32,10 +31,6 @@ export default class NavController {
         iconSrc: supportIcon,
         stateRef: 'app.support',
         label: 'Support'
-      }, {
-        iconSrc: patternsIcon,
-        stateRef: 'app.patterns',
-        label: 'Style'
       }
     ];
   }

@@ -7,6 +7,7 @@
       "context": "./app",
       "input": "./app.js",
       "webpack": true,
+      "production": true,
       "html-template": "index.html",
       "output": "dist"
     }
@@ -21,6 +22,7 @@
       "context": "./app",
       "input": "./app.js",
       "devserver": true,
+      "sourcemaps": true,
       "html-template": "index.html",
       "quiet": true
     },
