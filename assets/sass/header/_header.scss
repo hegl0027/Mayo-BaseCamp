@@ -7,7 +7,7 @@ header {
   z-index: 1;
 
   .user-links {
-    color: $red--hover;
+    color: $red--monochrome;
     display: flex;
     font-size: .9em;
     justify-content: flex-end;
@@ -32,7 +32,9 @@ header {
   }
 
   .app-name {
+    font-family: 'Open Sans', sans-serif;
     font-size: 1.2em;
+    font-weight: 300;
   }
 
   .app-context {

@@ -25,7 +25,9 @@ import NavTemplate from './components/nav/nav.html';
 import FooterTemplate from './components/footer/footer.html';
 
 import styles from '../assets/sass/app.scss';
+import patterns from '../assets/sass/patterns.scss';
 styles._insertCss();
+patterns._insertCss();
 
 import {defaultConfiguration as useDefaultLoggingConfiguration} from 'mayo-js-logging';
 import {decorateStateChange, decorateHttpService, decorateExceptionHandler} from 'mayo-js-logging/lib/angular';
