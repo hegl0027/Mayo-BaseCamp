@@ -8,10 +8,9 @@ import patternsIcon from '../../../assets/images/inline-svg/pattern.svg';
 
 import NavTemplate from './nav.html';
 
-console.log(homeIcon);
-
 type NavLink = {
   iconSrc: String,
+  route: String,
   label: String
 };
 
@@ -26,23 +25,23 @@ export class PrimaryNavComponent {
     this.links = [
       {
         iconSrc: homeIcon,
-        //stateRef: 'app.home.one',
+        route: '/app/home/one',
         label: 'Home'
       }, {
         iconSrc: reportingIcon,
-        //stateRef: 'app.reporting.one',
+        route: '/app/reporting/one',
         label: 'Reporting'
       }, {
         iconSrc: adminIcon,
-        //stateRef: 'app.admin.one',
+        route: '/app/admin/one',
         label: 'System Administration'
       }, {
         iconSrc: supportIcon,
-        //stateRef: 'app.support',
+        route: '/app/support',
         label: 'Support'
       }, {
         iconSrc: patternsIcon,
-        //stateRef: 'app.patterns',
+        route: '/app/patterns',
         label: 'Style'
       }
     ];
