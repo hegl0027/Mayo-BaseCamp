@@ -1,15 +1,16 @@
 import {Component} from '@angular/core';
 
-import homeIcon from '../../../assets/images/inline-svg/home.svg';
-import reportingIcon from '../../../assets/images/inline-svg/file-text.svg';
-import adminIcon from '../../../assets/images/inline-svg/cog.svg';
-import supportIcon from '../../../assets/images/inline-svg/question.svg';
-import patternsIcon from '../../../assets/images/inline-svg/pattern.svg';
+import * as homeIcon from '!file-loader!svg-fill-loader?fill=#ffffff!../../../assets/images/inline-svg/home.svg';
+import * as reportingIcon from '!file-loader!svg-fill-loader?fill=#ffffff!../../../assets/images/inline-svg/file-text.svg';
+import * as adminIcon from '!file-loader!svg-fill-loader?fill=#ffffff!../../../assets/images/inline-svg/cog.svg';
+import * as supportIcon from '!file-loader!svg-fill-loader?fill=#ffffff!../../../assets/images/inline-svg/question.svg';
+import * as patternsIcon from '!file-loader!svg-fill-loader?fill=#ffffff!../../../assets/images/inline-svg/pattern.svg';
+
 
 import NavTemplate from './nav.html';
 
 type NavLink = {
-  iconSrc: String,
+  iconSrc: any,
   route: String,
   label: String
 };

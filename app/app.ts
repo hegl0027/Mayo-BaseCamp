@@ -30,6 +30,8 @@ import { FooterComponent } from './components/footer/footer.component';
 
 import { PrimaryNavComponent } from './components/nav/nav.component';
 import { MainHeaderComponent } from './components/header/header.component';
+import {USER_SERVICE, UserService} from './shared/user/UserService';
+import {MockUserService} from './shared/user/MockUserService';
 
 import {HomeModule} from './components/home/home-abstract.config';
 import {PatternsModule} from './components/patterns/patterns.config';
@@ -72,6 +74,9 @@ const appRoutes: Routes = [
     PrimaryNavComponent,
     FooterComponent,
     MainHeaderComponent
+  ],
+  providers: [
+    {provide: USER_SERVICE, useValue: new MockUserService()}
   ]
 })
 export class BaseModule{ };

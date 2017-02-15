@@ -1,16 +1,10 @@
 import {Component, NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {ReportingComponent} from './reporting-abstract.component';
 
 import {ReportingOneComponent} from './one/reporting-one.component';
 import {ReportingTwoComponent} from './two/reporting-two.component';
 import {ReportingThreeComponent} from './three/reporting-three.component';
-
-import template from './reporting-abstract.html';
-
-@Component({
-  template
-})
-export class ReportingComponent {}
 
 const reportingRoutes: Routes = [
   {

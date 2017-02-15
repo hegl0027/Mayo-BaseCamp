@@ -4,7 +4,7 @@
 
 <ul class="nav__primary__list">
 
-  <li *ngFor="let link of links" class="nav" routerLink="{{link.route}}">
+  <li *ngFor="let link of links" class="nav" [routerLink]="link.route">
     <img class="icon icon--nav" [src]="link.iconSrc">
     <span>{{link.label}}</span>
   </li>

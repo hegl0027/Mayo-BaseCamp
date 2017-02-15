@@ -1,5 +1,7 @@
-import {Component, NgModule} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+
+import {HomeComponent} from './home-component';
 
 import {HomeOneComponent} from './one/home-one.component';
 import {HomeTwoComponent} from './two/home-two.component';
@@ -7,12 +9,6 @@ import {HomeThreeComponent} from './three/home-three.component';
 import {HomeFourComponent} from './four/home-four.component';
 import {HomeFiveComponent} from './five/home-five.component';
 
-import template from './home-abstract.html';
-
-@Component({
-  template
-})
-export class HomeComponent { }
 
 const homeRoutes: Routes = [
   {

@@ -1,16 +1,10 @@
-import {NgModule, Component} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-
+import {AdminComponent} from './sysadmin-abstract.component';
 import {AdminOneComponent} from './one/sysadmin-one.component';
 import {AdminTwoComponent} from './two/sysadmin-two.component';
 import {AdminThreeComponent} from './three/sysadmin-three.component';
 
-import template from './sysadmin-abstract.html';
-
-@Component({
-  template
-})
-export class AdminComponent {};
 
 const adminRoutes: Routes = [
   {
