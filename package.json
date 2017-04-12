@@ -15,9 +15,11 @@
     "jasmine-core": "^2.3.4",
     "jasmine-reporters": "^2.2.0",
     "mayo-build": "^0.1.14",
+    "mayo-bundle": "^0.1.14-b20170410192049",
     "protractor": "4.0.2",
     "sassdoc": "^2.1.20",
-    "supertest": "^2.0.0"
+    "supertest": "^2.0.0",
+    "typescript": "^2.2.2"
   },
   "scripts": {
     "lint": "mayo-lint -d=app",
