@@ -3,7 +3,7 @@
 #Get Started
 ###Notable Technologies
 - [AngularJS 1.x](https://angularjs.org/) -- MV* framework for web applications
-- [Gulp](http://gulpjs.com/) -- Build system
+- [Mayo Build](http://tfs/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-build?path=%2Fmanual%2Foverview%2F1-overview.md&version=GBmaster&_a=contents) -- Build system
 - [Sass](http://sass-lang.com/) -- CSS preprocessor
 - [Babel (ES6)](https://babeljs.io/) -- JavaScript transpiler for code written to the ECMAScript 2015 standard ([modules](https://babeljs.io/docs/learn-es2015/#modules), [classes](https://babeljs.io/docs/learn-es2015/#classes), [template strings](https://babeljs.io/docs/learn-es2015/#template-strings), and [more](https://babeljs.io/docs/learn-es2015/))
 
@@ -14,15 +14,11 @@ Update to the latest NPM version
   ```bash
   npm install -g npm
   ```
-3. Ruby
-  - [Windows](http://rubyinstaller.org/) -- use the installer option to add Ruby commands to the PATH
-  - [Everyone else](https://www.ruby-lang.org/en/)
 
 ###Setup
 Clone or download the repo and run the following from the web project root directory
 
 ```bash
-gem install sass scss_lint
 npm install
 npm start
 ```
