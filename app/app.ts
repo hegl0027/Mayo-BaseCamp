@@ -1,17 +1,6 @@
-//import animate from 'angular-animate';
-//import loadingbar from 'angular-loading-bar';
-//import messages from 'angular-messages';
-//import sanitize from 'angular-sanitize';
-//import aria from 'angular-aria';
-//import shared from './shared/shared';
-
 //import {defaultConfiguration as useDefaultLoggingConfiguration} from 'mayo-js-logging';
 //import {decorateStateChange, decorateHttpService, decorateExceptionHandler} from 'mayo-js-logging/lib/angular';
 //
-//var loadingBarConfig = (cfpLoadingBarProvider) => {
-//  cfpLoadingBarProvider.includeSpinner = false;
-//  cfpLoadingBarProvider.latencyThreshold = 20;
-//};
 
 //decorateHttpService(BasecampModule);
 //decorateStateChange(BasecampModule);
@@ -61,7 +50,6 @@ const appRoutes: Routes = [
   }, {
     path: '', redirectTo: 'app', pathMatch: 'full'
   }
-  //, { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
