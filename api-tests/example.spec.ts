@@ -1,7 +1,5 @@
-import chai from 'chai';
-import supertest from 'supertest';
+import * as supertest from 'supertest';
 
-chai.should();
 const server = supertest.agent("http://localhost:3000");
 
 describe("api test", () => {

@@ -1,12 +1,12 @@
 import {expect} from 'chai';
-import FooterController from './footer.controller';
+import {FooterComponent} from './footer.component';
 
-let ctrl;
+let ctrl: FooterComponent;
 
 describe('footer controller', () => {
 
   beforeEach(() => {
-    ctrl = new FooterController();
+    ctrl = new FooterComponent();
   });
 
   it('should be initialized', () => {
