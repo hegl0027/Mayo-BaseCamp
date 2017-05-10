@@ -32,7 +32,6 @@
       "watch": false
     },
     "karma": {
-      "angular": true,
       "directory": "./app",
       "webpack": true,
       "watch": false
