@@ -1,52 +1,78 @@
 [![Build Status](http://tfs:8080/tfs/MayoClinic/_apis/public/build/definitions/2f49d3e6-4c50-4efe-9a92-a45130cc4a0a/545/badge)](http://tfs/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-web-basecamp?path=%2F&version=GBdevelop&_a=contents)
 
-#Get Started
-###Notable Technologies
-- [AngularJS 1.x](https://angularjs.org/) -- MV* framework for web applications
-- [Gulp](http://gulpjs.com/) -- Build system
-- [Sass](http://sass-lang.com/) -- CSS preprocessor
-- [Babel (ES6)](https://babeljs.io/) -- JavaScript transpiler for code written to the ECMAScript 2015 standard ([modules](https://babeljs.io/docs/learn-es2015/#modules), [classes](https://babeljs.io/docs/learn-es2015/#classes), [template strings](https://babeljs.io/docs/learn-es2015/#template-strings), and [more](https://babeljs.io/docs/learn-es2015/))
+#Get Started with DSS's Mayo Web Basecamp 
+##Purpose
+This project kick-starts development of an Angular Front-end application.
 
-###Prerequisites
-1. [Git](https://git-scm.com/downloads)
+##Notable Technologies
+- [Angular 2+](https://angular.io/) -- Framework for front-end web applications
+- [TypeScript](https://www.typescriptlang.org/) -- A strongly-typed superset of the JavaScript language (all JavaScript is valid TypeScript). Much of the Angular2+ documentation is written for TypeScript.
+  - Transpiler supporting JavaScript's ECMAScript 2015 standard ([modules](https://babeljs.io/docs/learn-es2015/#modules), [classes](https://babeljs.io/docs/learn-es2015/#classes), [template strings](https://babeljs.io/docs/learn-es2015/#template-strings), and [more](https://babeljs.io/docs/learn-es2015/))
+- Unit Testing
+  - [Karma](https://karma-runner.github.io/0.13/index.html) -- __Test runner__ for testing code in browsers.
+  - [Mocha](https://mochajs.org) -- __Test framework__ for queuing tests and providing test status and result.
+  - [Chai](http://chaijs.com/) -- BDD/TDD __Assertion library__ for making unit test assertions.
+  - [Sinon](http://sinonjs.org/) -- Test spies, stubs, and mocks for unit tests.
+- End to End Testing
+  - [Protractor](http://www.protractortest.org/#/)
+- [Sass](http://sass-lang.com/) -- CSS preprocessor
+- [Babel (ES6)](https://babeljs.io/) 
+
+##Prerequisites
+1. [Git](https://git-scm.com/downloads) - A command line interface (CLI) comes with the git install.  There are also GUI clients available (SourceTree, GitKraken).
 2. [NodeJS](https://nodejs.org/en/)
 Update to the latest NPM version
   ```bash
   npm install -g npm
   ```
-3. Ruby
-  - [Windows](http://rubyinstaller.org/) -- use the installer option to add Ruby commands to the PATH
-  - [Everyone else](https://www.ruby-lang.org/en/)
 
-###Setup
-Clone or download the repo and run the following from the web project root directory
+##Setup
+Clone or download the repo and run the following from the web project root directory.
 
-```bash
-gem install sass scss_lint
-npm install
-npm start
-```
-
-###Build System [(NPM Scripts)](https://docs.npmjs.com/misc/scripts)
 |  Command  |  Description  |
 |  -------  |  -----------  |
-|  npm run build  |  Execute entire build  |
+|  npm install |  npm will install all required dependencies listed in `package.json`|
+
+__Note:__ This may take some time on Windows, as the virus scan will scan these installed files.
+
+###Running the project
+Once the required npm packages have been installed, npm (NodeJS) is used to run the application.
+
+|  Command  |  Description  |
+|  -------  |  -----------  |
 |  npm start  |  Start bundler, unit tests (with watch) and development server |
 
 
+After this command runs, navigate your browser to `localhost:8080`, Basecamp will be running in your browser.
+
+__Note:__ This process runs until it is manually terminated `Ctrl + c` 
+
+###Build System [(NPM Scripts)](https://docs.npmjs.com/misc/scripts)
+The application will eventually be distributed, a developer can use the script below to build / bundle the application for distribution.
+
+|  Command  |  Description  |
+|  -------  |  -----------  |
+|  npm run build  |  Execute entire build  |
+
+__Note:__ The TFS build configuration will likely have a build step that executes this same script, it is good practice to ensure this command works before attempting a TFS build.
+
 ###Unit Testing ([Karma](https://karma-runner.github.io/0.13/index.html))
-The unit test files (app/\*\*/\*.spec.js) should hang out with the the rest of the application code
+The unit test files (app/\*\*/\*.spec.*) should hang out with the the rest of the application code. Generally they should have a filename that matches that of the code they are testing. (ex. 'sample-controller.ts' would have a test file 'sample-controller.spec.ts')
 
 |  Command  |  Description  |
 |  -------  |  -----------  |
 |  npm run karma-q  |  Execute Karma test runner;  autowatch false;  single run  |
 
-Code coverage can be enabled by setting the environment variable NODE_ENV to 'development'. The easiest way to do this is via a `.env` file, placed in the root of the project (this file is ignored by .gitignore).
+####Get Code Coverage by setting Environment Variable
+
+__Code coverage__ can be enabled by setting the environment variable NODE_ENV to 'development'. The easiest way to do this is via a `.env` file, placed in the root of the project (this file is ignored by .gitignore).
 ```
 NODE_ENV=development
 ```
 
-You may also set environment variables for your process on [windows](https://msdn.microsoft.com/en-us/library/windows/desktop/ms682653(v=vs.85).aspx) or *nix (`NODE_ENV=development npm test`)
+You may also set environment variables for your process on:
+  - <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms682653(v=vs.85).aspx">windows</a> (`Advanced System Properties` -> `Advanced` tab -> `Environment Variables`)
+  - *nix (`NODE_ENV=development npm test`)
 
 
 ###E2E Testing ([Protractor](http://www.protractortest.org/#/))
@@ -71,12 +97,7 @@ Dependent on HTTP Server
 
 
 ###Syntax and Style ([ESLint](http://eslint.org/) and [SCSSLint](https://github.com/brigade/scss-lint))
-Ensure code written within the application conforms to a common style and syntax.  Any errors print to the console.
-
-|  Command  |  Description  |
-|  ---  |  ---  |
-|  npm run lint |  Check for style and syntax issues in the app's JavaScript files |
-|  npm run build sass-lint  |  Check for style and syntax issues in the apps's Sass files  |
+__Mayo-build__:lint Ensure code written within the application conforms to a common style and syntax.  Any errors print to the console.
 
 ###Directory Structure
 ```
@@ -100,18 +121,13 @@ assets
 |   |   _normalize.scss
 |   |   _variable.scss
 |
-_dist
-_docs
-_e2e-tests
-_node_modules
-_reports
-_test-configs
-.babelrc
-.eslintignore
-.eslint.json
+dist
+docs
+e2e-tests
+node_modules
+reports
+test-configs
 .npmrc
-.scsslint.yml
-.jsdoc.json
 package.json
 README.md
 TODO.md
@@ -119,13 +135,13 @@ TODO.md
 
 
 ###File Naming Convention
-File names should use kebab case for the base name (with dot notation to indicate a semantic type if applicable), e.g., "my-super-awesome-test-suite.spec.js".
+File names should use kebab case for the base name (with dot notation to indicate a semantic type if applicable), e.g., "my-super-awesome-test-suite.spec.ts".
 
 |  File Type / Ext.  |  Description  |
 |  ---  |  ---  |
-|  *.config.js  |  Module/State configuration  |
-|  *.directive.js  |  Directive configuration  |
-|  *.filter.js  | Filter configuration
-|  *.controller.js  |  Controller class  |
-|  *.spec.js  |  Test specification  |
-|  *.page.js  |  Object literal representing the UI elements the test cases will need to interact with.  |
+|  *.config.ts  |  Module/State configuration  |
+|  *.directive.ts  |  Directive configuration  |
+|  *.filter.ts  | Filter configuration
+|  *.controller.ts  |  Controller class  |
+|  *.spec.ts  |  Test specification  |
+|  *.page.ts  |  Object literal representing the UI elements the test cases will need to interact with.  |
