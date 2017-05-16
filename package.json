@@ -15,7 +15,7 @@
     "imagemin-pngquant": "^5.0.0",
     "jasmine-core": "^2.3.4",
     "jasmine-reporters": "^2.2.0",
-    "mayo-build": "^0.1.19",
+    "mayo-build": "0.2.1",
     "protractor": "4.0.2",
     "sassdoc": "^2.1.20",
     "stream": "0.0.2",

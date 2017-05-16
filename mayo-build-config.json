@@ -25,6 +25,10 @@
       "sourcemaps": true,
       "html-template": "index.html",
       "quiet": true
+    },
+    "karma": {
+      "directory": "./app",
+      "watch": true
     }
   },
   "test":{
