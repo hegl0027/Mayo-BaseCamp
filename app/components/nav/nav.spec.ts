@@ -1,3 +1,5 @@
+import 'core-js';
+
 import {assert, expect} from 'chai';
 import {PrimaryNavComponent} from './nav.component';
 

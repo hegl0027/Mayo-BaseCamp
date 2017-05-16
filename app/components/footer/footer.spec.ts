@@ -1,3 +1,5 @@
+import 'core-js';
+
 import {expect} from 'chai';
 import {FooterComponent} from './footer.component';
 
