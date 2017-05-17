@@ -27,21 +27,25 @@ Update to the latest NPM version
   ```
 
 ##Setup
-Clone or download the repo and run the following from the web project root directory.
+Clone or download the repo and `npm install` the dependencies in the web project root directory.
+- Command Line:
+  ```
+  git clone http://tfs:8080/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-web-basecamp 
+  ```
 
-|  Command  |  Description  |
-|  -------  |  -----------  |
-|  npm install |  npm will install all required dependencies listed in `package.json`|
+- Command Line: npm will install all required dependencies listed in `package.json`
+  ```
+  npm install
+  ```
 
-__Note:__ This may take some time on Windows, as the virus scan will scan these installed files.
+__Note:__ The `npm install` may take some time on Windows, as the virus scan will scan these installed files.
 
 ###Running the project
 Once the required npm packages have been installed, npm (NodeJS) is used to run the application.
-
-|  Command  |  Description  |
-|  -------  |  -----------  |
-|  npm start  |  Start bundler, unit tests (with watch) and development server |
-
+- Command Line: start bundler, unit tests, and webpack development server
+  ```
+  npm start 
+  ```
 
 After this command runs, navigate your browser to `localhost:8080`, Basecamp will be running in your browser.
 
@@ -49,19 +53,19 @@ __Note:__ This process runs until it is manually terminated `Ctrl + c`
 
 ###Build System [(NPM Scripts)](https://docs.npmjs.com/misc/scripts)
 The application will eventually be distributed, a developer can use the script below to build / bundle the application for distribution.
-
-|  Command  |  Description  |
-|  -------  |  -----------  |
-|  npm run build  |  Execute entire build  |
+- Command Line: Execute the build process
+  ```
+  npm run build
+  ```
 
 __Note:__ The TFS build configuration will likely have a build step that executes this same script, it is good practice to ensure this command works before attempting a TFS build.
 
 ###Unit Testing ([Karma](https://karma-runner.github.io/0.13/index.html))
 The unit test files (app/\*\*/\*.spec.*) should hang out with the the rest of the application code. Generally they should have a filename that matches that of the code they are testing. (ex. 'sample-controller.ts' would have a test file 'sample-controller.spec.ts')
-
-|  Command  |  Description  |
-|  -------  |  -----------  |
-|  npm run test  |  Execute npm script for tests, uses karma as test runner |
+- Command Line: Execute the unit tests, using karma as the test runner via 'mayo-build'
+  ```
+  npm run test
+  ```
 
 ####Get Code Coverage by setting Environment Variable
 
