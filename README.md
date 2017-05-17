@@ -61,7 +61,7 @@ The unit test files (app/\*\*/\*.spec.*) should hang out with the the rest of th
 
 |  Command  |  Description  |
 |  -------  |  -----------  |
-|  npm run karma-q  |  Execute Karma test runner;  autowatch false;  single run  |
+|  npm run test  |  Execute npm script for tests, uses karma as test runner |
 
 ####Get Code Coverage by setting Environment Variable
 
