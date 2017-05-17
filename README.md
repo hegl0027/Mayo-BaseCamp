@@ -20,8 +20,7 @@ This project kick-starts development of an Angular Front-end application.
 
 ##Prerequisites
 1. [Git](https://git-scm.com/downloads) - A command line interface (CLI) comes with the git install.  There are also GUI clients available (SourceTree, GitKraken).
-2. [NodeJS](https://nodejs.org/en/)
-Update to the latest NPM version
+2. [NodeJS](https://nodejs.org/en/) - After installing, Update to the latest NPM version:
   ```bash
   npm install -g npm
   ```
@@ -30,17 +29,19 @@ Update to the latest NPM version
 
 ### Getting the source code and installing dependencies
 Clone or download the repo and `npm install` the dependencies in the web project root directory.
-- Command Line:
+1. Command Line:
   ```
   git clone http://tfs:8080/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-web-basecamp 
   ```
 
-- Command Line: npm will install all required dependencies listed in `package.json`
+2. Command Line: npm will install all required dependencies listed in `package.json`
   ```
   npm install
   ```
 
 __Note:__ The `npm install` may take some time on Windows, as the virus scan will scan these installed files.
+
+##Usage
 
 ###Running the project
 Once the required npm packages have been installed, npm (NodeJS) is used to run the application.
@@ -101,9 +102,20 @@ Dependent on HTTP Server
 |  ---  |  ---  |
 |  npm run api-tests  |  Execute the api tests  |
 
+## Guides to Extending Basecamp
+| Title and Link | Description |
+| ---   | ---- | 
+| [01 A basic Component](./guide/01-extend-with-basic-component.md)| Adding a new Angular Component to Basecamp | 
 
+##Additional Information
 ###Syntax and Style ([ESLint](http://eslint.org/) and [SCSSLint](https://github.com/brigade/scss-lint))
 __Mayo-build__:lint Ensure code written within the application conforms to a common style and syntax.  Any errors print to the console.
+
+###[Mayo Build](http://tfs/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/Innovation%20Sandbox/_git/mayo-build)
+__Mayo Build__ is the entry point for most of the build tooling (webpack, karma, typedoc, etc.).
+
+Each project can have a __mayo-build-config.json__ file where mayo-build can be configured.  When using mayo-build in a npm script, a specific configuration can be referenced for desired behavior in development, distribution, testing, or another task.
+
 
 ###Directory Structure
 ```
@@ -153,3 +165,5 @@ File names should use kebab case for the base name (with dot notation to indicat
 |  *.controller.ts  |  Controller class  |
 |  *.spec.ts  |  Test specification  |
 |  *.page.ts  |  Object literal representing the UI elements the test cases will need to interact with.  |
+
+
