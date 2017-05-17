@@ -27,6 +27,8 @@ Update to the latest NPM version
   ```
 
 ##Setup
+
+### Getting the source code and installing dependencies
 Clone or download the repo and `npm install` the dependencies in the web project root directory.
 - Command Line:
   ```
