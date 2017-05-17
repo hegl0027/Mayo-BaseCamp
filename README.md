@@ -71,7 +71,7 @@ NODE_ENV=development
 ```
 
 You may also set environment variables for your process on:
-  - <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms682653(v=vs.85).aspx">windows</a> (`Advanced System Properties` -> `Advanced` tab -> `Environment Variables`)
+  - [Windows Environment Variables](<https://msdn.microsoft.com/en-us/library/windows/desktop/ms682653%28v=vs.85%29.aspx>) (`Advanced System Properties` -> `Advanced` tab -> `Environment Variables`)
   - *nix (`NODE_ENV=development npm test`)
 
 
@@ -106,7 +106,9 @@ api-tests
 app
 |   components
 |   shared
-|   app.js
+|   app.ts
+|   app.module.ts
+|   main.ts
 |   index.html
 assets
 |   fonts
