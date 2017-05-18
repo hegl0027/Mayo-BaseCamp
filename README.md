@@ -25,6 +25,10 @@ This project kick-starts development of an Angular Front-end application.
   npm install -g npm
   ```
 
+__Gotcha__: Node and npm need to have a C++ compiler to build some of the dependencies for use by Node.
+- The C++ compiler may have been installed with with Visual Studio, if not get [Microsoft C++ Redistributable 2012](https://www.microsoft.com/en-us/download/details.aspx?id=30679)
+- _without_ Visual Studio, use [Microsoft Windows SDK](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
+
 ##Setup
 
 ### Getting the source code and installing dependencies
@@ -34,7 +38,9 @@ Clone or download the repo and `npm install` the dependencies in the web project
   git clone http://tfs:8080/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-web-basecamp 
   ```
 
-2. Command Line: npm will install all required dependencies listed in `package.json`
+2. Command Line: Change directory into the newly cloned project folder (example: `cd path/to/new/project`).
+
+3. Command Line: npm will install all required dependencies listed in the project folder's local `package.json`
   ```
   npm install
   ```
@@ -61,6 +67,8 @@ The application will eventually be distributed, a developer can use the script b
   npm run build
   ```
 
+The resulting files from this step will be placed in the project's root directory, under the `dist` folder.  This default behavior is defined in the __mayo-build-config.json__ configuration and can be changed as required.
+
 __Note:__ The TFS build configuration will likely have a build step that executes this same script, it is good practice to ensure this command works before attempting a TFS build.
 
 ###Unit Testing ([Karma](https://karma-runner.github.io/0.13/index.html))
@@ -72,35 +80,14 @@ The unit test files (app/\*\*/\*.spec.*) should hang out with the the rest of th
 
 ####Get Code Coverage by setting Environment Variable
 
-__Code coverage__ can be enabled by setting the environment variable NODE_ENV to 'development'. The easiest way to do this is via a `.env` file, placed in the root of the project (this file is ignored by .gitignore).
+__Code coverage__ can be enabled by setting the environment variable NODE_ENV to 'development'. 
+
+-  The easiest way to do this is by creating a `.env` file, placed in the root of the project (this file is ignored by .gitignore).
 ```
 NODE_ENV=development
 ```
 
-You may also set environment variables for your process on:
-  - [Windows Environment Variables](<https://msdn.microsoft.com/en-us/library/windows/desktop/ms682653%28v=vs.85%29.aspx>) (`Advanced System Properties` -> `Advanced` tab -> `Environment Variables`)
-  - *nix (`NODE_ENV=development npm test`)
-
-
-###E2E Testing ([Protractor](http://www.protractortest.org/#/))
-The Protractor tests live under the 'e2e-tests' folder
-Dependent on HTTP Server
-Available browser configs: firefox, chrome, ie, safari
-
-|  Command  |  Description  |
-|  -------  |  -----------  |
-|  npm run protractor-<browser>  |  Execute the Protractor test suite for a given browser  |
-|  npm run protractor-<browser>-q  |  Execute the Protractor test suite for a given browser, less the webdriver update  |
-|  npm run protractor-<browser>-q -- --spec e2e-tests/<path to specs>  |  Execute Protractor against a specific set of spec files for a given browser  |
-
-
-###API Tests ([Mocha](https://mochajs.org/) and [SuperTest](https://github.com/visionmedia/supertest))
-The REST API tests live under the 'api-tests' folder
-Dependent on HTTP Server
-
-|  Command  |  Description  |
-|  ---  |  ---  |
-|  npm run api-tests  |  Execute the api tests  |
+-  This variable may also be set within the npm script, before the desired command: "start": `NODE_ENV=development mayo-build start`
 
 ## Guides to Extending Basecamp
 | Title and Link | Description |
@@ -108,14 +95,10 @@ Dependent on HTTP Server
 | [01 A basic Component](./guide/01-extend-with-basic-component.md)| Adding a new Angular Component to Basecamp | 
 
 ##Additional Information
-###Syntax and Style ([ESLint](http://eslint.org/) and [SCSSLint](https://github.com/brigade/scss-lint))
-__Mayo-build__:lint Ensure code written within the application conforms to a common style and syntax.  Any errors print to the console.
-
 ###[Mayo Build](http://tfs/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/Innovation%20Sandbox/_git/mayo-build)
 __Mayo Build__ is the entry point for most of the build tooling (webpack, karma, typedoc, etc.).
 
 Each project can have a __mayo-build-config.json__ file where mayo-build can be configured.  When using mayo-build in a npm script, a specific configuration can be referenced for desired behavior in development, distribution, testing, or another task.
-
 
 ###Directory Structure
 ```
@@ -153,7 +136,6 @@ README.md
 TODO.md
 ```
 
-
 ###File Naming Convention
 File names should use kebab case for the base name (with dot notation to indicate a semantic type if applicable), e.g., "my-super-awesome-test-suite.spec.ts".
 
@@ -165,5 +147,30 @@ File names should use kebab case for the base name (with dot notation to indicat
 |  *.controller.ts  |  Controller class  |
 |  *.spec.ts  |  Test specification  |
 |  *.page.ts  |  Object literal representing the UI elements the test cases will need to interact with.  |
+
+-----
+## Documentation needing updates (not fully supported)
+
+###Syntax and Style ([ESLint](http://eslint.org/) and [SCSSLint](https://github.com/brigade/scss-lint))
+Mayo-build:lint Ensure code written within the application conforms to a common style and syntax.  Any errors print to the console.
+
+###E2E Testing ([Protractor](http://www.protractortest.org/#/))
+The Protractor tests live under the 'e2e-tests' folder
+Dependent on HTTP Server
+Available browser configs: firefox, chrome, ie, safari
+
+|  Command  |  Description  |
+|  -------  |  -----------  |
+|  npm run protractor-<browser>  |  Execute the Protractor test suite for a given browser  |
+|  npm run protractor-<browser>-q  |  Execute the Protractor test suite for a given browser, less the webdriver update  |
+|  npm run protractor-<browser>-q -- --spec e2e-tests/<path to specs>  |  Execute Protractor against a specific set of spec files for a given browser  |
+
+###API Tests ([Mocha](https://mochajs.org/) and [SuperTest](https://github.com/visionmedia/supertest))
+The REST API tests live under the 'api-tests' folder
+Dependent on HTTP Server
+
+|  Command  |  Description  |
+|  ---  |  ---  |
+|  npm run api-tests  |  Execute the api tests  |
 
 
