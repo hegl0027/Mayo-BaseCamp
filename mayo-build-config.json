@@ -5,7 +5,7 @@
     },
     "bundle": {
       "context": "./app",
-      "input": "./app.js",
+      "input": "./main.ts",
       "webpack": true,
       "production": true,
       "html-template": "index.html",
@@ -20,17 +20,15 @@
     "bundle": {
       "webpack": true,
       "context": "./app",
-      "input": "./app.js",
+      "input": "./main.ts",
       "devserver": true,
       "sourcemaps": true,
       "html-template": "index.html",
       "quiet": true
     },
-    "karma" : {
-      "angular": true,
+    "karma": {
       "directory": "./app",
-      "watch": true,
-      "webpack": true
+      "watch": true
     }
   },
   "test":{
@@ -38,7 +36,6 @@
       "watch": false
     },
     "karma": {
-      "angular": true,
       "directory": "./app",
       "webpack": true,
       "watch": false

@@ -1,8 +1,8 @@
 {
   "name": "mayo-web-basecamp",
   "private": false,
-  "version": "0.1.15",
-  "description": "An opinionated AngularJS 1.x starter project developed to simplify the web application startup process.",
+  "version": "0.2.0",
+  "description": "An opinionated AngularJS 2.x starter project developed to simplify the web application startup process.",
   "repository": {
     "type": "git",
     "url": "http://tfs/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-web-basecamp"
@@ -10,23 +10,28 @@
   "main": "./app/app.js",
   "license": "MIT",
   "devDependencies": {
+    "@types/chai": "^3.5.2",
+    "@types/mocha": "^2.2.41",
+    "@types/supertest": "^2.0.0",
     "chai": "^3.5.0",
+    "file-loader": "^0.11.1",
     "imagemin-pngquant": "^5.0.0",
     "jasmine-core": "^2.3.4",
     "jasmine-reporters": "^2.2.0",
-    "mayo-build": "^0.1.14",
+    "mayo-build": "0.2.2",
     "protractor": "4.0.2",
     "sassdoc": "^2.1.20",
-    "supertest": "^2.0.0"
+    "stream": "0.0.2",
+    "supertest": "^2.0.0",
+    "svg-fill-loader": "0.0.8",
+    "typescript": "^2.2.2"
   },
   "scripts": {
     "lint": "mayo-lint -d=app",
     "bundle": "mayo-bundle --webpack -i=./app/app.js",
     "build": "mayo-build start",
-    "postbuild": "mayo-ui-kit --favicon dist/assets/",
-    "test": "npm run karma-q",
+    "test": "mayo-build start --config=test",
     "api-tests": "mocha api-tests/**/*spec.js --compilers js:babel-core/register",
-    "karma-q": "mayo-build start --config=test",
     "preupdate-webdriver": "npm install",
     "update-webdriver": "webdriver-manager update",
     "preprotractor-ie": "webdriver-manager update --ie",
@@ -68,19 +73,20 @@
     "util"
   ],
   "dependencies": {
-    "angular": "^1.5.5",
-    "angular-animate": "^1.5.5",
-    "angular-aria": "^1.5.5",
-    "angular-loading-bar": "^0.9.0",
-    "angular-messages": "^1.5.5",
-    "angular-mocks": "^1.5.5",
-    "angular-resource": "^1.5.5",
-    "angular-sanitize": "^1.5.5",
-    "angular-ui-router": "^0.3.0",
-    "angular-ui-router.statehelper": "^1.3.1",
+    "@angular/common": "^4.0.1",
+    "@angular/compiler": "^4.0.1",
+    "@angular/core": "^4.0.1",
+    "@angular/platform-browser": "^4.0.1",
+    "@angular/platform-browser-dynamic": "^4.0.1",
+    "@angular/router": "^4.0.1",
+    "core-js": "^2.4.1",
     "lodash": "^4.15.0",
+    "mayo-build": "^0.2.2",
     "mayo-js-logging": "^0.1.0",
-    "mayo-ui-kit": "^0.1.15",
-    "moment": "^2.13.0"
+    "mayo-ui-kit": "^2.0.4",
+    "moment": "^2.13.0",
+    "reflect-metadata": "^0.1.9",
+    "rxjs": "^5.1.1",
+    "zone.js": "^0.8.5"
   }
 }

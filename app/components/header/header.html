@@ -4,10 +4,10 @@
 <section class="app-name">Basecamp</section>
 <section class="app-context"></section>
 <section class="username">
-    {{base.user.lastName}}, {{base.user.firstName}}
+    {{user?.lastName}}, {{user?.firstName}}
     <div class="user-links">
-        <a href="" class="link" ng-click="base.openLogout()">logout</a> |
-        <a href="" class="link" ng-click="base.openSettings()">settings</a>
+      <a href="" class="link">logout</a> |
+      <a href="" class="link">settings</a>
     </div>
 </section>
 <img class="icon icon--user" src="../../../assets/images/inline-svg/user.svg" />

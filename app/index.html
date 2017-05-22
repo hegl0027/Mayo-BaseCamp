@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <base href="/">
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Basecamp</title>
@@ -17,16 +19,10 @@
     <meta name="theme-color" content="#333333">
 
 </head>
-<body ng-cloak ng-app="app">
+<body>
 
-<!-- base.html  -->
-<div class="view" ui-view></div>
-
-<!-- Inline SVGs are injected here to be immediately available to the browser -->
-<!-- Warning: these are not cacheable by the browser -->
-<div style="height: 0; width: 0; position: absolute; visibility: hidden">
-    <!-- inject:svg --><!-- endinject -->
-</div>
+<basecamp-app>
+</basecamp-app>
 
 </body>
 

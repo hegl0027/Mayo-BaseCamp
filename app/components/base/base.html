@@ -1,13 +1,17 @@
 <!-- PRIMARY VERTICAL NAV BAR ON THE LEFT HAND SIDE OF THE VIEWPORT -->
-<nav class="nav__primary" ui-view="nav"></nav>
+<nav class="nav__primary">
+  <primary-nav></primary-nav>
+</nav>
 
 <!-- MORE OR LESS EVERYTHING BUT THE PRIMARY NAV -->
 <main class="content__wrapper">
-    <header ui-view="header" class="snow"></header>
+  <main-header></main-header>
 
-    <!-- ALL VIEWS ARE INJECTED HERE -->
-    <div ui-view class="content"></div>
+  <!-- ALL VIEWS ARE INJECTED HERE -->
+  <router-outlet></router-outlet>
 
-    <!-- FOOTER CONTENT HERE -->
-    <footer ui-view="footer" class="footer"></footer>
+  <!-- FOOTER CONTENT HERE -->
+  <basecamp-footer class="footer">
+  </basecamp-footer>
 </main>
+

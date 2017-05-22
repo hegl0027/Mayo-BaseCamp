@@ -1,78 +1,104 @@
 [![Build Status](http://tfs:8080/tfs/MayoClinic/_apis/public/build/definitions/2f49d3e6-4c50-4efe-9a92-a45130cc4a0a/545/badge)](http://tfs/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-web-basecamp?path=%2F&version=GBdevelop&_a=contents)
 
-#Get Started
-###Notable Technologies
-- [AngularJS 1.x](https://angularjs.org/) -- MV* framework for web applications
-- [Mayo Build](http://tfs/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-build?path=%2Fmanual%2Foverview%2F1-overview.md&version=GBmaster&_a=contents) -- Build system
-- [Sass](http://sass-lang.com/) -- CSS preprocessor
-- [Babel (ES6)](https://babeljs.io/) -- JavaScript transpiler for code written to the ECMAScript 2015 standard ([modules](https://babeljs.io/docs/learn-es2015/#modules), [classes](https://babeljs.io/docs/learn-es2015/#classes), [template strings](https://babeljs.io/docs/learn-es2015/#template-strings), and [more](https://babeljs.io/docs/learn-es2015/))
+#Get Started with DSS's Mayo Web Basecamp 
+##Purpose
+This project kick-starts development of an Angular Front-end application.
 
-###Prerequisites
-1. [Git](https://git-scm.com/downloads)
-2. [NodeJS](https://nodejs.org/en/)
-Update to the latest NPM version
+##Notable Technologies
+- [Angular 2+](https://angular.io/) -- Framework for front-end web applications
+- [TypeScript](https://www.typescriptlang.org/) -- A strongly-typed superset of the JavaScript language (all JavaScript is valid TypeScript). Much of the Angular2+ documentation is written for TypeScript.
+  - Transpiler supporting JavaScript's ECMAScript 2015 standard ([modules](https://babeljs.io/docs/learn-es2015/#modules), [classes](https://babeljs.io/docs/learn-es2015/#classes), [template strings](https://babeljs.io/docs/learn-es2015/#template-strings), and [more](https://babeljs.io/docs/learn-es2015/))
+- Unit Testing
+  - [Karma](https://karma-runner.github.io/0.13/index.html) -- __Test runner__ for testing code in browsers.
+  - [Mocha](https://mochajs.org) -- __Test framework__ for queuing tests and providing test status and result.
+  - [Chai](http://chaijs.com/) -- BDD/TDD __Assertion library__ for making unit test assertions.
+  - [Sinon](http://sinonjs.org/) -- Test spies, stubs, and mocks for unit tests.
+- End to End Testing
+  - [Protractor](http://www.protractortest.org/#/)
+- [Sass](http://sass-lang.com/) -- CSS preprocessor
+- [Babel (ES6)](https://babeljs.io/) 
+
+##Prerequisites
+1. [Git](https://git-scm.com/downloads) - A command line interface (CLI) comes with the git install.  There are also GUI clients available (SourceTree, GitKraken).
+2. [NodeJS](https://nodejs.org/en/) - After installing, Update to the latest NPM version:
   ```bash
   npm install -g npm
   ```
 
-###Setup
-Clone or download the repo and run the following from the web project root directory
+__Gotcha__: Node and npm need to have a C++ compiler to build some of the dependencies for use by Node.
+- The C++ compiler may have been installed with with Visual Studio, if not get [Microsoft C++ Redistributable 2012](https://www.microsoft.com/en-us/download/details.aspx?id=30679)
+- _without_ Visual Studio, use [Microsoft Windows SDK](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
 
-```bash
-npm install
-npm start
-```
+##Setup
+
+### Getting the source code and installing dependencies
+Clone or download the repo and `npm install` the dependencies in the web project root directory.
+1. Command Line:
+  ```
+  git clone http://tfs:8080/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-web-basecamp 
+  ```
+
+2. Command Line: Change directory into the newly cloned project folder (example: `cd path/to/new/project`).
+
+3. Command Line: npm will install all required dependencies listed in the project folder's local `package.json`
+  ```
+  npm install
+  ```
+
+__Note:__ The `npm install` may take some time on Windows, as the virus scan will scan these installed files.
+
+##Usage
+
+###Running the project
+Once the required npm packages have been installed, npm (NodeJS) is used to run the application.
+- Command Line: start bundler, unit tests, and webpack development server
+  ```
+  npm start 
+  ```
+
+After this command runs, navigate your browser to `localhost:8080`, Basecamp will be running in your browser.
+
+__Note:__ This process runs until it is manually terminated `Ctrl + c` 
 
 ###Build System [(NPM Scripts)](https://docs.npmjs.com/misc/scripts)
-|  Command  |  Description  |
-|  -------  |  -----------  |
-|  npm run build  |  Execute entire build  |
-|  npm start  |  Start bundler, unit tests (with watch) and development server |
+The application will eventually be distributed, a developer can use the script below to build / bundle the application for distribution.
+- Command Line: Execute the build process
+  ```
+  npm run build
+  ```
 
+The resulting files from this step will be placed in the project's root directory, under the `dist` folder.  This default behavior is defined in the __mayo-build-config.json__ configuration and can be changed as required.
+
+__Note:__ The TFS build configuration will likely have a build step that executes this same script, it is good practice to ensure this command works before attempting a TFS build.
 
 ###Unit Testing ([Karma](https://karma-runner.github.io/0.13/index.html))
-The unit test files (app/\*\*/\*.spec.js) should hang out with the the rest of the application code
+The unit test files (app/\*\*/\*.spec.*) should hang out with the the rest of the application code. Generally they should have a filename that matches that of the code they are testing. (ex. 'sample-controller.ts' would have a test file 'sample-controller.spec.ts')
+- Command Line: Execute the unit tests, using karma as the test runner via 'mayo-build'
+  ```
+  npm run test
+  ```
 
-|  Command  |  Description  |
-|  -------  |  -----------  |
-|  npm run karma-q  |  Execute Karma test runner;  autowatch false;  single run  |
+####Get Code Coverage by setting Environment Variable
 
-Code coverage can be enabled by setting the environment variable NODE_ENV to 'development'. The easiest way to do this is via a `.env` file, placed in the root of the project (this file is ignored by .gitignore).
+__Code coverage__ can be enabled by setting the environment variable NODE_ENV to 'development'. 
+
+-  The easiest way to do this is by creating a `.env` file, placed in the root of the project (this file is ignored by .gitignore).
 ```
 NODE_ENV=development
 ```
 
-You may also set environment variables for your process on [windows](https://msdn.microsoft.com/en-us/library/windows/desktop/ms682653(v=vs.85).aspx) or *nix (`NODE_ENV=development npm test`)
+-  This variable may also be set within the npm script, before the desired command: "start": `NODE_ENV=development mayo-build start`
 
+## Guides to Extending Basecamp
+| Title and Link | Description |
+| ---   | ---- | 
+| [01 A basic Component](./guide/01-extend-with-basic-component.md)| Adding a new Angular Component to Basecamp | 
 
-###E2E Testing ([Protractor](http://www.protractortest.org/#/))
-The Protractor tests live under the 'e2e-tests' folder
-Dependent on HTTP Server
-Available browser configs: firefox, chrome, ie, safari
+##Additional Information
+###[Mayo Build](http://tfs/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/Innovation%20Sandbox/_git/mayo-build)
+__Mayo Build__ is the entry point for most of the build tooling (webpack, karma, typedoc, etc.).
 
-|  Command  |  Description  |
-|  -------  |  -----------  |
-|  npm run protractor-<browser>  |  Execute the Protractor test suite for a given browser  |
-|  npm run protractor-<browser>-q  |  Execute the Protractor test suite for a given browser, less the webdriver update  |
-|  npm run protractor-<browser>-q -- --spec e2e-tests/<path to specs>  |  Execute Protractor against a specific set of spec files for a given browser  |
-
-
-###API Tests ([Mocha](https://mochajs.org/) and [SuperTest](https://github.com/visionmedia/supertest))
-The REST API tests live under the 'api-tests' folder
-Dependent on HTTP Server
-
-|  Command  |  Description  |
-|  ---  |  ---  |
-|  npm run api-tests  |  Execute the api tests  |
-
-
-###Syntax and Style ([ESLint](http://eslint.org/) and [SCSSLint](https://github.com/brigade/scss-lint))
-Ensure code written within the application conforms to a common style and syntax.  Any errors print to the console.
-
-|  Command  |  Description  |
-|  ---  |  ---  |
-|  npm run lint |  Check for style and syntax issues in the app's JavaScript files |
-|  npm run build sass-lint  |  Check for style and syntax issues in the apps's Sass files  |
+Each project can have a __mayo-build-config.json__ file where mayo-build can be configured.  When using mayo-build in a npm script, a specific configuration can be referenced for desired behavior in development, distribution, testing, or another task.
 
 ###Directory Structure
 ```
@@ -81,7 +107,9 @@ api-tests
 app
 |   components
 |   shared
-|   app.js
+|   app.ts
+|   app.module.ts
+|   main.ts
 |   index.html
 assets
 |   fonts
@@ -96,32 +124,53 @@ assets
 |   |   _normalize.scss
 |   |   _variable.scss
 |
-_dist
-_docs
-_e2e-tests
-_node_modules
-_reports
-_test-configs
-.babelrc
-.eslintignore
-.eslint.json
+dist
+docs
+e2e-tests
+node_modules
+reports
+test-configs
 .npmrc
-.scsslint.yml
-.jsdoc.json
 package.json
 README.md
 TODO.md
 ```
 
-
 ###File Naming Convention
-File names should use kebab case for the base name (with dot notation to indicate a semantic type if applicable), e.g., "my-super-awesome-test-suite.spec.js".
+File names should use kebab case for the base name (with dot notation to indicate a semantic type if applicable), e.g., "my-super-awesome-test-suite.spec.ts".
 
 |  File Type / Ext.  |  Description  |
 |  ---  |  ---  |
-|  *.config.js  |  Module/State configuration  |
-|  *.directive.js  |  Directive configuration  |
-|  *.filter.js  | Filter configuration
-|  *.controller.js  |  Controller class  |
-|  *.spec.js  |  Test specification  |
-|  *.page.js  |  Object literal representing the UI elements the test cases will need to interact with.  |
+|  *.config.ts  |  Module/State configuration  |
+|  *.directive.ts  |  Directive configuration  |
+|  *.filter.ts  | Filter configuration
+|  *.controller.ts  |  Controller class  |
+|  *.spec.ts  |  Test specification  |
+|  *.page.ts  |  Object literal representing the UI elements the test cases will need to interact with.  |
+
+-----
+## Documentation needing updates (not fully supported)
+
+###Syntax and Style ([ESLint](http://eslint.org/) and [SCSSLint](https://github.com/brigade/scss-lint))
+Mayo-build:lint Ensure code written within the application conforms to a common style and syntax.  Any errors print to the console.
+
+###E2E Testing ([Protractor](http://www.protractortest.org/#/))
+The Protractor tests live under the 'e2e-tests' folder
+Dependent on HTTP Server
+Available browser configs: firefox, chrome, ie, safari
+
+|  Command  |  Description  |
+|  -------  |  -----------  |
+|  npm run protractor-<browser>  |  Execute the Protractor test suite for a given browser  |
+|  npm run protractor-<browser>-q  |  Execute the Protractor test suite for a given browser, less the webdriver update  |
+|  npm run protractor-<browser>-q -- --spec e2e-tests/<path to specs>  |  Execute Protractor against a specific set of spec files for a given browser  |
+
+###API Tests ([Mocha](https://mochajs.org/) and [SuperTest](https://github.com/visionmedia/supertest))
+The REST API tests live under the 'api-tests' folder
+Dependent on HTTP Server
+
+|  Command  |  Description  |
+|  ---  |  ---  |
+|  npm run api-tests  |  Execute the api tests  |
+
+
