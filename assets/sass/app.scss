@@ -1,4 +1,8 @@
-@import "~mayo-ui-kit/lib/mayo-ui-kit";
+@import "~mayo-ui-kit/modules/normalize";
+@import "~mayo-ui-kit/modules/typography";
+@import "~mayo-ui-kit/modules/buttons";
+@import "~mayo-ui-kit/modules/forms";
+@import "~mayo-ui-kit/modules/core";
 @import 'variables';
 @import 'placeholders';
 @import 'base';

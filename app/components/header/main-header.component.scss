@@ -1,4 +1,4 @@
-@import "../../../assets/sass/_variables";
+@import "~mayo-ui-kit/modules/core";
 
 main-header {
   border-bottom: 1px solid #ccc;
@@ -9,7 +9,7 @@ main-header {
   z-index: 1;
 
   .user-links {
-    color: $red--monochrome;
+    color: $red;
     display: flex;
     font-size: .9em;
     justify-content: flex-end;
