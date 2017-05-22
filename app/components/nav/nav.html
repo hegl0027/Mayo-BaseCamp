@@ -1,11 +1,11 @@
 <section class="mc-stack__wrapper">
-    <img class="icon mc-stack" src="../../../assets/images/inline-svg/mc-stack-white.svg"></img>
+    <img class="icon mc-stack" src="../../../assets/images/inline-svg/mc-stack-white.svg">
 </section>
 
 <ul class="nav__primary__list">
 
-  <li ng-class="{'selected': navCtrl.isClosestState(link.stateRef)}" ng-repeat="link in navCtrl.links" class="nav" ui-sref="{{link.stateRef}}">
-    <img class="icon icon--nav" src="{{link.iconSrc}}"></src>
+  <li *ngFor="let link of links" class="nav" [routerLink]="link.route">
+    <img class="icon icon--nav" [src]="link.iconSrc">
     <span>{{link.label}}</span>
   </li>
 

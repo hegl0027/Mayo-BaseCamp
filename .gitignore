@@ -17,3 +17,6 @@ lib/
 tmp/
 .env
 app/components/templates.js
+typings/
+*.swp
+*.swo
