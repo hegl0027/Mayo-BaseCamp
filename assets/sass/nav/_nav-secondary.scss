@@ -15,6 +15,7 @@
     transition: all .3s ease;
     transition-delay: .3s;
     width: 0;
+    overflow: hidden;
 
     > ul {
       display: flex;
@@ -118,6 +119,7 @@
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
   width: 250px;
+  overflow: initial;
 
   li {
     padding: .45em 1em;
