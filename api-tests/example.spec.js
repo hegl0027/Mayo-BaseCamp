@@ -17,7 +17,7 @@ describe("api test", () => {
   });
 
   it("returns html", () => {
-    server
+    return server
       .get("/index.html")
       .expect("Content-type", /html/)
       .expect(200);
