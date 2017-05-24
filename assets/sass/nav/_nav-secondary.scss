@@ -38,6 +38,7 @@
                   border-radius 1s ease,
                   padding 1000ms ease;
       white-space: nowrap;
+      outline: none;
 
       &:hover {
         background-color: #2172a4;
@@ -78,6 +79,7 @@
     padding: .4em 1em 0;
     position: relative;
     transition: border-color 246ms ease;
+    outline: none;
 
     &:after {
       border-bottom: 4px solid #fff;

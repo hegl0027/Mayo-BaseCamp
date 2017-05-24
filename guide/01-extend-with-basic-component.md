@@ -52,7 +52,6 @@ const appRoutes: Routes = [
       {path: 'reporting', loadChildren: () => ReportingModule},
       {path: 'admin', loadChildren: () => AdminModule},
       {path: 'support', loadChildren: () => SupportModule},
-      {path: 'patterns', loadChildren: () => PatternsModule},
       {path: 'sample', component: SampleComponent},
       {path: '', redirectTo: 'home', pathMatch: 'full'}
     ]

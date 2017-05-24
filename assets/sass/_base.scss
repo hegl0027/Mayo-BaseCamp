@@ -15,8 +15,10 @@ ul {
   max-width: 100vw;
 
   > [ui-view],
-  ui-view {
-    @extend %partial--padding !optional;
+  ui-view,
+  ng-component,
+  .no-nav {
+    @extend %partial--padding;
   }
 }
 
@@ -25,12 +27,10 @@ ul {
   overflow: hidden;
 
   > [ui-view],
-  ui-view {
-    @extend %partial--padding !optional;
-  }
-
-  .no-nav {
-    @extend %partial--padding !optional;
+  ui-view,
+  .no-nav,
+  ng-component {
+    @extend %partial--padding;
   }
 
   &__wrapper {

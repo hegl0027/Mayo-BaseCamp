@@ -23,7 +23,6 @@ import {USER_SERVICE, UserService} from './shared/user/UserService';
 import {MockUserService} from './shared/user/MockUserService';
 
 import {HomeModule} from './components/home/home-abstract.config';
-import {PatternsModule} from './components/patterns/patterns.config';
 import {ReportingModule} from './components/reporting/reporting-abstract.config';
 import {AdminModule} from './components/sysadmin/sysadmin-abstract.config';
 import {SupportModule} from './components/support/support.config';
@@ -44,7 +43,6 @@ const appRoutes: Routes = [
       {path: 'reporting', loadChildren: () => ReportingModule},
       {path: 'admin', loadChildren: () => AdminModule},
       {path: 'support', loadChildren: () => SupportModule},
-      {path: 'patterns', loadChildren: () => PatternsModule},
       {path: '', redirectTo: 'home', pathMatch: 'full'}
     ]
   }, {

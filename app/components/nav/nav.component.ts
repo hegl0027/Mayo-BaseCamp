@@ -4,7 +4,6 @@ import * as homeIcon from '!file-loader!svg-fill-loader?fill=#ffffff!../../../as
 import * as reportingIcon from '!file-loader!svg-fill-loader?fill=#ffffff!../../../assets/images/inline-svg/file-text.svg';
 import * as adminIcon from '!file-loader!svg-fill-loader?fill=#ffffff!../../../assets/images/inline-svg/cog.svg';
 import * as supportIcon from '!file-loader!svg-fill-loader?fill=#ffffff!../../../assets/images/inline-svg/question.svg';
-import * as patternsIcon from '!file-loader!svg-fill-loader?fill=#ffffff!../../../assets/images/inline-svg/pattern.svg';
 
 
 import NavTemplate from './nav.html';
@@ -40,10 +39,6 @@ export class PrimaryNavComponent {
         iconSrc: supportIcon,
         route: '/app/support',
         label: 'Support'
-      }, {
-        iconSrc: patternsIcon,
-        route: '/app/patterns',
-        label: 'Style'
       }
     ];
   }
