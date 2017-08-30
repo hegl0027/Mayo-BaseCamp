@@ -1,5 +1,6 @@
-import {Component, NgModule} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {CommonModule} from '@angular/common';
 import {ReportingComponent} from './reporting-abstract.component';
 
 import {ReportingOneComponent} from './one/reporting-one.component';
@@ -21,7 +22,8 @@ const reportingRoutes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forChild(reportingRoutes)
+    RouterModule.forChild(reportingRoutes),
+    CommonModule
   ],
   exports: [
     RouterModule

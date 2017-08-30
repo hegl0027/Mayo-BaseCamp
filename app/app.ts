@@ -1,12 +1,3 @@
-//import {defaultConfiguration as useDefaultLoggingConfiguration} from 'mayo-js-logging';
-//import {decorateStateChange, decorateHttpService, decorateExceptionHandler} from 'mayo-js-logging/lib/angular';
-//
-
-//decorateHttpService(BasecampModule);
-//decorateStateChange(BasecampModule);
-//decorateExceptionHandler(BasecampModule);
-//useDefaultLoggingConfiguration();
-
 
 import {Component, NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';

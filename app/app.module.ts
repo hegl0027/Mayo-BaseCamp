@@ -1,6 +1,4 @@
-import {Component} from '@angular/core';
-
-import { NgModule } from '@angular/core';
+import {Component, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import { BaseModule} from './app';
@@ -20,9 +18,9 @@ class BasecampWrapper { }
 
 @NgModule({
   imports: [
-    BrowserModule,
     BaseModule,
-    RouterModule.forRoot(appRoutes, {useHash: true})
+    RouterModule.forRoot(appRoutes, {useHash: true}),
+    BrowserModule
   ],
   declarations: [
     BasecampWrapper

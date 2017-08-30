@@ -1,5 +1,6 @@
 import {NgModule, Component} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {CommonModule} from '@angular/common';
 
 import template from './support.html';
 
@@ -16,7 +17,8 @@ const supportRoutes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forChild(supportRoutes)
+    RouterModule.forChild(supportRoutes),
+    CommonModule
   ],
   exports: [
     RouterModule
