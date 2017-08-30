@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {CommonModule} from '@angular/common';
 import {AdminComponent} from './sysadmin-abstract.component';
 import {AdminOneComponent} from './one/sysadmin-one.component';
 import {AdminTwoComponent} from './two/sysadmin-two.component';
@@ -21,7 +22,8 @@ const adminRoutes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forChild(adminRoutes)
+    RouterModule.forChild(adminRoutes),
+    CommonModule
   ],
   exports: [
     RouterModule
