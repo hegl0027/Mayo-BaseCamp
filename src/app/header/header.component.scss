@@ -1,0 +1,36 @@
+@import "../../assets/scss/variables";
+
+.page-header {
+  background-color: grey;
+  width: 100%;
+  display: flex;
+
+  section {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    span {
+      flex: 1;
+    }
+  }
+
+  .user-area {
+    display: flex;
+    max-height: 100%;
+    align-self: center;
+    margin-left: auto;
+    img, svg {
+      align-self: stretch;
+      height: calc(#{$header-height} - 1em);
+      width: calc(#{$header-height} - 1em);
+    }
+  }
+}
+
+:host {
+  display: flex;
+  width: calc(100% - #{$header-height});
+  align-items: center;
+  height: $header-height;
+  box-sizing: border-box;
+}

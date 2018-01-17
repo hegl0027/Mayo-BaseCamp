@@ -1,0 +1,15 @@
+<header class="page-header">
+  <section class="link">
+    <span>[Image]</span>
+    <span>[Send Feedback]</span>
+    <span>[Login]</span>
+    <span>[Today's Date]</span>
+  </section>
+  <section class="user-area">
+    <span class="user-detail">
+      <span>{{userName}}</span>
+    </span>
+    <img src={{userPicture}} *ngIf="Picture"/>
+    <svg *ngIf="!Picture"><use [attr.xlink:href]="'#'+defaultPicture.default.id"></use></svg>
+  </section>
+</header>

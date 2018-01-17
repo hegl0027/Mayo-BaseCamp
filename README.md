@@ -48,93 +48,49 @@ Clone or download the repo and `npm install` the dependencies in the web project
 __Note:__ The `npm install` may take some time on Windows, as the virus scan will scan these installed files.
 
 ## Usage
+### Angular CLI 
 
-### Running the project
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.4.
+
+### Development server
 Once the required npm packages have been installed, npm (NodeJS) is used to run the application.
-- Command Line: start bundler, unit tests, and webpack development server
-  ```
-  npm start 
-  ```
 
-After this command runs, navigate your browser to `localhost:8080`, Basecamp will be running in your browser.
-
+Run `ng serve` or `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 __Note:__ This process runs until it is manually terminated `Ctrl + c` 
+__Note:__ This process can be alteratively ran with: `ng serve --host 0.0.0.0 --disable-host-check --public-host <HOSTNAME>:<PORT>` if running in a VM.  This allows an external PC to reach the site within the VM.
 
-### Build System [(NPM Scripts)](https://docs.npmjs.com/misc/scripts)
+### Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+### Build
 The application will eventually be distributed, a developer can use the script below to build / bundle the application for distribution.
-- Command Line: Execute the build process
-  ```
-  npm run build
-  ```
 
-The resulting files from this step will be placed in the project's root directory, under the `dist` folder.  This default behavior is defined in the __mayo-build-config.json__ configuration and can be changed as required.
+Run `ng build` or `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
 __Note:__ The TFS build configuration will likely have a build step that executes this same script, it is good practice to ensure this command works before attempting a TFS build.
 
-### Unit Testing ([Karma](https://karma-runner.github.io/0.13/index.html))
-The unit test files (app/\*\*/\*.spec.*) should hang out with the the rest of the application code. Generally they should have a filename that matches that of the code they are testing. (ex. 'sample-controller.ts' would have a test file 'sample-controller.spec.ts')
-- Command Line: Execute the unit tests, using karma as the test runner via 'mayo-build'
-  ```
-  npm run test
-  ```
+See also: [(NPM Scripts)](https://docs.npmjs.com/misc/scripts)
 
-#### Get Code Coverage by setting Environment Variable
+### Running unit tests
+The unit test files should be in the same path as the file it is testing. Test files should have a filename that matches that of the code they are testing. (ex. 'redApple.component.ts' would have a test file 'redApple.component.spec.ts')
 
-__Code coverage__ can be enabled by setting the environment variable NODE_ENV to 'development'. 
+Run `ng test` or `npm run test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
--  The easiest way to do this is by creating a `.env` file, placed in the root of the project (this file is ignored by .gitignore).
-```
-NODE_ENV=development
-```
+__Note:__ For test coverage report, run `ng test --code-coverage`, the report will be output to /coverage. Open the /coverage/index.html to browse the coverage report.
 
--  This variable may also be set within the npm script, before the desired command: "start": `NODE_ENV=development mayo-build start`
+### Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+### Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 ## Guides to Extending Basecamp
 | Title and Link | Description |
 | ---   | ---- | 
-| [01 A basic Component](./guide/01-extend-with-basic-component.md)| Adding a new Angular Component to Basecamp | 
-
-## Additional Information
-###[Mayo Build](http://tfs/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/Innovation%20Sandbox/_git/mayo-build)
-__Mayo Build__ is the entry point for most of the build tooling (webpack, karma, typedoc, etc.).
-
-Each project can have a __mayo-build-config.json__ file where mayo-build can be configured.  When using mayo-build in a npm script, a specific configuration can be referenced for desired behavior in development, distribution, testing, or another task.
-
-### Directory Structure
-```
-.
-api-tests
-app
-|   components
-|   shared
-|   app.ts
-|   app.module.ts
-|   main.ts
-|   index.html
-assets
-|   fonts
-|   images
-|   |   favicon
-|   |   inline-svg
-|   |   svg-bundle
-|   
-|   sass
-|   |   app.scss
-|   |   _base.scss
-|   |   _normalize.scss
-|   |   _variable.scss
-|
-dist
-docs
-e2e-tests
-node_modules
-reports
-test-configs
-.npmrc
-package.json
-README.md
-TODO.md
-```
+| | | 
 
 ### File Naming Convention
 File names should use kebab case for the base name (with dot notation to indicate a semantic type if applicable), e.g., "my-super-awesome-test-suite.spec.ts".
@@ -142,17 +98,16 @@ File names should use kebab case for the base name (with dot notation to indicat
 |  File Type / Ext.  |  Description  |
 |  ---  |  ---  |
 |  *.config.ts  |  Module/State configuration  |
+|  *.component.ts  |  Component |
+|  *.service.ts  |  Service |
 |  *.directive.ts  |  Directive configuration  |
 |  *.filter.ts  | Filter configuration
-|  *.controller.ts  |  Controller class  |
 |  *.spec.ts  |  Test specification  |
-|  *.page.ts  |  Object literal representing the UI elements the test cases will need to interact with.  |
 
 -----
 ## Documentation needing updates (not fully supported)
 
 ### Syntax and Style ([ESLint](http://eslint.org/) and [SCSSLint](https://github.com/brigade/scss-lint))
-Mayo-build:lint Ensure code written within the application conforms to a common style and syntax.  Any errors print to the console.
 
 ### E2E Testing ([Protractor](http://www.protractortest.org/#/))
 The Protractor tests live under the 'e2e-tests' folder
