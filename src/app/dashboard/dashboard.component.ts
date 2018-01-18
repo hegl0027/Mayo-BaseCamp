@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
-import { INCREMENT, DECREMENT, RESET } from '../counter';
 
-interface AppState {
-  count: number;
-}
+//ngrx state
+import { AppState } from '../common/app-state'
+//ngrx reducer
+import { INCREMENT, DECREMENT, RESET } from '../common/counter';
 
 @Component({
   selector: 'app-dashboard',

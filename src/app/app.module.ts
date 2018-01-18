@@ -6,7 +6,7 @@ import { StoreModule } from '@ngrx/store';
 
 import { AppRoutingModule } from './app-routing.module';
 
-import { counterReducer } from './counter';
+import { counterReducer } from './common/counter';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
