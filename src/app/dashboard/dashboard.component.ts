@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 
 //ngrx state
-import { AppState } from '../common/app-state'
+import * as state from '../common/app-state'
 //ngrx reducer
 import { INCREMENT, DECREMENT, RESET } from '../common/counter';
 
@@ -16,8 +16,8 @@ import { INCREMENT, DECREMENT, RESET } from '../common/counter';
 export class DashboardComponent implements OnInit {
   count$: Observable<number>;
 
-  constructor(private store: Store<AppState>) {
-    this.count$ = store.select('count');
+  constructor(private store: Store<state.AppState>) {
+    this.count$ = this.store.select(state.getCountValue);
   }
 
   ngOnInit() {

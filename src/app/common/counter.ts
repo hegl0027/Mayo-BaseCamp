@@ -4,14 +4,26 @@ export const INCREMENT = 'INCREMENT';
 export const DECREMENT = 'DECREMENT';
 export const RESET = 'RESET';
 
-export function counterReducer(state: number = 0, action: Action) {
+export interface State {
+  value: number;
+}
+
+export const initialState: State = {
+  value: 5
+}
+
+export function counterReducer(state = initialState, action: Action) {
   switch (action.type) {
     case INCREMENT:
-      return state + 1;
+      let newIncState = Object.assign({}, state);
+      newIncState.value += 1;
+      return newIncState;
     case DECREMENT: 
-      return state -1;
+      let newDecState = Object.assign({}, state);
+      newDecState.value -= 1;
+      return newDecState;
     case RESET:
-      return 0;
+      return Object.assign({}, initialState);
     default:
       return state;
   }

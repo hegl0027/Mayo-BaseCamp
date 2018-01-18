@@ -1,15 +1,17 @@
 import { ActionReducerMap } from '@ngrx/store';
 
-import { counterReducer } from './counter';
+import * as counter from './counter';
 
 export interface AppState {
-  count: number;
+  count: counter.State;
 }
 
 export const initialState: AppState = {
-  count: 5,
+  count: counter.initialState,
 }
 
 export const reducers: ActionReducerMap<AppState> = {
-  count: counterReducer
+  count: counter.counterReducer
 }
+
+export const getCountValue = (s: AppState) => s.count.value;
