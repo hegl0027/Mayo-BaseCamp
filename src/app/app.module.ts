@@ -7,6 +7,7 @@ import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
 
 import { counterReducer } from './common/counter';
+import { AppState, initialState, reducers } from './common/app-state';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -27,7 +28,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
   imports: [
     AppRoutingModule,
     BrowserModule,
-    StoreModule.forRoot({ count: counterReducer })
+    StoreModule.forRoot(reducers, {initialState})
   ],
   providers: [],
   bootstrap: [AppComponent]
