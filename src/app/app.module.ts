@@ -3,11 +3,12 @@ import { NgModule } from '@angular/core';
 
 //ngrx
 import { StoreModule } from '@ngrx/store';
+import { StoreRouterConnectingModule, routerReducer, RouterStateSerializer } from '@ngrx/router-store';
 
 import { AppRoutingModule } from './app-routing.module';
 
 import { counterReducer } from './common/counter';
-import { AppState, initialState, reducers } from './common/app-state';
+import { AppState, initialState, reducers, CustomSerializer } from './common/app-state';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -28,9 +29,12 @@ import { NotFoundComponent } from './not-found/not-found.component';
   imports: [
     AppRoutingModule,
     BrowserModule,
-    StoreModule.forRoot(reducers, {initialState})
+    StoreModule.forRoot(reducers, {initialState}),
+    StoreRouterConnectingModule,
   ],
-  providers: [],
+  providers: [
+    { provide: RouterStateSerializer, useClass: CustomSerializer }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
