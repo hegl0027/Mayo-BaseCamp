@@ -1,10 +1,12 @@
 <header class="page-header">
   <section class="page-info">
-    <span>[Image]</span>
-    <span>[Send Feedback]</span>
+    <span class="app-logo">
+      <svg><use [attr.xlink:href]="'#'+appImage.default.id"></use></svg>
+    </span>
+    <span><h2>Basecamp</h2></span>
     <span>{{ currentRoute$ | async }}</span>
-    <span>[Login]</span>
-    <span>[Today's Date]</span>
+    <span></span>
+    <span></span>
   </section>
   <section class="user-area">
     <span class="user-detail">

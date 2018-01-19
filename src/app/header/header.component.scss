@@ -20,6 +20,15 @@
     flex-grow: 3;
   }
 
+  span.app-logo {
+    svg {
+      display: block;
+      margin: auto;
+      height: calc(#{$header-height} - 1em);
+      width: calc(#{$header-height} - 1em);
+    }
+  }
+
   .user-area {
     display: flex;
     max-height: 100%;
