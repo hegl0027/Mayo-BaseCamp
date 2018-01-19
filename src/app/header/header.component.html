@@ -1,5 +1,5 @@
 <header class="page-header">
-  <section class="link">
+  <section class="page-info">
     <span>[Image]</span>
     <span>[Send Feedback]</span>
     <span>{{ currentRoute$ | async }}</span>
@@ -9,8 +9,12 @@
   <section class="user-area">
     <span class="user-detail">
       <span>{{userName}}</span>
+      <span>Login | Logout</span>
+      <span>Settings</span>
     </span>
-    <img src={{userPicture}} *ngIf="Picture"/>
-    <svg *ngIf="!Picture"><use [attr.xlink:href]="'#'+defaultPicture.default.id"></use></svg>
+    <span class="user-img">
+      <img src={{userPicture}} *ngIf="Picture"/>
+      <svg *ngIf="!Picture"><use [attr.xlink:href]="'#'+defaultPicture.default.id"></use></svg>
+    </span>
   </section>
 </header>

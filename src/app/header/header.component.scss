@@ -2,6 +2,8 @@
 
 .page-header {
   background-color: grey;
+  height: $header-height;
+  padding: 0.5em 1em;
   width: 100%;
   display: flex;
 
@@ -14,13 +16,26 @@
     }
   }
 
+  .page-info {
+    flex-grow: 3;
+  }
+
   .user-area {
     display: flex;
     max-height: 100%;
     align-self: center;
     margin-left: auto;
-    img, svg {
-      align-self: stretch;
+    .user-detail {
+      flex-grow: 2;
+      display: flex;
+      flex-direction: column;
+      padding: 0 1em;
+      text-align: right;
+    }
+
+    span > img, svg {
+      display: block;
+      margin: auto;
       height: calc(#{$header-height} - 1em);
       width: calc(#{$header-height} - 1em);
     }

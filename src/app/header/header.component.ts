@@ -14,7 +14,7 @@ import * as DefaultUserPicture from '!svg-sprite-loader!mayo-ui-kit/assets/icons
 })
 export class HeaderComponent implements OnInit {
   public userPicture = '';
-  public userName = 'Example User';
+  public userName = 'Example A. User';
   public defaultPicture = DefaultUserPicture;
   public currentRoute$: Observable<any>;
 
