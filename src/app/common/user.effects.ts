@@ -16,8 +16,9 @@ export class UserEffects {
     public user$ = this.action$.ofType(SIGN_IN_USER)
       .switchMap(() => {
               return Observable.of({
-                name: "Real Test User",
-                id: 123321
+                name: "Some Test User",
+                id: 123321,
+                isLoggedIn: true
               } as UserState);
             })
       .map((user) => new UserSignedInAction(user));
