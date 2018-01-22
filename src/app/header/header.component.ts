@@ -3,7 +3,9 @@ import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 
 //ngrx state
-import * as state from '../common/app-state'
+import * as state from '../common/app-state';
+
+import * as UserActions from '../common/user.action';
 
 import * as AppImage from '!svg-sprite-loader!../../assets/images/svg/app-logo.svg';
 import * as DefaultUserPicture from '!svg-sprite-loader!mayo-ui-kit/assets/icons/font-awesome/user-circle.svg';
@@ -19,12 +21,22 @@ export class HeaderComponent implements OnInit {
   public userName = 'Example A. User';
   public defaultPicture = DefaultUserPicture;
   public currentRoute$: Observable<any>;
+  public currentUser$: Observable<any>;
 
   constructor(private store: Store<state.AppState>) {
     this.currentRoute$ = this.store.select(state.getRoute);
+    this.currentUser$ = this.store.select(state.getUser);
   }
 
   ngOnInit() {
   }
 
+  userLogin() {
+    console.log("log in user");
+    this.store.dispatch({ type: UserActions.SIGN_IN_USER });
+  }
+
+  userLogout() {
+    this.store.dispatch({ type: UserActions.LOG_OUT_USER });
+  }
 }

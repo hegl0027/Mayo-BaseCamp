@@ -8,6 +8,7 @@ import {
 } from '@ngrx/router-store';
 
 import * as counter from './counter';
+import * as userReducer from './user.reducer';
 
 export interface RouterStateUrl {
   url: string;
@@ -17,6 +18,7 @@ export interface RouterStateUrl {
 export interface AppState {
   count: counter.State;
   routerReducer: RouterReducerState<RouterStateUrl>;
+  user: userReducer.State;
 }
 
 export class CustomSerializer implements RouterStateSerializer<RouterStateUrl> {
@@ -37,13 +39,16 @@ const initialRouterState: any = {
 
 export const initialState: AppState = {
   count: counter.initialState,
-  routerReducer: initialRouterState 
+  routerReducer: initialRouterState,
+  user: userReducer.initialState 
 }
 
 export const reducers: ActionReducerMap<AppState> = {
   count: counter.counterReducer,
-  routerReducer
+  routerReducer,
+  user: userReducer.reducer
 }
 
 export const getCountValue = (s: AppState) => s.count.value;
 export const getRoute = (s: AppState) => s.routerReducer.state.url;
+export const getUser = (s: AppState) => s.user;

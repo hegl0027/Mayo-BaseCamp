@@ -10,8 +10,11 @@
   </section>
   <section class="user-area">
     <span class="user-detail">
-      <span>{{userName}}</span>
-      <span>Login | Logout</span>
+      <span>{{(currentUser$ | async).name}}</span>
+      <span>
+        <button (click)="userLogin()">Login</button> | 
+        <button (click)="userLogout()">Logout</button>
+      </span>
       <span>Settings</span>
     </span>
     <span class="user-img">
