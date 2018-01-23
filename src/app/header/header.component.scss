@@ -1,0 +1,60 @@
+@import "../../assets/scss/variables";
+
+.page-header {
+  background-color: grey;
+  height: $header-height;
+  padding: 0.5em 1em;
+  width: 100%;
+  display: flex;
+
+  section {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    span {
+      flex: 1;
+    }
+  }
+
+  .page-info {
+    flex-grow: 3;
+  }
+
+  span.app-logo {
+    svg {
+      display: block;
+      margin: auto;
+      height: calc(#{$header-height} - 1em);
+      width: calc(#{$header-height} - 1em);
+    }
+  }
+
+  .user-area {
+    display: flex;
+    max-height: 100%;
+    align-self: center;
+    margin-left: auto;
+    .user-detail {
+      flex-grow: 2;
+      display: flex;
+      flex-direction: column;
+      padding: 0 1em;
+      text-align: right;
+    }
+
+    span > img, svg {
+      display: block;
+      margin: auto;
+      height: calc(#{$header-height} - 1em);
+      width: calc(#{$header-height} - 1em);
+    }
+  }
+}
+
+:host {
+  display: flex;
+  width: calc(100% - #{$header-height});
+  align-items: center;
+  height: $header-height;
+  box-sizing: border-box;
+}
