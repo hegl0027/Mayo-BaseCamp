@@ -18,8 +18,8 @@
       <span>Settings</span>
     </span>
     <span class="user-img">
-      <img src={{userPicture}} *ngIf="Picture"/>
-      <svg *ngIf="!Picture"><use [attr.xlink:href]="'#'+defaultPicture.default.id"></use></svg>
+      <img src={{userPicture}} *ngIf="userPicture"/>
+      <svg *ngIf="!userPicture"><use [attr.xlink:href]="'#'+defaultPicture.default.id"></use></svg>
     </span>
   </section>
 </header>
