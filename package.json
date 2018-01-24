@@ -1,6 +1,6 @@
 {
   "name": "mayo-web-basecamp",
-  "private": false,
+  "private": true,
   "version": "0.3.0",
   "description": "An opinionated Angular2+ starter project developed to simplify the web application startup process.",
   "repository": {
@@ -16,7 +16,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^5.1.0",
     "@angular/common": "^5.1.0",

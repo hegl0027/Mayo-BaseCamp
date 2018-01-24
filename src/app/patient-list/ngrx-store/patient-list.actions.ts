@@ -6,11 +6,11 @@ export const LOAD_PATIENT_LIST: string = "[patient-list] Load Patient List Actio
 export const PATIENT_LIST_LOADED: string = "[patient-list] Patient List Loaded";
 
 export class LoadPatientListAction implements Action {
-    readonly type: string = LOAD_PATIENT_LIST;
+  readonly type: string = LOAD_PATIENT_LIST;
 }
 
 export class PatientListLoadedAction implements Action {
-    readonly type: string = PATIENT_LIST_LOADED;
+  readonly type: string = PATIENT_LIST_LOADED;
 
-    constructor(public payload: PatientState) { }
+  constructor(public payload: any) { }
 }
