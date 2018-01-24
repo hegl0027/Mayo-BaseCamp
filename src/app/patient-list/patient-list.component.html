@@ -1,14 +1,18 @@
 <ul>
   <li class="list-header">
+    <span>Updated</span>
     <span>MRN</span>
+    <span>Gender</span>
     <span>Name</span>
     <span>Age</span>
     <span>Birthdate</span>
   </li>
   <li *ngFor="let i of (patientList$ | async)">
-    <span>{{i.mrn}}</span>
-    <span>{{i.name}}</span>
+    <span>{{i._updated}}</span>
+    <span>{{i.resource?.identifier[0]?.value}}</span>
+    <span>{{i.resource?.gender}}</span>
+    <span>{{i.resource?.name[0]?.given[0]}} {{i.resource?.name[0]?.family}}</span>
     <span>{{i.age}}</span>
-    <span>{{i.birthdate}}</span>
+    <span>{{i.resource?.birthDate}}</span>
   </li>
 </ul>

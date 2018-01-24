@@ -39,7 +39,7 @@ export class PatientListService {
   public getPatientListCa() {
     return this.httpService.get("http://fhirtest.uhn.ca/baseDstu3/Patient/7238", {})
       .map((response: Response) => {
-        return response.json().d.entry;
+        return response.json()._items;
       });
   }
 
