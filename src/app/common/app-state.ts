@@ -9,6 +9,7 @@ import {
 
 import * as counter from './counter';
 import * as userReducer from './user.reducer';
+import * as patientListNgrx from '../patient-list/ngrx-store';
 
 export interface RouterStateUrl {
   url: string;
@@ -19,6 +20,7 @@ export interface AppState {
   count: counter.State;
   routerReducer: RouterReducerState<RouterStateUrl>;
   user: userReducer.State;
+  patientList: patientListNgrx.State;
 }
 
 export class CustomSerializer implements RouterStateSerializer<RouterStateUrl> {
@@ -40,15 +42,18 @@ const initialRouterState: any = {
 export const initialState: AppState = {
   count: counter.initialState,
   routerReducer: initialRouterState,
-  user: userReducer.initialState 
+  user: userReducer.initialState,
+  patientList: patientListNgrx.initialState 
 }
 
 export const reducers: ActionReducerMap<AppState> = {
   count: counter.counterReducer,
   routerReducer,
-  user: userReducer.reducer
+  user: userReducer.reducer,
+  patientList: patientListNgrx.reducer
 }
 
 export const getCountValue = (s: AppState) => s.count.value;
 export const getRoute = (s: AppState) => s.routerReducer.state.url;
 export const getUser = (s: AppState) => s.user;
+export const getPatientList = (s: AppState) => s.patientList.patients;

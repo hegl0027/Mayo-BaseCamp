@@ -1,0 +1,14 @@
+<ul>
+  <li class="list-header">
+    <span>MRN</span>
+    <span>Name</span>
+    <span>Age</span>
+    <span>Birthdate</span>
+  </li>
+  <li *ngFor="let i of (patientList$ | async)">
+    <span>{{i.mrn}}</span>
+    <span>{{i.name}}</span>
+    <span>{{i.age}}</span>
+    <span>{{i.birthdate}}</span>
+  </li>
+</ul>

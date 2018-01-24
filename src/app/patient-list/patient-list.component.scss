@@ -1,0 +1,12 @@
+ul {
+  li {
+    display: flex;
+      span {
+        flex: 1;
+      }
+  }
+}
+
+.list-header {
+  background: lightgray;
+}
