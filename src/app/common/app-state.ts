@@ -34,7 +34,7 @@ export class CustomSerializer implements RouterStateSerializer<RouterStateUrl> {
 
 const initialRouterState: any = {
   state: {
-    url: window.location.pathname,
+    url: (window.location.pathname || '/'),
     queryParams: null
   }
 }
