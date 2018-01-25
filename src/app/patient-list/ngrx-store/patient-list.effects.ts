@@ -19,8 +19,7 @@ export class PatientListEffects {
   @Effect()
   public patientList$ = this.action$.ofType(LOAD_PATIENT_LIST)
     .switchMap(() => {
-      //return this.patientListService.getPatientList();
-      return this.patientListService.getPatientListCa();
+      return this.patientListService.getPatientList();
     })
     .map((patientList) => new PatientListLoadedAction({ patients: patientList }));
 }

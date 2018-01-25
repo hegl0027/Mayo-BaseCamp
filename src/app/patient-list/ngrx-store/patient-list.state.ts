@@ -1,8 +1,12 @@
 export interface Patient {
-  name: string;
-  birthdate: string;
-  age: number;
-  mrn: number;
+  _updated: string;
+  resource: {
+    name: [{given: string[], family: string}];
+    identifier: [{value: number}];
+    birthDate: string,
+    gender: string,
+  },
+  age: number
 }
 
 export interface State {
