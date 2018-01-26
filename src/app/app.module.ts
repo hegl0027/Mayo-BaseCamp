@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 //ngrx
 import { StoreModule } from '@ngrx/store';
@@ -15,9 +15,10 @@ import { counterReducer } from './common/counter';
 import { UserEffects } from './common/user.effects';
 import { PatientListEffects } from './patient-list/ngrx-store/patient-list.effects';
 import * as userReducer from './common/user.reducer';
-import { AppState, initialState, reducers, CustomSerializer } from './common/app-state';
+import { AppState, initialState, reducers } from './common/app-state';
 import { PATIENT_LIST_SERVICE, PatientListService } from './patient-list-service/patient-list.service';
 import { PatientListDevService } from './patient-list-service/patient-list-dev.service';
+import { CustomSerializer } from './common/router';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -43,7 +44,7 @@ import { PatientListComponent } from './patient-list/patient-list.component';
     StoreModule.forRoot(reducers, { initialState }),
     StoreRouterConnectingModule,
     EffectsModule.forRoot([UserEffects, PatientListEffects]),
-    HttpModule,
+    HttpClientModule,
   ],
   providers: [
     { provide: RouterStateSerializer, useClass: CustomSerializer },

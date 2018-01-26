@@ -10,38 +10,18 @@ import {
 import * as counter from './counter';
 import * as userReducer from './user.reducer';
 import * as patientListNgrx from '../patient-list/ngrx-store';
-
-export interface RouterStateUrl {
-  url: string;
-  queryParams: Params;
-}
+import * as router from './router/'
 
 export interface AppState {
   count: counter.State;
-  routerReducer: RouterReducerState<RouterStateUrl>;
+  routerReducer: RouterReducerState<router.State>;
   user: userReducer.State;
   patientList: patientListNgrx.State;
 }
 
-export class CustomSerializer implements RouterStateSerializer<RouterStateUrl> {
-  serialize(routerState: RouterStateSnapshot): RouterStateUrl {
-    const { url } = routerState;
-    const queryParams = routerState.root.queryParams;
-
-    return { url, queryParams };
-  }
-}
-
-const initialRouterState: any = {
-  state: {
-    url: (window.location.pathname || '/'),
-    queryParams: null
-  }
-}
-
 export const initialState: AppState = {
   count: counter.initialState,
-  routerReducer: initialRouterState,
+  routerReducer: router.initialState,
   user: userReducer.initialState,
   patientList: patientListNgrx.initialState 
 }

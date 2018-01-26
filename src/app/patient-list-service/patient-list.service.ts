@@ -1,6 +1,5 @@
 import { Injectable, InjectionToken } from '@angular/core';
-import { Http, Response } from '@angular/http';
-//import { Http, Headers, Response, RequestOptions } from '@angular/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 
 import { Patient } from '../patient-list/ngrx-store';
 import { Observable } from 'rxjs/Observable';
@@ -14,13 +13,13 @@ export const PATIENT_LIST_SERVICE = new InjectionToken<PatientListServiceInterfa
 @Injectable()
 export class PatientListService {
 
-  constructor(private httpService: Http) { }
+  constructor(private httpService: HttpClient) { }
 
   public getPatientList() {
-    return this.httpService.get("http://dlmdev:5000/testpatient", {})
-      .map((response: Response) => {
-        return response.json()._items;
-      });
+    return this.httpService.request("get", "http://dlmdev:5000/testpatient", {})
+      .map((response: any) => {
+        return response._items;
+      }).toPromise();
   }
 
 }
