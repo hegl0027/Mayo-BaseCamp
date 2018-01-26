@@ -9,7 +9,7 @@ describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
 
-  let mockStore = {};
+  let mockStore = {} as Store<fromRoot.AppState>;
 
   beforeEach(async(() => {
     mockStore = {
@@ -19,6 +19,8 @@ describe('HeaderComponent', () => {
 
     TestBed.configureTestingModule({
       declarations: [ HeaderComponent ],
+      imports: [
+      ],
       providers: [
         { provide: Store, useFactory: () => mockStore },
       ]
