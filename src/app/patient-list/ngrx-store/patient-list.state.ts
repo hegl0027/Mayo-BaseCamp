@@ -5,8 +5,7 @@ export interface Patient {
     identifier: [{value: number}];
     birthDate: string,
     gender: string,
-  },
-  age: number
+  }
 }
 
 export interface State {
