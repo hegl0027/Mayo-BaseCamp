@@ -3,10 +3,10 @@
 |  Step  |  Description  |
 | ------ |  -----------  |
 | 01 - A new Service | Token, interface, functions
-| 02 - Making the service injectable by using an [InjectionToken](https://angular.io/api/core/InjectionToken)
+| 02 - Making the service injectable by using an [InjectionToken](https://angular.io/api/core/InjectionToken) |
 | 03 - Providing the service to other components/modules/etc | Provide the service in a module (dev/int/prod differences) Injection by token
-| 04 - Modify the Service to make an Http call
-| 05 - Testing the Service
+| 04 - Modify the Service to make an Http call |
+| 05 - Testing the Service |
 
 In this file `patient-list.service.ts` will be used as an example of the steps taken. The service eventually will provide data to the `patient-list.component.ts` Component
 

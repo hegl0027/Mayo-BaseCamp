@@ -121,9 +121,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 | Title and Link | Description |
 | ---   | ---- |
-| 01-update-project-data <http://tfs.mayo.edu/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-web-basecamp/guide/01-update-project-data.md> | Basic updates to make the project unique
-| 02-extend-with-basic-component <http://tfs.mayo.edu/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-web-basecamp/guide/02-extend-with-basic-component.md> | Example of creating a new basic component
-| 03-add-additional-component-and-state <http://tfs.mayo.edu/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-web-basecamp/guide/03-add-service-for-data.md> | Adding a service to populate data
+| 01-update-project-data <http://tfs.mayo.edu/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-web-basecamp?path=%2Fguide%2F01-update-project-data.md> | Basic updates to make the project unique
+| 02-extend-with-basic-component <http://tfs.mayo.edu/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-web-basecamp?path=%2Fguide%2F02-extend-with-basic-component.md> | Example of creating a new basic component
+| 03-add-additional-component-and-state <http://tfs.mayo.edu/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-web-basecamp?path=%2Fguide%2F03-add-service-for-data.md> | Adding a service to populate data
 
 ### File Naming Convention
 
