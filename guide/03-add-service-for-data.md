@@ -91,3 +91,51 @@ The request returns an [Observable](http://reactivex.io/rxjs/class/es6/Observabl
 Because the service can be written purely in TypeScript / JavaScript, testing a service can be easier than testing a component (since we don't need to provide an angular testing module).
 
 We still need to provide any services that the service depends on (has injected). We will provide mocked versions of those, so that we can control all the behavior that isn't being tested.
+
+### src/app/patient-list-service/patient-list.service.spec.ts
+```js
+import * as td from 'testdouble';
+import { TestBed, inject, async } from '@angular/core/testing';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+
+import { PatientListService } from './patient-list.service';
+import * as patientList from '../patient-list/ngrx-store';
+
+describe('PatientListService', () => {
+  let service = {} as PatientListService;
+  let mockHttp = {} as HttpClient;
+  beforeEach(() => {
+    mockHttp = {
+      request: td.function() as (method: string, url: string, options?: string) => any,
+    } as HttpClient;
+
+    service = new PatientListService(mockHttp);
+  });
+
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+
+  it('should should test getPatientList()', (done) => {
+    let items = [];
+    let mockResponse = {
+      _items: items 
+    } as any;
+    td.when(mockHttp.request(td.matchers.anything(), td.matchers.anything(), td.matchers.anything()))
+      .thenReturn(Observable.of(mockResponse));
+
+    service.getPatientList()
+      .then((patientList: any) => {
+        expect(patientList).toEqual(items);
+        done();
+      });
+  });
+});
+```
+
+There are two tests in this file.
+
+Many spec files start with the _first test_, this is mostly a sanity check, to make sure that the component/service/class exists.
+
+The _second test_ has a mock http service, in the mock, we return a response that we define (and would be similar to what the real response could look like, either passing or failing).

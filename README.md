@@ -1,4 +1,4 @@
-[![Build Status](http://tfs:8080/tfs/MayoClinic/_apis/public/build/definitions/2f49d3e6-4c50-4efe-9a92-a45130cc4a0a/545/badge)](http://tfs/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-web-basecamp?path=%2F&version=GBdevelop&_a=contents)
+[![Build Status](http://tfs.mayo.edu/tfs/MayoClinic/_apis/public/build/definitions/2f49d3e6-4c50-4efe-9a92-a45130cc4a0a/545/badge)](http://tfs/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-web-basecamp?path=%2F&version=GBdevelop&_a=contents)
 
 # Get Started with DSS's Mayo Web Basecamp
 
@@ -12,11 +12,7 @@ This project kick-starts development of an Angular Front-end application.
 - [TypeScript](https://www.typescriptlang.org/) -- A strongly-typed superset of the JavaScript language (all JavaScript is valid TypeScript). Much of the Angular2+ documentation is written for TypeScript. Transpiler (to ES5) + type checker.
 - Unit Testing
   - [Karma](https://karma-runner.github.io/0.13/index.html) -- __Test runner__ for testing code in browsers.
-  - [Mocha](https://mochajs.org) -- __Test framework__ for queuing tests and providing test status and result.
-  - [Chai](http://chaijs.com/) -- BDD/TDD __Assertion library__ for making unit test assertions.
-  - [Sinon](http://sinonjs.org/) -- Test spies, stubs, and mocks for unit tests.
-- End to End Testing
-  - [Protractor](http://www.protractortest.org/#/)
+  - [Jasmine](https://jasmine.github.io/) -- __Test framework__ for queuing tests and providing test status and result.
 - [Sass](http://sass-lang.com/) -- CSS preprocessor
 
 ## Prerequisites
@@ -70,15 +66,26 @@ __Note:__ There may be some WARN messages during npm install. These can be ignor
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.4.
 
+### To use the Angular CLI commands, it MUST be installed globally:
+```bash
+npm install --global @angluar/cli
+```
+
 ### Development server
 
 Once the required npm packages have been installed, npm (NodeJS) is used to run the application.
 
 Run `ng serve` or `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-__Note:__ This process runs until it is manually terminated `Ctrl + c`
-__Note:__ This process can be alteratively ran with: `ng serve --host 0.0.0.0 --disable-host-check --public-host <HOSTNAME>:<PORT>` if running in a VM.  This allows an external PC to reach the site within the VM.
 
-__Note:__ If an error is received about @angular/cli missing or 'Unable to find any apps in `.angular-cli.json`.' it is likely due to a corrupt install. Remove the node_modules directory, the package-lock.json file if it exists and run `npm install` again.
+__Note:__ This process runs until it is manually terminated `Ctrl + c`
+
+__Note:__ This process can be alteratively ran if running in a VM. This allows an external PC to reach the site within the VM:
+
+```bash
+ng serve --host 0.0.0.0 --disable-host-check --public-host <HOSTNAME>:<PORT>
+```
+
+__Note:__ If an error is received about @angular/cli missing or 'Unable to find any apps in `.angular-cli.json`.' it is likely due to a corrupt install. Remove the node_modules directory, the package-lock.json file (if it exists) and run `npm install` again.
 
 ### Code scaffolding
 
@@ -116,7 +123,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 | ---   | ---- |
 | 01-update-project-data <http://tfs.mayo.edu/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-web-basecamp/guide/01-update-project-data.md> | Basic updates to make the project unique
 | 02-extend-with-basic-component <http://tfs.mayo.edu/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-web-basecamp/guide/02-extend-with-basic-component.md> | Example of creating a new basic component
-| 03-add-additional-component-and-state <http://tfs.mayo.edu/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-web-basecamp/guide/03-add-additional-component-and-state.md> | Example of more complex component and state control
+| 03-add-additional-component-and-state <http://tfs.mayo.edu/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-web-basecamp/guide/03-add-service-for-data.md> | Adding a service to populate data
 
 ### File Naming Convention
 
@@ -126,34 +133,9 @@ File names should use kebab case for the base name (with dot notation to indicat
 |  ---  |  ---  |
 |  *.config.ts  |  Module/State configuration  |
 |  *.component.ts  |  Component |
+|  *.component.html |  Component html template|
+|  *.component.scss |  Component style sheet|
 |  *.service.ts  |  Service |
 |  *.directive.ts  |  Directive configuration  |
 |  *.filter.ts  | Filter configuration
 |  *.spec.ts  |  Test specification  |
-
------
-
-## Documentation needing updates (not fully supported)
-
-### Syntax and Style ([ESLint](http://eslint.org/) and [SCSSLint](https://github.com/brigade/scss-lint))
-
-### E2E Testing ([Protractor](http://www.protractortest.org/#/))
-
-The Protractor tests live under the 'e2e-tests' folder
-Dependent on HTTP Server
-Available browser configs: firefox, chrome, ie, safari
-
-|  Command  |  Description  |
-|  -------  |  -----------  |
-|  ```npm run protractor-<browser>```  |  Execute the Protractor test suite for a given browser  |
-|  ```npm run protractor-<browser>-q```  |  Execute the Protractor test suite for a given browser, less the webdriver update  |
-|  ```npm run protractor-<browser>-q -- --spec e2e-tests/<path to specs>```  |  Execute Protractor against a specific set of spec files for a given browser  |
-
-### API Tests ([Mocha](https://mochajs.org/) and [SuperTest](https://github.com/visionmedia/supertest))
-
-The REST API tests live under the 'api-tests' folder
-Dependent on HTTP Server
-
-|  Command  |  Description  |
-|  ---  |  ---  |
-|  npm run api-tests  |  Execute the api tests  |
