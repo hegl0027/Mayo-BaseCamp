@@ -6,6 +6,7 @@
 | 02 - Add Component to the route | Making the component available to the site. |
 | 03 - Link to the Component | Reference the component in the side navigation |
 | 04 - Add data to display | Add some placeholder data for now
+| 05 - Test the component | Test the display and behavior of a component
 
 In this file patient will be used as an example of the steps taken.
 
@@ -124,3 +125,69 @@ In the template, display the patient information:
 ```
 
 The {{}} will display the information from the component.
+
+## 05 - Test the component 
+`patient.component.spec.ts` is the test file.  
+
+All files ending with `*.spec.ts` will be recognized by the test runner, [Karma](https://karma-runner.github.io/2.0/index.html).
+
+### File created by CLI
+```js
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { PatientComponent } from './patient.component';
+
+describe('PatientComponent', () => {
+  let component: PatientComponent;
+  let fixture: ComponentFixture<PatientComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+    declarations: [ PatientComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(PatientComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+}); 
+```
+
+### Configuration
+
+Because the test is for an Angular component, and normally the component would be existing within a larger application, it is necessary to provide a module definition/configuration in which to use the component.
+
+Any other components, services, or 'things' the component depends on or uses need to be declared in this configuration.
+
+```js
+    TestBed.configureTestingModule({
+      declarations: [ PatientComponent ],
+      providers: [ ]
+    })
+```
+
+
+### Testing
+
+[Jasmine](https://jasmine.github.io/) is the test framework and assertion library we are using, though others are available.
+
+We use `describe()` to group behaviors into separate blocks.
+
+We use `it()` for a specific test within the behavior block.
+
+We use `expect()` to check/validate a value within the test.
+
+The basic example:
+```js
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+```
