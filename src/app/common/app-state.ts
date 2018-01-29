@@ -9,7 +9,7 @@ import {
 
 import * as counter from './counter';
 import * as userReducer from './user.reducer';
-import * as patientListNgrx from '../patient-list/ngrx-store';
+import * as patientListNgrx from '../patient-list/store';
 import * as router from './router/'
 
 export interface AppState {

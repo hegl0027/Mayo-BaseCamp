@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 
-import { LoadPatientListAction, LOAD_PATIENT_LIST } from './ngrx-store/patient-list.actions';
+import { LoadPatientListAction, LOAD_PATIENT_LIST } from './store/patient-list.actions';
 
 import * as state from '../common/app-state';
 

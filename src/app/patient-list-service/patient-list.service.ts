@@ -1,7 +1,7 @@
 import { Injectable, InjectionToken } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 
-import { Patient } from '../patient-list/ngrx-store';
+import { Patient } from '../patient-list/store';
 import { Observable } from 'rxjs/Observable';
 
 export interface PatientListServiceInterface {

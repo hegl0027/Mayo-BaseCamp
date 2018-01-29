@@ -13,7 +13,7 @@ import { environment } from '../environments/environment';
 
 import { counterReducer } from './common/counter';
 import { UserEffects } from './common/user.effects';
-import { PatientListEffects } from './patient-list/ngrx-store/patient-list.effects';
+import { PatientListEffects } from './patient-list/store/patient-list.effects';
 import * as userReducer from './common/user.reducer';
 import { AppState, initialState, reducers } from './common/app-state';
 import { PATIENT_LIST_SERVICE, PatientListService } from './patient-list-service/patient-list.service';

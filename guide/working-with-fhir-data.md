@@ -3,7 +3,7 @@
 
 ## FHIR Resources
 - Patient Resource: https://www.hl7.org/fhir/patient.html
-  - Partial interface from __src/app/patient-list/ngrx-store/patient-list.state.ts__
+  - Partial interface from __src/app/patient-list/store/patient-list.state.ts__
   ```js
   export interface Patient {
     _updated: string;

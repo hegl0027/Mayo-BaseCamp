@@ -59,7 +59,7 @@ Use it: `@Inject` the Token in the constructor.
 import { Injectable, InjectionToken } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 
-import { Patient } from '../patient-list/ngrx-store';
+import { Patient } from '../patient-list/store';
 import { Observable } from 'rxjs/Observable';
 
 export interface PatientListServiceInterface {
@@ -100,7 +100,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 import { PatientListService } from './patient-list.service';
-import * as patientList from '../patient-list/ngrx-store';
+import * as patientList from '../patient-list/store';
 
 describe('PatientListService', () => {
   let service = {} as PatientListService;

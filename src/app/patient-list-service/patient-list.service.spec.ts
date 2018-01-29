@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 import { PatientListService } from './patient-list.service';
-import * as patientList from '../patient-list/ngrx-store';
+import * as patientList from '../patient-list/store';
 
 describe('PatientListService', () => {
   let service = {} as PatientListService;

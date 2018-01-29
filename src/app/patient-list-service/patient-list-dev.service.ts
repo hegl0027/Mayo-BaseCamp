@@ -1,7 +1,7 @@
 import { Injectable, InjectionToken } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
-import { Patient } from '../patient-list/ngrx-store';
+import { Patient } from '../patient-list/store';
 import { Observable } from 'rxjs/Observable';
 
 import { PatientListServiceInterface } from './patient-list.service';
@@ -22,8 +22,7 @@ export class PatientListDevService implements PatientListServiceInterface {
           identifier: [{value: 123}],
           birthDate: "Jan-12-1920",
           gender: 'male',
-        },
-        age: 98
+        }
       },
       {
         _updated: 'Feb-18-2017',
@@ -32,8 +31,7 @@ export class PatientListDevService implements PatientListServiceInterface {
           identifier: [{value: 321}],
           birthDate: "Jan-12-1955",
           gender: 'female',
-        },
-        age: 58
+        }
       },
     ] as Patient[]);
   }
