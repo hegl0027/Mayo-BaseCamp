@@ -21,14 +21,22 @@ This project kick-starts development of an Angular Front-end application.
 
 ## Prerequisites
 
-__NOTE:__ You may need to be running as administrator on the machine to perform some of these tasks.
+__NOTE:__ You may need to be running as administrator to perform some of these tasks.
 
-1. [Git](https://git-scm.com/downloads) - A command line interface (CLI) comes with the git install.  There are also GUI clients available (SourceTree, GitKraken).
-2. [NodeJS](https://nodejs.org/en/) - After installing, Update to the latest NPM version:
+1. Angular CLI - a command line interface (CLI) for creating angular templates.
+
+```bash
+npm install --global @angluar/cli
+```
+
+2. [Git](https://git-scm.com/downloads) - A command line interface (CLI) comes with the git install.  There are also GUI clients available (SourceTree, GitKraken).
+
+3. [NodeJS](https://nodejs.org/en/) - After installing, Update to the latest NPM
+  version:
   ```bash
   npm install -g npm
   ```
-3. **Windows Build Tools & python** - npm needs to have a C++ compiler and python to build some of the dependencies. If not already installed this command will install the necessary support:
+4. **Windows Build Tools & python** - npm needs to have a C++ compiler and python to build some of the dependencies. If not already installed this command will install the necessary support:
   ```bash
   npm install --global --production windows-build-tools
   ```
@@ -44,6 +52,7 @@ Clone or download the repo and `npm install` the dependencies in the web project
   git clone http://tfs.mayo.edu/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-web-basecamp <path/to/new/project>
   ```
   where <path/to/new/project> is the location to install the new project and the new project name. If this is not provided, the clone will default to mayo-web-basecamp.
+
 2. Command Line: Change directory into the newly cloned project folder (example: `cd path/to/new/project`).
 
 3. Command Line: npm will install all required dependencies listed in the project folder's local `package.json`
@@ -73,7 +82,7 @@ __Note:__ If an error is received about @angular/cli missing or 'Unable to find 
 
 ### Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. This can be shortened to `ng g c component-name`. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `ng generate component component-name` to generate a new component. This can be shortened to `ng g c component-name`. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`. For more details and examples see the Guides.
 
 ### Build
 
@@ -105,7 +114,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 | Title and Link | Description |
 | ---   | ---- |
-| | |
+| 01-update-project-data <http://tfs.mayo.edu/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-web-basecamp/guide/01-update-project-data.md> | Basic updates to make the project unique
+| 02-extend-with-basic-component <http://tfs.mayo.edu/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-web-basecamp/guide/02-extend-with-basic-component.md> | Example of creating a new basic component
+| 03-add-additional-component-and-state <http://tfs.mayo.edu/tfs/MayoClinic/Mayo%20Open%20Developer%20Network/_git/mayo-web-basecamp/guide/03-add-additional-component-and-state.md> | Example of more complex component and state control
 
 ### File Naming Convention
 
