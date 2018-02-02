@@ -1,0 +1,37 @@
+<div>
+  <section id="patient-list">
+  Patient List
+  <div>
+  </div>
+  </section>
+
+  <section id="observation-pane">
+  Observations for: {{selectedPatient$ | async}}
+  <ul>
+    <li class="list-header">
+    <span>type</span>
+    <span>value</span>
+    <span>date</span>
+    </li>
+    <li *ngFor="let i of (observation$ | async)">
+    <div>
+      <span>
+        <span *ngIf="i.resource?.code.coding[0]?.display">{{i.resource?.code.coding[0]?.display}}</span>
+      </span>
+      <span class="obs-value">
+        <span *ngIf="i.resource?.valueQuantity">
+          <span>{{i.resource?.valueQuantity?.value}} {{i.resource?.valueQuantity?.unit}}</span>
+          <a href="{{i.resource?.code?.coding[0]?.system}}/{{i.resource?.code?.coding[0]?.code}}" target="_blank">{{i.resource?.code?.coding[0]?.system}}/{{i.resource?.code?.coding[0]?.code}}</a>
+        </span>
+        <span *ngIf="i.resource?.valueCodeableConcept">
+          <span>{{i.resource?.valueCodeableConcept?.text | json}}</span>
+          <a href="{{i.resource?.code?.coding[0]?.system}}/{{i.resource?.code?.coding[0]?.code}}" target="_blank">{{i.resource?.code?.coding[0]?.system}}/{{i.resource?.code?.coding[0]?.code}}</a>
+        </span>
+      </span>
+      <span>{{i.resource?.effectiveDateTime | json}}</span>
+    </div>
+    <hr>
+    </li>
+  </ul>
+  </section>
+</div>
