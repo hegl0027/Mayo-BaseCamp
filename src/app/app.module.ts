@@ -14,6 +14,7 @@ import { environment } from '../environments/environment';
 import { counterReducer } from './common/counter';
 import { UserEffects } from './common/user.effects';
 import { PatientListEffects } from './patient-list/store/patient-list.effects';
+import { PatientObservationEffects } from './patient-observation/store/patient-observations.effects';
 import * as userReducer from './common/user.reducer';
 import { AppState, initialState, reducers } from './common/app-state';
 import { PATIENT_LIST_SERVICE, PatientListService } from './patient-list-service/patient-list.service';
@@ -45,7 +46,7 @@ import { PatientObservationComponent } from './patient-observation/patient-obser
     BrowserModule,
     StoreModule.forRoot(reducers, { initialState }),
     StoreRouterConnectingModule,
-    EffectsModule.forRoot([UserEffects, PatientListEffects]),
+    EffectsModule.forRoot([UserEffects, PatientListEffects, PatientObservationEffects]),
     HttpClientModule,
   ],
   providers: [

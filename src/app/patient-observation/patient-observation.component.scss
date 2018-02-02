@@ -14,7 +14,6 @@ div {
       flex-basis: 40vw;
       overflow-y: scroll;
       ul {
-        list-style-type: none;
         li {
           &.list-header{
             flex-direction: row;
@@ -52,5 +51,6 @@ div {
     }
   }
 }
-hr {
+ul {
+  list-style-type: none;
 }

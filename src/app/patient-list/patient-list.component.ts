@@ -23,7 +23,6 @@ export class PatientListComponent implements OnInit {
   }
 
   userLogin() {
-    console.log("log in user");
     this.store.dispatch({ type: LOAD_PATIENT_LIST });
   }
 }

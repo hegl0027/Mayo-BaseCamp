@@ -2,6 +2,12 @@
   <section id="patient-list">
   Patient List
   <div>
+    <ul>
+      <li *ngFor="let i of (patientList$ | async)">
+        <span>{{i.identifier}}</span>
+        <button (click)="getPatientObservations(i.identifier)">view</button>
+      </li>
+    </ul>
   </div>
   </section>
 
