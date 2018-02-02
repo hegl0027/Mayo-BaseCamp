@@ -28,7 +28,7 @@
           <a href="{{i.resource?.code?.coding[0]?.system}}/{{i.resource?.code?.coding[0]?.code}}" target="_blank">{{i.resource?.code?.coding[0]?.system}}/{{i.resource?.code?.coding[0]?.code}}</a>
         </span>
       </span>
-      <span>{{i.resource?.effectiveDateTime | json}}</span>
+      <span>{{i.resource?.effectiveDateTime | date}}</span>
     </div>
     <hr>
     </li>
