@@ -1,5 +1,7 @@
 import { Injectable, InjectionToken } from '@angular/core';
 
+import { HttpClient } from '@angular/common/http';
+
 export interface FhirDataService {
   getObservations(id: string): Promise<any>;
 }
@@ -9,11 +11,19 @@ export const FHIR_DATA_SERVICE = new InjectionToken<FhirDataService>('FhirDataSe
 @Injectable()
 export class FhirDataMayoService implements FhirDataService {
 
-  constructor() { }
+  constructor(private httpService: HttpClient) { }
 
   getObservations(id: string) {
-    return Promise.resolve({});
-
+    const url = `https://pepdev.apimc.mayo.edu/innovationsandboxsyntheticfhir/v1/Observation?Patient=${id}`;
+    const options = {
+      headers: {
+        "Authorization": "Atmosphere atmosphere_app_id=MayoAPI-1w9PyAs07jd5ESVCcibV9s5Z",
+        "Accept": "application/json"
+      }
+    }
+    return this.httpService.request("get", url, options)
+      .map((response: any) => {
+        return response.entry;
+      }).toPromise();
   }
-
 }
