@@ -1,4 +1,4 @@
-export const data = `{
+export const observations19300100 = `{
   "resourceType": "Bundle",
     "id": "b12e0917-4005-42d9-a005-7a9f69ffb3d3",
     "meta": {

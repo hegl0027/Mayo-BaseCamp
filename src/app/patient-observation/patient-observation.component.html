@@ -12,7 +12,7 @@
   </section>
 
   <section id="observation-pane">
-  Observations for: {{selectedPatient$ | async}}
+  Observations for: {{ (observation$ | async)[0]?.subject?.reference | json}}
   <ul>
     <li class="list-header">
     <span>type</span>

@@ -19,6 +19,8 @@ import * as userReducer from './common/user.reducer';
 import { AppState, initialState, reducers } from './common/app-state';
 import { PATIENT_LIST_SERVICE, PatientListService } from './patient-list-service/patient-list.service';
 import { PatientListDevService } from './patient-list-service/patient-list-dev.service';
+import { FHIR_DATA_SERVICE, FhirDataService } from './fhir-service/fhir-data.service'
+import { FhirDataDevService } from './fhir-service/fhir-data-dev.service'
 import { CustomSerializer } from './common/router';
 
 import { AppComponent } from './app.component';
@@ -51,7 +53,8 @@ import { PatientObservationComponent } from './patient-observation/patient-obser
   ],
   providers: [
     { provide: RouterStateSerializer, useClass: CustomSerializer },
-    { provide: PATIENT_LIST_SERVICE, useClass: environment.env === 'dev' ? PatientListDevService : PatientListService }
+    { provide: PATIENT_LIST_SERVICE, useClass: environment.env === 'dev' ? PatientListDevService : PatientListService },
+    { provide: FHIR_DATA_SERVICE, useClass: FhirDataDevService },
   ],
   bootstrap: [AppComponent]
 })

@@ -4,7 +4,6 @@ import { Store } from '@ngrx/store';
 
 import * as state from '../common/app-state';
 
-import { data } from './observations';
 import { LoadObservationsForPatientAction , LOAD_OBSERVATIONS_FOR_PATIENT } from './store/patient-observations.actions';
 
 @Component({
@@ -19,7 +18,6 @@ export class PatientObservationComponent implements OnInit {
 
   constructor(private store: Store<state.AppState>) { 
     this.selectedPatient$ = Observable.of("Test A. Patient");
-    this.observation$ = Observable.of(JSON.parse(data).entry);
     this.patientList$ = Observable.of([
       {identifier: "19300100"},
       {identifier: "19300101"},
@@ -33,6 +31,7 @@ export class PatientObservationComponent implements OnInit {
       {identifier: "19300109"},
       {identifier: "19300110"},
     ]);
+    this.observation$ = this.store.select(state.getPatientObservations);
   }
 
   ngOnInit() {
