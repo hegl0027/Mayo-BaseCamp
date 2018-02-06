@@ -3,9 +3,9 @@ import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 
 //ngrx state
-import * as state from '../common/app-state'
+import * as state from '../app-state'
 //ngrx reducer
-import { INCREMENT, DECREMENT, RESET } from '../common/counter';
+import { INCREMENT, DECREMENT, RESET } from '../common-store/demo-counter/counter';
 
 @Component({
   selector: 'app-dashboard',

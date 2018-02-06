@@ -3,9 +3,9 @@ import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 
 //ngrx state
-import * as state from '../common/app-state';
+import * as state from '../app-state';
 
-import * as UserActions from '../common/user.action';
+import * as UserActions from '../common-store/user/user.action';
 
 import * as AppImage from '!svg-sprite-loader!../../assets/images/svg/app-logo.svg';
 import * as DefaultUserPicture from '!svg-sprite-loader!mayo-ui-kit/assets/icons/font-awesome/user-circle.svg';

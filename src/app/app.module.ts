@@ -2,28 +2,30 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
-//ngrx
 import { StoreModule } from '@ngrx/store';
 import { StoreRouterConnectingModule, routerReducer, RouterStateSerializer } from '@ngrx/router-store';
 import { EffectsModule } from '@ngrx/effects';
 
-import { AppRoutingModule } from './app-routing.module';
+//------------ABOVE are library imports-----------------^^^^
+//----------------------------------------------------------
+//------------BELOW are application specific imports ---VVVV
 
 import { environment } from '../environments/environment';
 
-import { counterReducer } from './common/counter';
-import { UserEffects } from './common/user.effects';
-import { PatientListEffects } from './patient-list/store/patient-list.effects';
-import { PatientObservationEffects } from './patient-observation/store/patient-observations.effects';
-import * as userReducer from './common/user.reducer';
-import { AppState, initialState, reducers } from './common/app-state';
+import { AppRoutingModule } from './app-routing.module';
+
+//ngrx store state
+import { AppState, initialState, reducers, effects } from './app-state';
+import { CustomSerializer } from './common-store/router';
+
+//Services
 import { PATIENT_LIST_SERVICE, PatientListService } from './patient-list-service/patient-list.service';
 import { PatientListDevService } from './patient-list-service/patient-list-dev.service';
 import { FHIR_DATA_SERVICE, FhirDataService } from './fhir-service/fhir-data.service'
 import { FhirDataDevService } from './fhir-service/fhir-data-dev.service';
 import { FhirDataMayoService } from './fhir-service/fhir-data.service';
-import { CustomSerializer } from './common/router';
 
+//Components
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -49,7 +51,7 @@ import { PatientObservationComponent } from './patient-observation/patient-obser
     BrowserModule,
     StoreModule.forRoot(reducers, { initialState }),
     StoreRouterConnectingModule,
-    EffectsModule.forRoot([UserEffects, PatientListEffects, PatientObservationEffects]),
+    EffectsModule.forRoot(effects),
     HttpClientModule,
   ],
   providers: [

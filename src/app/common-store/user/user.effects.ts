@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 
 import { SIGN_IN_USER, SignInAction, UserSignedInAction } from "./user.action";
-import { State as UserState } from "./user.reducer";
+import { State as UserState } from "./user.state";
 
 @Injectable()
 export class UserEffects {

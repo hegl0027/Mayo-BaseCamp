@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 
 import { LoadPatientListAction, LOAD_PATIENT_LIST } from './store/patient-list.actions';
 
-import * as state from '../common/app-state';
+import * as state from '../app-state';
 
 @Component({
   selector: 'app-patient-list',

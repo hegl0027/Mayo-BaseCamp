@@ -1,19 +1,8 @@
-import { UserSignedInAction } from "./user.action";
-import { USER_SIGNED_IN, LOG_OUT_USER } from "./user.action";
-
 import { Action } from '@ngrx/store';
 
-export interface State {
-  name: string;
-  id: number;
-  isLoggedIn: boolean;
-}
-
-export const initialState: State = {
-  name: "Not Logged In",
-  id: 0,
-  isLoggedIn: false
-}
+import { UserSignedInAction } from "./user.action";
+import { USER_SIGNED_IN, LOG_OUT_USER } from "./user.action";
+import { State, initialState } from "./user.state";
 
 export function reducer(state: any, action: any): any {
   switch (action.type) {

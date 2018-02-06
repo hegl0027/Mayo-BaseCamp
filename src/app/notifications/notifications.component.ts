@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 
 //ngrx state
-import * as state from '../common/app-state'
+import * as state from '../app-state';
 
 @Component({
   selector: 'app-notifications',

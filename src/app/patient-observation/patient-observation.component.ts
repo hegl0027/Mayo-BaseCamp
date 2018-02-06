@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 
-import * as state from '../common/app-state';
+import * as state from '../app-state';
 
 import { LoadObservationsForPatientAction , LOAD_OBSERVATIONS_FOR_PATIENT } from './store/patient-observations.actions';
 
