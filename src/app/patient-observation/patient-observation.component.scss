@@ -7,10 +7,20 @@ div {
     flex: 1;
     height: 80vh;
     &#patient-list {
-      background-color: #00a175;
+      ul > li {
+        margin: 2px;
+        padding: 1px;
+        &:hover{
+          border: 1px solid #00a175;
+          border-radius: 2px;
+          padding: 0px;
+          cursor: pointer;
+        }
+      }
     }
     &#observation-pane {
-      background-color: #2990cf;
+      border: 1px solid #2990cf;
+      border-radius: 2px;
       flex-basis: 40vw;
       overflow-y: scroll;
       ul {

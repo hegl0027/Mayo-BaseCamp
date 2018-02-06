@@ -4,8 +4,7 @@
   <div>
     <ul>
       <li *ngFor="let i of (patientList$ | async)">
-        <span>{{i.identifier}}</span>
-        <button (click)="getPatientObservations(i.identifier)">view</button>
+        <span (click)="getPatientObservations(i.identifier)">{{i.identifier}}</span>
       </li>
     </ul>
   </div>
