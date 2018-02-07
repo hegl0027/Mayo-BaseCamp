@@ -1,3 +1,5 @@
+@import "../../assets/scss/variables";
+
 div {
   margin: 1em;
   margin-right: 2em;
@@ -11,7 +13,7 @@ div {
         margin: 2px;
         padding: 1px;
         &:hover{
-          border: 1px solid #00a175;
+          border: 1px solid $observation-color-list-border;
           border-radius: 2px;
           padding: 0px;
           cursor: pointer;
@@ -19,7 +21,7 @@ div {
       }
     }
     &#observation-pane {
-      border: 1px solid #2990cf;
+      border: 1px solid $observation-color-border;
       border-radius: 2px;
       flex-basis: 40vw;
       overflow-y: scroll;

@@ -8,7 +8,7 @@ import * as state from '../app-state';
 import * as UserActions from '../common-store/user/user.action';
 
 import * as AppImage from '!svg-sprite-loader!../../assets/images/svg/app-logo.svg';
-import * as DefaultUserPicture from '!svg-sprite-loader!mayo-ui-kit/assets/icons/font-awesome/user-circle.svg';
+import * as DefaultUserPicture from '!svg-sprite-loader!element.ui/modules/assets/icons/font-awesome/user-circle.svg';
 
 @Component({
   selector: 'app-header',
