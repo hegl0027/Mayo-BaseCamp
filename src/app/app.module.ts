@@ -34,6 +34,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PatientListComponent } from './patient-list/patient-list.component';
 import { PatientObservationComponent } from './patient-observation/patient-observation.component';
+import { PatientConditionComponent } from './patient-condition/patient-condition.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { PatientObservationComponent } from './patient-observation/patient-obser
     NotificationsComponent,
     NotFoundComponent,
     PatientListComponent,
-    PatientObservationComponent
+    PatientObservationComponent,
+    PatientConditionComponent
   ],
   imports: [
     AppRoutingModule,
