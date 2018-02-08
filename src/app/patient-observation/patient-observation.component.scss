@@ -1,68 +1,74 @@
 @import "../../assets/scss/variables";
 
-div {
-  margin: 1em;
-  margin-right: 2em;
+%list {
   display: flex;
+  border-bottom: 1px solid $color-grey-10;
 
-  section {
-    flex: 1;
-    height: 80vh;
-    &#patient-list {
-      ul > li {
-        margin: 2px;
-        padding: 1px;
-        &:hover{
-          border: 1px solid $observation-color-list-border;
-          border-radius: 2px;
-          padding: 0px;
-          cursor: pointer;
-        }
-      }
-    }
-    &#observation-pane {
-      border: 1px solid $observation-color-border;
-      border-radius: 2px;
-      flex-basis: 40vw;
-      overflow-y: scroll;
-      ul {
-        li {
-          &.list-header{
-            flex-direction: row;
-          }
-          display: flex;
-          flex-direction: column;
-          div {
-            flex: 1;
-          }
-          hr {
-            flex: 1;
-            border: 0;
-            width: 100%;
-            height: 1px;
-            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-          }
-          span {
-            flex: 1;
-          }
-        }
-      }
+  > div:first-child {
+    flex-basis: 40%;
+  }
+
+  > div:nth-child(2) {
+    flex-grow: 1;
+  }
+
+  > div:last-child {
+    flex-basis: 20ch;
+  }
+}
+
+main {
+  display: flex;
+  padding: $space-inset-xl;
+  box-sizing: border-box;
+}
+
+.patient-list {
+  flex-basis: 15em;
+  flex-shrink: 0;
+
+  li {
+    padding: $space-inset-xs;
+
+    &:hover {
+      cursor: pointer;
+      background: $color-grey-10;
     }
   }
 }
-.obs-value {
-  display: flex;
-  span {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    span {
-      flex: 1;
-      flex-direction: column;
 
+.observations {
+  border: 1px solid $observation-color-border;
+  border-radius: 2px;
+  flex-grow: 1;
+  overflow-y: auto;
+  height: 100%;
+  padding: $space-inset-default;
+  box-sizing: border-box;
+
+  li:first-child {
+    @extend %list;
+    margin: $space-stack-sm;
+
+    > div {
+      font-weight: bold;
+    }
+  }
+
+  li:not(:first-child) {
+    @extend %list;
+    padding: $space-m 0;
+    box-sizing: border-box;
+    line-height: 1;
+    min-height: 4em;
+
+    a {
+      display: block;
     }
   }
 }
+
 ul {
-  list-style-type: none;
+  padding: 0;
+  list-style: none;
 }
