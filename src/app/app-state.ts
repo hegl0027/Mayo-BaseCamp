@@ -11,6 +11,7 @@ import * as counter from './common-store/demo-counter/counter';
 import * as patientListStore from './patient-list/store';
 import * as router from './common-store/router/'
 import * as patientObsStore from './patient-observation/store'
+import * as patientConditionsStore from './patient-condition/store'
 import * as userStore from './common-store/user/';
 
 export interface AppState {
@@ -19,6 +20,7 @@ export interface AppState {
   user: userStore.State;
   patientList: patientListStore.State;
   patientObservations: any;
+  patientConditions: any;
 }
 
 export const initialState: AppState = {
@@ -26,7 +28,8 @@ export const initialState: AppState = {
   routerReducer: router.initialState,
   user: userStore.initialState,
   patientList: patientListStore.initialState,
-  patientObservations: patientObsStore.initialState
+  patientObservations: patientObsStore.initialState,
+  patientConditions: patientConditionsStore.initialState
 }
 
 export const reducers: ActionReducerMap<AppState> = {
@@ -34,13 +37,15 @@ export const reducers: ActionReducerMap<AppState> = {
   routerReducer,
   user: userStore.reducer,
   patientList: patientListStore.reducer,
-  patientObservations: patientObsStore.reducer
+  patientObservations: patientObsStore.reducer,
+  patientConditions: patientConditionsStore.reducer
 }
 
 export const effects: Array<any> = [
   userStore.UserEffects,
   patientListStore.PatientListEffects,
-  patientObsStore.PatientObservationEffects
+  patientObsStore.PatientObservationEffects,
+  patientConditionsStore.PatientConditionEffects
 ]
 
 export const getCountValue = (s: AppState) => s.count.value;
@@ -48,3 +53,4 @@ export const getRoute = (s: AppState) => s.routerReducer.state.url;
 export const getUser = (s: AppState) => s.user;
 export const getPatientList = (s: AppState) => s.patientList.patients;
 export const getPatientObservations = (s: AppState) => s.patientObservations;
+export const getPatientConditions = (s: AppState) => s.patientConditions;

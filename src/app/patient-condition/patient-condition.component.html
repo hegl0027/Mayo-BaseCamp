@@ -1,3 +1,34 @@
-<p>
-  patient-condition works!
-</p>
+<main>
+  <section class="patient-list">
+    <h2>Patient List</h2>
+    <div>
+      <ul>
+        <li *ngFor="let i of (patientList$ | async)" (click)="getPatientObservations(i.identifier)">
+          {{i.identifier}}
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="conditions">
+    <h3>Conditions for: {{ (condition$ | async) ? ((condition$ | async)[0]?.resource.patient?.reference | json) : ''}}</h3>
+    <ul>
+      <li>
+        <div class="cdtn-name">condition</div>
+        <div class="cdtn-status">verification status</div>
+        <div class="cdtn-date">onset date time</div>
+        <div class="cdtn-codings">codings</div>
+      </li>
+      <li *ngFor="let i of (condition$ | async)" class="codings">
+        <div class="cdtn-name">{{i.resource.code.text}}</div>
+        <div class="cdtn-status">{{i.resource.verificationStatus | json}}</div>
+        <div class="cdtn-date">{{i.resource.onsetDateTime | date}}</div>
+        <ul class="cdtn-codings">
+          <li *ngFor="let j of i.resource.code.coding">
+            <div>system:{{j.system}} code: {{j.code}}</div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+</main>

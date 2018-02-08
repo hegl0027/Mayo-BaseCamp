@@ -1,0 +1,79 @@
+@import "../../assets/scss/variables";
+
+%condition-list-item {
+  display: flex;
+  border-bottom: 1px solid $color-grey-10;
+
+  > .cdtn-name {
+    flex-basis: 25%;
+  }
+
+  > .cdtn-status {
+    flex-basis: 12rem;
+  }
+
+  > .cdtn-codings {
+    flex-grow: 1;
+  }
+
+  > .cdtn-date {
+    flex-basis: 10rem;
+  }
+}
+
+main {
+  display: flex;
+  padding: $space-inset-xl;
+  box-sizing: border-box;
+}
+
+.patient-list {
+  flex-basis: 15em;
+  flex-shrink: 0;
+
+  li {
+    padding: $space-inset-xs;
+
+    &:hover {
+      cursor: pointer;
+      background: $color-grey-10;
+    }
+  }
+}
+
+.conditions {
+  border: 1px solid $color-grey-10;
+  border-radius: 2px;
+  flex-grow: 1;
+  overflow-y: auto;
+  height: 100%;
+  padding: $space-inset-default;
+  box-sizing: border-box;
+
+  > ul > li:first-child {
+    @extend %condition-list-item;
+    margin: $space-stack-sm;
+
+    > div {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+  }
+
+  > ul > li:not(:first-child) {
+    @extend %condition-list-item;
+    padding: $space-m 0;
+    box-sizing: border-box;
+    line-height: 1;
+    min-height: 4em;
+
+    a {
+      display: block;
+    }
+  }
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}

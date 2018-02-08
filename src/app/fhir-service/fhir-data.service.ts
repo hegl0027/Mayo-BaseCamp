@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 export interface FhirDataService {
   getObservations(id: string): Promise<any>;
+  getConditions(id: string): Promise<any>;
 }
 
 export const FHIR_DATA_SERVICE = new InjectionToken<FhirDataService>('FhirDataService');
