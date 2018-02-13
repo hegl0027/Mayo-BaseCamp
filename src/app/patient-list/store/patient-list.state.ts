@@ -1,11 +1,11 @@
 export interface Patient {
-  _updated: string;
-  resource: {
-    name: [{given: string[], family: string}];
-    identifier: [{value: number}];
-    birthDate: string,
-    gender: string,
-  }
+  address: [
+    { city: string, state: string }
+  ];
+  name: [{given: string[], family: string}];
+  identifier: [{value: number}];
+  birthDate: string,
+  gender: string,
 }
 
 export interface State {

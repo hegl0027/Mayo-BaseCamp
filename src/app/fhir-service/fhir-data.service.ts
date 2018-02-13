@@ -24,6 +24,11 @@ export class FhirDataMayoService implements FhirDataService {
     return this.getResource(url);
   }
 
+  getPatient(id: string) {
+    const url = `https://pepdev.apimc.mayo.edu/innovationsandboxsyntheticfhir/v1/Patient/${id}`;
+    return this.getResource(url);
+  }
+
   private getResource(url: string) {
     const options = {
       headers: {

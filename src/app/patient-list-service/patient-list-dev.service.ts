@@ -13,25 +13,25 @@ export class PatientListDevService implements PatientListServiceInterface {
 
   constructor() { }
 
-  public getPatientList() {
+  public getPatientList(list) {
     return Observable.of([
       {
-        _updated: 'Jan-20-2018',
-        resource: {
-          name: [{given: ['Test'], family: 'MacPatient'}],
-          identifier: [{value: 123}],
-          birthDate: "Jan-12-1920",
-          gender: 'male',
-        }
+        address: [
+          { city: "Las Vegas", state: "NV"}
+        ],
+        name: [{given: ['Test'], family: 'MacPatient'}],
+        identifier: [{value: 123}],
+        birthDate: "Jan-12-1920",
+        gender: 'male',
       },
       {
-        _updated: 'Feb-18-2017',
-        resource: {
-          name: [{given: ['Test'], family: 'Patient2'}],
-          identifier: [{value: 321}],
-          birthDate: "Jan-12-1955",
-          gender: 'female',
-        }
+        address: [
+          { city: "Reno", state: "NV"}
+        ],
+        name: [{given: ['Test'], family: 'Patient2'}],
+        identifier: [{value: 321}],
+        birthDate: "Jan-12-1955",
+        gender: 'female',
       },
     ] as Patient[]);
   }

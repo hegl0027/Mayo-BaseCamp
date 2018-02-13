@@ -74,10 +74,10 @@ export class PatientListService {
   constructor(private httpService: HttpClient) { }
 
   public getPatientList() {
-    return this.httpService.request("get", "http://dlmdev:5000/testpatient", {})
+    return this.httpService.request("get", url, options)
       .map((response: any) => {
-        return response._items;
-      }).toPromise();
+          return response;
+          }).toPromise();
   }
 
 }

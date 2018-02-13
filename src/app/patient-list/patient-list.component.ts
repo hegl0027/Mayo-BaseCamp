@@ -23,6 +23,7 @@ export class PatientListComponent implements OnInit {
   }
 
   userLogin() {
-    this.store.dispatch({ type: LOAD_PATIENT_LIST });
+    let list = [19300100, 19300101, 19300102, 19300103];
+    this.store.dispatch(new LoadPatientListAction(list));
   }
 }

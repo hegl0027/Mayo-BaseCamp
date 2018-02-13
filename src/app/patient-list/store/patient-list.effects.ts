@@ -6,7 +6,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 
 import { PATIENT_LIST_SERVICE, PatientListServiceInterface } from '../../patient-list-service/patient-list.service';
-import { LOAD_PATIENT_LIST, PatientListLoadedAction } from "./patient-list.actions";
+import { LOAD_PATIENT_LIST, LoadPatientListAction } from "./patient-list.actions";
+import { PatientListLoadedAction } from "./patient-list.actions";
 import { Patient } from "./patient-list.state";
 
 @Injectable()
@@ -18,8 +19,8 @@ export class PatientListEffects {
 
   @Effect()
   public patientList$ = this.action$.ofType(LOAD_PATIENT_LIST)
-    .switchMap(() => {
-      return this.patientListService.getPatientList();
+    .switchMap((a: LoadPatientListAction) => {
+      return this.patientListService.getPatientList(a.payload);
     })
     .map((patientList) => new PatientListLoadedAction({ patients: patientList }));
 }

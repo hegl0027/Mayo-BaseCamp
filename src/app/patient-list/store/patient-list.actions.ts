@@ -7,6 +7,8 @@ export const PATIENT_LIST_LOADED: string = "[patient-list] Patient List Loaded";
 
 export class LoadPatientListAction implements Action {
   readonly type: string = LOAD_PATIENT_LIST;
+
+  constructor(public payload: any) { }
 }
 
 export class PatientListLoadedAction implements Action {

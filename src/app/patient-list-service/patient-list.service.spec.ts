@@ -29,7 +29,7 @@ describe('PatientListService', () => {
     td.when(mockHttp.request(td.matchers.anything(), td.matchers.anything(), td.matchers.anything()))
       .thenReturn(Observable.of(mockResponse));
 
-    service.getPatientList()
+    service.getPatientList([])
       .then((patientList: any) => {
         expect(patientList).toEqual(items);
         done();
