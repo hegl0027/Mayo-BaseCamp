@@ -1,0 +1,25 @@
+<header class="page-header">
+  <section class="page-info">
+    <span class="app-logo">
+      <svg><use [attr.xlink:href]="'#'+appImage.default.id"></use></svg>
+    </span>
+    <span><h2>Basecamp</h2></span>
+    <span>{{ currentRoute$ | async }}</span>
+    <span></span>
+    <span></span>
+  </section>
+  <section class="user-area">
+    <span class="user-detail">
+      <span>{{((currentUser$ | async)?.name)}}</span>
+      <span>
+        <button *ngIf="!((currentUser$ | async)?.isLoggedIn)" (click)="userLogin()">Login</button>
+        <button *ngIf="((currentUser$ | async)?.isLoggedIn)" (click)="userLogout()">Logout</button>
+      </span>
+      <span>Settings</span>
+    </span>
+    <span class="user-img">
+      <img src={{userPicture}} *ngIf="userPicture"/>
+      <svg *ngIf="!userPicture"><use [attr.xlink:href]="'#'+defaultPicture.default.id"></use></svg>
+    </span>
+  </section>
+</header>

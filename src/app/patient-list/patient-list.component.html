@@ -1,0 +1,16 @@
+<ul>
+  <li class="list-header">
+    <span>City, State</span>
+    <span>MRN</span>
+    <span>Gender</span>
+    <span>Name</span>
+    <span>Birthdate</span>
+  </li>
+  <li *ngFor="let i of (patientList$ | async)">
+    <span>{{i.address[0]?.city}}, {{i.address[0]?.state}}</span>
+    <span>{{i.identifier[0]?.value}}</span>
+    <span>{{i.gender}}</span>
+    <span>{{i.name[0]?.given[0]}} {{i.name[0]?.family}}</span>
+    <span>{{i.birthDate}}</span>
+  </li>
+</ul>

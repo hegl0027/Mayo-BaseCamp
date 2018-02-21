@@ -1,6 +1,0 @@
-/**
- Extends Mayo's internal shareable eslint config.
- */
-{
-  "extends": ["basecamp"]
-}

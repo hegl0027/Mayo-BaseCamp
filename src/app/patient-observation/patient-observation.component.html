@@ -1,0 +1,37 @@
+<main>
+  <section class="patient-list">
+    <h2>Patient List</h2>
+    <div>
+      <ul>
+        <li *ngFor="let i of (patientList$ | async)" (click)="getPatientObservations(i.identifier)">
+          {{i.identifier}}
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="observations">
+    <h3>Observations for: {{ (observation$ | async) ? ((observation$ | async)[0]?.resource.subject?.reference | json) : ''}}</h3>
+    <ul>
+      <li>
+        <div>type</div>
+        <div>value</div>
+        <div>date</div>
+      </li>
+      <li *ngFor="let i of (observation$ | async)">
+        <div>{{i.resource?.code.coding[0]?.display}}</div>
+        <div class="obs-value">
+          <div *ngIf="i.resource?.valueQuantity">
+            <span>{{i.resource?.valueQuantity?.value}} {{i.resource?.valueQuantity?.unit}}</span>
+            <a href="{{i.resource?.code?.coding[0]?.system}}/{{i.resource?.code?.coding[0]?.code}}" target="_blank">{{i.resource?.code?.coding[0]?.system}}/{{i.resource?.code?.coding[0]?.code}}</a>
+          </div>
+          <div *ngIf="i.resource?.valueCodeableConcept">
+            <span>{{i.resource?.valueCodeableConcept?.text | json}}</span>
+            <a href="{{i.resource?.code?.coding[0]?.system}}/{{i.resource?.code?.coding[0]?.code}}" target="_blank">{{i.resource?.code?.coding[0]?.system}}/{{i.resource?.code?.coding[0]?.code}}</a>
+          </div>
+        </div>
+        <div>{{i.resource?.effectiveDateTime | date}}</div>
+      </li>
+    </ul>
+  </section>
+</main>

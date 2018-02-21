@@ -1,0 +1,75 @@
+@import "../../assets/scss/variables";
+
+%list {
+  display: flex;
+  border-bottom: 1px solid $color-grey-10;
+
+  > div:first-child {
+    flex-basis: 40%;
+  }
+
+  > div:nth-child(2) {
+    flex-grow: 1;
+  }
+
+  > div:last-child {
+    flex-basis: 10rem;
+  }
+}
+
+main {
+  display: flex;
+  padding: $space-inset-xl;
+  box-sizing: border-box;
+}
+
+.patient-list {
+  flex-basis: 15em;
+  flex-shrink: 0;
+
+  li {
+    padding: $space-inset-xs;
+
+    &:hover {
+      cursor: pointer;
+      background: $color-grey-10;
+    }
+  }
+}
+
+.observations {
+  border: 1px solid $color-grey-10;
+  border-radius: 2px;
+  flex-grow: 1;
+  overflow-y: auto;
+  height: 100%;
+  padding: $space-inset-default;
+  box-sizing: border-box;
+
+  li:first-child {
+    @extend %list;
+    margin: $space-stack-sm;
+
+    > div {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+  }
+
+  li:not(:first-child) {
+    @extend %list;
+    padding: $space-m 0;
+    box-sizing: border-box;
+    line-height: 1;
+    min-height: 4em;
+
+    a {
+      display: block;
+    }
+  }
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
