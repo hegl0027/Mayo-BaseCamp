@@ -1,50 +1,85 @@
-/* You can add global styles to this file, and also import other style files */
-@import "~element.ui/modules/core";
-@import "~element.ui/modules/normalize";
-@import "~element.ui/modules/forms";
-@import "~element.ui/modules/buttons";
-@import "~element.ui/modules/typography";
-@import "./assets/scss/global";
-
+@import "~element.ui/modules/all";
 @import "./assets/scss/variables";
 
-basecamp-app {
-  display: flex;
-  flex-wrap: wrap;
+body {
   height: 100vh;
   width: 100vw;
   max-width: 100%;
-  flex-direction: column;
+}
 
-  >app-sidebar {
-    width: $header-height;
+$main: #0070cc;
+
+body {
+  // overflow: hidden;
+  scrollbar-base-color: $main;
+  scrollbar-3dlight-color: #fff;
+  scrollbar-highlight-color: $main;
+  scrollbar-track-color: $main;
+  scrollbar-arrow-color: $main;
+  scrollbar-shadow-color: $main;
+  scrollbar-dark-shadow-color: $main;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  padding: $space-inset-l;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.tabs {
+  text-transform: uppercase;
+  font-size: 1rem;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 1px solid $color-grey-10;
+  background: $color-white;
+
+  @include media('>=tablet') {
+    top: -1.4em;
+    background: transparent;
   }
 
-  main-header {
-    z-index: 1;
+  > ul {
+    display: flex;
+    justify-content: space-around;
+    overflow-x: auto;
+    flex-wrap: wrap;
 
-    @include media("<tablet") {
-      margin-left: $header-height;
+    @include media('>375px') {
+      justify-content: flex-start;
     }
   }
 
-  @include media("<tablet") {
-    app-sidebar {
-      margin: 0;
-      width: 100vw;
-      position: fixed;
+  .tab {
+    font-size: .8em;
+    padding: 1em;
+    white-space: nowrap;
+    flex-shrink: 0;
+    display: block;
+    text-decoration: none;
+    color: $color-blue-70;
+
+    &:hover {
+      background-color: darken(#f4f4f4, 5%);
+      cursor: pointer;
     }
   }
 
-  router-outlet + * {
-    flex: 1 0 50%;
-    box-sizing: border-box;
-    width: calc(100% - 60px);
-    height: calc(100% - 60px);
-    overflow-y: auto;
-
-    @include media("<tablet") {
-      width: 100vw;
-    }
+  + .content {
+    padding-top: 0;
   }
 }
+
+

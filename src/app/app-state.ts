@@ -1,17 +1,11 @@
-import { Params, RouterStateSnapshot } from '@angular/router';
 import { ActionReducerMap } from '@ngrx/store';
-import {
-  StoreRouterConnectingModule,
-  routerReducer,
-  RouterReducerState,
-  RouterStateSerializer
-} from '@ngrx/router-store';
+import { routerReducer, RouterReducerState } from '@ngrx/router-store';
 
 import * as counter from './common-store/demo-counter/counter';
 import * as patientListStore from './patient-list/store';
-import * as router from './common-store/router/'
-import * as patientObsStore from './patient-observation/store'
-import * as patientConditionsStore from './patient-condition/store'
+import * as router from './common-store/router/';
+import * as patientObsStore from './patient-observation/store';
+import * as patientConditionsStore from './patient-condition/store';
 import * as userStore from './common-store/user/';
 
 export interface AppState {
@@ -30,7 +24,7 @@ export const initialState: AppState = {
   patientList: patientListStore.initialState,
   patientObservations: patientObsStore.initialState,
   patientConditions: patientConditionsStore.initialState
-}
+};
 
 export const reducers: ActionReducerMap<AppState> = {
   count: counter.counterReducer,
@@ -39,14 +33,14 @@ export const reducers: ActionReducerMap<AppState> = {
   patientList: patientListStore.reducer,
   patientObservations: patientObsStore.reducer,
   patientConditions: patientConditionsStore.reducer
-}
+};
 
 export const effects: Array<any> = [
   userStore.UserEffects,
   patientListStore.PatientListEffects,
   patientObsStore.PatientObservationEffects,
   patientConditionsStore.PatientConditionEffects
-]
+];
 
 export const getCountValue = (s: AppState) => s.count.value;
 export const getRoute = (s: AppState) => s.routerReducer.state.url;

@@ -1,7 +1,30 @@
-svg.icon {
-  use {
-    svg {
-      pointer-events: none;
+@import "~element.ui/modules/core";
+
+main {
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f4f4;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+
+  @include media('>=tablet') {
+    padding-left: 58px;
+  }
+
+  app-header {
+    flex-shrink: 0;
+    height: 58px;
+    position: relative;
+    z-index: 999;
+    padding-left: 58px;
+    width: 100%;
+    box-sizing: border-box;
+
+    @include media('>=tablet') {
+      padding-left: 0;
+      z-index: initial;
     }
   }
 }
