@@ -1,24 +1,24 @@
 @import "~element.ui/modules/all";
-@import "./assets/scss/variables";
+@import "assets/scss/tiles";
+@import "assets/scss/tabs";
+@import "assets/scss/scroll";
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+@mixin fadeIn($duration: 246ms, $delay: 0s, $easing: ease-out) {
+  opacity: 0;
+  animation: fade-in $duration $delay $easing forwards;
+}
 
 body {
   height: 100vh;
   width: 100vw;
   max-width: 100%;
-}
-
-$main: #0070cc;
-
-body {
-  // overflow: hidden;
-  scrollbar-base-color: $main;
-  scrollbar-3dlight-color: #fff;
-  scrollbar-highlight-color: $main;
-  scrollbar-track-color: $main;
-  scrollbar-arrow-color: $main;
-  scrollbar-shadow-color: $main;
-  scrollbar-dark-shadow-color: $main;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
+  overflow: hidden;
 }
 
 [hidden] {
@@ -32,54 +32,58 @@ ul {
 }
 
 .content {
-  padding: $space-inset-l;
+  padding: $space-l $space-xl;
   box-sizing: border-box;
   width: 100%;
+  height: 100%;
+  flex-grow: 1;
+  @include scroll();
+
+  > section {
+    margin: $space-stack-xl;
+  }
 }
 
-.tabs {
-  text-transform: uppercase;
-  font-size: 1rem;
-  position: relative;
-  width: 100%;
-  box-sizing: border-box;
-  border-bottom: 1px solid $color-grey-10;
+.icon {
+  height: 1em;
+  width: 1em;
+  display: inline-block;
+  fill: currentColor;
+}
+
+.informational {
+  display: flex;
+  padding: $space-inset-sm;
+  color: rgba($color-black, .8);
   background: $color-white;
 
-  @include media('>=tablet') {
-    top: -1.4em;
-    background: transparent;
-  }
-
-  > ul {
-    display: flex;
-    justify-content: space-around;
-    overflow-x: auto;
-    flex-wrap: wrap;
-
-    @include media('>375px') {
-      justify-content: flex-start;
-    }
-  }
-
-  .tab {
-    font-size: .8em;
-    padding: 1em;
-    white-space: nowrap;
+  .icon {
+    margin-right: $space-sm;
+    fill: $color-light-blue-50;
+    align-self: center;
+    height: 1.2em;
+    width: 1.2em;
     flex-shrink: 0;
-    display: block;
-    text-decoration: none;
-    color: $color-blue-70;
+  }
+}
 
-    &:hover {
-      background-color: darken(#f4f4f4, 5%);
-      cursor: pointer;
-    }
+main > router-outlet + * {
+  height: 100%;
+  max-height: 100%;
+  @include fadeIn();
+  display: flex;
+  flex-direction: column;
+}
+
+.h2s {
+  display: flex;
+
+  .icon {
+    align-self: center;
+    margin-right: $space-sm;
+    color: $color-light-blue-50;
   }
 
-  + .content {
-    padding-top: 0;
-  }
 }
 
 

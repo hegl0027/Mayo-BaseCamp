@@ -1,4 +1,4 @@
-@import "../../assets/scss/variables";
+@import "~element.ui/modules/core";
 
 %list {
   display: flex;
@@ -17,29 +17,31 @@
   }
 }
 
-main {
+:host {
   display: flex;
-  padding: $space-inset-xl;
-  box-sizing: border-box;
+  height: 100%;
 }
 
 .patient-list {
-  flex-basis: 15em;
   flex-shrink: 0;
+  height: 100%;
+
+  h4 {
+    padding: $space-sm $space-l;
+    margin-bottom: $space-sm;
+  }
 
   li {
-    padding: $space-inset-xs;
+    padding: $space-sm $space-l;
 
     &:hover {
       cursor: pointer;
-      background: $color-grey-10;
+      background: $color-white;
     }
   }
 }
 
 .observations {
-  border: 1px solid $color-grey-10;
-  border-radius: 2px;
   flex-grow: 1;
   overflow-y: auto;
   height: 100%;

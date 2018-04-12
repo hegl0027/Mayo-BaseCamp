@@ -30,11 +30,12 @@ header {
 
   .top-bar {
     display: flex;
-    align-items: center;
-    align-self: flex-start;
+    // same height as the user image
+    height: 42px;
+    font-family: 'Roboto Condensed', sans-serif;
 
     @include media('<=tablet') {
-      align-self: center
+      align-items: center;
     }
   }
 
@@ -58,11 +59,16 @@ header {
     img {
       height: 42px;
       width: 42px;
-      clip-path: circle(50% at 50% 50%);
+      border-radius: 50%;
       margin-left: 10px;
       min-height: 42px;
       min-width: 42px;
       align-items: flex-end;
+
+      @supports (clip-path: circle()) {
+        clip-path: circle(50% at 50% 50%);
+        border-radius: 0;
+      }
     }
 
     .name {

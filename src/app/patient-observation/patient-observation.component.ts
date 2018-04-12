@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 
-import * as state from '../app-state';
+import * as state from '../state/app-state';
 
 import { LoadObservationsForPatientAction , LOAD_OBSERVATIONS_FOR_PATIENT } from './store/patient-observations.actions';
 
@@ -16,7 +16,7 @@ export class PatientObservationComponent implements OnInit {
   selectedPatient$: Observable<any>;
   observation$: Observable<any>;
 
-  constructor(private store: Store<state.AppState>) { 
+  constructor(private store: Store<state.AppState>) {
     this.selectedPatient$ = Observable.of("Test A. Patient");
     this.patientList$ = Observable.of([
       {identifier: "19300100"},

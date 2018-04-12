@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { Store } from '@ngrx/store';
-
-//ngrx state
-import * as state from '../app-state'
-//ngrx reducer
-import { INCREMENT, DECREMENT, RESET } from '../common-store/demo-counter/counter';
+import '!svg-sprite-loader!element.ui/modules/assets/icons/material-design/swap_vertical_circle.svg';
+import '!svg-sprite-loader!element.ui/modules/assets/icons/material-design/center_focus_strong.svg';
+import '!svg-sprite-loader!element.ui/modules/assets/icons/material-design/palette.svg';
+import '!svg-sprite-loader!element.ui/modules/assets/icons/font-awesome/file-code-o.svg';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,24 +11,11 @@ import { INCREMENT, DECREMENT, RESET } from '../common-store/demo-counter/counte
 })
 
 export class DashboardComponent implements OnInit {
-  count$: Observable<number>;
 
-  constructor(private store: Store<state.AppState>) {
-    this.count$ = this.store.select(state.getCountValue);
+  constructor() {
   }
 
   ngOnInit() {
   }
 
-  increment() {
-    this.store.dispatch({ type: INCREMENT });
-  }
-
-  decrement() {
-    this.store.dispatch({ type: DECREMENT });
-  }
-
-  reset() {
-    this.store.dispatch({ type: RESET });
-  }
 }

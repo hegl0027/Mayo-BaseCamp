@@ -1,0 +1,14 @@
+@import "~element.ui/modules/core";
+
+@mixin scroll {
+  scrollbar-base-color: $color-grey-20;
+  scrollbar-3dlight-color: #fff;
+  scrollbar-highlight-color: $color-blue-50;
+  scrollbar-track-color: $color-grey-10;
+  scrollbar-arrow-color: $color-grey-50;
+  scrollbar-shadow-color: $color-grey-20;
+  scrollbar-dark-shadow-color: $color-grey-20;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+}

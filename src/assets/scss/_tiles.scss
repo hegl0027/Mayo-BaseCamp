@@ -1,0 +1,56 @@
+@import "~element.ui/modules/core";
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  transition: box-shadow 246ms ease;
+  margin-right: $space-m;
+  margin-bottom: $space-m;
+  border-radius: 3px;
+  background: $color-white;
+  border: 1px solid $color-grey-10;
+
+  &:hover {
+    @include shadow();
+
+    .icon {
+      fill: $color-light-blue-50;
+    }
+  }
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+    height: 100%;
+    padding: $space-inset-l;
+    box-sizing: border-box;
+
+    .icon {
+      height: 7em;
+      width: 7em;
+      margin: $space-stack-sm;
+      transition: fill 246ms ease;
+    }
+
+    > div {
+      position: absolute;
+      right: $space-sm;
+      bottom: $space-sm;
+      font-weight: 300;
+      color: $color-black ;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+  }
+
+  a,
+  a:visited {
+    color: $color-grey-10;
+  }
+}

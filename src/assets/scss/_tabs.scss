@@ -1,0 +1,52 @@
+@import "~element.ui/modules/core";
+
+.tabs {
+  text-transform: uppercase;
+  font-size: 1rem;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 1px solid $color-grey-10;
+  background: $color-white;
+  flex-shrink: 0;
+
+  @include media('>=tablet') {
+    background: transparent;
+  }
+
+  > ul {
+    display: flex;
+    justify-content: space-around;
+    overflow-x: auto;
+    flex-wrap: wrap;
+
+    @include media('>375px') {
+      justify-content: flex-start;
+    }
+
+    li {
+      overflow: visible;
+    }
+  }
+
+  .tab {
+    font-size: .8em;
+    padding: 1em;
+    white-space: nowrap;
+    flex-shrink: 0;
+    display: block;
+    text-decoration: none;
+    color: $color-grey-90;
+
+    &:hover {
+      background-color: darken(#f4f4f4, 5%);
+      cursor: pointer;
+    }
+
+    &.active {
+      background: $color-blue-50;
+      color: $color-white;
+      text-shadow: 1px 1px 3px rgba(black, .1);
+    }
+  }
+}

@@ -8,9 +8,11 @@ main {
   width: 100%;
   box-sizing: border-box;
   position: relative;
+  flex-grow: 1;
+  overflow: hidden;
 
   @include media('>=tablet') {
-    padding-left: 58px;
+    height: 100vh;
   }
 
   app-header {
@@ -26,5 +28,17 @@ main {
       padding-left: 0;
       z-index: initial;
     }
+  }
+}
+
+:host {
+  overflow: hidden;
+
+  @include media('>=tablet') {
+    display: flex;
+  }
+
+  app-sidebar {
+    flex-shrink: 0;
   }
 }

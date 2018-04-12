@@ -1,5 +1,5 @@
 @import "~element.ui/modules/core";
-@import "../../assets/scss/variables";
+@import "../../assets/scss/scroll";
 
 @mixin transition-max-height {
   @for $i from 1 through 10 {
@@ -56,11 +56,13 @@ $text: getColor($main);
   overflow-y: hidden;
   border-top: 1px solid $text;
   box-sizing: border-box;
+  border-right: 1px solid $color-grey-5;
   z-index: 1;
 
   @include media('>=tablet') {
     height: 100vh;
     width: 58px;
+    position: relative;
     transition: width 246ms .5s ease, box-shadow 246ms .5s ease;
   }
 
@@ -68,6 +70,7 @@ $text: getColor($main);
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
+    @include scroll();
   }
 
   li {
@@ -81,7 +84,7 @@ $text: getColor($main);
     .tag {
       @include alpha-attribute('background-color', rgba($main, .8), black);
       color: $text;
-      @include alpha-attribute('color', rgba($text, .9), black);
+      @include alpha-attribute('color', rgba($text, .8), black);
       padding: 0 .5em;
       border-radius: 2em;
       margin-left: auto;
@@ -93,9 +96,15 @@ $text: getColor($main);
       display: flex;
       align-items: center;
       white-space: nowrap;
-      @include alpha-attribute('color', rgba($text, 0.8), white);
+      color: rgba($color-black, .7);
       text-decoration: none;
       outline: none;
+
+      &.active,
+      &.active .icon {
+        color: $color-blue-50;
+        font-weight: 500;
+      }
     }
 
   }
@@ -105,19 +114,18 @@ $text: getColor($main);
     width: 20px;
     padding: 19px;
     margin-right: 5px;
-    @include alpha-attribute('color', rgba($text, .9), black);
-    fill: $text;
+    color: rgba($color-black, .6);
+    fill: currentColor;
   }
 }
 
 .secnav {
   margin-left: 63px;
-  border-left: 1px solid black;
-  @include alpha-attribute('border-left-color', rgba(black, .2), black);
+  border-left: 1px solid rgba($color-black, .2);
   overflow: hidden;
 
   li {
-    @include alpha-attribute('color', rgba($text, .9), black);
+    color: rgba($color-black, .9);
     max-height: 100px;
     transition: max-height .1s;
 
@@ -145,7 +153,7 @@ input.hamburger {
     & ~ nav.primnav {
       height: 100vh;
       @include media('>=tablet') {
-        width: 275px;
+        width: 230px;
         @include shadow();
       }
 

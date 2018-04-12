@@ -1,4 +1,4 @@
-<input id="hamburger" class="hamburger" type="checkbox" />
+<input #hamburger id="hamburger" class="hamburger" type="checkbox" />
 <label for="hamburger" class="hamburger">
   <i></i>
   <div></div>
@@ -6,54 +6,54 @@
 <nav class="primnav">
   <ul>
     <li>
-      <a title="Dashboard" href="#dashboard">
-        <svg class="icon"><use xlink:href="#th-large"></use></svg> Dashboard
+      <a title="Dashboard" href="javascript:void(0);" routerLink="dashboard" routerLinkActive="active">
+        <svg class="icon"><use xlink:href="#dashboard2"></use></svg> Dashboard
       </a>
     </li>
     <li>
-      <a title="FHIR" href="#fhir">
-        <svg class="icon"><use xlink:href="#fire"></use></svg> FHIR
+      <a title="Examples" href="javascript:void(0);" routerLink="examples" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <svg class="icon"><use xlink:href="#lightbulb_outline"></use></svg> Examples
       </a>
       <ul class="secnav">
         <li>
-          <a title="FHIR Patient" href="#patient">Patient</a>
+          <a title="Counters" href="javascript:void(0);" routerLink="examples/counter" routerLinkActive="active">Counter</a>
         </li>
         <li>
-          <a title="FHIR Observations" href="#patient-observations">Observations</a>
+          <a title="Forms" href="javascript:void(0);" routerLink="examples/forms" routerLinkActive="active">Forms</a>
         </li>
         <li>
-          <a title="FHIR Conditions" href="#patient-conditions">Conditions</a>
+          <a title="FHIR" href="javascript:void(0);" routerLink="examples/fhir" routerLinkActive="active">FHIR</a>
         </li>
       </ul>
     </li>
     <li>
-      <a title="UI" href="#/ui">
+      <a title="UI" href="javascript:void(0);" routerLink="ui" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         <svg class="icon"><use xlink:href="#desktop_windows"></use></svg>
         User Interface
       </a>
       <ul class="secnav">
         <li>
-          <a title="Patient" href="#/elementui">Element.UI</a>
+          <a title="Element.UI" href="javascript:void(0);" routerLink="ui/element.ui" routerLinkActive="active">Element.UI</a>
         </li>
         <li>
-          <a title="Observations" href="#/iconography">Iconography</a>
+          <a title="Iconography" href="javascript:void(0);" routerLink="ui/iconography" routerLinkActive="active">Iconography</a>
         </li>
         <li>
-          <a title="Conditions" href="#/conditions">Patterns</a>
+          <a title="Patterns" href="javascript:void(0);" routerLink="ui/patterns" routerLinkActive="active">Patterns</a>
         </li>
         <li>
-          <a title="Conditions" href="#/sass">Sass</a>
+          <a title="Sass" href="javascript:void(0);" routerLink="ui/sass" routerLinkActive="active">Sass</a>
         </li>
       </ul>
     </li>
     <li>
-      <a title="Components" href="#components">
+      <a title="Components" href="javascript:void(0);" routerLink="components" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         <svg class="icon"><use xlink:href="#architecture"></use></svg> Components
       </a>
     </li>
     <li>
-      <a title="Avalanche" href="#avalanche">
-        <svg class="icon"><use xlink:href="#app-logo"></use></svg> Avalanche Protocol
+      <a title="Clean Slate Protocol" href="javascript:void(0);" routerLink="clean-slate" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <svg class="icon"><use xlink:href="#app-logo"></use></svg> Clean Slate Protocol
       </a>
     </li>
   </ul>
