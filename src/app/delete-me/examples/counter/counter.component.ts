@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-import { DecrementAction, IncrementAction, ResetCounterAction } from './state/counter.actions';
+import { DecrementAction, IncrementAction, ResetCounterAction } from './state/';
 import { AppState, getCurrentCount } from '../../../state/app-state';
 import '!svg-sprite-loader!element.ui/modules/assets/icons/material-design/keyboard_arrow_left.svg';
 import '!svg-sprite-loader!element.ui/modules/assets/icons/material-design/keyboard_arrow_right.svg';
