@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
-import * as DefaultUserPicture from '!svg-sprite-loader!element.ui/modules/assets/icons/font-awesome/user-circle.svg';
-import * as SurgeonIcon from '!svg-sprite-loader!element.ui/modules/assets/icons/mayo/surgeon.svg';
-import * as ClipboardIcon from '!svg-sprite-loader!element.ui/modules/assets/icons/mayo/clipboard.svg';
-import * as ConditionIcon from '!svg-sprite-loader!element.ui/modules/assets/icons/mayo/preventitive-care.svg';
+import '!svg-sprite-loader!element.ui/modules/assets/icons/material-design/desktop_windows.svg';
+import '!svg-sprite-loader!element.ui/modules/assets/icons/material-design/lightbulb_outline.svg';
+import '!svg-sprite-loader!element.ui/modules/assets/icons/material-design/dashboard2.svg';
+import '!svg-sprite-loader!element.ui/modules/assets/icons/font-awesome/fire.svg';
+import '!svg-sprite-loader!element.ui/modules/assets/icons/font-awesome/th-large.svg';
+import '!svg-sprite-loader!element.ui/modules/assets/icons/mayo/architecture.svg';
+import '!svg-sprite-loader!../../assets/images/svg/app-logo.svg';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,14 +14,14 @@ import * as ConditionIcon from '!svg-sprite-loader!element.ui/modules/assets/ico
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-  public patientPicture = DefaultUserPicture;
-  public surgeonIcon = SurgeonIcon;
-  public clipboardIcon = ClipboardIcon;
-  public conditionIcon = ConditionIcon;
+  @ViewChild('hamburger') hamburger: ElementRef;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
   }
 
+  ngOnInit() {
+    if (Math.max(document.documentElement.clientWidth, window.innerWidth || 0) >= 768) {
+      this.hamburger.nativeElement.checked = true;
+    }
+  }
 }

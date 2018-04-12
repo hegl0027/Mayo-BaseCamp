@@ -1,50 +1,89 @@
-/* You can add global styles to this file, and also import other style files */
-@import "~element.ui/modules/core";
-@import "~element.ui/modules/normalize";
-@import "~element.ui/modules/forms";
-@import "~element.ui/modules/buttons";
-@import "~element.ui/modules/typography";
-@import "./assets/scss/global";
+@import "~element.ui/modules/all";
+@import "assets/scss/tiles";
+@import "assets/scss/tabs";
+@import "assets/scss/scroll";
 
-@import "./assets/scss/variables";
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
 
-basecamp-app {
-  display: flex;
-  flex-wrap: wrap;
+@mixin fadeIn($duration: 246ms, $delay: 0s, $easing: ease-out) {
+  opacity: 0;
+  animation: fade-in $duration $delay $easing forwards;
+}
+
+body {
   height: 100vh;
   width: 100vw;
   max-width: 100%;
-  flex-direction: column;
+  overflow: hidden;
+}
 
-  >app-sidebar {
-    width: $header-height;
-  }
+[hidden] {
+  display: none !important;
+}
 
-  main-header {
-    z-index: 1;
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-    @include media("<tablet") {
-      margin-left: $header-height;
-    }
-  }
+.content {
+  padding: $space-l $space-xl;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+  @include scroll();
 
-  @include media("<tablet") {
-    app-sidebar {
-      margin: 0;
-      width: 100vw;
-      position: fixed;
-    }
-  }
-
-  router-outlet + * {
-    flex: 1 0 50%;
-    box-sizing: border-box;
-    width: calc(100% - 60px);
-    height: calc(100% - 60px);
-    overflow-y: auto;
-
-    @include media("<tablet") {
-      width: 100vw;
-    }
+  > section {
+    margin: $space-stack-xl;
   }
 }
+
+.icon {
+  height: 1em;
+  width: 1em;
+  display: inline-block;
+  fill: currentColor;
+}
+
+.informational {
+  display: flex;
+  padding: $space-inset-sm;
+  color: rgba($color-black, .8);
+  background: $color-white;
+
+  .icon {
+    margin-right: $space-sm;
+    fill: $color-light-blue-50;
+    align-self: center;
+    height: 1.2em;
+    width: 1.2em;
+    flex-shrink: 0;
+  }
+}
+
+main > router-outlet + * {
+  height: 100%;
+  max-height: 100%;
+  @include fadeIn();
+  display: flex;
+  flex-direction: column;
+}
+
+.h2s {
+  display: flex;
+
+  .icon {
+    align-self: center;
+    margin-right: $space-sm;
+    color: $color-light-blue-50;
+  }
+
+}
+
+

@@ -1,0 +1,27 @@
+@import "~element.ui/modules/core";
+
+.counter {
+  display: flex;
+  align-items: center;
+  margin: $space-stack-default;
+
+  div {
+    font-size: 2em;
+    padding: 0 $space-m;
+    min-width: 1em;
+    text-align: center;
+    flex-shrink: 0;
+  }
+}
+
+.greater-than-zero {
+  color: $color-green-70;
+}
+
+.less-than-zero {
+  color: $color-red-70;
+}
+
+.reset {
+  margin-left: $space-l;
+}

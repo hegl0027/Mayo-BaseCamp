@@ -1,0 +1,31 @@
+<div class="content">
+
+  <h2>Counter</h2>
+  <p>This counter provides a simple implementation of the redux pattern using the ngrx library.</p>
+
+  <section>
+    <h3>Example</h3>
+    <div class="counter">
+      <button class="mcui-btn overlay" (click)="decrement()">
+        <svg class="icon"><use xlink:href="#keyboard_arrow_left"></use></svg>
+      </button>
+      <div [ngClass]="getColorClass(count$ | async)">{{ count$ | async }}</div>
+      <button class="mcui-btn overlay" (click)="increment()">
+        <svg class="icon"><use xlink:href="#keyboard_arrow_right"></use></svg>
+      </button>
+      <button class="mcui-btn minimalist reset" (click)="reset()">Reset</button>
+    </div>
+
+    <p class="informational">
+      <svg class="icon"><use xlink:href="#info2"></use></svg>
+      Open your browser console to see ngrx effects in action.
+    </p>
+  </section>
+
+  <section>
+    <h3>Component and Store Location</h3>
+    <pre><code highlight [code]="someCode"></code></pre>
+  </section>
+
+</div>
+

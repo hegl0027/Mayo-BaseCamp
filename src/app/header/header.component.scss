@@ -1,60 +1,93 @@
-@import "../../assets/scss/variables";
-
-.page-header {
-  background-color: $header-bg;
-  height: $header-height;
-  padding: 0.5em 1em;
-  width: 100%;
-  display: flex;
-
-  section {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    span {
-      flex: 1;
-    }
-  }
-
-  .page-info {
-    flex-grow: 3;
-  }
-
-  span.app-logo {
-    svg {
-      display: block;
-      margin: auto;
-      height: calc(#{$header-height} - 1em);
-      width: calc(#{$header-height} - 1em);
-    }
-  }
-
-  .user-area {
-    display: flex;
-    max-height: 100%;
-    align-self: center;
-    margin-left: auto;
-    .user-detail {
-      flex-grow: 2;
-      display: flex;
-      flex-direction: column;
-      padding: 0 1em;
-      text-align: right;
-    }
-
-    span > img, svg {
-      display: block;
-      margin: auto;
-      height: calc(#{$header-height} - 1em);
-      width: calc(#{$header-height} - 1em);
-    }
-  }
-}
+@import "~element.ui/modules/core";
 
 :host {
+  display: block;
+  width: 100%;
+}
+
+header {
+  width: 100%;
   display: flex;
-  width: calc(100% - #{$header-height});
-  align-items: center;
-  height: $header-height;
+  padding: $space-xs $space-xs $space-xs $space-m;
   box-sizing: border-box;
+  align-items: center;
+  height: 100%;
+
+  @include media('<tablet') {
+    align-items: center;
+    height: 58px;
+    padding: 0;
+  }
+
+  .app-logo {
+    height: 1.2em;
+    width: 1.2em;
+    display: inline-block;
+    fill: currentColor;
+    margin-right: $space-sm;
+    color: $color-blue-50;
+  }
+
+  .top-bar {
+    display: flex;
+    // same height as the user image
+    height: 42px;
+    font-family: 'Roboto Condensed', sans-serif;
+
+    @include media('<=tablet') {
+      align-items: center;
+    }
+  }
+
+  .user {
+    box-sizing: border-box;
+    flex-shrink: 0;
+    font-weight: 400;
+    z-index: 99999;
+    margin-left: auto;
+
+    > section {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      > section {
+        display: flex;
+        flex-direction: column;
+        white-space: nowrap;
+      }
+    }
+    img {
+      height: 42px;
+      width: 42px;
+      border-radius: 50%;
+      margin-left: 10px;
+      min-height: 42px;
+      min-width: 42px;
+      align-items: flex-end;
+
+      @supports (clip-path: circle()) {
+        clip-path: circle(50% at 50% 50%);
+        border-radius: 0;
+      }
+    }
+
+    .name {
+      font-weight: 400;
+    }
+
+    .actions {
+      padding: .1em 0;
+      font-size: .8em;
+      display: flex;
+      justify-content: flex-end;
+
+      a {
+        padding: 0 .5em;
+        text-decoration: none;
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+  }
 }

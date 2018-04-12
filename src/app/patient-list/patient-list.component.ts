@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 
 import { LoadPatientListAction, LOAD_PATIENT_LIST } from './store/patient-list.actions';
 
-import * as state from '../app-state';
+import * as state from '../state/app-state';
 
 @Component({
   selector: 'app-patient-list',
@@ -14,7 +14,7 @@ import * as state from '../app-state';
 export class PatientListComponent implements OnInit {
   patientList$: Observable<any>;
 
-  constructor(private store: Store<state.AppState>) { 
+  constructor(private store: Store<state.AppState>) {
     this.patientList$ = this.store.select(state.getPatientList);
   }
 

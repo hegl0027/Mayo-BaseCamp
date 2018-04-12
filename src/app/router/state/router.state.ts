@@ -1,9 +1,6 @@
 import { Params, RouterStateSnapshot } from '@angular/router';
 
 import {
-  StoreRouterConnectingModule,
-  routerReducer,
-  RouterReducerState,
   RouterStateSerializer
 } from '@ngrx/router-store';
 
@@ -26,5 +23,5 @@ export const initialState: any = {
     url: (window.location.pathname || '/'),
     queryParams: null
   }
-}
+};
 
