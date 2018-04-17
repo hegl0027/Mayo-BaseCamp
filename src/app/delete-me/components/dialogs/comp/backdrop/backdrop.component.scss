@@ -1,0 +1,13 @@
+@import '~element.ui/modules/core';
+@import '~element.ui/modules/motion';
+
+:host {
+  background: rgba(100,100,100,.3);
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  @include fadeIn();
+}

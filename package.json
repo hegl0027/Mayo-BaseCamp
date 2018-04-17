@@ -14,7 +14,6 @@
     "build": "ng build",
     "test": "ng test",
     "ng:brady": "ng serve --host 0.0.0.0 --disable-host-check --public-host r5042872:4200",
-    "testphantom": "ng test --browsers=PhantomJS --code-coverage",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -34,8 +33,9 @@
     "@ngrx/store-devtools": "^5.2.0",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.4.1",
-    "element.ui": "^0.4.1",
+    "element.ui": "^0.5.0",
     "ngx-highlightjs": "^1.4.1",
+    "ramda": "^0.25.0",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
   },

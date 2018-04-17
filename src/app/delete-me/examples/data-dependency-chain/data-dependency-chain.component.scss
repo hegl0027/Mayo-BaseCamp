@@ -1,0 +1,23 @@
+@import "~element.ui/modules/core";
+
+.starships {
+  display: flex;
+  flex-wrap: wrap;
+
+
+  > * {
+    margin-right: $space-m;
+    margin-bottom: $space-m;
+    width: 30%;
+    min-height: 10em;
+
+    @include media('<desktop') {
+      width: calc(50% - 1em);
+    }
+
+    @include media('<tablet') {
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+}

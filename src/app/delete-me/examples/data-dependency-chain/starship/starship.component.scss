@@ -1,0 +1,34 @@
+@import "~element.ui/modules/core";
+@import "~element.ui/modules/motion";
+
+
+.pilot {
+  text-indent: 1em;
+  border-left: 2px solid $color-blue-50;
+  max-height: 0;
+  animation: enter 100ms forwards;
+}
+
+:host {
+  box-sizing: border-box;
+  margin-bottom: $space-l;
+  border: 1px solid $color-grey-10;
+  border-radius: 3px;
+  padding: $space-inset-default;
+  background: $color-white;
+}
+
+h3 {
+  margin: $space-stack-sm;
+}
+
+.no-pilots {
+  color: $color-red-70;
+  border-left-color: $color-red-70;
+}
+
+@keyframes enter {
+  to {
+    max-height: 1.5em;
+  }
+}

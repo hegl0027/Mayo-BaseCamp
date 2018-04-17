@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { DecrementAction, IncrementAction, ResetCounterAction } from './state/';
-import { AppState, getCurrentCount } from '../../../state/app-state';
+import { AppState } from '../../../state/app-state';
 import '!svg-sprite-loader!element.ui/modules/assets/icons/material-design/keyboard_arrow_left.svg';
 import '!svg-sprite-loader!element.ui/modules/assets/icons/material-design/keyboard_arrow_right.svg';
 import '!svg-sprite-loader!element.ui/modules/assets/icons/material-design/info2.svg';
+import { getCurrentCount } from '../../../state/app.selectors';
 
 @Component({
   selector: 'app-counter',

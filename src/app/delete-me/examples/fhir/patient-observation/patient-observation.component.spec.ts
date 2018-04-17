@@ -2,12 +2,12 @@ import { Store } from '@ngrx/store';
 import * as td from 'testdouble';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import * as fromRoot from '../state/app-state';
-import { PatientListComponent } from './patient-list.component';
+import * as fromRoot from '../../../../state/app-state';
+import { PatientObservationComponent } from './patient-observation.component';
 
-describe('PatientListComponent', () => {
-  let component: PatientListComponent;
-  let fixture: ComponentFixture<PatientListComponent>;
+describe('PatientObservationComponent', () => {
+  let component: PatientObservationComponent;
+  let fixture: ComponentFixture<PatientObservationComponent>;
 
   let mockStore = {};
 
@@ -18,7 +18,7 @@ describe('PatientListComponent', () => {
     } as Store<fromRoot.AppState>;
 
     TestBed.configureTestingModule({
-      declarations: [ PatientListComponent ],
+      declarations: [ PatientObservationComponent ],
       providers: [
         { provide: Store, useFactory: () => mockStore },
       ]
@@ -27,7 +27,7 @@ describe('PatientListComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PatientListComponent);
+    fixture = TestBed.createComponent(PatientObservationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

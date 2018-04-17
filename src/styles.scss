@@ -3,16 +3,6 @@
 @import "assets/scss/tabs";
 @import "assets/scss/scroll";
 
-@keyframes fade-in {
-  to {
-    opacity: 1;
-  }
-}
-
-@mixin fadeIn($duration: 246ms, $delay: 0s, $easing: ease-out) {
-  opacity: 0;
-  animation: fade-in $duration $delay $easing forwards;
-}
 
 body {
   height: 100vh;
@@ -42,6 +32,11 @@ ul {
   > section {
     margin: $space-stack-xl;
   }
+
+  @include media('<=375px') {
+    padding-left: $space-m;
+    padding-right: $space-m;
+  }
 }
 
 .icon {
@@ -70,9 +65,12 @@ ul {
 main > router-outlet + * {
   height: 100%;
   max-height: 100%;
-  @include fadeIn();
   display: flex;
   flex-direction: column;
+}
+
+router-outlet + * {
+  @include fadeIn();
 }
 
 .h2s {

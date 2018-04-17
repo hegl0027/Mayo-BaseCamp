@@ -1,0 +1,17 @@
+<h3>{{starship.name}}</h3>
+<div>
+   <ng-container
+     *ngIf="pilots$ | async; then hasPilots else spinner">
+   </ng-container>
+
+   <ng-template #hasPilots>
+     <div *ngFor="let pilot of pilots$ | async" class="pilot">
+       {{pilot.name}}
+     </div>
+     <div class="no-pilots pilot" *ngIf="(pilots$ | async)?.length === 0">No pilots were listed...</div>
+   </ng-template>
+
+   <ng-template #spinner>
+     <app-spinner></app-spinner>
+   </ng-template>
+</div>

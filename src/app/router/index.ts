@@ -1,14 +1,19 @@
 import { Routes } from '@angular/router';
-import { PatientObservationComponent } from '../patient-observation/patient-observation.component';
-import { PatientConditionComponent } from '../patient-condition/patient-condition.component';
+import { PatientObservationComponent } from '../delete-me/examples/fhir/patient-observation/patient-observation.component';
+import { PatientConditionComponent } from '../delete-me/examples/fhir/patient-condition/patient-condition.component';
 import { CounterComponent } from '../delete-me/examples/counter/counter.component';
-import { PatientListComponent } from '../patient-list/patient-list.component';
-import { NotFoundComponent } from '../not-found/not-found.component';
+import { PatientListComponent } from '../delete-me/examples/fhir/patient-list/patient-list.component';
+import { NotFoundComponent } from '../shared/not-found/not-found.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { FormsComponent } from '../delete-me/examples/forms/forms.component';
 import { ExamplesComponent } from '../delete-me/examples/examples.component';
 import { FhirComponent } from '../delete-me/examples/fhir/fhir.component';
 import { CleanSlateComponent } from '../delete-me/clean-slate/clean-slate.component';
+import { ComponentsComponent } from '../delete-me/components/components.component';
+import { DatagridComponent } from '../delete-me/components/datagrid/datagrid.component';
+import { DatepickerComponent } from '../delete-me/components/datepicker/datepicker.component';
+import { DialogsComponent } from '../delete-me/components/dialogs/dialogs.component';
+import { DataDependencyChainComponent } from '../delete-me/examples/data-dependency-chain/data-dependency-chain.component';
 
 export const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -18,6 +23,11 @@ export const routes: Routes = [
   { path: 'examples', component: ExamplesComponent },
   { path: 'examples/counter', component: CounterComponent },
   { path: 'examples/forms', component: FormsComponent },
+  { path: 'examples/data-dependency-chaining', component: DataDependencyChainComponent },
+  { path: 'components', component: ComponentsComponent },
+  { path: 'components/datagrid', component: DatagridComponent },
+  { path: 'components/datepicker', component: DatepickerComponent },
+  { path: 'components/dialogs', component: DialogsComponent },
   { path: 'clean-slate', component: CleanSlateComponent },
   {
     path: 'examples/fhir',

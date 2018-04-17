@@ -11,7 +11,8 @@
 }
 
 :host {
-  /deep/ app-examples .content {
+  /deep/ app-examples .content,
+  /deep/ app-components .content {
     padding: 0;
     height: auto;
   }

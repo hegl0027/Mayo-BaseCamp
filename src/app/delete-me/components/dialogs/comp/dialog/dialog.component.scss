@@ -1,0 +1,21 @@
+@import "~element.ui/modules/core";
+@import "~element.ui/modules/motion";
+
+:host {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+}
+
+.dialog {
+  display: block;
+  background: white;
+  padding: $space-inset-default;
+  @include fadeInFromBottom();
+}

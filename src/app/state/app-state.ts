@@ -1,13 +1,10 @@
-import { ActionReducer, ActionReducerMap, createFeatureSelector, createSelector, MetaReducer } from '@ngrx/store';
+import { ActionReducer, ActionReducerMap, MetaReducer } from '@ngrx/store';
 import { routerReducer, RouterReducerState } from '@ngrx/router-store';
-
-import * as fromCounter from '../delete-me/examples/counter/state/counter.reducer';
-import * as patientListStore from '../patient-list/store/index';
+import * as patientListStore from '../delete-me/examples/fhir/patient-list/store/index';
 import * as router from '../router/state/index';
-import * as patientObsStore from '../patient-observation/store/index';
-import * as patientConditionsStore from '../patient-condition/store/index';
+import * as patientObsStore from '../delete-me/examples/fhir/patient-observation/store/index';
+import * as patientConditionsStore from '../delete-me/examples/fhir/patient-condition/store/index';
 import { environment } from '../../environments/environment';
-import { COUNTER } from '../delete-me/examples/counter/state/counter.actions';
 
 export interface AppState {
   routerReducer: RouterReducerState<router.State>;
@@ -54,8 +51,3 @@ export const getRoute = (s: AppState) => s.routerReducer.state.url;
 export const getPatientList = (s: AppState) => s.patientList.patients;
 export const getPatientObservations = (s: AppState) => s.patientObservations;
 export const getPatientConditions = (s: AppState) => s.patientConditions;
-
-
-
-export const getCounterState = createFeatureSelector<fromCounter.State>(COUNTER);
-export const getCurrentCount = createSelector(getCounterState, fromCounter.getCurrentCount);
