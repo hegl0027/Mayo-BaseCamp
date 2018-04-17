@@ -1,6 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LoadStarshipDataAction } from './state/starwars.actions';
-import { Subscription } from 'rxjs/Subscription';
 import { Store } from '@ngrx/store';
 import { StarShip } from './state/starwars.interfaces';
 import { AppState } from '../../../state/app-state';
@@ -15,6 +14,7 @@ import { getStarShips } from '../../../state/app.selectors';
 export class DataDependencyChainComponent implements OnInit {
 
   starShips$: Observable<StarShip[]>;
+  someCode = '$ src/app/delete-me/examples/data-dependency-chain';
 
   constructor(private store: Store<AppState>) {
   }
