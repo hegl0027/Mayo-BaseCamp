@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import '!svg-sprite-loader!element.ui/modules/assets/icons/font-awesome/fire.svg';
 import '!svg-sprite-loader!element.ui/modules/assets/icons/font-awesome/chain.svg';
+import '!svg-sprite-loader!element.ui/modules/assets/icons/font-awesome/calculator.svg';
 
 @Component({
   selector: 'app-examples',

@@ -14,6 +14,7 @@ import { DatagridComponent } from '../delete-me/components/datagrid/datagrid.com
 import { DatepickerComponent } from '../delete-me/components/datepicker/datepicker.component';
 import { DialogsComponent } from '../delete-me/components/dialogs/dialogs.component';
 import { DataDependencyChainComponent } from '../delete-me/examples/data-dependency-chain/data-dependency-chain.component';
+import { PamComponent } from '../delete-me/examples/pam/pam.component';
 
 export const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -24,6 +25,7 @@ export const routes: Routes = [
   { path: 'examples/counter', component: CounterComponent },
   { path: 'examples/forms', component: FormsComponent },
   { path: 'examples/data-dependency-chaining', component: DataDependencyChainComponent },
+  { path: 'examples/pam', component: PamComponent },
   { path: 'components', component: ComponentsComponent },
   { path: 'components/datagrid', component: DatagridComponent },
   { path: 'components/datepicker', component: DatepickerComponent },

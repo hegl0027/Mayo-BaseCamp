@@ -1,0 +1,10 @@
+@import "~element.ui/modules/core";
+@import "~element.ui/modules/forms";
+
+.inline > div {
+    margin: $space-stack-m;
+}
+
+.radio-option {
+    display: flex;
+  }

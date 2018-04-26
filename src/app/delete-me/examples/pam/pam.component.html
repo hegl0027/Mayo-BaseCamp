@@ -1,0 +1,42 @@
+<div class="content">
+    <h2>PAM Tool</h2>
+    <section>
+      <form novalidate class="tophat">
+
+        <div>
+          <label for="drug">Anticoagulation drug:</label>
+          <div class="select">
+            <select id="drug">
+              <option>One</option>
+              <option>Two</option>
+              <option>Three</option>
+            </select>
+          </div>  
+        </div>
+
+        <div>           
+          <fieldset>
+              <legend>Bleeding risk of surgery or procedure:</legend>
+              <div class='context-message'>Common procedures and associated bleeding risks (AME)</div>
+            
+              <label class="radio-option">
+                <input type="radio" name="bleedingRisk" />
+                High Risk
+              </label>
+            
+              <label class="radio-option">
+                <input type="radio" name="bleedingRisk" />
+                Non-High Risk
+              </label>
+              
+            </fieldset> 
+        </div>
+
+        <div>
+            <label class="optional">Planned date of surgery:</label>
+            <input type="date"/>
+        </div>
+      </form>
+      <div class="ngrx-view"></div>
+    </section>
+  </div>

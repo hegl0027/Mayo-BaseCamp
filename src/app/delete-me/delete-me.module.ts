@@ -27,6 +27,7 @@ import { DialogModule } from './components/dialogs/comp/ng-dialog.module';
 import { DataDependencyChainComponent } from './examples/data-dependency-chain/data-dependency-chain.component';
 import { StarshipComponent } from './examples/data-dependency-chain/starship/starship.component';
 import { SharedModule } from '../shared/shared.module';
+import { PamComponent } from './examples/pam/pam.component';
 
 @NgModule({
   imports: [
@@ -46,6 +47,7 @@ import { SharedModule } from '../shared/shared.module';
     FhirComponent,
     ExamplesComponent,
     FormsComponent,
+    PamComponent,
     DatagridComponent,
     ComponentsComponent,
     DatepickerComponent,
@@ -61,6 +63,7 @@ import { SharedModule } from '../shared/shared.module';
     FhirComponent,
     ExamplesComponent,
     FormsComponent,
+    PamComponent,
     CleanSlateComponent,
     DatagridComponent,
     ComponentsComponent,

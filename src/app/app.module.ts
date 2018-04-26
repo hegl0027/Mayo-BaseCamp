@@ -20,6 +20,7 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { PatientListComponent } from './delete-me/examples/fhir/patient-list/patient-list.component';
 import { PatientObservationComponent } from './delete-me/examples/fhir/patient-observation/patient-observation.component';
 import { PatientConditionComponent } from './delete-me/examples/fhir/patient-condition/patient-condition.component';
+import { PamComponent } from './delete-me/examples/pam/pam.component';
 import { HighlightModule } from 'ngx-highlightjs';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { DeleteMeModule } from './delete-me/delete-me.module';
