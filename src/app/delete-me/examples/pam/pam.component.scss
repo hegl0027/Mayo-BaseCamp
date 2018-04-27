@@ -1,10 +1,17 @@
 @import "~element.ui/modules/core";
 @import "~element.ui/modules/forms";
 
-.inline > div {
+form > div {
     margin: $space-stack-m;
+    &.hidden {
+      display: none;
+    }
 }
 
 .radio-option {
     display: flex;
+  }
+
+  button {
+    display: inline-flex;
   }

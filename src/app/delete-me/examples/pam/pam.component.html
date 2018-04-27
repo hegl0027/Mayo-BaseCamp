@@ -1,42 +1,109 @@
 <div class="content">
     <h2>PAM Tool</h2>
     <section>
-      <form novalidate class="tophat">
+      <form novalidate class="tophat" #form="ngForm">
 
         <div>
           <label for="drug">Anticoagulation drug:</label>
           <div class="select">
-            <select id="drug">
-              <option>One</option>
-              <option>Two</option>
-              <option>Three</option>
+            <select #drug="ngModel" name="drug" required [(ngModel)]="model.drug" (change)="checkDrug(drug.value)">
+              <option *ngFor="let drug of drugs">{{drug}}</option>
             </select>
-          </div>  
+          </div>
         </div>
 
-        <div>           
+        <div class="hidden" [class.hidden]="!warfarin">
           <fieldset>
               <legend>Bleeding risk of surgery or procedure:</legend>
               <div class='context-message'>Common procedures and associated bleeding risks (AME)</div>
-            
+
               <label class="radio-option">
-                <input type="radio" name="bleedingRisk" />
+                <input type="radio" name="doacBleedingRisk" value="High" [(ngModel)]="model.bleedingRisk" />
                 High Risk
               </label>
-            
+
               <label class="radio-option">
-                <input type="radio" name="bleedingRisk" />
+                <input type="radio" name="doacBleedingRisk" value="Non-High" [(ngModel)]="model.bleedingRisk" />
                 Non-High Risk
               </label>
-              
-            </fieldset> 
+
+            </fieldset>
+        </div>
+
+        <div class="hidden" [class.hidden]="!warfarin">
+          <fieldset>
+              <legend>Latest Creatinine Clearance w/eGFR:</legend>
+              <div class='context-message'>Creatinine clearance calculator (globalRPh)</div>
+
+              <label class="radio-option">
+                <input type="radio" name="creatinineClearance" value="&ge;50" [(ngModel)]="model.creatinineClearance" />
+                &ge;50 mL/min
+              </label>
+
+              <label class="radio-option">
+                <input type="radio" name="creatinineClearance" value="30-49" [(ngModel)]="model.creatinineClearance" />
+                30-49 mL/min
+              </label>
+
+              <label class="radio-option">
+                <input type="radio" name="creatinineClearance" value="&lt;30" [(ngModel)]="model.creatinineClearance" />
+                &lt;30 mL/min
+              </label>
+
+            </fieldset>
+        </div>
+
+        <div class="hidden" [class.hidden]="model.type != 'doac' && model.creatinineClearance != '30-49'">
+            <fieldset>
+                <legend>Dosage:</legend>
+                <div class='context-message'>If patient is on any other dose, obtain thrombophilia expert input</div>
+
+                <label class="radio-option">
+                  <input type="radio" name="dosage" value="15" [(ngModel)]="model.dosage" />
+                  &ge;50 mL/min
+                </label>
+
+                <label class="radio-option">
+                  <input type="radio" name="dosage" value="20" [(ngModel)]="model.dosage" />
+                  30-49 mL/min
+                </label>
+
+              </fieldset>
+          </div>
+
+
+        <div class="hidden" [class.hidden]="warfarin">
+          <fieldset>
+            <legend>Bleeding Risk:</legend>
+            <div class='context-message'>Common procedures and associated bleeding risks (AME)</div>
+
+            <label class="radio-option">
+              <input type="radio" name="warfarinBleedingRisk" value="High" [(ngModel)]="model.bleedingRisk" />
+              High Risk
+            </label>
+
+            <label class="radio-option">
+              <input type="radio" name="warfarinBleedingRisk" value="Non-High" [(ngModel)]="model.bleedingRisk" />
+              Non-High Risk
+            </label>
+
+          </fieldset>
         </div>
 
         <div>
             <label class="optional">Planned date of surgery:</label>
-            <input type="date"/>
+            <input type="date" #surgDate="ngModel" name="surgDate" required [(ngModel)]="model.surgDate"/>
+        </div>
+
+        <div>
+            <button class="mcui-btn primary" type="submit" (click)="onSubmit()">Submit</button>
+            <button class="mcui-btn" (click)="onReset(form)">Reset</button>
         </div>
       </form>
       <div class="ngrx-view"></div>
     </section>
   </div>
+
+  Model: {{model | json }}
+    <br>
+  Angular: {{form.value | json }}
