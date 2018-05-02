@@ -11,7 +11,7 @@ import { Patient } from './patient.model';
 })
 export class PamComponent implements OnInit {
   drugs = ['Apixaban (Eliquis)', 'Dabigatran (Pradaxa)', 'Edoxaban (Savaysa)', 'Rivaroxaban (Xarelto)', 'Warfarin (Coumadin/Jantoven)' ];
-  model = new Patient('', '', '', '', '', null);
+  model = new Patient(null, null, null, null, null);
   warfarin = false;
 
   constructor() { }
@@ -29,8 +29,8 @@ export class PamComponent implements OnInit {
     }
   }
 
-  onSubmit(){
-    console.log("Form Submitted");
+  onSubmit(model){
+    console.log(model);
   }
 
   onReset(form) {

@@ -1,0 +1,8 @@
+<div>
+  <label for="drug">Anticoagulation drug:</label>
+  <div class="select">
+    <select #drug="ngModel" name="drug" required [(ngModel)]="model.drug" (change)="checkDrug(drug.value)">
+      <option *ngFor="let drug of drugs">{{drug}}</option>
+    </select>
+  </div>
+</div>

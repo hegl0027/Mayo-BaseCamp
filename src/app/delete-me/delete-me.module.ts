@@ -10,6 +10,7 @@ import { FhirComponent } from './examples/fhir/fhir.component';
 import { RouterModule } from '@angular/router';
 import { COUNTER, CounterEffects, reducer as counterReducer } from './examples/counter/state';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { DatagridComponent } from './components/datagrid/datagrid.component';
@@ -35,6 +36,7 @@ import { PamComponent } from './examples/pam/pam.component';
     CleanSlateModule,
     RouterModule,
     FormsModule,
+    ReactiveFormsModule,
     StoreModule.forFeature(COUNTER, counterReducer),
     StoreModule.forFeature(STAR_WARS, starWarsReducer),
     EffectsModule.forFeature([CounterEffects, StarWarsEffects]),

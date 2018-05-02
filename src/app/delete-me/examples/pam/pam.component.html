@@ -12,7 +12,7 @@
           </div>
         </div>
 
-        <div class="hidden" [class.hidden]="!warfarin">
+        <div [class.hidden]="model.drug === 'Warfarin (Coumadin/Jantoven)' || model.drug === null">
           <fieldset>
               <legend>Bleeding risk of surgery or procedure:</legend>
               <div class='context-message'>Common procedures and associated bleeding risks (AME)</div>
@@ -30,7 +30,7 @@
             </fieldset>
         </div>
 
-        <div class="hidden" [class.hidden]="!warfarin">
+        <div [class.hidden]="model.drug === 'Warfarin (Coumadin/Jantoven)' || model.drug === null">
           <fieldset>
               <legend>Latest Creatinine Clearance w/eGFR:</legend>
               <div class='context-message'>Creatinine clearance calculator (globalRPh)</div>
@@ -53,7 +53,7 @@
             </fieldset>
         </div>
 
-        <div class="hidden" [class.hidden]="model.type != 'doac' && model.creatinineClearance != '30-49'">
+        <div class="hidden">
             <fieldset>
                 <legend>Dosage:</legend>
                 <div class='context-message'>If patient is on any other dose, obtain thrombophilia expert input</div>
@@ -72,7 +72,7 @@
           </div>
 
 
-        <div class="hidden" [class.hidden]="warfarin">
+        <div [class.hidden]="model.drug != 'Warfarin (Coumadin/Jantoven)' || model.drug === null">
           <fieldset>
             <legend>Bleeding Risk:</legend>
             <div class='context-message'>Common procedures and associated bleeding risks (AME)</div>
@@ -96,10 +96,11 @@
         </div>
 
         <div>
-            <button class="mcui-btn primary" type="submit" (click)="onSubmit()">Submit</button>
+            <button class="mcui-btn primary" type="submit" (click)="onSubmit(model)">Submit</button>
             <button class="mcui-btn" (click)="onReset(form)">Reset</button>
         </div>
       </form>
+      <div class="results"></div>
       <div class="ngrx-view"></div>
     </section>
   </div>
